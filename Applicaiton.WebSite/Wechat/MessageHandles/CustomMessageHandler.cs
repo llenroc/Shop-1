@@ -1,5 +1,6 @@
 ﻿using Application.Authorization.Users;
 using Application.MultiTenancy;
+using Application.Spread;
 using Application.Spread.SpreadPosters;
 using Application.WebSite.MultiTenancy;
 using Application.Wechats;
@@ -117,7 +118,9 @@ namespace Application.WebSite.Wechat.MessageHandles
 
                 try
                 {
+                    SpreadManager spreadManager = IocManager.Instance.Resolve<SpreadManager>();
                     SpreadPosterManager spreadPosterManager = IocManager.Instance.Resolve<SpreadPosterManager>();
+                    await spreadManager.CanGetSpreadPoster(_user.ToUserIdentifier());
                     string path = await spreadPosterManager.GetDefaultSpreadPosterAsync(_user.ToUserIdentifier());
                     string serverPath = HttpContext.Current.Server.MapPath(path);
                     UploadTemporaryMediaResult uploadTemporaryMediaResult = await MediaApi.UploadTemporaryMediaAsync(

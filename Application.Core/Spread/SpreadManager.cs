@@ -44,7 +44,7 @@ namespace Application.Spread
             using (CurrentUnitOfWork.SetTenantId(userIdentifier.TenantId))
             {
                 User user = UserRepository.Get(userIdentifier.UserId);
-                await CanSpreadAsync(user);
+                await CanGetSpreadPoster(user);
             }
         }
 

@@ -39,7 +39,7 @@ namespace Application.SpreadPosters.Front
 
         public async Task<SpreadPosterOutput> GetSpreadPosters()
         {
-            await SpreadManager.CanSpreadAsync(InfrastructureSession.ToUserIdentifier());
+            await SpreadManager.CanGetSpreadPoster(InfrastructureSession.ToUserIdentifier());
             List<SpreadPosterTemplate> spreadPosterTemplates = SpreadPosterTemplateRespository.GetAll().ToList();
             List<SpreadPosterDto> spreadPosterDtos = new List<SpreadPosterDto>();
             SpreadPosterOutput spreadPosterOutput = new SpreadPosterOutput();
@@ -59,6 +59,7 @@ namespace Application.SpreadPosters.Front
         {
             try
             {
+                await SpreadManager.CanGetSpreadPoster(InfrastructureSession.ToUserIdentifier());
                 UserIdentifier userIdentifier = new UserIdentifier(InfrastructureSession.TenantId, InfrastructureSession.UserId.Value);
                 string path = await SpreadPosterManager.GetDefaultSpreadPosterAsync(userIdentifier);
                 return path;
@@ -67,7 +68,6 @@ namespace Application.SpreadPosters.Front
             {
                 throw new UserFriendlyException(e.Message);
             }
-           
         }
 
         public async Task<string> ReCreateDefaultSpreadPoster()
