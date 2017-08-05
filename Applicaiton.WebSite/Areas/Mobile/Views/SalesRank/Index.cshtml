@@ -1,0 +1,27 @@
+﻿<div class="ng-cloak" ng-controller="app.mobile.salesRank.index as vm" ng-cloak>
+    <div class="profileItem my-profile bg-color-white padding-1 margin-bottom-1">
+        <div class="profileItemAvatarBox">
+            <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{vm.user.avatar}}">
+        </div>
+        <div class="profileItemBody">
+            <h6 class="profileItemName my-rank">{{vm.user.nickName}}</h6>
+			<h5 class="profileItemAdditionalProperty"><span class="key">@L("MyRank")</span><span class="value main-number">{{vm.myRank}}</span></h5>
+            <h5 class="profileItemAdditionalProperty"><span class="key">@L("SalesMoney")</span><span class="value money">{{vm.user.sales}}</span></h5>
+        </div>
+    </div>
+    <ul class="profile-list rank-list">
+        <li ng-repeat="user in vm.users">
+            <div class="profileItem">
+                <div class="profileItemAvatarBox">
+                    <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{user.avatar}}">
+                </div>
+                <div class="profileItemBody">
+                    <h6 class="profileItemName thin">{{user.nickName}}</h6>
+                    <h5 class="profileItemAdditionalProperty"><span class="key">@L("SalesMoney")</span><span class="value money">{{user.sales}}</span></h5>
+                    <h5 class="profileItemAdditionalProperty"><span class="key">@L("RegistTime")</span><span class="value">{{user.creationTime|momentFormat:'YYYY-MM-DD'}}</span></h5>
+                </div>
+            </div>
+            <span class="rank" ng-bind="user.rank"></span>
+        </li>
+    </ul>
+</div>

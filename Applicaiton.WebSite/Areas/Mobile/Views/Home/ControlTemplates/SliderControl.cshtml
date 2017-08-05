@@ -1,0 +1,7 @@
+﻿<div class="slider" slider items="{{control.items}}" ng-if="control.items">
+    <div class="slider-inner">
+        <a class="item" ng-repeat="item in control.items" href="{{item.url}}">
+            <img ng-src="{{item.picture}}">
+        </a>
+    </div>
+</div>

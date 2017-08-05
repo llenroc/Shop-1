@@ -1,0 +1,50 @@
+﻿@model Infrastructure.Application.DTO.IdInput
+<div ng-controller="app.mobile.areaAgentRebate.index as vm" class="ng-cloak" ng-cloak>
+    <input type="hidden" id="areaAgencyId" value="@Model.Id" />
+    <div class="blank" ng-if="!vm.areaAgentRebates||!vm.areaAgentRebates.length">@L("ThereIsNoItem")</div>
+    <ul class="rich-order-list" id="ordersList">
+        <li ng-repeat="areaAgentRebate in vm.areaAgentRebates">
+            <a class="order-list-item">
+                <div class="order-header">
+                    <h3 class="order-number">{{areaAgentRebate.order.number}}</h3>
+                    <label class="order-status">{{areaAgentRebate.order.statusText|localize}}</label>
+                </div>
+                <ul class="media-list order-item-list" ng-if="areaAgentRebate.order.orderItems.length">
+                    <li ng-repeat="orderItem in areaAgentRebate.order.orderItems">
+                        <div class="media-item order-item">
+                            <div class="title-picture-box">
+                                <img width="64" class="title-picture" ng-src="{{orderItem.specification.picture}}">
+                            </div>
+                            <div class="body">
+                                <h5 class="title">
+                                    {{orderItem.specification.fullName}}
+                                </h5>
+                                <div class="property">
+                                    <span class="price"><small class="price-sign">￥</small>{{orderItem.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="well-info-list">
+                    <li>
+                        <label class="key">@L("OrderTitle")</label>
+                        <label class="value">{{areaAgentRebate.order.title}}</label>
+                    </li>
+                    <li>
+                        <label class="key">@L("OrderMoney")</label>
+                        <label class="value">{{areaAgentRebate.order.money}}</label>
+                    </li>
+                    <li>
+                        <label class="key">@L("CreationTime")</label>
+                        <label class="value">{{areaAgentRebate.order.creationTime| momentFormat:'YYYY-MM-DD HH:mm:ss'}}</label>
+                    </li>
+                    <li>
+                        <label class="key">@L("RebateMoney")</label>
+                        <label class="value price"><small class="price-sign">￥</small>{{areaAgentRebate.money}}</label>
+                    </li>
+                </ul>
+            </a>
+        </li>
+    </ul>
+</div>

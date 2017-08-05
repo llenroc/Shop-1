@@ -1,0 +1,80 @@
+<div ng-controller="app.manager.product.index as vm">
+    <div class="view-page-head margin-bottom-5">
+        <h1 class="view-page-title">
+            <span>@L("Products")</span> <small>@L("ProductsHeaderInfo")</small>
+        </h1>
+        <a class="button-text primary" ui-sref="product.createOrEdit()"><i class="icon-plus"></i> @L("CreateNewProduct")</a>
+    </div>
+    <form id="productFilterForm" class="form-horizontal margin-bottom-1">
+        <div class="input-wrapper">
+            <input type="text"  name="name" placeholder="@L("ProductName")">
+            <button class="button-text" ng-click="vm.getProducts()"><i class="icon icon-refresh"></i>@L("Search")</button>
+        </div>
+    </form>
+    <div class="tab">
+        <ul class="tab-nav-list margin-bottom-1">
+            <li ng-class="{'actived':vm.type=='OnSale'}">
+                <a ui-sref="product.index({type:'OnSale'})">@L("OnSale")</a>
+            </li>
+            <li ng-class="{'actived':vm.type=='UnderTheShelf'}">
+                <a ui-sref="product.index({type:'UnderTheShelf'})">@L("UnderTheShelf")</a>
+            </li>
+        </ul>
+        <div class="tab-page">
+            <div class="responsive-table-container">
+                <table class="table table-bordered" id="productTable">
+                    <thead>
+                        <tr>
+                            <th>@L("Name")</th>
+                            <th>@L("Specifications")</th>
+                            <th>@L("CreationTime")</th>
+                            <th>@L("Status")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in vm.products">
+                            <td><a href="{{vm.getProductLink(product)}}">{{product.name}}</a></td>
+                            <td>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>@L("Picture")</th>
+                                            <th>@L("Name")</th>
+                                            <th>@L("Stock")</th>
+                                            <th>@L("Sale")</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="specification in product.specifications">
+                                            <td><img width="32" ng-src="{{specification.picture}}" /></td>
+                                            <td>{{specification.name}}</td>
+                                            <td>{{specification.stock}}</td>
+                                            <td>{{specification.sale}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td>{{product.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                            <td>
+                                <label class="label success" ng-if="product.status==1">@L("On")</label>
+                                <label class="label error" ng-if="product.status==0">@L("Off")</label>
+                            </td>
+                            <td>
+                                <div class="dropdown-wripper dropdown-menu">
+                                    <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                                    <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                        <li><a ui-sref="product.createOrEdit({id:product.id})">@L("Edit")</a></li>
+                                        <li><a ng-click="vm.onProduct(product)" ng-if="product.status==0">@L("On")</a></li>
+                                        <li><a ng-click="vm.offProduct(product)" ng-if="product.status==1">@L("Off")</a></li>
+                                        <li><a ng-click="vm.delete(product)">@L("Delete")</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

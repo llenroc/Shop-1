@@ -1,0 +1,42 @@
+﻿<div class="dialog">
+	<div class="header">
+		<div class="container-responsive">
+			<h5 class="title">@L("ShipOrder")</h5>
+			<button class="button-icon button-close">×</button>
+		</div>
+	</div>
+	<div class="body">
+		<div class="container-responsive">
+			<form name="orderShipForm" novalidate class="form-validation">
+				<div class="row">
+					<div class="column-8">
+						<div class="form-group">
+							<label class="form-group-key">@L("ExpressCompany")</label>
+							<div class="form-group-block">
+								<select ng-model="vm.expressInfo.expressCompanyId" ng-options="expressCompany.id as expressCompany.name for expressCompany in vm.expressCompanys">
+									<option value="">-- @L("PleaseSelect") --</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group" ng-if="vm.expressInfo.expressCompanyId">
+							<label class="form-group-key">@L("TrackingNumber")</label>
+							<div class="form-group-block">
+								<div class="input-wrapper"><input type="text" ng-model="vm.expressInfo.trackingNumber"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container-responsive">
+			<button class="button-text border circle danger button-close">@L("Close")</button>
+			<button class="button-text border circle primary button-ok" ng-click="vm.ship()" ng-disabled="orderShipForm.$invalid">
+				<i class="icon-save"></i> <span>@L("SaveAndClose")</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+

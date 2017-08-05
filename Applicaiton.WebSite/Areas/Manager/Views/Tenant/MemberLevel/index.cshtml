@@ -1,0 +1,35 @@
+﻿<div ng-controller="app.manager.memberLevel.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("MemberLevels")</span> <small>@L("MemberLevelsHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+                        <th>@L("Icon")</th>
+                        <th>@L("DisplayName")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="memberLevel in vm.memberLevels">
+                        <td>{{memberLevel.name}}</td>
+                        <td><img height="24" ng-src="{{memberLevel.icon}}" /></td>
+                        <td>{{memberLevel.displayName}}</td>
+                        <td>{{memberLevel.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <a class="button-text border small" ui-sref="memberLevel.edit({id:memberLevel.id})">@L("Edit")</a>
+                            <a class="button-text danger border small">@L("Delete")</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<a class="button-text primary block" ui-sref="memberLevel.create">@L("Create")</a>

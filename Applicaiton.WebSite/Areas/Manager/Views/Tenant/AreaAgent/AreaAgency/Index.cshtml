@@ -1,0 +1,86 @@
+﻿<div ng-controller="app.manager.areaAgent.areaAgency.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("AreaAgencys")</span> <small>@L("AreaAgencysHeaderInfo")</small>
+        </h1>
+        <a class="button-text" ui-sref="areaAgent.areaAgency.map"><i class="icon-map-marker"></i>@L("Map")</a>
+    </div>
+    <form id="areaAgencyFilterForm" class="form-horizontal">
+        <div class="row">
+            <div class="column-5 padding-base">
+                <div class="form-group">
+                    <label class="form-group-key column-2">@L("AreaAgent")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <select name="areaAgentId" ng-model="vm.filter.areaAgentId" ng-options="areaAgent.id as areaAgent.name for areaAgent in vm.areaAgents">
+                                <option value="">--@L("PleaseSelect")--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-5 padding-base">
+                <div class="form-group">
+                    <label class="form-group-key column-2">@L("WechatName")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="wechatName" ng-model="vm.filter.wechatName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-5 padding-base">
+                <div class="form-group">
+                    <label class="form-group-key column-2">@L("FullName")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="fullName" ng-model="vm.filter.fullName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-5">
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("PhoneNumber")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="tel" name="phoneNumber" ng-model="vm.filter.phoneNumber">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="button-text icon block primary" ng-click="vm.getAreaAgencys()"><i class="icon icon-refresh"></i>@L("Search")</button>
+        </div>
+    </form>
+    <div class="row">
+        <div class="column-10">
+            <table id="areaAgencyTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+                        <th>@L("NickName")</th>
+                        <th>@L("Avatar")</th>
+                        <th data-fieldname="creationTime">@L("CreationTime")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="areaAgency in vm.areaAgencys">
+                        <td>{{areaAgency.areaAgent.name}}</td>
+						<td>{{areaAgency.user.nickName}}</td>
+                        <td><img height="24" ng-src="{{areaAgency.user.avatar}}" /></td>
+                        <td>{{areaAgency.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <a class="button-text border small" ui-sref="areaAgent.areaAgency.edit({id:areaAgency.id})">@L("Edit")</a>
+                            <a class="button-text border small" ui-sref="areaAgent.areaAgency.areaAgencyAreas({id:areaAgency.id})">@L("AreaAgencyAreas")</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

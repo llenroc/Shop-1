@@ -1,0 +1,1533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2554E62A-4568-408C-BB29-E455BE2EE22E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Application.WebSite</RootNamespace>
+    <AssemblyName>Application.WebSite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Facilities.Logging, Version=3.4.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.LoggingFacility.3.4.0\lib\net45\Castle.Facilities.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Services.Logging.Log4netIntegration, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core-log4net.3.3.3\lib\net45\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.4.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.4.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.DynamicFilters, Version=2.8.1.0, Culture=neutral, PublicKeyToken=146423a1b8d60775, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.DynamicFilters.2.8.1\lib\net40\EntityFramework.DynamicFilters.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.14\lib\net45\Hangfire.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.6.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.6.14\lib\net45\Hangfire.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageProcessor, Version=2.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.2.5.4\lib\net45\ImageProcessor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageProcessor.Web, Version=4.8.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.Web.4.8.4\lib\net45\ImageProcessor.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.1.0.0\lib\net452\Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.AutoMapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.AutoMapper.1.0.0\lib\net452\Infrastructure.AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.Castle.Log4Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.Castle.Log4Net.1.0.0\lib\net452\Infrastructure.Castle.Log4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.CommonFrame, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.CommonFrame.1.0.0\lib\net452\Infrastructure.CommonFrame.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.CommonFrame.Owin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.CommonFrame.Owin.1.0.0\lib\net452\Infrastructure.CommonFrame.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.Hangfire, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.Hangfire.1.0.0\lib\net452\Infrastructure.Hangfire.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.Web.1.0.0\lib\net452\Infrastructure.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.Web.Api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.Web.Api.1.0.0\lib\net452\Infrastructure.Web.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.Web.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.Web.Common.1.0.0\lib\net452\Infrastructure.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.Web.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.Web.Mvc.1.0.0\lib\net452\Infrastructure.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infrastructure.Web.SignalR, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infrastructure.Web.SignalR.1.0.0\lib\net452\Infrastructure.Web.SignalR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.2.2\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.4.0.1\lib\net45\Nito.AsyncEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Concurrent, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.4.0.1\lib\net45\Nito.AsyncEx.Concurrent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Enlightenment, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.4.0.1\lib\net45\Nito.AsyncEx.Enlightenment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Recaptcha.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=171a6ec5fa4b1644, processorArchitecture=MSIL">
+      <HintPath>..\packages\RecaptchaNet.2.1.0\lib\net451\Recaptcha.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Senparc.Weixin, Version=4.11.1.41322, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.4.11.1\lib\net45\Senparc.Weixin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP, Version=14.3.127.34461, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.MP.14.3.127\lib\net45\Senparc.Weixin.MP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP.MvcExtension, Version=4.1.4.1525, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.MP.MVC.4.1.4\lib\net45\Senparc.Weixin.MP.MvcExtension.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\Bundling\AsIsBundleOrderer.cs" />
+    <Compile Include="App_Start\Bundling\BundleExtensions.cs" />
+    <Compile Include="App_Start\Bundling\CssRewriteUrlWithVirtualDirectoryTransform.cs" />
+    <Compile Include="App_Start\Navigations\Home\HomeNavigationProvider.cs" />
+    <Compile Include="App_Start\Navigations\Mobile\MobileFooterNavigationProvider.cs" />
+    <Compile Include="App_Start\Navigations\Mobile\MobileUserCenterNavigationProvider.cs" />
+    <Compile Include="App_Start\PageNames.cs" />
+    <Compile Include="Areas\Manager\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Manager\Models\Layout\HeaderViewModel.cs" />
+    <Compile Include="Areas\Mobile\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\AgentOrderController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\AreaAgencyController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\AreaAgentRebateController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\AreaAgentController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ArticleController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ChannelAgencyApplyController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ChannelAgencyController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ChannelAgentController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\OrderChannelAgentProductDistributionController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\CustomerInfoController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\GroupController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\LogisticsController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\OAuth2Controller.cs" />
+    <Compile Include="Areas\Mobile\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ChannelAgentRebateController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ProductCategoryController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\PublicController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\SalesRankController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ScoreController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ScoreRecordController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ScoreShopController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ShopController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ShopCartController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\SpreadController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\SpreadPosterController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\WalletController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\OrderDistributionController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\WalletRecordController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\WechatController.cs" />
+    <Compile Include="Areas\Mobile\Filters\PageTitleFilterAttribute.cs" />
+    <Compile Include="Areas\Mobile\Filters\ShareAccessFilterAtrribute.cs" />
+    <Compile Include="Areas\Mobile\Models\AgentOrder\OrderConfirmInputViewModel.cs" />
+    <Compile Include="Areas\Mobile\Models\ChannelAgent\ChannelAgentApplyViewModel.cs" />
+    <Compile Include="Areas\Mobile\Models\Orders\OrderConfirmForShopCartInputViewModel.cs" />
+    <Compile Include="Areas\Mobile\Models\Orders\OrderConfirmInputViewModel.cs" />
+    <Compile Include="Areas\Mobile\Models\ScoreExchange\ScoreExchangeOrderConfirmInputViewModel.cs" />
+    <Compile Include="Authorization\ApplicationSignInManager.cs" />
+    <Compile Include="Authorization\AuthenticationManagerExtensions.cs" />
+    <Compile Include="Chat\SignalR\ChatHub.cs" />
+    <Compile Include="Chat\SignalR\SendChatMessageInput.cs" />
+    <Compile Include="Chat\SignalR\SendFriendshipRequestInput.cs" />
+    <Compile Include="Chat\SignalR\SignalRChatCommunicator.cs" />
+    <Compile Include="Controllers\AccountControllerBase.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
+    <Compile Include="Controllers\TenantRegistrationController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Extentsions\Html\Helpers\DateTimeHtmlHelperExtension.cs" />
+    <Compile Include="Extentsions\Html\Helpers\HtmlHelpersExtension.cs" />
+    <Compile Include="Filters\WebMvcAuthorizeFilter.cs" />
+    <Compile Include="Filters\WebSiteStatusFilter.cs" />
+    <Compile Include="Middleware\HelloWorldMiddleware.cs" />
+    <Compile Include="Models\Account\SendCodeViewModel.cs" />
+    <Compile Include="Models\Account\SendSecurityCodeViewModel.cs" />
+    <Compile Include="Models\Account\SwitchToLinkedAccountModel.cs" />
+    <Compile Include="Models\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="Models\Account\VerifySecurityCodeViewModel.cs" />
+    <Compile Include="Models\ErrorModel.cs" />
+    <Compile Include="Models\Layout\HeaderViewModel.cs" />
+    <Compile Include="Models\TenantRegistration\TenantRegisterResultViewModel.cs" />
+    <Compile Include="Models\TenantRegistration\TenantRegistrationViewModel.cs" />
+    <Compile Include="MultiTenancy\ITenancyNameFinder.cs" />
+    <Compile Include="MultiTenancy\TenantHelper.cs" />
+    <Compile Include="MultiTenancy\TenantIdAccessor.cs" />
+    <Compile Include="MultiTenancy\SubdomainTenancyNameFinder.cs" />
+    <Compile Include="App_Start\Bundling\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\LibraryWebViewPageBase.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\Navigations\Manager\ManagerNavigationProvider.cs" />
+    <Compile Include="App_Start\WebModule.cs" />
+    <Compile Include="Controllers\AnonymousHomeControllerBase.cs" />
+    <Compile Include="Controllers\AuthorizationHomeControllerBase.cs" />
+    <Compile Include="Controllers\HomeControllerBase.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Areas\Manager\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Manager\Controllers\ManagerControllerBase.cs" />
+    <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Areas\Mobile\Controllers\AnonymousMobileControllerBase.cs" />
+    <Compile Include="Areas\Mobile\Controllers\AuthorizationMobileControllerBase.cs" />
+    <Compile Include="Areas\Mobile\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\LayoutController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\MemberCardController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\MemberCardPackageController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\MemberController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\MobileControllerBase.cs" />
+    <Compile Include="Areas\Mobile\Controllers\PayController.cs" />
+    <Compile Include="Areas\Mobile\MobileAreaRegistration.cs" />
+    <Compile Include="Areas\Mobile\Models\Layout\HeaderViewModel.cs" />
+    <Compile Include="Areas\Mobile\Models\Layout\NavViewModel.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationControllerBase.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\Results\ChallengeResult.cs" />
+    <Compile Include="Extentsions\Html\Helpers\ScriptHtmlHelpersExtension.cs" />
+    <Compile Include="Extentsions\Html\Helpers\StyleHtmlHelpersExtension.cs" />
+    <Compile Include="Extentsions\Html\Helpers\PaginationHtmlHelpersExtension.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\PathHelper.cs" />
+    <Compile Include="Hubs\SystemHub.cs" />
+    <Compile Include="Models\Account\EmailConfirmationViewModel.cs" />
+    <Compile Include="Models\Account\LoginFormViewModel.cs" />
+    <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Account\RegisterResultViewModel.cs" />
+    <Compile Include="Models\Account\RegisterViewModel.cs" />
+    <Compile Include="Models\Account\ResetPasswordFormViewModel.cs" />
+    <Compile Include="Models\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\Account\SendEmailActivationLinkViewModel.cs" />
+    <Compile Include="Models\Account\SendPasswordResetLinkViewModel.cs" />
+    <Compile Include="Models\Account\TenantSelectionViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Views\UrlChecker.cs" />
+    <Compile Include="Wechat\MessageHandles\CustomMessageContext.cs" />
+    <Compile Include="Wechat\MessageHandles\CustomMessageHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Manager\Views\Host\AuditLog\detailModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Edition\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Edition\createOrEditModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Language\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Language\texts.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Language\createOrEditModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Language\editTextModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Setting\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Tenant\create.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Tenant\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\ExpressCompany\Create.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\ExpressCompany\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\ExpressCompany\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Tenant\edit.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Channel\ChannelAgent\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Channel\ChannelAgent\createOrEdit.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Channel\ChannelAgency\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Channel\ChannelAgency\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Channel\ChannelAgencyApply\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\MemberCardPackage\create.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\MemberCardPackage\edit.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\MemberCardPackage\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\MemberLevel\create.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\MemberLevel\edit.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\MemberLevel\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\Notifications\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\Address\_ViewStart.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\Address\AddressSelectorModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Order\ChangeCustomerInfoModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Order\Detail.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Order\ChangePayMoneyModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Order\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Order\ShipModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Product\createOrEdit.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Product\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\ProductCategory\createOrEditModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\ProductCategory\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\PublicWechat\Setting\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\Role\createOrEdit.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\Role\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\LoginAttempt.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\Profile\changePassword.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_Head.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\SpecificationProperty\createOrEdit.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\SpecificationProperty\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\SettingPage.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\User\createOrEdit.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\MemberCard\index.cshtml" />
+    <Content Include="Content\frame\canknow\dist\css\canknow.css" />
+    <Content Include="Content\frame\canknow\dist\js\canknow.js" />
+    <Content Include="Content\frame\canknow\docs\example\base\button.html" />
+    <Content Include="Content\frame\canknow\docs\example\base\color.html" />
+    <Content Include="Content\frame\canknow\docs\example\base\common.html" />
+    <Content Include="Content\frame\canknow\docs\example\base\dl-horizontal.html" />
+    <Content Include="Content\frame\canknow\docs\example\base\form.html" />
+    <Content Include="Content\frame\canknow\docs\example\base\grid.html" />
+    <Content Include="Content\frame\canknow\docs\example\base\icon.html" />
+    <Content Include="Content\frame\canknow\docs\example\base\image.html" />
+    <Content Include="Content\frame\canknow\docs\example\base\list.html" />
+    <Content Include="Content\frame\canknow\docs\example\base\table.html" />
+    <Content Include="Content\frame\canknow\docs\example\base\typograhpy.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\article.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\list-group.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\loader.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\media-list.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\module.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\notice.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\overview.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\pagination.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\portlet.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\profileItem.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\tag.html" />
+    <Content Include="Content\frame\canknow\docs\example\component\thumbnails.html" />
+    <Content Include="Content\frame\canknow\docs\example\css\base\color.css" />
+    <Content Include="Content\frame\canknow\docs\example\css\base\grid.css" />
+    <Content Include="Content\frame\canknow\docs\example\css\base\icon.css" />
+    <Content Include="Content\frame\canknow\docs\example\css\module\common\profile.css" />
+    <Content Include="Content\frame\canknow\docs\example\css\plugin\rippler.css" />
+    <Content Include="Content\frame\canknow\docs\example\global\common.html" />
+    <Content Include="Content\frame\canknow\docs\example\global\index.html" />
+    <Content Include="Content\frame\canknow\docs\example\image\1.jpg" />
+    <Content Include="Content\frame\canknow\docs\example\image\2.jpg" />
+    <Content Include="Content\frame\canknow\docs\example\image\avatar.jpg" />
+    <Content Include="Content\frame\canknow\docs\example\image\picture.png" />
+    <Content Include="Content\frame\canknow\docs\example\index.html" />
+    <Content Include="Content\frame\canknow\docs\example\js\lib\jquery.min.js" />
+    <Content Include="Content\frame\canknow\docs\example\module\common\profile.html" />
+    <Content Include="Content\frame\canknow\docs\example\module\page\error-page.html" />
+    <Content Include="Content\frame\canknow\docs\example\module\page\login.html" />
+    <Content Include="Content\frame\canknow\docs\example\module\page\page-breadcrumb.html" />
+    <Content Include="Content\frame\canknow\docs\example\module\page\page-footer.html" />
+    <Content Include="Content\frame\canknow\docs\example\module\page\page-header.html" />
+    <Content Include="Content\frame\canknow\docs\example\module\page\page-navbar.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\alert.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\collapse.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\comment.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\countdown.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\datepicker.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\dialog.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\dropdown.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\dropdownMenu.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\fileUploader.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\message.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\modalDialog.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\notify.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\progress.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\richTextEditor.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\rippler.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\sidenav.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\slider.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\tab.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\tip.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\toast.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\treenode.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\validate.html" />
+    <Content Include="Content\frame\canknow\docs\example\plugin\video.html" />
+    <Content Include="Content\frame\canknow\font\fontawesome-webfont.svg" />
+    <Content Include="Content\frame\canknow\font\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\frame\canknow\gulpfile.js" />
+    <Content Include="Content\frame\canknow\image\avatar.PNG" />
+    <Content Include="Content\frame\canknow\image\back.png" />
+    <Content Include="Content\frame\canknow\image\blank-comment.png" />
+    <Content Include="Content\frame\canknow\image\blank.png" />
+    <Content Include="Content\frame\canknow\image\check\icon-checked.png" />
+    <Content Include="Content\frame\canknow\image\check\icon-unchecked.png" />
+    <Content Include="Content\frame\canknow\image\comment-background.png" />
+    <Content Include="Content\frame\canknow\image\comment-header-post-border-top.png" />
+    <Content Include="Content\frame\canknow\image\culture-flags.png" />
+    <Content Include="Content\frame\canknow\image\edit.SVG" />
+    <Content Include="Content\frame\canknow\image\file.png" />
+    <Content Include="Content\frame\canknow\image\header-bg.png" />
+    <Content Include="Content\frame\canknow\image\Icon\add-border.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\back-border.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\back.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\copy.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\dislike.png" />
+    <Content Include="Content\frame\canknow\image\Icon\dislike.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\download.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\edit.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\folder.png" />
+    <Content Include="Content\frame\canknow\image\Icon\fresh-clockwise.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\fresh.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\history.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\info.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\label.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\like.png" />
+    <Content Include="Content\frame\canknow\image\Icon\like.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\more-border.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\more.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\new.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\outline.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\photo.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\publish.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\reply.png" />
+    <Content Include="Content\frame\canknow\image\Icon\reply.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\share-white.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\share.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\upper.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\view.svg" />
+    <Content Include="Content\frame\canknow\image\Icon\voice.svg" />
+    <Content Include="Content\frame\canknow\image\loading\icon-download-dark.svg" />
+    <Content Include="Content\frame\canknow\image\loading\icon-download-light.svg" />
+    <Content Include="Content\frame\canknow\image\loading\loading-1-black.gif" />
+    <Content Include="Content\frame\canknow\image\loading\loading-2-black.gif" />
+    <Content Include="Content\frame\canknow\image\loading\sync-light.svg" />
+    <Content Include="Content\frame\canknow\image\loading\sync.SVG" />
+    <Content Include="Content\frame\canknow\image\location.png" />
+    <Content Include="Content\frame\canknow\image\login-banner.jpg" />
+    <Content Include="Content\frame\canknow\image\logo.JPG" />
+    <Content Include="Content\frame\canknow\image\logo.png" />
+    <Content Include="Content\frame\canknow\image\notificationIcon.png" />
+    <Content Include="Content\frame\canknow\image\post-button.png" />
+    <Content Include="Content\frame\canknow\image\quote.png" />
+    <Content Include="Content\frame\canknow\image\slider-left.png" />
+    <Content Include="Content\frame\canknow\image\slider-right.png" />
+    <Content Include="Content\frame\canknow\image\slider\BG1.JPG" />
+    <Content Include="Content\frame\canknow\image\slider\BG2.JPG" />
+    <Content Include="Content\frame\canknow\image\slider\BG3.JPG" />
+    <Content Include="Content\frame\canknow\image\slider\BG4.JPG" />
+    <Content Include="Content\frame\canknow\image\slider\BG5.JPG" />
+    <Content Include="Content\frame\canknow\image\upload-picture.png" />
+    <Content Include="Content\frame\canknow\image\upload.svg" />
+    <Content Include="Content\frame\canknow\webpack.config.js" />
+    <Content Include="Content\Images\account-home-background.png" />
+    <Content Include="Content\frame\canknow\image\back-light.png" />
+    <Content Include="Content\Images\blank.png" />
+    <Content Include="Content\Images\channel-agent-item-bg.jpg" />
+    <Content Include="Content\Images\channel-agent-item-bg.png" />
+    <Content Include="Content\Images\channel-agent-item-ribbon.png" />
+    <Content Include="Content\Images\CommonNav\money.png" />
+    <Content Include="Content\Images\CommonNav\orders.png" />
+    <Content Include="Content\Images\CommonNav\potentialCustomer.png" />
+    <Content Include="Content\Images\Common\Icon\Spread.png" />
+    <Content Include="Content\Images\Common\Icon\spreadPoster.png" />
+    <Content Include="Content\Images\crown.png" />
+    <Content Include="Content\Images\FooterNav\home.png" />
+    <Content Include="Content\Images\FooterNav\order.png" />
+    <Content Include="Content\Images\FooterNav\qrcode.png" />
+    <Content Include="Content\Images\FooterNav\shop-cart.png" />
+    <Content Include="Content\Images\FooterNav\user-center.png" />
+    <Content Include="Content\Images\Home\About\banner-1.jpg" />
+    <Content Include="Content\Images\Home\About\company\1.jpg" />
+    <Content Include="Content\Images\Home\About\company\2.jpg" />
+    <Content Include="Content\Images\Home\About\banner.jpg" />
+    <Content Include="Content\Images\Home\Index\area.png" />
+    <Content Include="Content\Images\Home\Index\banner-1.jpg" />
+    <Content Include="Content\Images\Home\Index\banner-2.jpg" />
+    <Content Include="Content\Images\Home\Index\banner.jpg" />
+    <Content Include="Content\Images\Home\Index\banner.png" />
+    <Content Include="Content\Images\Home\Index\channel.png" />
+    <Content Include="Content\Images\Home\Index\channelSystem.jpg" />
+    <Content Include="Content\Images\Home\Index\distribution.png" />
+    <Content Include="Content\Images\Home\Index\distributionPicture.jpg" />
+    <Content Include="Content\Images\Home\Index\globalRebate.png" />
+    <Content Include="Content\Images\Home\Index\memberSystem.jpg" />
+    <Content Include="Content\Images\Home\Index\slider\1.jpg" />
+    <Content Include="Content\Images\Home\Index\slogan.png" />
+    <Content Include="Content\Images\Home\Index\system.jpg" />
+    <Content Include="Content\Images\Home\About\team\1.jpg" />
+    <Content Include="Content\Images\Home\About\team\2.jpg" />
+    <Content Include="Content\Images\Home\About\team\3.jpg" />
+    <Content Include="Content\Images\Home\About\team\4.jpg" />
+    <Content Include="Content\Images\Home\Index\upgrade.png" />
+    <Content Include="Content\Images\Home\Index\withDraw.png" />
+    <Content Include="Content\Images\icon-spreader-group.png" />
+    <Content Include="Content\Images\iphone_head.png" />
+    <Content Include="Content\Images\logistics_top_border.png" />
+    <Content Include="Content\Images\phone-header.png" />
+    <Content Include="Content\Images\pictureAd.jpg" />
+    <Content Include="Content\Images\shop-logo.png" />
+    <Content Include="Content\Images\title-logo.png" />
+    <Content Include="Content\Images\UserCenterNav\address.png" />
+    <Content Include="Content\Images\UserCenterNav\agentOrder.png" />
+    <Content Include="Content\Images\UserCenterNav\areaAgent.png" />
+    <Content Include="Content\Images\UserCenterNav\article.png" />
+    <Content Include="Content\Images\UserCenterNav\channel.png" />
+    <Content Include="Content\Images\UserCenterNav\group.png" />
+    <Content Include="Content\Images\UserCenterNav\order.png" />
+    <Content Include="Content\Images\UserCenterNav\rank.png" />
+    <Content Include="Content\Images\UserCenterNav\Spread.png" />
+    <Content Include="Content\Images\UserCenterNav\spreadPoster.png" />
+    <Content Include="Content\Images\UserCenterNav\wallet.png" />
+    <Content Include="Content\Infrastructure\Framework\Scripts\infrastructure.js" />
+    <Content Include="Content\Infrastructure\Framework\Scripts\infrastructure.signalr.js" />
+    <Content Include="Content\Infrastructure\Framework\Scripts\libs\angularjs\infrastructure.ng.js" />
+    <Content Include="Content\Infrastructure\Framework\Scripts\libs\infrastructure.blockUI.js" />
+    <Content Include="Content\Infrastructure\Framework\Scripts\libs\infrastructure.busyUI.js" />
+    <Content Include="Content\Infrastructure\Framework\Scripts\libs\infrastructure.jquery.js" />
+    <Content Include="Content\Infrastructure\Framework\Scripts\libs\infrastructure.jtable.js" />
+    <Content Include="Content\Infrastructure\Framework\Scripts\libs\infrastructure.loading.js" />
+    <Content Include="Content\scripts\frame\canknow\angular\directives\autoFocus.js" />
+    <Content Include="Content\scripts\frame\canknow\angular\directives\fileUploader.js" />
+    <Content Include="Content\scripts\frame\canknow\angular\directives\pagination.js" />
+    <Content Include="Content\scripts\frame\canknow\angular\directives\pictureUploader.js" />
+    <Content Include="Content\scripts\frame\canknow\angular\directives\richTextEditor.js" />
+    <Content Include="Content\scripts\frame\canknow\angular\directives\sideNav.js" />
+    <Content Include="Content\scripts\frame\canknow\angular\directives\VALIDATE.JS" />
+    <Content Include="Content\scripts\frame\canknow\angular\modules\me-lazyload.js" />
+    <Content Include="Content\scripts\frame\canknow\canknow.config.js" />
+    <Content Include="Resource\Scripts\App\Common\filters\toPercent.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\Address\addressSelectorModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\Chat\chatbar.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\Common\lookupModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\Profile\edit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\Profile\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\User\userSelectorModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\User\statistics.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Address\editModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Address\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\AreaAgent\AreaAgency\areaAgencyAreas.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\AreaAgent\AreaAgency\map.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\AreaAgent\AreaAgent\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\AreaAgent\AreaAgent\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\AreaAgent\AreaAgencyApply\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\AreaAgent\AreaAgency\edit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\AreaAgent\AreaAgency\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Channel\ChannelAgency\create.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Order\changeCustomerInfoModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\PictureTemplate\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\PictureTemplate\directives\picturePreviewer.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\PictureTemplate\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Score\ScoreRecord\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Score\Score\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Shop\ShopTemplate\controlTemplates\productListControl.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Shop\ShopTemplate\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Shop\ShopTemplate\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Shop\ShopTemplate\shopTemplate.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\WithdrawApply\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Account\login.js" />
+    <Content Include="Resource\Scripts\App\Mobile\AgentOrder\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\AreaAgency\areaAgencyAreas.js" />
+    <Content Include="Resource\Scripts\App\Mobile\AreaAgency\certificate.js" />
+    <Content Include="Resource\Scripts\App\Mobile\AreaAgency\customerList.js" />
+    <Content Include="Resource\Scripts\App\Mobile\AreaAgency\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\AreaAgentRebate\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\AreaAgent\Address\addressSelectorModal.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ChannelAgencyApply\detail.js" />
+    <Content Include="Resource\Scripts\App\Mobile\AreaAgent\apply.js" />
+    <Content Include="Resource\Scripts\App\Mobile\AreaAgent\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ChannelAgency\certificate.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ChannelAgent\apply.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Home\controlTemplates\productListControl.js" />
+    <Content Include="Resource\Scripts\App\Mobile\OrderChannelAgentProductDistribution\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ProductCategory\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ScoreRecord\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ScoreShop\exchange.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ScoreShop\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Score\index.js" />
+    <Content Include="Resource\Styles\App\Mobile\Account\login.css" />
+    <Content Include="Resource\Styles\App\Mobile\SalesRank\index.css" />
+    <Content Include="Resource\Styles\App\Mobile\ScoreRecord\index.css" />
+    <Content Include="Scripts\aicha\expressCompanys.js" />
+    <Content Include="Scripts\angularJS\angular-animate.js" />
+    <Content Include="Scripts\angularJS\angular-animate.min.js" />
+    <Content Include="Scripts\angularJS\angular-aria.js" />
+    <Content Include="Scripts\angularJS\angular-aria.min.js" />
+    <Content Include="Scripts\angularJS\angular-cookies.js" />
+    <Content Include="Scripts\angularJS\angular-cookies.min.js" />
+    <Content Include="Scripts\angularJS\angular-csp.css" />
+    <Content Include="Scripts\angularJS\angular-loader.js" />
+    <Content Include="Scripts\angularJS\angular-loader.min.js" />
+    <Content Include="Scripts\angularJS\angular-message-format.js" />
+    <Content Include="Scripts\angularJS\angular-message-format.min.js" />
+    <Content Include="Scripts\angularJS\angular-messages.js" />
+    <Content Include="Scripts\angularJS\angular-messages.min.js" />
+    <Content Include="Scripts\angularJS\angular-mocks.js" />
+    <Content Include="Scripts\angularJS\angular-parse-ext.js" />
+    <Content Include="Scripts\angularJS\angular-parse-ext.min.js" />
+    <Content Include="Scripts\angularJS\angular-resource.js" />
+    <Content Include="Scripts\angularJS\angular-resource.min.js" />
+    <Content Include="Scripts\angularJS\angular-route.js" />
+    <Content Include="Scripts\angularJS\angular-route.min.js" />
+    <Content Include="Scripts\angularJS\angular-sanitize.js" />
+    <Content Include="Scripts\angularJS\angular-sanitize.min.js" />
+    <Content Include="Scripts\angularJS\angular-scenario.js" />
+    <Content Include="Scripts\angularJS\angular-touch.js" />
+    <Content Include="Scripts\angularJS\angular-touch.min.js" />
+    <Content Include="Scripts\angularJS\angular-ui-router.js" />
+    <Content Include="Scripts\angularJS\ANGULAR.JS" />
+    <Content Include="Scripts\angularJS\angular.min.js" />
+    <Content Include="Scripts\angularJS\UI\ui-utils.js" />
+    <Content Include="Scripts\echarts\echarts.js" />
+    <Content Include="Scripts\echarts\maps\china.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\underscore.min.js" />
+    <Content Include="logo.png" />
+    <Content Include="Resource\Scripts\App\Common\directives\passwordComplexity.js" />
+    <Content Include="Resource\Scripts\App\Common\filters\localize.js" />
+    <Content Include="Resource\Scripts\App\Common\filters\toTrusted.js" />
+    <Content Include="Resource\Scripts\App\Manager\common.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\fileSelector\fileSelectorModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\directives\fileSelector.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Dashboard\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Tenant\create.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Tenant\edit.js" />
+    <Content Include="Resource\Scripts\App\Manager\services\addressSession.js" />
+    <Content Include="Resource\Scripts\App\Manager\Shared\Chat\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Article\create.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Article\edit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Article\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Channel\ChannelAgencyApply\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Channel\ChannelAgency\edit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Channel\ChannelAgency\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Channel\ChannelAgent\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Channel\ChannelAgent\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Dashboard\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\ExpressCompany\create.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\ExpressCompany\edit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\ExpressCompany\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Setting\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Tenant\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\FreightTemplate\addressesSelectorModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\FreightTemplate\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\FreightTemplate\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\GlobalRebate\createOrEditModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\GlobalRebate\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Order\batchShipModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\PublicWechat\Common\mediaIdOfImageSelectorModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\PublicWechat\Common\mediaIdOfNewsSelectorModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\VirtualProduct\VirtualCard\import.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\VirtualProduct\VirtualCard\list.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\VirtualProduct\VirtualCard\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\WalletRecord\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Article\content.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Article\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ChannelAgency\customerList.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ChannelAgency\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ChannelAgentRebate\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ChannelAgent\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Group\potentialCustomerList.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Group\customerList.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Group\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Home\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Logistics\detail.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Order\detail.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Order\changePayMoneyModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Order\shipModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\ProductCategorys\createOrEditModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\ProductCategorys\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Products\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Products\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\PublicWechat\AutoReply\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\PublicWechat\AutoReply\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\PublicWechat\Menu\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\PublicWechat\Setting\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Setting\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\SpecificationProperty\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\SpecificationProperty\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\SpreadPosterTemplate\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\SpreadPosterTemplate\directives\previewer.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\SpreadPosterTemplate\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Address\addressSelectorModal.js" />
+    <Content Include="Resource\Scripts\App\Mobile\CustomerInfo\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\CustomerInfo\Index\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Mobile\CustomerInfo\Index\list.js" />
+    <Content Include="Resource\Scripts\App\Mobile\jweixin-1.0.0.js" />
+    <Content Include="Resource\Scripts\App\Mobile\header.js" />
+    <Content Include="Resource\Scripts\App\Mobile\OrderDistribution\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Order\confirmOrderForShopCart.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Order\confirmOrder.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Order\comment.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Order\detail.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Order\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Product\detail.js" />
+    <Content Include="Resource\Scripts\App\Common\directives\slider.js" />
+    <Content Include="Resource\Scripts\App\Mobile\SalesRank\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\services\shopSession.js" />
+    <Content Include="Resource\Scripts\App\Mobile\ShopCart\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\SpreadPoster\list.js" />
+    <Content Include="Resource\Scripts\App\Mobile\SpreadPoster\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Spread\shares.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Spread\qrcode.js" />
+    <Content Include="Resource\Scripts\App\Mobile\WalletRecord\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\weixin.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Wallet\index.js" />
+    <Content Include="Resource\Scripts\App\Common\directives\busyIf.js" />
+    <Content Include="Resource\Scripts\Common\jquery-custom.js" />
+    <Content Include="Resource\Scripts\Common\LocalStorage\localStorage.js" />
+    <Content Include="Resource\Scripts\Common\LocalStorage\localStorage.localForage.js" />
+    <Content Include="Resource\Scripts\Common\utils.js" />
+    <Content Include="Resource\Scripts\Common\validation-custom.js" />
+    <Content Include="Resource\Scripts\Frame\libs\infrastructure.loading.js" />
+    <Content Include="Resource\Scripts\Home\app.js" />
+    <Content Include="Resource\Scripts\Home\header.js" />
+    <Content Include="Resource\Scripts\Home\layout.js" />
+    <Content Include="Scripts\angularJS\angular-sortable-view.min.js" />
+    <Content Include="Scripts\highchart\highcharts-more.js" />
+    <Content Include="Scripts\highchart\highcharts.js" />
+    <Content Include="Scripts\highchart\solid-gauge.js" />
+    <Content Include="Scripts\jquery-validation\js\additional-methods.js" />
+    <Content Include="Scripts\jquery-validation\js\additional-methods.min.js" />
+    <Content Include="Scripts\jquery-validation\js\jquery.validate.js" />
+    <Content Include="Scripts\jquery-validation\js\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ar.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ar.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_bg.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_bg.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_bn_BD.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_bn_BD.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ca.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ca.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_cs.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_cs.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_da.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_da.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_de.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_de.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_el.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_el.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_es.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_es.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_es_AR.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_es_AR.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_es_PE.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_es_PE.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_et.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_et.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_eu.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_eu.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_fa.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_fa.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_fi.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_fi.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_fr.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_fr.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ge.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ge.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_gl.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_gl.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_he.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_he.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_hr.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_hr.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_hu.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_hu.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_hy_AM.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_hy_AM.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_id.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_id.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_is.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_is.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_it.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_it.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ja.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ja.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ka.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ka.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_kk.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_kk.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ko.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ko.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_lt.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_lt.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_lv.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_lv.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_my.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_my.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_nl.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_nl.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_no.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_no.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_pl.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_pl.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_pt_BR.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_pt_BR.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_pt_PT.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_pt_PT.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ro.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ro.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ru.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_ru.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_si.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_si.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_sk.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_sk.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_sl.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_sl.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_sr.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_sr.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_sr_lat.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_sr_lat.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_sv.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_sv.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_th.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_th.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_tj.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_tj.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_tr.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_tr.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_uk.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_uk.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_vi.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_vi.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_zh.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_zh.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_zh_TW.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\messages_zh_TW.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\methods_de.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\methods_de.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\methods_es_CL.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\methods_es_CL.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\methods_fi.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\methods_fi.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\methods_nl.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\methods_nl.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\methods_pt.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\methods_pt.min.js" />
+    <Content Include="Scripts\jquery-validation\js\localization\_messages_empty.js" />
+    <Content Include="Resource\Styles\App\Manager\PictureTemplate\previewer.css" />
+    <Content Include="Resource\Styles\App\Manager\ShopTemplate\index.css" />
+    <Content Include="Resource\Styles\App\Mobile\AreaAgent\apply.css" />
+    <Content Include="Resource\Styles\App\Mobile\AreaAgent\index.css" />
+    <Content Include="Resource\Styles\App\Mobile\info-nav.css" />
+    <Content Include="Resource\Styles\Home\index.css" />
+    <Content Include="Resource\Styles\Home\styles.css" />
+    <Content Include="Resource\Styles\App\Manager\common.css" />
+    <Content Include="Resource\Styles\App\Manager\header.css" />
+    <Content Include="Resource\Styles\App\Manager\Maintenance\index.css" />
+    <Content Include="Resource\Styles\App\Manager\Product\createOrEdit.css" />
+    <Content Include="Resource\Styles\App\Manager\SpreadPosterTemplate\previewer.css" />
+    <Content Include="Resource\Styles\App\Manager\styles.css" />
+    <Content Include="Resource\Styles\App\Manager\theme.css" />
+    <Content Include="Resource\Styles\App\Mobile\Address\address-selector.css" />
+    <Content Include="Resource\Styles\App\Mobile\ChannelAgent\index.css" />
+    <Content Include="Resource\Styles\App\Mobile\common.css" />
+    <Content Include="Resource\Styles\App\Mobile\CustomerInfo\index.css" />
+    <Content Include="Resource\Styles\App\Mobile\Home\index.css" />
+    <Content Include="Resource\Styles\App\Mobile\index.css" />
+    <Content Include="Resource\Styles\App\Mobile\Layout\footer-nav.css" />
+    <Content Include="Resource\Styles\App\Mobile\Layout\header.css" />
+    <Content Include="Resource\Styles\App\Mobile\Layout\nav.css" />
+    <Content Include="Resource\Styles\App\Mobile\logistics.css" />
+    <Content Include="Resource\Styles\App\Mobile\Logistics\detail.css" />
+    <Content Include="Resource\Styles\App\Mobile\Member\index.css" />
+    <Content Include="Resource\Styles\App\Mobile\order.css" />
+    <Content Include="Resource\Styles\App\Mobile\Pay\index.css" />
+    <Content Include="Resource\Styles\App\Mobile\Product\detail.css" />
+    <Content Include="Resource\Styles\App\Mobile\SpreadPoster\common.css" />
+    <Content Include="Resource\Styles\App\Mobile\theme.css" />
+    <Content Include="Content\Images\loginbg.jpg" />
+    <Content Include="Content\Images\App\Home\About\img1-large.jpg" />
+    <Content Include="Content\Images\App\Home\About\img2-large.jpg" />
+    <Content Include="Content\Images\App\Home\About\img3-large.jpg" />
+    <Content Include="Content\Images\App\Home\About\img4-large.jpg" />
+    <Content Include="Content\Images\App\Mobile\itemMemberFlag.jpg" />
+    <Content Include="Content\Images\App\Mobile\MemberCard\memberCard.png" />
+    <Content Include="Content\Images\avatar.jpg" />
+    <Content Include="Content\Images\avatar.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Scripts\highlight\default.min.css" />
+    <Content Include="Scripts\highlight\highlight.min.js" />
+    <Content Include="Scripts\jquery\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jstree\jstree.js" />
+    <Content Include="Scripts\jstree\jstree.min.js" />
+    <Content Include="Scripts\jstree\themes\default-dark\32px.png" />
+    <Content Include="Scripts\jstree\themes\default-dark\40px.png" />
+    <Content Include="Scripts\jstree\themes\default-dark\style.css" />
+    <Content Include="Scripts\jstree\themes\default-dark\style.min.css" />
+    <Content Include="Scripts\jstree\themes\default-dark\throbber.gif" />
+    <Content Include="Scripts\jstree\themes\default\32px.png" />
+    <Content Include="Scripts\jstree\themes\default\32px_line.png" />
+    <Content Include="Scripts\jstree\themes\default\32px_original.png" />
+    <Content Include="Scripts\jstree\themes\default\40px.png" />
+    <Content Include="Scripts\jstree\themes\default\style.css" />
+    <Content Include="Scripts\jstree\themes\default\throbber.gif" />
+    <Content Include="Scripts\mindMap\mindMap.js" />
+    <Content Include="Scripts\mindMap\Models\Mind.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\signalR\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\signalR\jquery.signalR-2.2.1.min.js" />
+    <Content Include="Scripts\three\controls\DeviceOrientationControls.js" />
+    <Content Include="Scripts\three\controls\DragControls.js" />
+    <Content Include="Scripts\three\controls\EditorControls.js" />
+    <Content Include="Scripts\three\controls\FirstPersonControls.js" />
+    <Content Include="Scripts\three\controls\FlyControls.js" />
+    <Content Include="Scripts\three\controls\MouseControls.js" />
+    <Content Include="Scripts\three\controls\OrbitControls.js" />
+    <Content Include="Scripts\three\controls\OrthographicTrackballControls.js" />
+    <Content Include="Scripts\three\controls\PointerLockControls.js" />
+    <Content Include="Scripts\three\controls\TrackballControls.js" />
+    <Content Include="Scripts\three\controls\TransformControls.js" />
+    <Content Include="Scripts\three\controls\VRControls.js" />
+    <Content Include="Scripts\three\loaders\3MFLoader.js" />
+    <Content Include="Scripts\three\loaders\AMFLoader.js" />
+    <Content Include="Scripts\three\loaders\AssimpJSONLoader.js" />
+    <Content Include="Scripts\three\loaders\AWDLoader.js" />
+    <Content Include="Scripts\three\loaders\BabylonLoader.js" />
+    <Content Include="Scripts\three\loaders\BinaryLoader.js" />
+    <Content Include="Scripts\three\loaders\BVHLoader.js" />
+    <Content Include="Scripts\three\loaders\ColladaLoader.js" />
+    <Content Include="Scripts\three\loaders\ColladaLoader2.js" />
+    <Content Include="Scripts\three\loaders\collada\Animation.js" />
+    <Content Include="Scripts\three\loaders\collada\AnimationHandler.js" />
+    <Content Include="Scripts\three\loaders\collada\KeyFrameAnimation.js" />
+    <Content Include="Scripts\three\loaders\ctm\ctm.js" />
+    <Content Include="Scripts\three\loaders\ctm\CTMLoader.js" />
+    <Content Include="Scripts\three\loaders\ctm\CTMWorker.js" />
+    <Content Include="Scripts\three\loaders\ctm\license\js-lzma.txt" />
+    <Content Include="Scripts\three\loaders\ctm\license\js-openctm.txt" />
+    <Content Include="Scripts\three\loaders\ctm\license\OpenCTM.txt" />
+    <Content Include="Scripts\three\loaders\ctm\lzma.js" />
+    <Content Include="Scripts\three\loaders\DDSLoader.js" />
+    <Content Include="Scripts\three\loaders\deprecated\SceneLoader.js" />
+    <Content Include="Scripts\three\loaders\FBXLoader.js" />
+    <Content Include="Scripts\three\loaders\GLTFLoader.js" />
+    <Content Include="Scripts\three\loaders\gltf\glTF-parser.js" />
+    <Content Include="Scripts\three\loaders\gltf\glTFAnimation.js" />
+    <Content Include="Scripts\three\loaders\gltf\glTFLoader.js" />
+    <Content Include="Scripts\three\loaders\gltf\glTFLoaderUtils.js" />
+    <Content Include="Scripts\three\loaders\gltf\glTFShaders.js" />
+    <Content Include="Scripts\three\loaders\gltf\gltfUtilities.js" />
+    <Content Include="Scripts\three\loaders\HDRCubeTextureLoader.js" />
+    <Content Include="Scripts\three\loaders\KMZLoader.js" />
+    <Content Include="Scripts\three\loaders\MD2Loader.js" />
+    <Content Include="Scripts\three\loaders\MMDLoader.js" />
+    <Content Include="Scripts\three\loaders\MTLLoader.js" />
+    <Content Include="Scripts\three\loaders\NRRDLoader.js" />
+    <Content Include="Scripts\three\loaders\OBJLoader.js" />
+    <Content Include="Scripts\three\loaders\PCDLoader.js" />
+    <Content Include="Scripts\three\loaders\PDBLoader.js" />
+    <Content Include="Scripts\three\loaders\PlayCanvasLoader.js" />
+    <Content Include="Scripts\three\loaders\PLYLoader.js" />
+    <Content Include="Scripts\three\loaders\PVRLoader.js" />
+    <Content Include="Scripts\three\loaders\RGBELoader.js" />
+    <Content Include="Scripts\three\loaders\sea3d\SEA3D.js" />
+    <Content Include="Scripts\three\loaders\sea3d\SEA3DDeflate.js" />
+    <Content Include="Scripts\three\loaders\sea3d\SEA3DLegacy.js" />
+    <Content Include="Scripts\three\loaders\sea3d\SEA3DLoader.js" />
+    <Content Include="Scripts\three\loaders\sea3d\SEA3DLZMA.js" />
+    <Content Include="Scripts\three\loaders\STLLoader.js" />
+    <Content Include="Scripts\three\loaders\SVGLoader.js" />
+    <Content Include="Scripts\three\loaders\TGALoader.js" />
+    <Content Include="Scripts\three\loaders\UTF8Loader.js" />
+    <Content Include="Scripts\three\loaders\VRMLLoader.js" />
+    <Content Include="Scripts\three\loaders\VTKLoader.js" />
+    <Content Include="Scripts\three\three.js" />
+    <Content Include="Scripts\three\three.min.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\unslider\unslider.min.js" />
+    <Content Include="Scripts\videojs\video-js.css" />
+    <Content Include="Scripts\videojs\video.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Resource\Scripts\App\Common\app.js" />
+    <Content Include="Resource\Scripts\App\Manager\app.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\AuditLog\detailModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\BackgroundJob\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\AuditLog\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\directives\featureTree.js" />
+    <Content Include="Resource\Scripts\App\Manager\directives\permissionTree.js" />
+    <Content Include="Resource\Scripts\App\Common\filters\momentjs-filters.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Edition\createOrEditModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Edition\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Shared\header.js" />
+    <Content Include="Resource\Scripts\App\Manager\Home\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Language\createOrEditModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Language\editTextModal.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Language\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Language\texts.js" />
+    <Content Include="Resource\Scripts\App\Manager\Shared\layout.js" />
+    <Content Include="Resource\Scripts\App\Manager\Shared\loginAttempts.js" />
+    <Content Include="Areas\Manager\Views\Host\Maintenance\Index.cshtml" />
+    <Content Include="Resource\Scripts\App\Manager\Host\Maintenance\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\MemberCardPackage\create.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\MemberCardPackage\edit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\MemberCardPackage\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\MemberCard\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\MemberLevel\create.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\MemberLevel\edit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\MemberLevel\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\notifications\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\notifications\setting.js" />
+    <Content Include="Resource\Scripts\App\Manager\Tenant\Order\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\Profile\changePassword.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\Role\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\Role\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\services\appUserNotificationHelper.js" />
+    <Content Include="Resource\Scripts\App\Manager\Shared\sideNav.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\User\createOrEdit.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\User\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\app.js" />
+    <Content Include="Resource\Scripts\App\Mobile\layout.js" />
+    <Content Include="Resource\Styles\App\Mobile\MemberCardPackage\index.css" />
+    <Content Include="Resource\Scripts\App\Mobile\MemberCardpackage\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Member\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Pay\index.js" />
+    <Content Include="Resource\Scripts\App\Common\services\appSession.js" />
+    <Content Include="Resource\Scripts\Common\app.js" />
+    <Content Include="Resource\Scripts\Common\consts.js" />
+    <Content Include="Resource\Scripts\Common\helpers.js" />
+    <Content Include="Resource\Scripts\Common\ModalManager.js" />
+    <Content Include="Resource\Scripts\Common\providers\ui.dialog.js" />
+    <Content Include="Resource\Scripts\Common\providers\ui.js" />
+    <Content Include="Resource\Scripts\Frame\infrastructure.signalr.js" />
+    <Content Include="Resource\Scripts\Frame\infrastructure.js" />
+    <Content Include="Resource\Scripts\Frame\libs\infrastructure.busyUI.js" />
+    <Content Include="Resource\Scripts\Frame\libs\infrastructure.jtable.js" />
+    <Content Include="Resource\Scripts\Frame\libs\infrastructure.jquery.js" />
+    <Content Include="Resource\Scripts\Frame\libs\infrastructure.blockUI.js" />
+    <Content Include="Resource\Styles\App\Mobile\WalletRecord\index.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\EmailActivation.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Resource\Scripts\Frame\libs\angularjs\infrastructure.ng.js" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Shared\_Head.cshtml" />
+    <Content Include="Views\Account\TenantSelection.cshtml" />
+    <Content Include="Views\TenantRegistration\Index.cshtml" />
+    <Content Include="Views\TenantRegistration\RegisterResult.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Group\PotentialCustomerList.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\GlobalRebate\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\GlobalRebate\createOrEditModal.cshtml" />
+    <Content Include="Areas\Mobile\Views\Spread\Qrcode.cshtml" />
+    <Content Include="Areas\Mobile\Views\Spread\Shares.cshtml" />
+    <Content Include="Areas\Mobile\Views\Spread\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\SpreadPoster\List.cshtml" />
+    <Content Include="Scripts\angularJS\angular-animate.min.js.map" />
+    <Content Include="Scripts\angularJS\angular-aria.min.js.map" />
+    <Content Include="Scripts\angularJS\angular-cookies.min.js.map" />
+    <Content Include="Scripts\angularJS\angular-loader.min.js.map" />
+    <Content Include="Scripts\angularJS\angular-message-format.min.js.map" />
+    <Content Include="Scripts\angularJS\angular-messages.min.js.map" />
+    <Content Include="Scripts\angularJS\angular-parse-ext.min.js.map" />
+    <Content Include="Scripts\angularJS\angular-resource.min.js.map" />
+    <Content Include="Scripts\angularJS\angular-route.min.js.map" />
+    <Content Include="Scripts\angularJS\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\angularJS\angular-touch.min.js.map" />
+    <Content Include="Scripts\angularJS\angular.min.js.map" />
+    <Content Include="Scripts\angularJS\errors.json" />
+    <Content Include="Scripts\angularJS\version.json" />
+    <Content Include="Areas\Manager\Views\Host\Dashboard\Index.cshtml" />
+    <Content Include="debug.log" />
+    <Content Include="Areas\Manager\Views\Tenant\Article\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Article\Create.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Article\Edit.cshtml" />
+    <Content Include="Areas\Mobile\Views\Article\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\VirtualProduct\VirtualCard\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\VirtualProduct\VirtualCard\Import.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\VirtualProduct\VirtualCard\List.cshtml" />
+    <Content Include="Areas\Mobile\Views\Article\Content.cshtml" />
+    <Content Include="Areas\Mobile\Views\ShopCart\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Order\ConfirmOrderForShopCart.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\FileSelector\fileSelectorModal.cshtml" />
+    <Content Include="Areas\Mobile\Views\Order\Comment.cshtml" />
+    <Content Include="Areas\Mobile\Views\Account\EmailActivation.cshtml" />
+    <Content Include="Areas\Mobile\Views\Shared\_FlexLayout.cshtml" />
+    <Content Include="Areas\Mobile\Views\OrderDistribution\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\ChannelAgentRebate\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\Footer.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\FreightTemplate\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\FreightTemplate\createOrEdit.cshtml" />
+    <Content Include="Areas\Mobile\Views\Product\Detail\Components\Slider.cshtml" />
+    <Content Include="Areas\Mobile\Views\Product\Detail\Components\Tab.cshtml" />
+    <Content Include="Areas\Mobile\Views\Product\Detail\Components\SpecifiactionSelector.cshtml" />
+    <Content Include="Areas\Mobile\Views\Product\Detail\Components\BaseInfo.cshtml" />
+    <Content Include="Areas\Mobile\Views\Product\Detail\Templates\2.cshtml" />
+    <Content Include="Areas\Mobile\Views\Product\Detail\Components\Article.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\FreightTemplate\AddressesSelectorModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\Chat\chatbar.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Shop\ShopTemplate\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Shop\ShopTemplate\createOrEdit.cshtml" />
+    <Content Include="Areas\Mobile\Views\Home\ControlTemplates\NavControl.cshtml" />
+    <Content Include="Areas\Mobile\Views\Home\ControlTemplates\PictureAdControl.cshtml" />
+    <Content Include="Areas\Mobile\Views\Home\ControlTemplates\ProductListControl.cshtml" />
+    <Content Include="Areas\Mobile\Views\Home\ControlTemplates\RichTextControl.cshtml" />
+    <Content Include="Areas\Mobile\Views\Home\ControlTemplates\SliderControl.cshtml" />
+    <Content Include="Areas\Mobile\Views\Home\ControlTemplates\_ViewStart.cshtml" />
+    <Content Include="Areas\Mobile\Views\Home\ControlTemplates\ShopwindowControl.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\Profile\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\Profile\edit.cshtml" />
+    <Content Include="Areas\Mobile\Views\ChannelAgencyApply\Detail.cshtml" />
+    <Content Include="Areas\Mobile\Views\ChannelAgent\Apply.cshtml" />
+    <Content Include="Areas\Mobile\Views\AreaAgent\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\AreaAgent\AreaAgent\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\AreaAgent\AreaAgent\createOrEdit.cshtml" />
+    <Content Include="Areas\Mobile\Views\AreaAgent\Apply.cshtml" />
+    <Content Include="Areas\Mobile\Views\AreaAgent\Address\_ViewStart.cshtml" />
+    <Content Include="Areas\Mobile\Views\AreaAgent\Address\AddressSelectorModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Address\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\Address\EditModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\AreaAgent\AreaAgencyApply\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\AreaAgent\AreaAgency\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\AreaAgent\AreaAgency\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\AreaAgency\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\AreaAgency\AreaAgencyAreas.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\AreaAgent\AreaAgency\AreaAgencyAreas.cshtml" />
+    <Content Include="Areas\Mobile\Views\AreaAgentRebate\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\AgentOrder\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\ProductCategory\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\AreaAgency\CustomerList.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\PictureTemplate\createOrEdit.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\PictureTemplate\previewer.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\PictureTemplate\index.cshtml" />
+    <Content Include="Areas\Mobile\Views\ChannelAgency\Certificate.cshtml" />
+    <Content Include="Areas\Mobile\Views\AreaAgency\Certificate.cshtml" />
+    <Content Include="Content\frame\canknow\README.md" />
+    <Content Include="Content\frame\canknow\package.json" />
+    <Content Include="Content\frame\canknow\font\segoeuil.ttf" />
+    <Content Include="Content\frame\canknow\font\pingfang-sc.ttf" />
+    <Content Include="Content\frame\canknow\font\myriad-set-pro_extrathin.ttf" />
+    <Content Include="Content\frame\canknow\font\HanHei-SC-text.woff" />
+    <Content Include="Content\frame\canknow\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\frame\canknow\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\frame\canknow\font\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\frame\canknow\font\fzxy.ttf" />
+    <Content Include="Content\frame\canknow\font\FontAwesome.otf" />
+    <Content Include="Content\frame\canknow\font\fontawesome-webfont.woff" />
+    <Content Include="Content\frame\canknow\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\frame\canknow\font\fontawesome-webfont.eot" />
+    <Content Include="Content\frame\canknow\.babelrc" />
+    <Content Include="Areas\Manager\Views\Tenant\Score\Score\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Score\ScoreRecord\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Score\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\ScoreRecord\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\ScoreShop\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\ScoreShop\Exchange.cshtml" />
+    <Content Include="Areas\Mobile\Views\ScoreShop\Exchange\Components\SpecifiactionSelector.cshtml" />
+    <Content Include="Areas\Mobile\Views\ScoreShop\Exchange\Components\BaseInfo.cshtml" />
+    <Content Include="Areas\Mobile\Views\ScoreShop\Exchange\Components\CustomerInfo.cshtml" />
+    <Content Include="Areas\Mobile\Views\OrderChannelAgentProductDistribution\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Account\EmailActivation.cshtml" />
+    <Content Include="Areas\Manager\Views\Account\VerifySecurityCode.cshtml" />
+    <Content Include="Areas\Manager\Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Areas\Manager\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Manager\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Manager\Views\Account\RegisterResult.cshtml" />
+    <Content Include="Areas\Manager\Views\Account\ResetPassword.cshtml" />
+    <Content Include="Areas\Manager\Views\Account\SendSecurityCode.cshtml" />
+    <Content Include="Areas\Manager\Views\Account\TenantSelection.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\User\statistics.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\AreaAgent\AreaAgency\Map.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\WithdrawApply\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Channel\ChannelAgency\Create.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\User\UserSelectorModal.cshtml" />
+    <None Include="Properties\PublishProfiles\beimi.pubxml" />
+    <None Include="Properties\PublishProfiles\Shop-pingju.pubxml" />
+    <Content Include="Views\Error\WebSiteOff.cshtml" />
+    <Content Include="Views\Error\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_FlexLayout.cshtml" />
+    <Content Include="Views\Error\_Layout.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Scripts\jquery-validation\README.md" />
+    <Content Include="Views\Account\SendSecurityCode.cshtml" />
+    <Content Include="Views\Account\VerifySecurityCode.cshtml" />
+    <Content Include="Scripts\echarts\maps\china.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\Logs\" />
+    <Folder Include="Content\scripts\frame\canknow\angular\filters\" />
+    <Folder Include="Content\scripts\frame\canknow\angular\services\" />
+    <Folder Include="Content\stylesheets\" />
+    <Folder Include="Resource\Styles\App\Home\" />
+    <Folder Include="Resource\Styles\App\Mobile\MemberCard\" />
+    <Folder Include="Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="log4net.config" />
+    <Content Include="Areas\Manager\Views\web.config" />
+    <Content Include="Areas\Manager\Views\Common\User\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\AuditLog\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Host\BackgroundJob\index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Mobile\Views\web.config" />
+    <Content Include="Areas\Mobile\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Mobile\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Mobile\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Layout\Header.cshtml" />
+    <Content Include="Areas\Mobile\Views\Layout\Footer.cshtml" />
+    <Content Include="Areas\Mobile\Views\Layout\Nav.cshtml" />
+    <Content Include="Areas\Mobile\Views\MemberCardPackage\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Shared\_WithCategoryLayout.cshtml" />
+    <Content Include="Areas\Mobile\Views\Shared\_Head.cshtml" />
+    <Content Include="Areas\Mobile\Views\Pay\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Member\Index.cshtml" />
+    <Content Include="Content\Fonts\freebooter.ttf" />
+    <Content Include="Content\Fonts\riesling.ttf" />
+    <Content Include="Areas\Mobile\Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Areas\Mobile\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Mobile\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Mobile\Views\Account\RegisterResult.cshtml" />
+    <Content Include="Areas\Mobile\Views\Shared\_BlankLayout.cshtml" />
+    <Content Include="Areas\Mobile\Views\Account\ResetPassword.cshtml" />
+    <Content Include="Areas\Mobile\Views\Shared\_BlankFlexLayout.cshtml" />
+    <Content Include="Areas\Mobile\Views\OAuth2\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\OAuth2\UserInfoCallback.cshtml" />
+    <Content Include="Areas\Mobile\Views\Shop\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Product\Detail\Templates\1.cshtml" />
+    <Content Include="Areas\Mobile\Views\Order\ConfirmOrder.cshtml" />
+    <Content Include="Areas\Mobile\Views\SalesRank\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Wallet\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\PublicWechat\Menu\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\CustomerInfo\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Address\AddressSelectorModal.cshtml" />
+    <Content Include="Areas\Mobile\Views\CustomerInfo\Index\createOrEdit.cshtml" />
+    <Content Include="Areas\Mobile\Views\CustomerInfo\Index\list.cshtml" />
+    <Content Include="Areas\Mobile\Views\Address\_ViewStart.cshtml" />
+    <Content Include="Areas\Mobile\Views\CustomerInfo\Index\_ViewStart.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\SpreadPosterTemplate\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\SpreadPosterTemplate\createOrEdit.cshtml" />
+    <Content Include="Areas\Mobile\Views\Layout\FooterNav.cshtml" />
+    <Content Include="Areas\Mobile\Views\Member\UserCenterNav.cshtml" />
+    <Content Include="Areas\Mobile\Views\Member\_ViewStart.cshtml" />
+    <Content Include="Areas\Mobile\Views\Shared\_HeaderLayout.cshtml" />
+    <Content Include="Areas\Mobile\Views\Shared\_FooterNavLayout.cshtml" />
+    <Content Include="Areas\Mobile\Views\Shared\_FooterLayout.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\SpreadPosterTemplate\previewer.cshtml" />
+    <Content Include="Areas\Mobile\Views\SpreadPoster\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Setting\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\PublicWechat\AutoReply\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\PublicWechat\AutoReply\createOrEdit.cshtml" />
+    <Content Include="Areas\Mobile\Views\WalletRecord\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Order\Detail.cshtml" />
+    <Content Include="Areas\Mobile\Views\Logistics\Detail.cshtml" />
+    <Content Include="Areas\Mobile\Views\Group\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\Group\CustomerList.cshtml" />
+    <Content Include="Areas\Mobile\Views\ChannelAgent\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\ChannelAgency\Index.cshtml" />
+    <Content Include="Areas\Mobile\Views\ChannelAgency\CustomerList.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\Order\BatchShipModal.cshtml" />
+    <Content Include="Temp\Downloads\batchShipTemplate.xlsx" />
+    <Content Include="Areas\Manager\Views\Tenant\PublicWechat\Common\mediaIdOfNewsSelectorModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\PublicWechat\Common\mediaIdOfImageSelectorModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Tenant\WalletRecord\Index.cshtml" />
+    <Content Include="Views\Shared\_BlankLayout.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Areas\Manager\Views\Home\index.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\Header.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\SideNav.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\RegisterResult.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Application\Application.Application.csproj">
+      <Project>{428102e7-860e-41c9-b1a0-a52426df19b2}</Project>
+      <Name>Application.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.Core\Application.Core.csproj">
+      <Project>{5793dd7e-d5df-48d6-869d-66b88730bbfc}</Project>
+      <Name>Application.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.EntityFramework\Application.EntityFramework.csproj">
+      <Project>{68e0e6ef-0374-4830-9fba-f82ff653c6f7}</Project>
+      <Name>Application.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.WebApi\Application.WebApi.csproj">
+      <Project>{518cc59a-e9c3-433e-b62e-e017854bd770}</Project>
+      <Name>Application.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Owin.Security.Weixin\Microsoft.Owin.Security.Weixin.csproj">
+      <Project>{c73730dd-018b-47f3-b6c3-810013a654f6}</Project>
+      <Name>Microsoft.Owin.Security.Weixin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{9D0FCBC0-7956-4EA5-B8BF-77F618CB2C2B}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>22737</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:22737/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

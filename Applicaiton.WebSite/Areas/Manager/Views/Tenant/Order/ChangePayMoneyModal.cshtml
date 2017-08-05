@@ -1,0 +1,34 @@
+﻿<div class="dialog">
+	<div class="header">
+		<div class="container-responsive">
+			<h5 class="title">@L("ChangePayMoney")</h5>
+			<button class="button-icon button-close">×</button>
+		</div>
+	</div>
+	<div class="body">
+		<div class="container-responsive">
+			<form name="changePayMoneyForm" role="form" novalidate class="form-validation">
+				<div class="row">
+					<div class="column-8">
+						<div class="form-group">
+							<label class="form-group-key">@L("PayMoney")</label>
+							<div class="form-group-block">
+								<div class="input-wrapper line"><input type="text" required ng-model="vm.order.payMoney"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container-responsive">
+			<button type="button" class="button-text border circle danger button-close">@L("Close")</button>
+			<button type="submit" class="button-text border circle primary button-ok" ng-click="vm.save()" ng-disabled="changePayMoneyForm.$invalid">
+				<i class="icon-save"></i> <span>@L("SaveAndClose")</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+

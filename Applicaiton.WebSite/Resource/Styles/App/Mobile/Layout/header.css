@@ -1,0 +1,17 @@
+﻿.subscribe-block{
+    padding:1rem;
+    display:-webkit-box;
+    -webkit-box-align:center;
+    background-color: #E02428;
+    position:fixed;
+    z-index:1000;
+    top:0;
+    width:100%;
+    box-shadow: 1px 1px 3px #ddd;
+}
+.subscribe-block .subscribe-note{
+    display:block;
+    -webkit-box-flex:1;
+    color:#fff;
+    font-size:12px;
+}

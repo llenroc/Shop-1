@@ -1,0 +1,22 @@
+﻿<div ng-controller="app.manager.user.statistics as vm">
+    <div class="row">
+        <div class="column-5">
+            <div class="portlet box">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-calendar"></i>@L("UsersResource")
+                    </div>
+                    <div class="actions">
+                        <a class="button-text small border radius" ng-click="vm.getUserStatistics()">
+                            <i class="icon-repeat"></i> @L("Reload")
+                        </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div id="userSourceChart" class="height-em30"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/echarts/echarts.js"></script>

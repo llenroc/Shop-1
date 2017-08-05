@@ -1,0 +1,10 @@
+﻿@using Infrastructure.Timing
+@{
+    SetAntiForgeryCookie();
+}
+<html lang="en">
+@Html.Partial("_Head")
+<body class="page" ng-app="app">
+	@RenderBody()
+</body>
+</html>

@@ -1,0 +1,104 @@
+﻿@using Microsoft.Owin.Security
+@using Infrastructure.Extensions
+@using Infrastructure.Web.Mvc.Extensions
+@model Application.WebSite.Models.Account.LoginFormViewModel
+@{
+    Layout = "~/Views/Shared/_BlankLayout.cshtml";
+}
+<div class="login-page height-full vertical-flex-box">
+    <div class="banner-box vertical-flex-inherit">
+        <img class="banner flex-adapter" src="~/Content/Images/loginbg.jpg">
+        <img class="avatar" src="~/Content/Images/avatar.jpg">
+    </div>
+    <h5 class="title">@L("Login")</h5>
+    <form class="form" action="@(Url.Action("Login", "Account"))?returnUrl=@(Model.ReturnUrl)" method="POST" novalidate>
+        <div class="row">
+            <div class="column-2"></div>
+            <div class="column-6">
+                @if (Model.IsMultiTenancyEnabled)
+				{
+					if (Model.TenancyName.IsNullOrEmpty())
+					{
+						<div class="input-wrapper" data-validate="true" data-maxlength="@Application.MultiTenancy.Tenant.MaxTenancyNameLength">
+							<input type="text" class="circle" placeholder="@L("TenancyName")" name="TenancyName">
+						</div>
+					}
+					else
+					{
+						<input type="hidden" name="tenancyName" value="@Model.TenancyName" />
+					}
+                }
+                <div class="input-wrapper" data-validate="true" data-required="true" data-remote="@(Url.Action("CheckUsername", "Account"))" data-maxlength="@Application.Authorization.Users.User.MaxEmailAddressLength">
+                    <input type="text" class="circle" name="UsernameOrEmailAddress" placeholder="@L("UserNameOrEmail")" value="@(Model.UserNameOrEmailAddress ?? "")">
+                </div>
+                <div class="input-wrapper margin-bottom-1" data-validate="true" data-required="true" data-minlength="6" data-maxlength="@Application.Authorization.Users.User.MaxPlainPasswordLength">
+                    <input type="password" class="circle" name="Password" placeholder="@L("Password")">
+                </div>
+                <input type="hidden" name="RememberMe" value="true">
+                <input type="hidden" name="returnUrlHash" />
+                <button type="submit" class="button-text radius block submit">@L("LogIn")</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-2">
+            </div>
+            <div class="column-6 text-right">
+                <a href="@Url.Action("ForgotPassword", "Account")">@L("ForgotPassword")</a>
+            </div>
+        </div>
+        @{
+            var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes().ToList();
+        }
+    </form>
+
+    @if (loginProviders.Count > 0)
+    {
+        <div class="row login-providers text-center">
+            <p>@L("OrLoginWith")</p>
+            @using (Html.BeginForm("ExternalLogin", "Account", method: FormMethod.Post))
+                {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+                    <input type="hidden" name="provider" value="" />
+                foreach (AuthenticationDescription provider in loginProviders)
+                {
+                    <a class="button-text" title="@provider.AuthenticationType" data-provider="@provider.AuthenticationType">
+                        <i class="icon-@(provider.AuthenticationType.ToLower())"></i> @provider.AuthenticationType
+                    </a>
+                }
+            }
+        </div>
+    }
+    @if (Model.IsSelfRegistrationEnabled)
+    {
+        <div class="button-group">
+            <a class="button-text large block button-secondary" href="@Url.Action("Register")">@L("Register")</a>
+            <a class="button-text large block button-secondary" href="@Url.Action("EmailActivation", "Account")">@L("EmailActivation")</a>
+        </div>
+    }
+</div>
+<script>
+    (function () {
+        $("form").formValidate({
+            onsubmit: function (event) {
+                var _this = this;
+                infrastructure.ajax({
+                    contentType: app.consts.contentTypes.formUrlencoded,
+                    url: _this.$element.attr('action'),
+                    data: _this.getData(),
+                    success: function (result) {
+                    },
+                    error: function () {
+                        _this.clearLoading();
+                    }
+                });
+            }
+        });
+        $(".login-providers a.button-text").on("click", function () {
+            var $a = $(this);
+            var $form = $a.closest('form');
+            $form.find('input[name=provider]').val($a.attr('data-provider'));
+            $form.submit();
+        });
+    })();
+</script>

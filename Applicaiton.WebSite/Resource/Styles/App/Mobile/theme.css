@@ -1,0 +1,31 @@
+﻿.gray-body{
+    background-color:#eee;
+}
+.tab>ul.tab-nav-list {
+    border-color:#eee;
+}
+.tab>ul.tab-nav-list>li a{
+    background-color:#fff;
+    font-size:12px;
+    padding:1rem 2rem;
+    font-weight:bold;
+}
+.tab>ul.tab-nav-list>li.actived>a{
+    background-color: #fff;
+    color:#DD2727;
+}
+
+.page-footer.mobile-page-footer{
+    background: transparent;
+}
+.page .page-footer.mobile-page-footer p .copyright{
+    color:#999;
+}
+.page .page-footer.mobile-page-footer p .about-us{
+    color:#999;
+}
+
+ul.pagination li.current a, ul.pagination li.current a:hover, ul.pagination li.current a:focus{
+    background-color: #DD2727 !important;
+    border-color: #DD2727;
+}

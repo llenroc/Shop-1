@@ -1,0 +1,14 @@
+﻿<div class="profile-view" ng-controller="app.manager.profile.index as vm">
+    <div class="avatar-box width-em15">
+        <img class="avatar circle" ng-src="{{vm.user.avatar}}"/>
+    </div>
+    <div class="profile-info-container clearfix">
+        <div class="pull-left spacing-container-3">
+            <h3 class="display-name">{{vm.user.fullName}}</h3>
+            <h5 class="identity-unique-name">{{vm.user.emailAddress}}</h5>
+        </div>
+        <div class="pull-right">
+            <a class="button-text" ui-sref="profile.edit">@L("EditProfile")</a>
+        </div>
+    </div>
+</div>

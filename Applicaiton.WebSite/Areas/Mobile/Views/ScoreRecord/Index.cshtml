@@ -1,0 +1,18 @@
+﻿<div ng-controller="app.mobile.scoreRecord.index as vm" ng-cloak class="ng-cloak">
+    <div class="blank" ng-if="vm.isLoaded&&(!vm.scoreRecords||!vm.scoreRecords.length)">@L("ThereIsNoItem")</div>
+	<ul class="wallet-record-list" id="scoreRecordList">
+		<li ng-repeat="scoreRecord in vm.scoreRecords">
+			<div class="main-info">
+				<label class="remark">{{scoreRecord.remark}}</label>
+				<label class="money" ng-class="{'in':scoreRecord.score>0,'out':scoreRecord.score<0}">
+					<span ng-if="scoreRecord.score>0">+</span>
+					{{scoreRecord.score}}
+				</label>
+			</div>
+			<div class="minor-info">
+				<label class="datetime">{{scoreRecord.creationTime| momentFormat:'YYYY-MM-DD HH:mm:ss'}}</label>
+				<label class="type">{{scoreRecord.typeText}}</label>
+			</div>
+		</li>
+	</ul>
+</div>

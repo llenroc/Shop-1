@@ -1,0 +1,43 @@
+﻿<div ng-controller="app.manager.memberCardPackage.edit as vm">
+    <form name="memberCardPackageEditForm" novalidate>
+        <input type="hidden" name="id" value="{{vm.memberCardPackage.id}}"/>
+        <div class="form-group">
+            <label class="form-group-key">@L("Title")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper">
+                    <input type="text" name="title" ng-model="vm.memberCardPackage.title" required ng-minlength="5">
+                </div>
+                <p class="validate-message error" ng-show="memberCardPackageEditForm.title.$error.required">@L("TitleIsRequired")</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Expiry")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper">
+                    <input type="text" name="expiry" ng-model="vm.memberCardPackage.expiry" required>
+                </div>
+                <p class="validate-message error" ng-show="memberCardPackageCreateForm.expiry.$error.required">@L("ExpiryIsRequired")</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Price")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper">
+                    <input type="text" name="price" ng-model="vm.memberCardPackage.price" required>
+                </div>
+                <p class="validate-message error" ng-show="memberCardPackageCreateForm.price.$error.required">@L("PriceIsRequired")</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("MemberLevel")</label>
+            <div class="form-group-block">
+                <input type="hidden" name="memberLevelId" value="{{vm.memberCardPackage.memberLevelId}}" />
+                <select required ng-model="vm.memberCardPackage.memberLevelId" ng-options="memberLevel.id as memberLevel.displayName for memberLevel in vm.memberLevels">
+                    <option value="">-- please select --</option>
+                </select>
+                <p class="validate-message error" ng-show="movieCreateForm.memberLevelId.$error.required">@L("MemberLevelIsRequired")</p>
+            </div>
+        </div>
+        <button type="submit" ng-disabled="memberCardPackageEditForm.$invalid" class="button-text primary block" ng-click="vm.update()">@L("Save")</button>
+    </form>
+</div>

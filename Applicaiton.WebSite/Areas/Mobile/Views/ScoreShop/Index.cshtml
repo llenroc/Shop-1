@@ -1,0 +1,16 @@
+﻿<div class="ng-cloak padding-1" ng-controller="app.mobile.scoreShop.index as vm" ng-cloak>
+    <div class="blank" ng-if="!vm.products||!vm.products.length">@L("ThereIsNoItem")</div>
+    <ul id="productsList" class="thumbnails-list span-2 product-list ">
+        <li ng-repeat="product in vm.products">
+            <a class="thumbnail" href="/Mobile/ScoreShop/Exchange?productId={{product.id}}">
+                <img class="thumbnail-picture" lazy-src="{{product.picture}}">
+                <div class="thumbnail-block">
+                    <h5 class="thumbnail-title">{{product.name}}</h5>
+                    <div class="property-block">
+                        <label class="price">{{product.exchangeScore}}</label>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

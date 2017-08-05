@@ -1,0 +1,19 @@
+﻿@using Infrastructure.Application.DTO
+@using Application.Members.MemberCardPackages.Dto
+@model ListResultDto<MemberCardPackageDto>
+<link href="~/Content/App/Mobile/MemberCardPackage/index.css" rel="stylesheet"/>
+<script src="~/Script/App/Mobile/MemberCardpackage/index.js"></script>
+<div class="container ng-cloak" ng-controller="app.mobile.memberCardPackage.index as vm" ng-cloak>
+    <div ng-if="vm.memberCardPackages.length">
+        <ul class="card-list">
+            <li ng-click="vm.select(memberCardPackage)" ng-repeat="memberCardPackage in vm.memberCardPackages" ng-class="{'selected':vm.selectedMemberCardPackage==memberCardPackage}">
+                <h5 class="title">{{memberCardPackage.title}}</h5>
+                <label class="price">{{memberCardPackage.price}}</label>
+            </li>
+        </ul>
+        <button class="button-text success block" ng-click="vm.submit()"@L("Submit")></button>
+    </div>
+    <div class="blank" ng-if="!vm.memberCardPackages.length">
+        There has no availble memberCardPackage
+    </div>
+</div>

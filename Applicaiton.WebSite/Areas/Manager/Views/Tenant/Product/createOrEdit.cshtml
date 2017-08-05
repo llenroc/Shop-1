@@ -1,0 +1,489 @@
+<div ng-controller="app.manager.product.createOrEdit as vm">
+    <form name="productCreateForm" class="form-horizontal" novalidate ng-if="vm.product">
+        <div class="tab" data-ride="tab">
+            <ul class="tab-nav-list">
+                <li class="actived">
+                    <a>@L("BaseInfo")</a>
+                </li>
+                <li>
+                    <a>@L("SpecificationPropertys")</a>
+                </li>
+                <li>
+                    <a>@L("Specifications")</a>
+                </li>
+                <li>
+                    <a>@L("Others")</a>
+                </li>
+                <li>
+                    <a>@L("Detail")</a>
+                </li>
+                <li>
+                    <a>@L("Share")</a>
+                </li>
+                <li>
+                    <a>@L("Distribution")</a>
+                </li>
+                <li>
+                    <a>@L("ChannelAgentProductDistribution")</a>
+                </li>
+            </ul>
+            <div class="tab-box">
+                <div class="tab-page show">
+                    <div>
+                        <div class="form-group">
+                            <label class="form-group-key column-1">@L("Name")</label>
+                            <div class="form-group-block column-9">
+                                <div class="input-wrapper line">
+                                    <input type="text" name="name" ng-model="vm.product.name" placeholder="@L("PleaseInputProductName")" required>
+                                    <p class="validate-message error" ng-show="productCreateForm.name.$error.required">@L("NameIsRequired")</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group-key column-1">@L("ProductCategory")</label>
+                            <div class="form-group-block column-9">
+                                <select required name="productCategory" 
+                                        ng-model="vm.product.productCategoryId" 
+                                        ng-options="productCategory.id as productCategory.name for productCategory in vm.productCategorys">
+                                    <option value="">-- @L("PleaseSelect") --</option>
+                                </select>
+                                <p class="validate-message error" ng-show="productCreateForm.productCategory.$error.required">@L("ProductCategoryIsRequired")</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group-key column-1">@L("FreightTemplate")</label>
+                            <div class="form-group-block column-9">
+                                <select name="freightTemplate" ng-model="vm.product.freightTemplateId" ng-options="freightTemplate.id as freightTemplate.name for freightTemplate in vm.freightTemplates">
+                                    <option value="">-- @L("PleaseSelect") --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group-key column-1">@L("Template")</label>
+                            <div class="form-group-block column-9">
+                                <select required name="template" ng-model="vm.product.templateId" ng-options="template.value as template.name for template in vm.templates">
+                                    <option value="">-- @L("PleaseSelect") --</option>
+                                </select>
+                                <p class="validate-message error" ng-show="productCreateForm.template.$error.required">@L("TemplateIsRequired")</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group-key column-1">@L("Status")</label>
+                            <div class="form-group-block column-9">
+                                <div class="switcher">
+                                    <label>
+                                        <input type="radio" name="status" ng-value="1" ng-model="vm.product.status" required />
+                                        <span>@L("On")</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="status" ng-value="0" ng-model="vm.product.status" required />
+                                        <span>@L("Off")</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group-key column-1">@L("Show")</label>
+                            <div class="form-group-block column-9">
+                                <div class="switcher">
+                                    <label>
+                                        <input type="radio" name="show" ng-value="1" ng-model="vm.product.show" required />
+                                        <span>@L("On")</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="show" ng-value="0" ng-model="vm.product.show" required />
+                                        <span>@L("Off")</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group-key column-1">@L("EnableAgentOrder")</label>
+                            <div class="form-group-block column-9">
+                                <div class="switcher">
+                                    <label>
+                                        <input type="radio" name="enableAgentOrder" ng-value="1" ng-model="vm.product.enableAgentOrder" required />
+                                        <span>@L("On")</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="enableAgentOrder" ng-value="0" ng-model="vm.product.enableAgentOrder" required />
+                                        <span>@L("Off")</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group-key column-1">@L("ProductType")</label>
+                            <div class="form-group-block column-9">
+                                <div class="switcher">
+                                    <label>
+                                        <input type="radio" name="productType" ng-value="0" ng-model="vm.product.type" required />
+                                        <span>@L("Physical")</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="productType" ng-value="1" ng-model="vm.product.type" required />
+                                        <span>@L("Virtual")</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="vm.product.type==1">
+                            <div class="form-group">
+                                <label class="form-group-key column-1">@L("VirtualProductType")</label>
+                                <div class="form-group-block column-9">
+                                    <select ng-model="vm.product.virtualProductType" ng-options="virtualProductType.value as virtualProductType.name for virtualProductType in vm.virtualProductTypes">
+                                        <option value="">-- @L("PleaseSelect") --</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="vm.product.type==1&&vm.product.virtualProductType==0">
+                            <div class="form-group">
+                                <label class="form-group-key column-1">@L("VirtualCardName")</label>
+                                <div class="form-group-block column-9">
+                                    <div class="input-wrapper line">
+                                        <input type="text" ng-model="vm.product.cardName">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="form-group-key column-1">@L("Score")</label>
+                                <div class="form-group-block column-9">
+                                    <div class="input-wrapper line">
+                                        <input type="text" ng-model="vm.product.score">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="form-group-key column-1">@L("ExchangeScore")</label>
+                                <div class="form-group-block column-9">
+                                    <div class="input-wrapper line">
+                                        <input type="text" ng-model="vm.product.exchangeScore">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group-key column-1">@L("IsRedirectExternal")</label>
+                            <div class="form-group-block column-9">
+                                <div class="switcher">
+                                    <label>
+                                        <input type="radio" name="isRedirectExternal" ng-value="true" ng-model="vm.product.isRedirectExternal" required />
+                                        <span>@L("Yes")</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="isRedirectExternal" ng-value="false" ng-model="vm.product.isRedirectExternal" required />
+                                        <span>@L("No")</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="vm.product.isRedirectExternal">
+                            <div class="form-group">
+                                <label class="form-group-key column-1">@L("ExternalLink")</label>
+                                <div class="form-group-block column-9">
+                                    <div class="input-wrapper line">
+                                        <input type="url" ng-model="vm.product.externalLink">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group-key column-1">@L("MasterQrcode")</label>
+                            <div class="form-group-block column-9">
+                                <div class="input-wrapper line">
+                                    <input type="hidden" name="masterQrcode" ng-model="vm.product.masterQrcode">
+                                    <p class="static-text" ng-click="vm.openMediaIdOfImageSelector()">{{vm.product.masterQrcode}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-page hide">
+                    <ul class="removable-label-list">
+                        <li ng-repeat="specificationProperty in vm.product.specificationPropertys">
+                            <label>{{specificationProperty.name}}</label>
+                            <button class="button-icon border circle danger" ng-click="vm.removeSpecificationProperty($index)">
+                                <i class="icon-remove"></i>
+                            </button>
+                        </li>
+                    </ul>
+                    <select ng-model="vm.selectedSpecificationProperty" ng-options="specificationProperty as specificationProperty.name for specificationProperty in vm.specificationPropertys">
+                        <option value="">-- @L("PleaseSelect") --</option>
+                    </select>
+                    <button class="button-text" ng-click="vm.addSpecificationProperty(vm.selectedSpecificationProperty)">@L("AddSpecificationProperty")</button>
+                </div>
+                <div class="tab-page hide">
+                    <div class="form-horizontal">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>@L("Properties")</th>
+                                    <th>@L("Picture")</th>
+                                    <th>@L("Stock")</th>
+                                    <th>@L("Sale")</th>
+                                    <th>@L("Price")</th>
+                                    <th ng-if="vm.product.type==1&&vm.product.virtualProductType==0">@L("VirtualCardValue")</th>
+                                    <th>@L("NumberAndBarcode")</th>
+                                    <th>@L("Actions")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="specification in vm.specifications">
+                                    <td>
+                                        <div class="input-wrapper" ng-repeat="propertyValue in specification.propertyValues">
+                                            <input type="text" ng-model="propertyValue.value" required placeholder="{{propertyValue.specificationProperty.name}}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="picture-uploader" 
+                                             picture-uploader path="specification.picture" 
+                                             data-option-url="/Manager/Home/Upload?ratio=1&maxFileSize=512000" 
+                                             data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                                            <img height="64" ng-src="{{specification.picture}}" />
+                                            <input type="file" />
+                                            <input type="hidden" name="specification[picture]" ng-model="specification.picture" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-wrapper line">
+                                            <input type="text" name="specification[stock]" ng-model="specification.stock" required>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-wrapper line">
+                                            <input type="text" name="specification[sale]" ng-model="specification.sale">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-wrapper line">
+                                            <input type="text" name="specification[price]" ng-model="specification.price" required>
+                                        </div>
+                                    </td>
+                                    <td ng-if="vm.product.type==1&&vm.product.virtualProductType==0">
+                                        <div class="input-wrapper line">
+                                            <input type="text" name="price" ng-model="specification.cardValue" required>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-wrapper line">
+                                            <input type="text" name="specification[number]" ng-model="specification.number" placeholder="@L("Number")">
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <input type="text" name="specification[barcode]" ng-model="specification.barcode" placeholder="@L("Barcode")">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button class="button-text block" ng-click="vm.removeSpecification($index)">@L("Remove")</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="button-text block" ng-click="vm.addSpecification()">@L("AddSpecification")</button>
+                    </div>
+                </div>
+                <div class="tab-page hide">
+                    <h3>@L("CustomCustomerInfos")</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>@L("Name")</th>
+                                <th>@L("Required")</th>
+                                <th>@L("Type")</th>
+                                <th>@L("Actions")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="customCustomerInfo in vm.customCustomerInfos">
+                                <td>
+                                    <input type="text" ng-model="customCustomerInfo.name" required />
+                                </td>
+                                <td>
+                                    <div class="switcher">
+                                        <label>
+                                            <input type="radio" name="required" ng-value="1" ng-model="customCustomerInfo.required" required />
+                                            <span>@L("Yes")</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="required" ng-value="0" ng-model="customCustomerInfo.required" required />
+                                            <span>@L("No")</span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <select class="block" ng-model="customCustomerInfo.type" ng-options="type.value as type.name for type in vm.customCustomerInfoTypes"></select>
+                                </td>
+                                <td>
+                                    <button class="button-text" ng-click="vm.removeCustomCustomerInfo($index)">@L("Remove")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="button-text block" ng-click="vm.addCustomCustomerInfo()">@L("AddCustomCustomerInfo")</button>
+                    <br />
+                    <h3>@L("Properties")</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>@L("Name")</th>
+                                <th>@L("Value")</th>
+                                <th>@L("Actions")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="property in vm.properties">
+                                <td>
+                                    <input type="text" name="property[name]" ng-model="property.name" required />
+                                </td>
+                                <td>
+                                    <input type="text" name="property[value]" ng-model="property.value" required />
+                                </td>
+                                <td>
+                                    <button class="button-text" ng-click="vm.removeProperty($index)">@L("Remove")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="button-text block" ng-click="vm.addProperty()">@L("AddProperty")</button>
+
+                    <h3>@L("ProductUnits")</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>@L("Name")</th>
+                                <th>@L("Ratio")</th>
+                                <th>@L("Actions")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="productUnit in vm.productUnits">
+                                <td>
+                                    <input type="text" name="productUnit[name]" ng-model="productUnit.name" required />
+                                </td>
+                                <td>
+                                    <input type="text" name="productUnit[ratio]" ng-model="productUnit.ratio" required />
+                                </td>
+                                <td>
+                                    <button class="button-text" ng-click="vm.removeProductUnit($index)">@L("Remove")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="button-text block" ng-click="vm.addProductUnit()">@L("AddProductUnit")</button>
+                </div>
+                <div class="tab-page hide">
+                    <div class="content-editor" rich-text-editor content="vm.product.content" id="content"></div>
+                </div>
+                <div class="tab-page hide">
+                    <div class="form-group">
+                        <label class="form-group-key column-1">@L("ShareTitle")</label>
+                        <div class="form-group-block column-9">
+                            <div class="input-wrapper line">
+                                <input type="text" name="stock" ng-model="vm.product.shareTitle">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key column-1">@L("ShareDescription")</label>
+                        <div class="form-group-block column-9">
+                            <div class="input-wrapper line">
+                                <input type="text" name="price" ng-model="vm.product.shareDescription">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key column-1">@L("SharePicture")</label>
+                        <div class="form-group-block column-9">
+                            <div class="picture-uploader" picture-uploader path="vm.product.sharePicture" data-option-url="/Manager/Home/Upload" data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                                <img height="128" ng-src="{{vm.product.sharePicture}}" />
+                                <input type="file" />
+                                <input type="hidden" name="SharePicture" ng-model="vm.product.sharePicture" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-page hide">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>@L("Level")</th>
+                                <th>@L("Money")</th>
+                                <th>@L("Ratio")</th>
+                                <th>@L("BuyWhen")</th>
+                                <th>@L("Actions")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="distribution in vm.distributions">
+                                <td>
+                                    <input type="text" name="distribution[level]" ng-model="distribution.level" />
+                                </td>
+                                <td>
+                                    <input type="text" name="distribution[money]" ng-model="distribution.money" />
+                                </td>
+                                <td>
+                                    <input type="text" name="distribution[ratio]" ng-model="distribution.ratio" />
+                                </td>
+                                <td>
+                                    <select class="block" name="distribution[buyWhen]" ng-model="distribution.buyWhen" ng-options="buyWhen.value as buyWhen.name for buyWhen in vm.buyWhens"></select>
+                                </td>
+                                <td>
+                                    <button class="button-text" ng-click="vm.removeDistribution($index)">@L("Remove")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="button-text block" ng-click="vm.addDistribution()">@L("AddDistribution")</button>
+                </div>
+                <div class="tab-page hide">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>@L("Level")</th>
+                                <th>@L("Money")</th>
+                                <th>@L("Ratio")</th>
+                                <th>@L("MinChannelAgentLevel")</th>
+                                <th>@L("MaxChannelAgentLevel")</th>
+                                <th>@L("Actions")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="distribution in vm.channelAgentProductDistributions">
+                                <td>
+                                    <input type="text" name="distribution[level]" ng-model="distribution.level" />
+                                </td>
+                                <td>
+                                    <input type="text" name="distribution[money]" ng-model="distribution.money" />
+                                </td>
+                                <td>
+                                    <input type="text" name="distribution[ratio]" ng-model="distribution.ratio" />
+                                </td>
+                                <td>
+                                    <select name="distribution[minChannelAgentLevel]" ng-model="distribution.minChannelAgentLevel" ng-options="channelAgent.level as channelAgent.name for channelAgent in vm.channelAgents">
+                                        <option value="">-- @L("PleaseSelect") --</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="distribution[maxChannelAgentLevel]" ng-model="distribution.maxChannelAgentLevel" ng-options="channelAgent.level as channelAgent.name for channelAgent in vm.channelAgents">
+                                        <option value="">-- @L("PleaseSelect") --</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="button-text" ng-click="vm.removeChannelAgentProductDistribution($index)">@L("Remove")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="button-text block" ng-click="vm.addChannelAgentProductDistribution()">@L("AddChannelAgentProductDistribution")</button>
+                </div>
+                <button class="button-text primary block" ng-click="vm.createOrEdit()" ng-disabled="productCreateForm.$invalid">
+                    <i class="icon-save"></i>@L("Save")
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

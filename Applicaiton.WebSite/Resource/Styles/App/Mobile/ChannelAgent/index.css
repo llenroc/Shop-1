@@ -1,0 +1,232 @@
+﻿.channel-agent-list{
+    padding-left: 0;
+    list-style-type: none;
+    margin-top: 20px;
+}
+.channel-agent-list>li{
+    margin-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom:1px solid #eee;
+    background: url(/Content/Images/channel-agent-item-bg.jpg);
+    background-size: 100% 100%;
+    box-shadow: 1px 1px 3px #ddd;
+}
+.channel-agent-header{
+    display:-webkit-box;
+    -webkit-box-align:center;
+    background: url(/Content/Images/channel-agent-item-ribbon.png);
+    background-size: 100% 100%;
+    position: relative;
+    top:-20px;
+}
+.channel-agent-header .channel-agent-name{
+    -webkit-box-flex: 1;
+    height: 48px;
+    line-height: 48px;
+    display: block;
+    margin: 0;
+    text-align: center;
+    color:#fff;
+}
+.channel-agent-header .channel-agent-name label{
+    color: #fff;
+    font-size: 12px;
+    padding: 0;
+    height:48px;
+    line-height: 64px;
+    text-align: center;
+}
+.channel-agent-header .channel-agent-name small{
+    color:#fff;
+}
+.channel-agent-wrapper{
+    display: -webkit-box;
+    -webkit-box-align: center;
+    margin-top: -5px;
+}
+.channel-agent-box{
+    position: relative;
+    display:-webkit-box;
+    -webkit-box-orient:horizontal;
+}
+.channel-agent-box>.channel-agent-base-info{
+    text-align: center;
+    position: relative;
+    width: 40%;
+    padding: 20px 0;
+}
+.channel-agent-base-info:before{
+    content:"";
+    position: absolute;
+    width: 1px;
+    height: 20%;
+    border-right: 1px dashed #333;
+    right: 0;
+    top: 70%;
+    border-top-left-radius: 2px;
+}
+.channel-agent-base-info:after{
+    content:"";
+    position: absolute;
+    width: 1px;
+    height: 60%;
+    background: #333;
+    right: 0;
+    top: 10%;
+    border-top-left-radius: 2px;
+}
+.channel-agent-logo-box{
+    margin-bottom:1rem;
+}
+.channel-agent-logo-box img{
+    width: 64px;
+    height:64px;
+    border-radius:50%;
+}
+.channel-agent-name-box{
+    margin-bottom: 10px;
+}
+.channel-agent-base-info .name{
+    display: inline-block;
+    font-size:12px;
+    border:1px solid #333;
+    border-radius: 20px;
+    color:#333;
+    padding: 3px 12px;
+    font-weight:normal;
+    line-height: 1;
+}
+.channel-agent-base-info .channel-agent-money-box{
+    margin-bottom:1rem;
+}
+.channel-agent-base-info .channel-agent-money-label{
+    background: #333;
+    color:#fff;
+    line-height: 1;
+    border-radius: 20px;
+    padding: 3px 12px;
+}
+.channel-agent-base-info .money{
+    color:#333;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+.channel-agent-base-info .money small{
+    color:#333;
+}
+.channel-agent-base-info .channel-agent-nickname{
+    font-weight: normal;
+    color:#333;
+    display: block;
+    margin-bottom:1rem;
+    font-size:12px;
+}
+.channel-agent-base-info .channel-agent-ad-word{
+    font-size:12px;
+    color:#666;
+    display: inline-block;
+    position: relative;
+    margin: 3px;
+}
+.channel-agent-base-info .channel-agent-ad-word:before{
+    content:"";
+    display: block;
+    position: absolute;
+    left: -30px;
+    width: 28px;
+    top:50%;
+    height: 1px;
+    background: #999;
+    margin-top: -0.5px;
+}
+.channel-agent-base-info .channel-agent-ad-word:after{
+    content:"";
+    display: block;
+    position: absolute;
+    right: -32px;
+    width: 28px;
+    top:50%;
+    height: 1px;
+    background: #999;
+    margin-top: -0.5px;
+}
+.channel-agent-box>.channel-agent-info{
+    -webkit-box-flex:1;
+    padding: 1rem 1.5rem;
+}
+.channel-agent-box > .channel-agent-info ul{
+    list-style-type:none;
+}
+.channel-agent-box .product{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0 10px;
+    color:#333;
+    font-size: 12px;
+    display: -webkit-box;
+    -webkit-box-align: center;
+}
+.channel-agent-box .product .line{
+    margin:0 6px;
+    display: block;
+    -webkit-box-flex: 1;
+    height: 1px;
+    background-color: rgba(206, 202, 202, 0.55);
+}
+.channel-agent-box>.channel-agent-info dl dt{
+    font-weight:normal;
+    margin-bottom:10px;
+}
+.channel-agent-box>.channel-agent-info dl ul{
+    font-size:12px;
+}
+.channel-agent-info .horizional-info-list{
+    display: -webkit-box;
+    padding-left:0;
+    list-style-type:none;
+}
+
+.horizional-info-list .info-item .info-body .price{
+    font-size:12px;
+}
+.horizional-info-list .info-item .info-body .rebate-ratio{
+    font-size: 18px;
+    color: #333;
+    padding: 0 3px;
+    border-radius: 4px;
+}
+.horizional-info-list .info-icon{
+    color: #333;
+    text-align: center;
+}
+
+.channel-agent-footer{
+    padding:6px;
+    text-align: right;
+}
+.btn-right-block{
+    display: block;
+}
+.apply-price{
+    font-size: 16px;
+    font-weight: bold;
+    color: #e4393c;
+}
+.channel-agent-box{
+    position: relative;
+    -webkit-box-flex: 1;
+}
+.channel-agent-distribution-list{
+    list-style-type: none;
+    padding-left: 0;
+}
+.channel-agent-distribution-list>li .level{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    line-height: 16px;
+    color: #333;
+    text-align: center;
+    font-style: italic;
+}

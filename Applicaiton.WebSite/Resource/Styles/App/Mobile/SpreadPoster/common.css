@@ -1,0 +1,24 @@
+﻿.spread-poster{
+    position:relative;
+}
+.spread-poster img{
+    width:100%;
+}
+.spread-poster .button-recreate{
+    position:absolute;
+    right:6px;
+    top:6px;
+}
+
+.spread-poster-list {
+	list-style-type:none;
+	padding:1rem;
+}
+.spread-poster-list > li {
+	display:inline-block;
+	width: calc( 50% - 0.5rem );
+	margin-bottom:1rem;
+}
+.spread-poster-list > li:nth-child(2n) {
+	margin-left:1rem;
+}

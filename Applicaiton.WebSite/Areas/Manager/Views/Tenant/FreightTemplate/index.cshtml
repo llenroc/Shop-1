@@ -1,0 +1,36 @@
+<div ng-controller="app.manager.freightTemplate.index as vm">
+    <div class="view-page-head margin-bottom-5">
+        <h1 class="view-page-title">
+            <span>@L("FreightTemplates")</span> <small>@L("FreightTemplatesHeaderInfo")</small>
+        </h1>
+        <a class="button-text primary" ui-sref="freightTemplate.createOrEdit"><i class="icon-plus"></i> @L("CreateFreightTemplate")</a>
+    </div>
+    <div class="portlet light">
+        <div class="responsive-table-container">
+            <table class="table table-bordered table-striped table-hover" id="freightTemplateTable">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="freightTemplate in vm.freightTemplates">
+                        <td>{{freightTemplate.name}}</td>
+                        <td>{{freightTemplate.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <div class="dropdown-wripper dropdown-menu">
+                                <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                                <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                    <li><a ui-sref="freightTemplate.createOrEdit({id:freightTemplate.id})">@L("Edit")</a></li>
+                                    <li><a ng-click="vm.delete(freightTemplate)">@L("Delete")</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

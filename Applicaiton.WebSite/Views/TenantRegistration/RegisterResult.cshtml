@@ -1,0 +1,24 @@
+﻿@model Application.Web.Models.TenantRegistration.TenantRegisterResultViewModel
+<div class="container-responsive padding-1">
+    <h4>@L("SuccessfullyRegistered").</h4>
+    <ul class="numeric-list square-marker">
+        <li><span class="text-muted">@L("TenancyName"):</span> @Model.TenancyName</li>
+        <li><span class="text-muted">@L("Name"):</span> @Model.Name</li>
+        <li><span class="text-muted">@L("UserName"):</span> @Model.UserName</li>
+        <li><span class="text-muted">@L("EmailAddress"):</span> @Model.EmailAddress</li>
+    </ul>
+    <div>
+        @if (Model.IsEmailConfirmationRequired)
+            {
+            <div class="alert alert-warning">
+                @L("ConfirmationMailSentPleaseClickLinkInTheEmail", Model.EmailAddress)
+            </div>
+        }
+        @if (!Model.IsActive)
+            {
+            <div class="alert alert-warning">
+                @L("YourAccountIsWaitingToBeActivatedByAdmin")
+            </div>
+        }
+    </div>
+</div>

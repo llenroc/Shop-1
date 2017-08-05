@@ -1,0 +1,40 @@
+﻿<div ng-controller="app.mobile.areaAgent.index as vm" ng-cloak class="ng-cloak">
+    <div ng-if="vm.hasLoaded">
+        <div class="blank" ng-if="!vm.areaAgents||!vm.areaAgents.length">@L("ThereIsNoItem")</div>
+        <ul class="area-agent-list" ng-if="vm.areaAgents&&vm.areaAgents.length">
+            <li ng-repeat="areaAgent in vm.areaAgents">
+                <div class="area-agent-header">
+                    <h5 class="area-agent-name"><label class="area-agent-label">{{areaAgent.name}}</label></h5>
+                </div>
+                <div class="channel-agent-info">
+                    <ul class="horizional-info-list">
+                        <li class="info-item text-left">
+                            <label class="info-key"><span class="info-icon icon-money"></span> @L("RebateRatio")</label>
+                            <div class="info-body">
+                                {{areaAgent.rebateRatio|toPercent}}
+                            </div>
+                            <label class="info-key"><span class="info-icon icon-money"></span> @L("IndirectRebateRatio")</label>
+                            <div class="info-body">
+                                {{areaAgent.indirectRebateRatio|toPercent}}
+                            </div>
+                        </li>
+                        <li class="info-item text-left">
+                            <label class="info-key"><span class="info-icon icon-money"></span> @L("NormalAddressPrice")</label>
+                            <div class="info-body">
+                                <label class="price"><span class="apply-price"><small>￥</small>{{areaAgent.normalAddressRatio*areaAgent.price}}</span></label>
+                            </div>
+                            <label class="info-key"><span class="info-icon icon-money"></span> @L("DevelopedAddressPrice")</label>
+                            <div class="info-body">
+                                <label class="price"><span class="apply-price"><small>￥</small>{{areaAgent.price}}</span></label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="area-agent-footer">
+                    <a class="button-text border radius button-area-agency-home" ng-if="vm.hasAreaAgent(areaAgent)" ng-click="vm.view(areaAgent)">@L("AreaAgencyHome")</a>
+                    <a class="button-text border radius button-apply" ng-click="vm.apply(areaAgent)">@L("Apply")</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

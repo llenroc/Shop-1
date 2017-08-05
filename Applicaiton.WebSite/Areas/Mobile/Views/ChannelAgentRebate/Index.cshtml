@@ -1,0 +1,33 @@
+﻿<div ng-controller="app.mobile.channelAgentRebate.index as vm" ng-cloak class="ng-cloak">
+    <div class="blank" ng-if="!vm.channelAgentRebates||!vm.channelAgentRebates.length">@L("ThereIsNoItem")</div>
+	<ul class="rebate-list" id="channelAgentRebateList">
+		<li ng-repeat="channelAgentRebate in vm.channelAgentRebates">
+            <div class="profileItem">
+                <div class="profileItemAvatarBox">
+                    <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{channelAgentRebate.order.user.avatar}}">
+                </div>
+                <div class="profileItemBody">
+                    <h6 class="profileItemName thin">{{channelAgentRebate.order.user.nickName}}</h6>
+                </div>
+            </div>
+            <ul class="well-info-list">
+                <li>
+                    <label class="key">@L("ChannelAgentRebateMoney")</label>
+                    <label class="value money" ng-bind="channelAgentRebate.money"></label>
+                </li>
+                <li>
+                    <label class="key">@L("PayMoney")</label>
+                    <label class="value money" ng-bind="channelAgentRebate.order.payMoney"></label>
+                </li>
+                <li>
+                    <label class="key">@L("OrderTitle")</label>
+                    <label class="value" ng-bind="channelAgentRebate.order.title"></label>
+                </li>
+                <li>
+                    <label class="key">@L("CreationTime")</label>
+                    <label class="value" ng-bind="channelAgentRebate.creationTime| momentFormat:'YYYY-MM-DD HH:mm:ss"></label>
+                </li>
+            </ul>
+		</li>
+	</ul>
+</div>

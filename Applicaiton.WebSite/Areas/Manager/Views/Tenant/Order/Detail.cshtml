@@ -1,0 +1,49 @@
+﻿<div ng-controller="app.manager.order.detail as vm">
+    <h3>{{vm.order.title}}</h3>
+
+    <div class="tab" data-ride="tab">
+        <ul class="tab-nav-list">
+            <li class="actived">
+                <a>@L("BaseInfo")</a>
+            </li>
+            <li>
+                <a>@L("Logistic")</a>
+            </li>
+        </ul>
+        <div class="tab-box" data-ride="tab">
+            <div class="tab-page show">
+                <dl class="dl-horizontal">
+                    <dt>@L("FullName")</dt>
+                    <dd>{{vm.order.orderCustomerInfo.fullName}}</dd>
+                    <dt>@L("PhoneNumber")</dt>
+                    <dd>{{vm.order.orderCustomerInfo.phoneNumber}}</dd>
+                    <dt>@L("Address")</dt>
+                    <dd>{{vm.order.orderCustomerInfo.fullAddress}}</dd>
+                </dl>
+                <button class="button-text" ng-click="vm.changeCustomerInfo(vm.order)">@L("ChangeCustomerInfo")</button>
+                <table class="table table-bordered margin-top-1" ng-if="vm.order.orderItems&&vm.order.orderItems.length">
+                    <thead>
+                        <tr>
+                            <th>@L("Picture")</th>
+                            <th>@L("Name")</th>
+                            <th>@L("Count")</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="orderItem in vm.order.orderItems">
+                        <td><img width="32" ng-src="{{orderItem.specification.picture}}" /></td>
+                        <td>{{orderItem.specification.name}}</td>
+                        <td>{{orderItem.count}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab-page hide">
+                <dl class="dl-horizontal" ng-if="vm.isNeedLogistics&&vm.shipStatus">
+                    <dt>@L("ExpressCompanyName")</dt>
+                    <dd>{{vm.order.expressCompanyName}}</dd>
+                    <dt>@L("TrackingNumber")</dt>
+                    <dd>{{vm.order.trackingNumber}}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

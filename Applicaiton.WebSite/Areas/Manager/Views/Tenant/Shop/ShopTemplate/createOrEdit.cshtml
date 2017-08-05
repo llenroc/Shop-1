@@ -1,0 +1,180 @@
+<div ng-controller="app.manager.shopTemplate.createOrEdit as vm">
+    <link href="~/Resource/Styles/App/Mobile/Home/index.css" rel="stylesheet" type="text/css"/>
+    <form name="shopTemplateCreateForm" novalidate>
+        <div class="form-group">
+            <label class="form-group-key">@L("Name")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="name" ng-model="vm.shopTemplate.name" required>
+                </div>
+                <p class="validate-message error" ng-show="shopTemplateCreateForm.name.$error.required">@L("NameIsRequired")</p>
+            </div>
+        </div>
+        <div class="horizional-flex-box app-design margin-bottom-1">
+            <div class="width-em35 padding-1">
+                <div class="app-preview">
+                    <div class="app-header"></div>
+                    <div class="app-entry">
+                        <div class="control-preview">
+                            <ul class="control-preview-list" sv-root sv-part="vm.controls">
+                                <li sv-element ng-repeat="control in vm.controls" ng-click="vm.selectControl(control)" ng-class="{'actived':control.selected,'margin-bottom-1':control.marginBottom}">
+                                    <div class="actions">
+                                        <button class="button-icon border circle icon-reorder control-sort-hanlder" sv-handle></button>
+                                        <div class="toolbar">
+                                            <button class="button-text smaller" ng-click="vm.removeControl($index)">@L("Remove")</button>
+                                            <button class="button-text smaller" ng-click="vm.selectControlOption(control)">@L("Add")</button>
+                                        </div>
+                                    </div>
+                                    <ng-include src="vm.getTemplateUrl(control)"></ng-include>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="control-selector" ng-if="vm.preControl">
+                            <ul class="control-list">
+                                <li ng-repeat="control in vm.controleOptions">
+                                    <label ng-click="vm.addControl(control)">{{control.title}}</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="button-text block" ng-click="vm.selectControlOption(vm.globalControl)">@L("AddControl")</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-adapter padding-1">
+                <div ng-if="vm.selectedControl">
+
+                    <div class="form-group">
+                        <label class="form-group-key">@L("MarginBottom")</label>
+                        <div class="form-group-block">
+                            <div class="switcher">
+                                <label><input type="radio" name="marginBottom" ng-value="true" ng-model="vm.selectedControl.marginBottom"/><span>@L("Yes")</span></label>
+                                <label><input type="radio" name="marginBottom" ng-value="false" ng-model="vm.selectedControl.marginBottom"/><span>@L("No")</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-if="vm.selectedControl.name=='RichTextControl'">
+                        <div class="content" rich-text-editor content="vm.selectedControl.content"></div>
+                    </div>
+                    <div ng-if="vm.selectedControl.name=='PictureAdControl'">
+                        <img width="128" ng-src="{{vm.selectedControl.path}}" file-selector file-type="picture" path="vm.selectedControl.path" />
+                    </div>
+                    <div ng-if="vm.selectedControl.name=='NavControl'">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>@L("Icon")</th>
+                                    <th>@L("Name")</th>
+                                    <th>@L("Url")</th>
+                                    <th>@L("Actions")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in vm.selectedControl.items">
+                                    <td>
+                                        <img width="64" height="64" ng-src="{{item.icon}}" file-selector file-type="picture" path="item.icon" />
+                                    </td>
+                                    <td>
+                                        <div class="input-wrapper">
+                                            <input type="text" name="name" ng-model="item.name" required>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-wrapper">
+                                            <input type="url" name="url" ng-model="item.url" required>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button class="button-text border radius danger" ng-click="vm.removeItemOfNavControl(vm.selectedControl,$index)">@L("Remove")</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button ng-if="vm.selectedControl.items.length<4" class="button-text block" ng-click="vm.addItemOfNavControl(vm.selectedControl)">@L("AddItem")</button>
+                    </div>
+                    <div ng-if="vm.selectedControl.name=='ShopwindowControl'">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>@L("Cover")</th>
+                                    <th>@L("Url")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in vm.selectedControl.items">
+                                    <td>
+                                        <img width="64" height="64" ng-src="{{item.cover}}" file-selector file-type="picture" path="item.cover" />
+                                    </td>
+                                    <td>
+                                        <div class="input-wrapper">
+                                            <input type="url" name="url" ng-model="item.url" required>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div ng-if="vm.selectedControl.name=='SliderControl'">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>@L("Picture")</th>
+                                    <th>@L("Url")</th>
+                                    <th>@L("Actions")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in vm.selectedControl.items">
+                                    <td>
+                                        <img width="64" height="64" ng-src="{{item.picture}}" file-selector file-type="picture" path="item.picture" />
+                                    </td>
+                                    <td>
+                                        <div class="input-wrapper">
+                                            <input type="url" name="url" ng-model="item.url" required>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button class="button-text" ng-click="vm.removeItemOfSliderControl(vm.selectedControl,$index)">@L("Remove")</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button ng-if="vm.selectedControl.items.length<4" class="button-text block primary" ng-click="vm.addItemOfSliderControl(vm.selectedControl)">@L("AddItem")</button>
+                    </div>
+                    <div ng-if="vm.selectedControl.name=='ProductListControl'">
+                        <div>
+                            <div class="form-group">
+                                <label class="form-group-key column-1">@L("MaxCount")</label>
+                                <div class="form-group-block column-9">
+                                    <select name="maxCount" 
+                                            ng-model="vm.selectedControl.maxCount" 
+                                            ng-options="productListMaxCountOption for productListMaxCountOption in vm.productListMaxCountOptions">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-group-key column-1">@L("Style")</label>
+                                <div class="form-group-block column-9">
+                                    <select name="style" 
+                                            ng-model="vm.selectedControl.style" 
+                                            ng-options="productListStyleOption.value as productListStyleOption.title for productListStyleOption in vm.productListStyleOptions">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-group-key column-1">@L("Category")</label>
+                                <div class="form-group-block column-9">
+                                    <select name="categoryId" 
+                                            ng-model="vm.selectedControl.categoryId" 
+                                            ng-options="productCategory.id as productCategory.name for productCategory in vm.productCategories">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="button-text block primary" ng-disabled="shopTemplateCreateForm.$invalid" ng-click="vm.save()">@L("Save")</button>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+﻿<div ng-controller="app.mobile.group.index as vm" ng-cloak class="ng-cloak">
+    <div class="profile-block">
+        <div class="profile profile-colored">
+            <div class="avatar-box">
+                <img width="96" height="96" class="avatar" ng-src="{{vm.user.avatar}}">
+            </div>
+            <h5 class="name">{{vm.user.nickName}}</h5>
+        </div>
+    </div>
+    <div class="statistic-block clearfix">
+        <a class="statistic-item" href="/Mobile/Group/customerList?depth=1">
+            <label class="count">{{vm.user.childCountOfDepth1}}</label>
+            <label class="name">@L("CustomersOfDepth1")</label>
+        </a>
+        <a class="statistic-item" href="/Mobile/Group/customerList?depth=2">
+            <label class="count">{{vm.user.childCountOfDepth2}}</label>
+            <label class="name">@L("CustomersOfDepth2")</label>
+        </a>
+        <a class="statistic-item" href="/Mobile/Group/customerList?depth=3">
+            <label class="count">{{vm.user.childCountOfDepth3}}</label>
+            <label class="name">@L("CustomersOfDepth3")</label>
+        </a>
+    </div>
+    <div class="master-nav">
+        <ul class="master-nav-list">
+            <li class="master-nav-item">
+                <a href="/Mobile/Group/PotentialCustomerList">
+                    <img src="~/Content/Images/CommonNav/potentialCustomer.png" class="nav-item-icon">
+                    <label class="nav-item-title">@L("PotentialCustomers")</label>
+                </a>
+            </li>
+            <li class="master-nav-item">
+                <a href="/Mobile/ChannelAgentRebate/Index">
+                    <img src="~/Content/Images/CommonNav/money.png" class="nav-item-icon">
+                    <label class="nav-item-title">@L("MyRebate")</label>
+                </a>
+            </li>
+            <li class="master-nav-item">
+                <a href="/Mobile/OrderDistribution/Index">
+                    <img src="~/Content/Images/CommonNav/orders.png" class="nav-item-icon">
+                    <label class="nav-item-title">@L("MyDistribution")</label>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

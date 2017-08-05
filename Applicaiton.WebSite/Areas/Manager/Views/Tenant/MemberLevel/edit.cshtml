@@ -1,0 +1,36 @@
+﻿<div ng-controller="app.manager.memberLevel.edit as vm">
+    <form name="memberLevelEditForm" novalidate>
+        <input type="hidden" name="id" value="{{vm.memberLevel.id}}"/>
+        <div class="form-group">
+            <label class="form-group-key">@L("Name")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="name" ng-model="vm.memberLevel.name" required ng-minlength="5">
+                </div>
+                <p class="validate-message error" ng-show="memberLevelCreateForm.name.$error.required">@L("NameIsRequired")</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("DisplayName")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="displayName" ng-model="vm.memberLevel.displayName" required>
+                </div>
+                <p class="validate-message error" ng-show="memberLevelCreateForm.displayName.$error.required">@L("DisplayNameIsRequired")</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Icon")</label>
+            <div class="form-group-block">
+                <div class="form-group-block">
+                    <div class="picture-uploader" data-ride="pictureUploader" data-option-url="/Manager/Home/Upload" data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                        <img width="96"/>
+                        <input type="file" />
+                        <input type="hidden" name="icon" ng-model="vm.memberLevel.icon" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" ng-disabled="memberLevelEditForm.$invalid" class="button-text primary block" ng-click="vm.update()">@L("Save")</button>
+    </form>
+</div>

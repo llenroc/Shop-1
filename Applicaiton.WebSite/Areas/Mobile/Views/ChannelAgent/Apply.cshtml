@@ -1,0 +1,128 @@
+﻿@model  Application.WebSite.Areas.Mobile.Models.ChannelAgent.ChannelAgentApplyViewModel
+<div ng-controller="app.mobile.channelAgent.apply as vm" ng-cloak class="ng-cloak">
+    <input type="hidden" id="customerInfoId" value="@Model.CustomerInfoId" />
+    <input type="hidden" id="channelAgentId" value="@Model.ChannelAgentId" />
+    <a ng-if="vm.isNeedLogistics" class="customer-info-box" href="@Url.Action("Index","CustomerInfo",new {ReturnUrl=ViewBag.ReturnUrl})">
+        <div class="customer-info" ng-if="vm.customerInfo">
+            <div class="order-address-icon-box">
+                <span class="order-address-icon"></span>
+            </div>
+            <div class="customer-info-content">
+                <div class="contact-info">
+                    <span class="contact-note">@L("Contact"):</span>
+                    <span class="full-name">{{vm.customerInfo.fullName}}</span>
+                    <span class="phone-number">{{vm.customerInfo.phoneNumber}}</span>
+                </div>
+                <div class="address-info">
+                    <p class="detail">
+                        <span class="detail-address-note pull-left">@L("Address"):</span>
+                        {{vm.customerInfo.fullAddress}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="select-customer-info" ng-if="!vm.customerInfo">
+            <div>
+                <span class="cross"></span>@L("PleaseAddCustomerInfo")
+            </div>
+        </div>
+    </a>
+
+    <div ng-if="vm.customCustomerInfos">
+        <div class="list-form">
+            <ul class="list-form-list">
+                <li>
+                    <div class="form-group" ng-repeat="customCustomerInfo in vm.customCustomerInfos">
+                        <label class="form-group-key" ng-bind="customCustomerInfo.name"></label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper large" ng-if="customCustomerInfo.type==1">
+                                <input type="tel" ng-attr-name="{{customCustomerInfo.name}}" ng-model="customCustomerInfo.value" ng-if="customCustomerInfo.required" required>
+                                <input type="tel" ng-attr-name="{{customCustomerInfo.name}}" ng-model="customCustomerInfo.value" ng-if="!customCustomerInfo.required">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <form class="mobile-form" name="userDetailForm" novalidate>
+        <div class="form-group">
+            <label class="form-group-key">@L("FullName")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="text" name="fullName" ng-model="vm.userDetail.fullName" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("PhoneNumber")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="tel" name="phoneNumber" ng-model="vm.userDetail.phoneNumber" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("WechatName")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="tel" name="wechatName" ng-model="vm.userDetail.wechatName" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("IdentityNumber")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="tel" name="identityNumber" ng-model="vm.userDetail.identityNumber" required>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <ul class="media-list margin-top-1" ng-if="vm.boughtItems.length">
+        <li ng-repeat="boughtItem in vm.boughtItems">
+            <div class="media-item order-item">
+                <div class="title-picture-box">
+                    <img width="64" class="title-picture" ng-src="{{boughtItem.specification.picture}}">
+                </div>
+                <div class="body">
+                    <h5 class="title">
+                        {{boughtItem.specification.fullName}}
+                    </h5>
+                </div>
+            </div>
+            <div class="list-form">
+                <ul class="list-form-list">
+                    <li>
+                        <div class="form-group">
+                            <label class="form-group-key">@L("Count")</label>
+                            <div class="form-group-block">
+                                <input type="text" name="count" ng-model="boughtItem.count" disabled>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-group">
+                            <label class="form-group-key">@L("OrderNoteOfCustomer")</label>
+                            <div class="form-group-block">
+                                <div class="input-wrapper">
+                                    <input type="text" placeholder="@L("LeaveMessageToSeller")" ng-model="vm.noteOfCustomer">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <div class="container" ng-if="vm.loaded">
+        <button class="button-text colored block button-buy"
+                ng-click="vm.submit()"
+                ng-disabled="(vm.isNeedLogistics&&!vm.customerInfo)||orderConfirmForm.$invalid||userDetailForm.$invalid">
+            @L("SubmitOrder")
+        </button>
+    </div>
+</div>

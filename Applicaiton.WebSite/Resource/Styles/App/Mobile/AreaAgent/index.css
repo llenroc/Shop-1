@@ -1,0 +1,50 @@
+﻿.area-agent-list{
+    padding-left: 0;
+    list-style-type: none;
+    margin-top: 20px;
+}
+.area-agent-list>li{
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom:1px solid #eee;
+    background: url(/Content/Images/channel-agent-item-bg.png);
+    background-size: 100% 100%;
+    box-shadow: 1px 1px 3px #ddd;
+    padding:1rem;
+}
+.area-agent-header{
+    display:-webkit-box;
+    -webkit-box-align:center;
+    background: url(/Content/Images/channel-agent-item-ribbon.png);
+    background-size: 100% 100%;
+    position: relative;
+    top:-20px;
+    -webkit-user-select:none;
+}
+.area-agent-header .area-agent-name{
+    -webkit-box-flex: 1;
+    height: 48px;
+    line-height: 48px;
+    display: block;
+    margin: 0;
+    text-align: center;
+    color:#fff;
+    -webkit-user-select:none;
+}
+.area-agent-header .area-agent-name label{
+    color: #fff;
+    font-size: 12px;
+    padding: 0;
+    height:48px;
+    line-height: 64px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #666;
+    font-weight: bold;
+    -webkit-user-select:none;
+}
+.area-agent-header .area-agent-name small{
+    color:#fff;
+}
+.area-agent-footer{
+    text-align:right;
+}

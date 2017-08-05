@@ -1,0 +1,36 @@
+﻿<div class="dialog">
+    <div class="header">
+        <div class="container">
+            <h5 class="title">@L("MediaSelector")</h5>
+            <button class="button-icon button-close">×</button>
+        </div>
+    </div>
+    <div class="body vertical-flex-box">
+        <div class="container vertical-flex-inherit">
+			<div class="horizional-flex-inherit">
+				<div class="width-em40 padding-base">
+					<div class="file-uploader" file-uploader path="vm.pictureToUpload" data-option-url="/Manager/Home/Upload">
+                        <div class="file-select-block">
+                            <span class="file-icon icon-cloud-upload"></span>
+                            <p class="file-path">{{vm.pictureToUpload}}</p>
+                        </div>
+						<input type="file" />
+						<input type="hidden" name="pictureToUpload" ng-model="vm.pictureToUpload" />
+					</div>
+					<button class="button-text block" ng-click="vm.upload()">@L("Upload")</button>
+				</div>
+				<div class="vertical-flex-inherit padding-base">
+					<ul data-ng-init="load()" id="mediasList" class="thumbnails-list media-selector-list span-4 flex-adapter vertical-scrollable">
+						<li class="thumbnail" ng-repeat="media in vm.medias" ng-click="vm.select(media)">
+							<img height="200" class="thumbnail-picture" ng-src="{{vm.getImageSrc(media.url)}}">
+							<div class="thumbnail-block">
+								<h5 class="thumbnail-title ellipsis">{{media.media_id}}</h5>
+								<p>{{newsItem.update_time}}</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>

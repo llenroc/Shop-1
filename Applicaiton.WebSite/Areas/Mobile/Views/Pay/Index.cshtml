@@ -1,0 +1,15 @@
+﻿@model Application.Orders.Fronts.Dto.PayOutput
+@Html.GetActionStyle()
+<div class="pay-block ng-cloak" ng-controller="app.mobile.pay.index as vm" ng-cloak>
+    <div class="title-block">
+        <input type="hidden" name="id" id="id" value="@Model.Order.Id" />
+        <h5 class="order-title">@Model.Order.Title</h5>
+    </div>
+    <div class="price-block">
+        <h5 class="price flex-adapter">@Model.Order.PayMoney</h5>
+    </div>
+    <div class="container">
+        <button class="button-text block success" ng-click="vm.paying()" ng-disabled="!vm.payParameters">@L("PayNow")</button>
+    </div>
+</div>
+@Html.GetActionScript()

@@ -1,0 +1,29 @@
+﻿.rank-list li{
+    position:relative;
+}
+.rank-list  li:first-child:before {
+    content: "";
+    background-image: url(/Content/Images/crown.png);
+    display: BLOCK;
+    width: 48px;
+    height: 32px;
+    background-size: 100% 100%;
+    z-index: 1000;
+    left: 10px;
+    top: -20px;
+    position: ABSOLUTE;
+}
+.rank-list li .rank{
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    margin-top: -16px;
+    font-size: 24.5px;
+    color: #eee;
+}
+.rank-list li:first-child .rank{
+    color: #ea4c89;
+}
+.rank-list li:nth-child(2) .rank{
+    color: #fee0ef;
+}

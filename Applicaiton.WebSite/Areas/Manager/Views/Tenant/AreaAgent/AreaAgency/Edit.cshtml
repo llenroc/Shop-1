@@ -1,0 +1,13 @@
+﻿<div ng-controller="app.manager.areaAgent.areaAgency.edit as vm">
+    <form name="areaAgencyEditForm" novalidate>
+        <div class="form-group">
+            <label class="form-group-key">@L("RebateRatio")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="rebateRatio" ng-model="vm.areaAgency.rebateRatio">
+                </div>
+            </div>
+        </div>
+        <button type="submit" ng-disabled="areaAgencyEditForm.$invalid" class="button-text primary block" ng-click="vm.save()">@L("Save")</button>
+    </form>
+</div>

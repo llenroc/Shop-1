@@ -1,0 +1,37 @@
+﻿<div ng-controller="app.manager.memberCard.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("MemberCards")</span> <small>@L("MemberCardsHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@L("Level")</th>
+                        <th>@L("Number")</th>
+                        <th>@L("User")</th>
+                        <th>@L("Expiry")</th>
+                        <th>@L("LimitTime")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="memberCard in vm.memberCards">
+                        <td>{{memberCard.level.name}}</td>
+                        <td>{{memberCard.no}}</td>
+                        <td>{{memberCard.user.userName}}</td>
+                        <td>{{memberCard.expiry}}</td>
+                        <td>{{memberCard.limitTime}}</td>
+                        <td>{{memberCard.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <a class="button-text danger border small">@L("Delete")</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

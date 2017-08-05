@@ -1,0 +1,17 @@
+﻿<div ng-controller="app.mobile.group.potentialCustomerList as vm" ng-cloak class="ng-cloak">
+    <input type="hidden" id="depth" value="@Model" />
+    <div class="blank" ng-if="!vm.customers||!vm.customers.length" ng-cloak>@L("ThereIsNoItem")</div>
+    <ul class="profile-list" ng-if="vm.customers&&vm.customers.length" ng-cloak>
+        <li ng-repeat="customer in vm.customers">
+            <div class="profileItem">
+                <div class="profileItemAvatarBox">
+                    <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{customer.avatar}}">
+                </div>
+                <div class="profileItemBody">
+					<h6 class="profileItemName thin">{{customer.nickName}}</h6>
+                    <h5 class="profileItemAdditionalProperty">{{customer.creationTime|momentFormat: 'YYYY-MM-DD'}}</h5>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

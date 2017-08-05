@@ -1,0 +1,20 @@
+﻿.logistics-info-media{
+    background-color:#fff;
+}
+.logistics-info-media .body{
+    position:relative;
+}
+.trackingNumber{
+    font-size:16px;
+    color:#333;
+}
+.logistics-status{
+    position: absolute;
+    right: 6px;
+    padding: 0px 0.5rem;
+    bottom: 6px;
+    font-size: 12px;
+    background-color: #5cb85c;
+    color: #fff;
+    border-radius: 8px;
+}

@@ -1,0 +1,62 @@
+﻿<div ng-controller="app.mobile.channelAgency.index as vm" ng-cloak class="ng-cloak">
+    <div ng-if="vm.channelAgency">
+        <div class="profile-block">
+            <div class="profile profile-colored">
+                <div class="avatar-box">
+                    <img width="96" height="96" class="avatar" ng-src="{{vm.user.avatar}}">
+                </div>
+                <h5 class="name">{{vm.channelAgency.channelAgent.name}}</h5>
+            </div>
+        </div>
+        <div class="" ng-if="vm.channelAgency">
+            <div class="statistic-block clearfix">
+                <a class="statistic-item">
+                    <label class="count">{{vm.channelAgency.depth}}</label>
+                    <label class="name">@L("Depth")</label>
+                </a>
+                <a class="statistic-item">
+                    <label class="count">{{vm.channelAgency.childCount}}</label>
+                    <label class="name">@L("ChildCount")</label>
+                </a>
+                <a class="statistic-item">
+                    <label class="count">{{vm.totalRebate}}</label>
+                    <label class="name">@L("TotalRebate")</label>
+                </a>
+            </div>
+        </div>
+        <div class="master-nav">
+            <ul class="master-nav-list">
+                <li class="master-nav-item">
+                    <a href="/Mobile/ChannelAgency/CustomerList?id={{vm.channelAgency.id}}">
+                        <img class="nav-item-icon" src="~/Content/Images/CommonNav/potentialCustomer.png" />
+                        <label class="nav-item-title">@L("Customers")</label>
+                    </a>
+                </li>
+                <li class="master-nav-item">
+                    <a href="/Mobile/OrderChannelAgentProductDistribution/index">
+                        <img class="nav-item-icon" src="~/Content/Images/CommonNav/money.png" />
+                        <label class="nav-item-title">@L("Distributions")</label>
+                    </a>
+                </li>
+                <li class="master-nav-item">
+                    <a href="/Mobile/ChannelAgentRebate/index?id={{vm.channelAgency.id}}">
+                        <img class="nav-item-icon" src="~/Content/Images/CommonNav/money.png" />
+                        <label class="nav-item-title">@L("Rebates")</label>
+                    </a>
+                </li>
+                <li class="master-nav-item">
+                    <a href="/Mobile/ChannelAgency/Certificate">
+                        <img class="nav-item-icon" src="~/Content/Images/CommonNav/money.png" />
+                        <label class="nav-item-title">@L("Certificate")</label>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="blank" ng-if="!vm.user.isChannelAgency">
+            @L("YouArNotChannelAgency,PleaseApply")
+        </div>
+        <a class="button-text block primary" href="/Mobile/ChannelAgent/Index">@L("ApplyChannelAgency")</a>
+    </div>
+</div>

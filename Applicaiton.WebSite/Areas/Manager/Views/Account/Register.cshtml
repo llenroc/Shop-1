@@ -1,0 +1,105 @@
+﻿@using Infrastructure.Extensions
+@using Application.MultiTenancy
+@model Application.WebSite.Models.Account.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_FlexLayout.cshtml";
+}
+<div class="container-responsive padding-1">
+    <form class="form-horizontal" action="@(Url.Action("Register", "Account"))" method="POST" novalidate>
+        @Html.AntiForgeryToken()
+        @if (@ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-danger">
+                <i class="icon-warning"></i> @ViewBag.ErrorMessage
+            </div>
+        }
+        @if (ViewBag.IsMultiTenancyEnabled)
+        {
+            if (Model.TenancyName.IsNullOrEmpty())
+            {
+                <fieldset>
+                    <legend>@L("TenantInformations")</legend>
+                    <div class="form-group">
+                        <div class="form-group-block">
+                            <div class="input-wrapper line" data-validate data-required data-maxlength="@Application.Authorization.Users.User.MaxUserNameLength">
+                                <input type="text" name="TenancyName" value="@(Model.TenancyName ?? "")" required maxlength="@Tenant.MaxTenancyNameLength" placeholder="@L("TenancyName")">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+            }
+            else
+            {
+                <input type="hidden" name="TenancyName" value="@Model.TenancyName" />
+            }
+        }
+        <input type="hidden" name="IsExternalLogin" value="@Model.IsExternalLogin.ToString()" />
+        @if (!Model.IsExternalLogin)
+        {
+            <fieldset>
+                <legend>@L("AccountSettings")</legend>
+                <div class="form-group">
+                    <div class="form-group-block">
+                        <div class="input-wrapper line" data-validate data-required data-maxlength="@Application.Authorization.Users.User.MaxUserNameLength">
+                            <input type="text" name="UserName" value="@Model.UserName" placeholder="@L("UserName")">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-block">
+                        <div class="input-wrapper line" data-validate data-required data-maxlength="@Application.Authorization.Users.User.MaxPlainPasswordLength">
+                            <input type="password" name="Password" class="form-control" placeholder="@L("Password")">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-block">
+                        <div class="input-wrapper line" data-validate data-required data-maxlength="@Application.Authorization.Users.User.MaxPlainPasswordLength">
+                            <input type="password" name="PasswordRepeat" class="form-control" placeholder="@L("PasswordRepeat")">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        }
+        else
+        {
+            if (String.IsNullOrEmpty(Model.Avatar))
+            {
+                <img width="32" src="@Model.Avatar" />
+            }
+        }
+        <fieldset>
+            <legend>@L("PersonalInformation")</legend>
+            <div class="form-group">
+                <div class="form-group-block">
+                    <div class="input-wrapper line" data-validate data-required data-maxlength="@Application.Authorization.Users.User.MaxNameLength">
+                        <input type="text" name="Name" value="@Model.Name" placeholder="@L("Name")">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-group-block">
+                    <div class="input-wrapper line" data-validate data-required data-maxlength="@Application.Authorization.Users.User.MaxSurnameLength">
+                        <input type="text" name="Surname" value="@Model.Surname" placeholder="@L("Surname")">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-group-block">
+                    <div class="input-wrapper line" data-validate data-required data-maxlength="@Application.Authorization.Users.User.MaxEmailAddressLength">
+                        <input type="email" name="EmailAddress" value="@Model.EmailAddress" placeholder="@L("EmailAddress")">
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <button type="submit" class="button-text primary block"><i class="icon icon-sign-in"></i> @L("Register")</button>
+    </form>
+
+<script>
+    (function () {
+        $("form").formValidate({
+            errorShowMode:0
+        });
+    })();
+</script>

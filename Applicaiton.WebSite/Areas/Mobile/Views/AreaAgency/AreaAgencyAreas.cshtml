@@ -1,0 +1,21 @@
+﻿@model Application.AreaAgents.Front.Dto.AreaAgencyAreasGetInput
+<div ng-controller="app.mobile.areaAgency.areaAgencyAreas as vm" ng-cloak class="ng-cloak">
+    <input type="hidden" id="areaAgencyId" value="@Model.AreaAgencyId" />
+    <input type="hidden" id="developLevel" value="@Model.DevelopLevel" />
+    <table id="areaAgencyAreaTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>@L("Address")</th>
+                <th>@L("Code")</th>
+                <th>@L("CreationTime")</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="areaAgencyArea in vm.areaAgencyAreas">
+                <td>{{areaAgencyArea.address.fullAddress}}</td>
+                <td>{{areaAgencyArea.address.code}}</td>
+                <td>{{areaAgencyArea.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

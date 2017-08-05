@@ -1,0 +1,60 @@
+﻿<div ng-controller="app.manager.virtualProduct.virtualCard.import as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("VirtualCardImport")</span> <small>@L("VirtualCardImportHeaderInfo")</small>
+        </h1>
+    </div>
+	<form name="importForm" role="form" novalidate class="form-validation">
+		<div class="form-group">
+			<label class="form-group-key">@L("VirtualCardName")</label>
+			<div class="form-group-block">
+				<div class="input-wrapper line">
+					<input type="text" name="name" ng-model="vm.importData.name" required />
+				</div>
+				<p class="validate-message error" ng-show="importForm.name.$error.required">@L("VirtualCardNameIsRequired")</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="form-group-key">@L("VirtualCardValue")</label>
+			<div class="form-group-block">
+				<div class="input-wrapper line">
+					<input type="text" name="value" ng-model="vm.importData.value" required />
+				</div>
+				<p class="validate-message error" ng-show="importForm.value.$error.required">@L("VirtualCardValueIsRequired")</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="form-group-key">@L("ExpireDays")</label>
+			<div class="form-group-block">
+				<div class="input-wrapper line">
+					<input type="text" name="expireDays" ng-model="vm.importData.expireDays" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="form-group-key">@L("Remark")</label>
+			<div class="form-group-block">
+				<div class="input-wrapper line">
+					<input type="text" name="remark" ng-model="vm.importData.remark" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="form-group-key">@L("ImportFile")</label>
+			<div class="form-group-block">
+				<div class="form-group-block">
+					<div class="file-uploader" file-uploader path="vm.importData.filePath" data-option-url="/Manager/Home/Upload">
+                        <div class="file-select-block">
+                            <span class="file-icon icon-cloud-upload"></span>
+                            <p class="file-path">{{vm.importData.filePath}}</p>
+                        </div>
+						<input type="file" />
+						<input type="hidden" name="filePath" required ng-model="vm.importData.filePath" />
+					</div>
+					<p class="validate-message error" ng-show="importForm.filePath.$error.required">@L("ImportFileIsRequired")</p>
+				</div>
+			</div>
+		</div>
+		<button class="button-text block primary" ng-disabled="importForm.$invalid" ng-click="vm.import()">@L("Import")</button>
+	</form>
+</div>

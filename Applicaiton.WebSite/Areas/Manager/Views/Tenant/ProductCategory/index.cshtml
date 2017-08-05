@@ -1,0 +1,37 @@
+@using Application.Localization
+<div ng-controller="app.manager.productCategory.index as vm">
+    <div class="view-page-head margin-bottom-5">
+        <h1 class="view-page-title">
+            <span>@L("ProductCategorys")</span> <small>@L("ProductCategorysHeaderInfo")</small>
+        </h1>
+        <a class="button-text primary" ng-click="vm.openCreateOrEditModal()"><i class="icon-plus"></i> @L("CreateProductCategory")</a>
+    </div>
+    <div class="portlet light">
+        <div class="responsive-table-container">
+            <table class="table table-bordered table-striped table-hover" id="productCategoryTable">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="productCategory in vm.productCategorys">
+                        <td>{{productCategory.name}}</td>
+                        <td>{{productCategory.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <div class="dropdown-wripper dropdown-menu">
+                                <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                                <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                    <li><a ng-click="vm.openCreateOrEditModal(productCategory.id)">@L("Edit")</a></li>
+                                    <li><a ng-click="vm.delete(productCategory)">@L("Delete")</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

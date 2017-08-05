@@ -1,0 +1,8 @@
+﻿<div class="slider" slider items="vm.product.specifications" ng-if="vm.product">
+    <!-- Wrapper for slides -->
+    <div class="slider-inner">
+        <div class="item" ng-repeat="specification in vm.product.specifications">
+            <img ng-src="{{specification.picture}}">
+        </div>
+    </div>
+</div>

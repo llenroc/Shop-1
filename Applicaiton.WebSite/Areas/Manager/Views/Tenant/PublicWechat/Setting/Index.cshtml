@@ -1,0 +1,162 @@
+﻿<div ng-controller="app.manager.publicWechat.setting.index as vm">
+	<div class="view-page-head">
+		<h1 class="view-page-title">
+			<span>@L("Settings")</span> <small>@L("SettingsHeaderInfo")</small>
+		</h1>
+	</div>
+	<div class="tab" data-ride="tab">
+		<ul class="tab-nav-list">
+			<li class="actived">
+				<a>@L("General")</a>
+			</li>
+			<li>
+				<a>@L("Pay")</a>
+			</li>
+            <li>
+                <a>@L("TemplateMessage")</a>
+            </li>
+		</ul>
+		<div class="tab-box">
+			<div class="tab-page show">
+				<div class="form-group">
+					<label class="form-group-key">@L("Token")</label>
+					<div class="form-group-block">
+						<div class="input-wrapper line">
+							<input type="text" ng-model="vm.settings.general.token" required>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-group-key">@L("AppId")</label>
+					<div class="form-group-block">
+						<div class="input-wrapper line">
+							<input type="text" ng-model="vm.settings.general.appId" required>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-group-key">@L("Secret")</label>
+					<div class="form-group-block">
+						<div class="input-wrapper line">
+							<input type="text" ng-model="vm.settings.general.secret" required>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-group-key">@L("RefreshAccessToken")</label>
+					<div class="form-group-block">
+						<a class="button-text" ng-click="vm.refreshAccessToken()">@L("RefreshAccessToken")</a>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-group-key">@L("EncodingAESKey")</label>
+					<div class="form-group-block">
+						<div class="input-wrapper line">
+							<input type="text" ng-model="vm.settings.general.encodingAESKey" required>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-group-key">@L("SubscribeLink")</label>
+					<div class="form-group-block">
+						<div class="input-wrapper line">
+							<input type="url" ng-model="vm.settings.general.subscribeLink" maxlength="128">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-page hide">
+				<div class="form-group">
+					<label class="form-group-key">@L("MchId")</label>
+					<div class="form-group-block">
+						<div class="input-wrapper line">
+							<input type="text" ng-model="vm.settings.pay.mchId">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-group-key">@L("Key")</label>
+					<div class="form-group-block">
+						<div class="input-wrapper line">
+							<input type="text" ng-model="vm.settings.pay.key">
+						</div>
+					</div>
+				</div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("Sslcert")</label>
+                    <div class="form-group-block">
+                        <div class="form-group-block">
+                            <div class="file-uploader" file-uploader path="vm.settings.pay.sslcertPath" data-option-url="/Manager/Home/Upload">
+                                <div class="file-select-block">
+                                    <span class="file-icon icon-cloud-upload"></span>
+                                    <p class="file-path">{{vm.settings.pay.sslcertPath}}</p>
+                                </div>
+                                <input type="file" />
+                                <input type="hidden" name="cert" ng-model="vm.settings.pay.sslcertPath" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+            <div class="tab-page hide">
+                <div class="form-group">
+                    <label class="form-group-key">@L("NewCustomerNofify")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" name="newCustomer" ng-model="vm.settings.templateMessage.newCustomer">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("OrderCreatedNofify")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" name="orderCreated" ng-model="vm.settings.templateMessage.orderCreated">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("OrderPayedNofify")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" name="orderPayed" ng-model="vm.settings.templateMessage.orderPayed">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("OrderShipedNofify")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" name="orderShiped" ng-model="vm.settings.templateMessage.orderShiped">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("OrderRebateNofify")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" name="orderRebate" ng-model="vm.settings.templateMessage.orderRebate">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("WalletWithdrawNofify")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" name="walletWithdraw" ng-model="vm.settings.templateMessage.walletWithdraw">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("UpgradeNofify")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" name="upgrade" ng-model="vm.settings.templateMessage.upgrade">
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+	<button class="button-text block primary" ng-click="vm.saveAll()">@L("SaveAll")</button>
+</div>

@@ -1,0 +1,35 @@
+﻿<div ng-controller="app.manager.expressCompany.edit as vm">
+    <form name="expressCompanyEditForm" novalidate>
+        <input type="hidden" name="id" value="{{vm.expressCompany.id}}"/>
+        <div class="form-group">
+            <label class="form-group-key">@L("Name")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <select name="name"
+                            ng-model="vm.expressCompany.name"
+                            required
+                            ng-options="expressCompany.name as expressCompany.name for expressCompany in vm.expressCompanys">
+                    </select>
+                </div>
+                <p class="validate-message error" ng-show="expressCompanyEditForm.name.$error.required">@L("NameIsRequired")<</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Icon")</label>
+            <div class="form-group-block">
+                <div class="picture-uploader"
+                     picture-uploader
+                     path="vm.expressCompany.icon"
+                     data-option-url="/Manager/Home/Upload"
+                     data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                    <img height="128" ng-src="{{vm.expressCompany.icon}}" />
+                    <input type="file" />
+                    <input type="hidden" name="icon" required ng-model="vm.expressCompany.icon" />
+                </div>
+                <p class="validate-message error" ng-show="expressCompanyCreateForm.icon.$error.required">@L("IconIsRequired")</p>
+            </div>
+        </div>
+        <button type="submit" ng-disabled="expressCompanyEditForm.$invalid" class="button-text primary block" ng-click="vm.update()">@L("Save")</button>
+    </form>
+</div>
+<script src="~/Scripts/aicha/expressCompanys.js"></script>

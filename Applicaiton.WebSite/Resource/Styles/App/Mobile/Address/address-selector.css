@@ -1,0 +1,16 @@
+﻿.address-list{
+    padding-left:0;
+    list-style-type:none;
+}
+.address-list li{
+    font-size:12px;
+    padding:1rem;
+    background-color:#fff;
+    border-bottom:1px solid #eee;
+    color:#333;
+    cursor:pointer;
+    -webkit-user-select:none;
+}
+.address-list li:hover{
+    background-color:#eee;
+}

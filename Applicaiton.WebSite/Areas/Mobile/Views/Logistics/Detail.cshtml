@@ -1,0 +1,83 @@
+﻿@model Application.Orders.Entities.ExpressInfo
+<div ng-controller="app.manager.logistics.detail as vm" ng-cloak class="ng-cloak">
+    <input type="hidden" id="expressCompanyId" value="@Model.ExpressCompanyId" />
+    <input type="hidden" id="trackingNumber" value="@Model.TrackingNumber" />
+    <div ng-if="vm.logistics">
+        <div class="media-item logistics-info-media">
+            <div class="title-picture-box">
+                <img class="title-picture " width="32" height="32" ng-src="{{vm.expressCompany.icon}}">
+            </div>
+            <div class="body">
+                <h5 class="title">{{vm.expressCompany.name}}</h5>
+                <p class="trackingNumber"><strong>{{vm.logistics.mailNo}}</strong></p>
+                <label class="logistics-status">
+                    <label ng-switch="vm.logistics.status">
+                        <span ng-switch-when="0">查询失败</span>
+                        <span ng-switch-when="1">正常</span>
+                        <span ng-switch-when="2">派送中</span>
+                        <span ng-switch-when="3">已签收</span>
+                        <span ng-switch-when="4">退回</span>
+                        <span ng-switch-when="5">其他问题</span>
+                    </label>
+                </label>
+            </div>
+        </div>
+        <br>
+        <div class="logistics-detail">
+            <h3 class="logistics-detail-title">@L("LogisticInfo")</h3>
+            <div ng-switch="vm.logistics.errCode">
+                <div ng-switch-when="0">
+                    <div ng-if="vm.logistics.data">
+                        <ul class="logistics-progress-list">
+                            <li ng-repeat="progress in vm.logistics.data">
+                                <p class="context">{{progress.context}}</p>
+                                <p class="time">{{progress.time}}</p>
+                            </li>
+                        </ul>
+                        <br /><br /><br />
+                    </div>
+                    <div ng-if="!vm.logistics.data">
+                        <p class="logistics-info">暂无物流流转信息</p>
+                    </div>
+                </div>
+                <div ng-switch-when="1">
+                    <p class="logistics-info success">已出库</p>
+                </div>
+                <div ng-switch-when="2">
+                    <p class="logistics-info error">验证码错误</p>
+                </div>
+                <div ng-switch-when="3">
+                    <p class="logistics-info error">链接查询服务器失败</p>
+                </div>
+                <div ng-switch-when="5">
+                    <p class="logistics-info error">程序内部错误</p>
+                </div>
+                <div ng-switch-when="5">
+                    <p class="logistics-info error">程序执行错误</p>
+                </div>
+                <div ng-switch-when="6">
+                    <p class="logistics-info error">快递单号格式错误</p>
+                </div>
+                <div ng-switch-when="7">
+                    <p class="logistics-info error">快递公司错误</p>
+                </div>
+                <div ng-switch-when="10">
+                    <p class="logistics-info error">未知错误</p>
+
+                </div>
+                <div ng-switch-when="20">
+                    <p class="logistics-info error">API错误</p>
+                </div>
+                <div ng-switch-when="21">
+                    <p class="logistics-info error"> API被禁用</p>
+                </div>
+                <div ng-switch-when="22">
+                    <p class="logistics-info error">API查询量耗尽</p>
+                </div>
+                <div ng-switch-default>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

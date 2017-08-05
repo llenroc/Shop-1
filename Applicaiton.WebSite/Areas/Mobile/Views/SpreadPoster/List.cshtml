@@ -1,0 +1,11 @@
+﻿<div ng-controller="app.mobile.spreadPoster.list as vm" class="ng-cloak" ng-cloak>
+	<ul class="spread-poster-list">
+		<li ng-repeat="spreadPoster in vm.spreadPosters">
+			<div class="spread-poster">
+				<button class="button-text radius button-recreate" ng-click="vm.reCreate(spreadPoster)">@L("ReCreate")</button>
+				<img ng-src="{{spreadPoster.path}}" />
+			</div>
+		</li>
+	</ul>
+</div>
+@Html.GetControllerStyles()

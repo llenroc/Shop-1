@@ -1,0 +1,28 @@
+﻿/*@font-face {
+  font-family: 'PingFang SC';
+  src:url('/Content/WebFrame/font/pingfang-sc.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+    font-family:PingFang SC,Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans;
+}*/
+
+.media-selector-list{
+
+}
+
+.thumbnails-list.media-selector-list .thumbnail {
+    background: #eee;
+    margin-bottom: 1rem;
+}
+
+.address-list li {
+    font-size: 12px;
+    padding: 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    cursor: pointer;
+    -webkit-user-select: none;
+}

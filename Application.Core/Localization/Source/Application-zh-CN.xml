@@ -1,0 +1,951 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="zh-CN">
+  <texts>
+    <text name="HomePage" value="首页" />
+    <text name="AboutUs" value="关于我们" />
+    <text name="Administration" value="管理" />
+    <text name="Roles" value="角色" />
+    <text name="Users" value="用户" />
+    <text name="InvalidFormMessage" value="部分输入信息不符合要求，请检查并改正." />
+    <text name="InvalidUserNameOrPassword" value="用户名或密码无效" />
+    <text name="ThereIsNoTenantDefinedWithName{0}" value="租户 {0}不存在" />
+    <text name="TenantIsNotActive" value="租户 {0} 未激活." />
+    <text name="UserIsNotActiveAndCanNotLogin" value="用户 {0} 未激活，不能登录." />
+    <text name="PleaseEnterLoginInformation" value="请输入登录信息" />
+    <text name="TenancyName" value="租户名称" />
+    <text name="UserNameOrEmail" value="用户名或邮箱地址" />
+    <text name="Password" value="密码" />
+    <text name="RememberMe" value="记住我" />
+    <text name="LogIn" value="登录" />
+    <text name="ForgotPassword" value="不记得密码了?" />
+    <text name="DontYouHaveAnAccount" value="还不是系统用户?" />
+    <text name="CreateAnAccount" value="注册" />
+    <text name="Pages" value="页面" />
+    <text name="RoleName" value="角色名称" />
+    <text name="EditRole" value="修改角色" />
+    <text name="CreateNewRole" value="添加角色" />
+    <text name="RoleProperties" value="角色属性" />
+    <text name="Permissions" value="权限" />
+    <text name="Save" value="保存" />
+    <text name="RolesHeaderInfo" value="使用角色进行权限分组." />
+    <text name="Static" value="系统" />
+    <text name="Actions" value="操作" />
+    <text name="Delete" value="删除" />
+    <text name="SavedSuccessfully" value="保存成功." />
+    <text name="AreYouSure" value="您确定吗?" />
+    <text name="YesDelete" value="是, 执行删除!" />
+    <text name="DeletingUser" value="删除用户" />
+    <text name="UsersHeaderInfo" value="管理用户及权限." />
+    <text name="CreateNewUser" value="添加用户" />
+    <text name="UserName" value="用户名" />
+    <text name="Name" value="名字" />
+    <text name="Surname" value="姓氏" />
+    <text name="EmailAddress" value="邮箱地址" />
+    <text name="LastLoginTime" value="上次登录时间" />
+    <text name="EditUser" value="修改用户" />
+    <text name="UserInformations" value="用户信息" />
+    <text name="PasswordRepeat" value="密码 (核对)" />
+    <text name="SuccessfullyDeleted" value="删除成功." />
+    <text name="RoleDeleteWarningMessage" value="角色 {0} 将被删除，拥有此角色的用户将取消此角色." />
+    <text name="UserDeleteWarningMessage" value="用户 {0} 将被删除." />
+    <text name="Active" value="激活" />
+    <text name="EmailConfirm" value="邮箱地址验认" />
+    <text name="Yes" value="是" />
+    <text name="No" value="否" />
+    <text name="MySettings" value="我" />
+    <text name="Logout" value="注销" />
+    <text name="Reset" value="重置" />
+    <text name="ResetPermissionsTooltip" value="重置用户权限后，用户仅拥有所属角色包含的权限，为用户直接指定的权限将取消." />
+    <text name="ResetSuccessfully" value="重置成功" />
+    <text name="Tenants" value="租户" />
+    <text name="TenantsHeaderInfo" value="管理租户." />
+    <text name="CreateNewTenant" value="添加租户" />
+    <text name="TenancyCodeName" value="租户编码" />
+    <text name="TenantName" value="租户名称" />
+    <text name="TenantDeleteWarningMessage" value="租户 {0} 将被删除." />
+    <text name="AdminEmailAddress" value="管理员邮箱" />
+    <text name="AdminPassword" value="管理员密码" />
+    <text name="AdminPasswordRepeat" value="管理员密码(核对)" />
+    <text name="EditTenant" value="修改租户" />
+    <text name="ChangingPermissions" value="更改权限" />
+    <text name="EditingUser" value="修改用户" />
+    <text name="CreatingNewUser" value="添加用户" />
+    <text name="Edit" value="修改" />
+    <text name="EditingTenant" value="修改租户" />
+    <text name="CreatingNewTenant" value="添加租户" />
+    <text name="DeletingTenant" value="删除租户" />
+    <text name="EditingRole" value="修改角色" />
+    <text name="CreatingNewRole" value="添加角色" />
+    <text name="DeletingRole" value="删除角色" />
+    <text name="CreationTime" value="创建时间" />
+    <text name="SearchWithThreeDot" value="搜索..." />
+    <text name="ResetSpecialPermissions" value="重置直接指定权限" />
+    <text name="SavingWithThreeDot" value="保存中..." />
+    <text name="Settings" value="设置" />
+    <text name="SaveAll" value="保存全部" />
+    <text name="SettingsHeaderInfo" value="显示和修改程序设置." />
+    <text name="EmailSmtp" value="邮箱 (SMTP)" />
+    <text name="DefaultFromAddress" value="默认发送邮箱地址" />
+    <text name="DefaultFromDisplayName" value="默认发送人名字" />
+    <text name="SmtpHost" value="SMTP服务器" />
+    <text name="SmtpPort" value="SMTP端口" />
+    <text name="UseDefaultCredentials" value="默认身份验证" />
+    <text name="DomainName" value="域名" />
+    <text name="UseSsl" value="使用SSL" />
+    <text name="ThisWebSiteRootAddress" value="网站http根路径" />
+    <text name="ThisWebSiteRootAddress_Hint" value="示例： http://mydomain.com/ ，用于外部链接本系统，如密码重置链接" />
+    <text name="General" value="基本信息" />
+    <text name="SendPasswordResetLink_Information" value="系统在几十秒内向您发送一封密码重置邮件，如果在3分钟内还没收到这封邮件，请重试." />
+    <text name="Send" value="发送" />
+    <text name="PasswordReset" value="重置密码" />
+    <text name="InvalidUserNameOrEmailAddress" value="用户名或Email地址无效" />
+    <text name="PasswordResetEmail_Subject" value="重置密码" />
+    <text name="PasswordResetEmail_Title" value="重置密码." />
+    <text name="PasswordResetEmail_SubTitle" value="进行密码重置." />
+    <text name="PasswordResetEmail_ClickTheLinkBelowToResetYourPassword" value="请点击以下链接重置密码:" />
+    <text name="EmailActivation_Subject" value="激活您的用户账号" />
+    <text name="EmailActivation_Title" value="欢迎使用系统." />
+    <text name="EmailActivation_SubTitle" value="系统发送此邮件验证您的邮箱地址,并激活您的用户账号." />
+    <text name="EmailActivation_ClickTheLinkBelowToVerifyYourEmail" value="请点击以下链接确认您的邮箱地址,并激活您的用户账号:" />
+    <text name="InvalidEmailAddress" value="邮箱地址无效" />
+    <text name="InvalidPasswordResetCode" value="密码重置已失效" />
+    <text name="InvalidPasswordResetCode_Detail" value="请您务必通过点击邮件中的重置链接进入本页面.如果已经这样做了,还存在问题,请重试一遍密码重置操作!" />
+    <text name="PleaseEnterYourNewPassword" value="请输入新密码." />
+    <text name="UserEmailIsNotConfirmedAndCanNotLogin" value="您的邮箱未通过验证.请检查您的邮箱地址是否正确,查收邮件并点击邮件内容中的验证链接进行验证和激活.如果没有收到邮件,请点击[邮箱验证],系统会重新发送一封邮件." />
+    <text name="LoginFailed" value="登录失败!" />
+    <text name="InvalidEmailConfirmationCode" value="邮箱验证已失效" />
+    <text name="InvalidEmailConfirmationCode_Detail" value="请您务必通过点击邮件中的重置链接进入本页面.如果已经这样做了,还存在问题,请重试一遍邮箱验证操作!" />
+    <text name="YourEmailIsConfirmedMessage" value="您的邮箱已通过验证." />
+    <text name="ShouldChangePasswordOnNextLogin" value="下次登录需要修改密码." />
+    <text name="SetRandomPassword" value="使用随机密码." />
+    <text name="EmailActivation" value="发送激活邮件" />
+    <text name="SendEmailActivationLink_Information" value="系统在几十秒内向您发送一封邮件,用于激活您的用户账号，请接收并点击邮件内容中的激活链接。如果在2分钟内还没收到这封邮件，请重试." />
+    <text name="SendActivationEmail" value="发送激活邮件." />
+    <text name="ChangePassword" value="修改密码" />
+    <text name="CurrentPassword" value="当前密码" />
+    <text name="NewPassword" value="新密码" />
+    <text name="NewPasswordRepeat" value="新密码 (核对)" />
+    <text name="YourPasswordHasChangedSuccessfully" value="密码修改成功." />
+    <text name="SelfUserRegistrationIsDisabledMessage" value="您不能注册!" />
+    <text name="SelfUserRegistrationIsDisabledMessage_Detail" value="注册功能被禁用，请联系您的系统管理员为您建立用户账号." />
+    <text name="SuccessfullyRegistered" value="注册成功" />
+    <text name="ConfirmationMailSentPleaseClickLinkInTheEmail" value="已往您的{0}邮箱发送了一封邮件，请点击邮件中的链接，验证您的邮箱地址." />
+    <text name="YourAccountIsWaitingToBeActivatedByAdmin" value="您的用户账号尚未激活，待系统管理员激活后方能登录使用系统." />
+    <text name="NameSurname" value="姓名" />
+    <text name="UserManagement" value="用户管理" />
+    <text name="AllowUsersToRegisterThemselves" value="允许用户注册." />
+    <text name="AllowUsersToRegisterThemselves_Hint" value="如果此项被禁用，只能由管理员通过用户管理页面添加用户." />
+    <text name="NewRegisteredUsersIsActiveByDefault" value="注册用户默认激活." />
+    <text name="NewRegisteredUsersIsActiveByDefault_Hint" value="如果此项被禁用，新用户需要通过邮件激活后才能登录." />
+    <text name="Default" value="默认" />
+    <text name="DefaultRole_Description" value="新用户将默认拥有此角色." />
+    <text name="StaticRole_Tooltip" value="不能删除系统角色." />
+    <text name="EmailConfirmationRequiredForLogin" value="必须验证邮箱地址后才能登录." />
+    <text name="{0}UserCannotBeDeleted" value="{不能删除0}用户." />
+    <text name="TenantNameCanNotBeEmpty" value="租户名不能为空" />
+    <text name="ExportToExcel" value="导出到Excel" />
+    <text name="ChangeProfilePicture" value="修改头像" />
+    <text name="TenantName_Regex_Description" value="租户名称必须由2个以上字母、数字、-、_组成,以字母开头" />
+    <text name="ProfilePicture_Change_Info" value="只能选择1mb内的JPG/JPEG/PNG图片." />
+    <text name="ProfilePicture_Change_Error" value="头像修改错误." />
+    <text name="ProfilePicture_Warn_SizeLimit" value="只能选择1mb内的JPG/JPEG图片，请重新选择头像文件." />
+    <text name="ProfilePicture_Warn_FileType" value="只能选择1mb内的JPG/JPEG图片，请重新选择头像文件." />
+    <text name="Dashboard" value="工作台" />
+    <text name="DashboardHeaderInfo" value="分析与报告" />
+    <text name="GoToApplication" value="登录系统" />
+    <text name="TenantInformations" value="租户信息" />
+    <text name="PersonalInformations" value="个人信息" />
+    <text name="AccountSettings" value="账号设置" />
+    <text name="Captha_Hint" value="输入图片中的验证码:" />
+    <text name="Back" value="返回" />
+    <text name="Submit" value="提交" />
+    <text name="SignUp" value="登录" />
+    <text name="CaptchaCanNotBeEmpty" value="验证码不能为空." />
+    <text name="IncorrectCaptchaAnswer" value="验证码无效." />
+    <text name="FormIsNotValidMessage" value="部分输入信息不符合要求，请检查并改正.." />
+    <text name="CanNotChangeAdminUserName" value="管理用户，不能修改用户名." />
+    <text name="Error" value="错误!" />
+    <text name="OopsYouAreLost" value="噢! 失踪了." />
+    <text name="WeCanNotFindThePage" value="我们无法提供您想要访问的页面." />
+    <text name="DashboardDemo_Note_Title" value="欢迎使用ASP.NET Zero启动项目!" />
+    <text name="DashboardDemo_Note_Info">
+      在这个演示系统，您可以使用左边的菜单功能，测试和了解以下模块的全部功能：用户管理、角色管理、系统设置。
+      主面板(Dashboard)页面只是用于演示目的，文本和数据没有什么含义(所有数据都是硬编码在浏览器客户端程序；
+      其中的MEMBER ACTIVITY图表，向服务器端请求简单随机数据用于展示，当您点击刷新按钮时，可以看到变化。)
+    </text>
+    <text name="WelcomePage_Title" value="欢迎!" />
+    <text name="WelcomePage_Info" value="欢迎使用本应用，您可以从左边的菜单启动要使用的功能。如果您没有看到任何菜单，可能是因为您没有获得任何一项授权，您可以联系您的系统管理员获得授权. " />
+    <text name="RequestedFileDoesNotExists" value="请求的文件不存在!" />
+    <text name="MailSent" value="邮件已发送" />
+    <text name="PasswordResetMailSentMessage" value="已向您的邮箱发送了一封密码重置邮件，请查收." />
+    <text name="ActivationMailSentMessage" value="已向您的邮箱发送了一封邮箱地址验证邮件，请查收." />
+    <text name="UseCaptchaOnRegistration" value="用户注册时使用图片验证码(captcha)." />
+    <text name="FormBasedRegistration" value="基于表单身份验证" />
+    <text name="LdapSettings" value="LDAP设置" />
+    <text name="EnableLdapAuthentication" value="启用轻量目录访问协议(LDAP)认证." />
+    <text name="OtherSettings" value="其它设置" />
+    <text name="AuditLogs" value="审计日志" />
+    <text name="Success" value="成功" />
+    <text name="Time" value="时间" />
+    <text name="Service" value="服务" />
+    <text name="Action" value="操作" />
+    <text name="Duration" value="持续时间" />
+    <text name="IpAddress" value="IP地址" />
+    <text name="Client" value="客户端" />
+    <text name="Browser" value="浏览器" />
+    <text name="Xms" value="{0} ms" />
+    <text name="Close" value="关闭" />
+    <text name="Refresh" value="刷新" />
+    <text name="ErrorState" value="错误状态" />
+    <text name="All" value="全部" />
+    <text name="HasError" value="出现错误" />
+    <text name="ShowAdvancedFilters" value="显示高级过滤" />
+    <text name="HideAdvancedFilters" value="隐藏高级过滤" />
+    <text name="AuditLogDetail" value="审计日志详情" />
+    <text name="Parameters" value="参数" />
+    <text name="DateRange" value="日期范围" />
+    <text name="ActionInformations" value="操作信息" />
+    <text name="Today" value="今天" />
+    <text name="Yesterday" value="昨天" />
+    <text name="Last7Days" value="最近7天" />
+    <text name="Last30Days" value="最近30天" />
+    <text name="ThisMonth" value="这个月" />
+    <text name="LastMonth" value="上个月" />
+    <text name="TenantSelection" value="选择租户" />
+    <text name="TenantSelection_Detail" value="请选择一个租户" />
+    <text name="LoginWith" value="登录" />
+    <text name="PasswordChangeDontRememberMessage" value="忘记密码？ {0}." />
+    <text name="ClickHere" value="点击这里" />
+    <text name="ApplyFor" value="应用" />
+    <text name="CustomRange" value="自定义范围" />
+    <text name="DashboardNoteForMpaVersion">
+      <![CDATA[
+      查看本示例:基于<strong>多页面应用</strong>版本，基于ASP.NET MVC和<strong>jQuery</strong>.
+      ]]>
+    </text>
+    <text name="DashboardNoteForSpaVersion">
+      <![CDATA[
+      查看本示例:基于<strong>单页面应用</strong>版本，基于ASP.NET MVC和<strong>AngularJs</strong>.
+      ]]>
+    </text>
+    <text name="SeeDemo" value="查看示例" />
+    <text name="Edition" value="版本" />
+    <text name="Editions" value="版本列表" />
+    <text name="EditionsHeaderInfo" value="管理当前应用的版本和特性参数" />
+    <text name="CreateNewEdition" value="创建新的版本" />
+    <text name="EditEdition" value="编辑版本" />
+    <text name="EditionProperties" value="版本属性列表" />
+    <text name="EditionName" value="版本名称" />
+    <text name="Features" value="特性参数列表" />
+    <text name="EditionDeleteWarningMessage" value="{0}已经分配给租户的版本会被删除." />
+    <text name="CreatingNewEdition" value="创建一个新的版本" />
+    <text name="EditingEdition" value="正在编辑版本" />
+    <text name="DeletingEdition" value="正在删除版本" />
+    <text name="ChangingFeatures" value="正在修改特性参数" />
+    <text name="ResetSpecialFeatures" value="重置特殊的特性参数" />
+    <text name="ResetFeaturesTooltip" value="重置租户指定的特性参数设置并且保存.当前租户只会拥有已注册版本的特性参数." />
+    <text name="NotAssigned" value="没有分配" />
+    <text name="InvalidFeaturesWarning" value="一个或者多个特性参数值无效" />
+    <text name="Languages" value="语言列表" />
+    <text name="LanguagesHeaderInfo" value="管理语言包的文本头信息" />
+    <text name="CreateNewLanguage" value="创建新的语言" />
+    <text name="Code" value="代码" />
+    <text name="CreatingNewLanguage" value="正在创建新的语言" />
+    <text name="EditingLanguage" value="正在编辑语言" />
+    <text name="DeletingLanguages" value="正在删除语言" />
+    <text name="ChangingTexts" value="正在修改文本信息" />
+    <text name="SuccessfullySaved" value="保存成功." />
+    <text name="Language" value="语言" />
+    <text name="Flag" value="标记" />
+    <text name="SetAsDefaultLanguage" value="设置当前语言为默认语言" />
+    <text name="InvlalidLanguageCode" value="无效的语言代码." />
+    <text name="EditLanguage" value="编辑语言" />
+    <text name="ChangeTexts" value="改变文本信息" />
+    <text name="TargetValue" value="目标值" />
+    <text name="BaseValue" value="默认值" />
+    <text name="Key" value="键值" />
+    <text name="SaveAndClose" value="保存 &amp; 关闭" />
+    <text name="SaveAndNext" value="保存 &amp; 文本" />
+    <text name="EditText" value="编辑文本" />
+    <text name="LanguageTexts" value="语言的文本信息" />
+    <text name="LanguageTextsHeaderInfo" value="编辑语言的文本头信息." />
+    <text name="EmptyOnes" value="空值" />
+    <text name="Source" value="选择源" />
+    <text name="BaseLanguage" value="默认语言" />
+    <text name="TargetLanguage" value="目标语言" />
+    <text name="Previous" value="向前" />
+    <text name="LanguageDeleteWarningMessage" value="确定要删除当前语言包吗 {0}?" />
+    <text name="CanNotEditOrDeleteDefaultLanguages" value="不能删除默认语言.只能删除或者修改自己增加的语言. 但可以改变所有语言的文本信息." />
+    <text name="LookingForMpaVersion" value="查找多页面应用版本号" />
+    <text name="LookingForSpaVersion" value="查找单页面应用版本号" />
+    <text name="ThisLanguageAlreadyExists" value="这种语言已经存在!" />
+    <text name="NewUserRegisteredNotificationMessage" value="A new user registered to the application. User name: {userName}, Email address: {emailAddress}." />
+    <text name="OrdersHeaderInfo" value="" />
+    <text name="Order" value="订单" />
+    <text name="User" value="用户" />
+    <text name="Home" value="主页" />
+    <text name="SpreadPoster" value="推广海报" />
+    <text name="Wallet" value="钱包" />
+    <text name="MyWallet" value="我的钱包" />
+    <text name="MyGroup" value="我的团队" />
+    <text name="ChannelAgent" value="渠道代理" />
+    <text name="ChannelAgency" value="渠道代理商" />
+    <text name="ChannelAgencyApply" value="渠道代理商申请" />
+    <text name="GroupCount" value="团队人数" />
+    <text name="Sales" value="销售额" />
+    <text name="AreaAgencyApply" value="区域代理商申请" />
+    <text name="CustomerInfo" value="收货信息" />
+    <text name="Balance" value="余额" />
+    <text name="Rebate" value="分红" />
+    <text name="Withdraw" value="提现" />
+    <text name="Withdrawed" value="已提现" />
+    <text name="Withdrawing" value="提现中" />
+    <text name="TotalIncome" value="总收入" />
+    <text name="WalletRecord" value="交易记录" />
+    <text name="ViewWalletRecords" value="查看交易记录" />
+    <text name="Pay" value="支付" />
+    <text name="PayNow" value="立即支付" />
+    <text name="UnPay" value="未支付" />
+    <text name="Shipped" value="已发货" />
+    <text name="Refunding" value="退款中" />
+    <text name="TotalMoney" value="总金额" />
+    <text name="Contact" value="联系人" />
+    <text name="PhoneNumber" value="手机号" />
+    <text name="Apply" value="申请" />
+    <text name="ApplyChannelAgency" value="申请渠道代理" />
+    <text name="YouArNotChannelAgency,PleaseApply" value="您非渠道代理，请先申请！" />
+    <text name="DefaultCustomerInfo" value="默认收货信息" />
+    <text name="SetAsDefaultCustomerInfo" value="设置为默认" />
+    <text name="Address" value="地址" />
+    <text name="DetailAddress" value="详细地址" />
+    <text name="CustomersOfDepth1" value="一级客户" />
+    <text name="CustomersOfDepth2" value="二级客户" />
+    <text name="CustomersOfDepth3" value="三级客户" />
+    <text name="PotentialCustomers" value="潜在客户" />
+    <text name="MyRank" value="我的排名" />
+    <text name="MyRebate" value="我的分红" />
+    <text name="MyDistribution" value="我的分销" />
+    <text name="ISpreader" value="是否族长" />
+    <text name="Spreader" value="族长" />
+    <text name="Express" value="快递" />
+    <text name="Sale" value="销量" />
+    <text name="Detail" value="详情" />
+    <text name="Propertys" value="属性" />
+    <text name="Comment" value="评论" />
+    <text name="ShopCart" value="购物车" />
+    <text name="Buy" value="购买" />
+    <text name="Count" value="数量" />
+    <text name="Stock" value="库存" />
+    <text name="SubmitOrder" value="提交订单" />
+    <text name="TotalCount" value="总数量" />
+    <text name="Piece" value="件" />
+    <text name="OrderNoteOfCustomer" value="客户留言" />
+    <text name="Create" value="创建" />
+    <text name="Group" value="团队" />
+    <text name="SalesRank" value="销售排名" />
+    <text name="ReCreate" value="重新生成" />
+    <text name="Business" value="业务" />
+    <text name="AudtiLogs" value="审计日志" />
+    <text name="BackgroundJobs" value="后台工作" />
+    <text name="OrderPayedNotificationDefinition" value="订单付款通知" />
+    <text name="OrderPayedNotificationMessage" value="订单付款成功。订单标题: {orderTitle}。付款金额: {payMoney}。." />
+    <text name="DefaultTitle" value="默认标题" />
+    <text name="Thanks" value="谢谢" />
+    <text name="ThankYouForYourPatronage" value="感谢您的惠顾" />
+    <text name="RebateRatio" value="返利比率" />
+    <text name="Avatar" value="头像" />
+    <text name="Depth" value="深度" />
+    <text name="ChildCount" value="团队数量" />
+    <text name="Level" value="级别" />
+    <text name="Price" value="价格" />
+    <text name="Qrcode" value="二维码" />
+    <text name="MasterQrcode" value="群主微信" />
+    <text name="NameIsRequired" value="名称必填" />
+    <text name="PriceIsRequired" value="价格必填" />
+    <text name="RebateRatioIsRequired" value="分红比率必填" />
+    <text name="LevelIsRequired" value="级别必填" />
+    <text name="CreateNewChannelAgent" value="创建渠道代理" />
+    <text name="ChannelAgentsHeaderInfo" value="" />
+    <text name="CodeIsRequired" value="代码必填" />
+    <text name="Expiry" value="有效期" />
+    <text name="LimitTime" value="截止时间" />
+    <text name="MemberCardsHeaderInfo" value="" />
+    <text name="MemberCards" value="会员卡" />
+    <text name="MemberLevel" value="会员等级" />
+    <text name="ExpiryIsRequired" value="有效期必填" />
+    <text name="TitleIsRequired" value="标题必填" />
+    <text name="MemberLevelIsRequired" value="会员等级必填" />
+    <text name="DisplayName" value="展示名称" />
+    <text name="DisplayNameIsRequired" value="展示名称必填" />
+    <text name="MemberLevelsHeaderInfo" value="" />
+    <text name="BaseInfo" value="基本信息" />
+    <text name="Logistic" value="物流" />
+    <text name="Picture" value="图片" />
+    <text name="ExpressCompanyName" value="快递公司名称" />
+    <text name="TrackingNumber" value="快递编号" />
+    <text name="SystemManager" value="系统管理" />
+    <text name="PublicWechatManager" value="公众号管理" />
+    <text name="SpreadPosterManager" value="推广海报管理" />
+    <text name="MemberManager" value="会员卡管理" />
+    <text name="MemberCardPackage" value="会员卡套餐" />
+    <text name="MemberCard" value="会员卡" />
+    <text name="AreaAgencyApplyManager" value="产品管理" />
+    <text name="OrderManager" value="订单管理" />
+    <text name="ChannelManager" value="渠道管理" />
+    <text name="ExpressCompanyManager" value="快递公司管理" />
+    <text name="Role" value="角色" />
+    <text name="Setting" value="设置" />
+    <text name="MenuManager" value="菜单管理" />
+    <text name="AutoReplyManager" value="自定义回复管理" />
+    <text name="SpecificationProperty" value="规格属性" />
+    <text name="ExpressCompany" value="快递公司" />
+    <text name="ExportShipOrders" value="导出发货单" />
+    <text name="Orders" value="订单" />
+    <text name="Money" value="金额" />
+    <text name="PayMoney" value="支付金额" />
+    <text name="OrderStatus" value="订单状态" />
+    <text name="StartTime" value="开始时间" />
+    <text name="EndTime" value="结束时间" />
+    <text name="BatchShip" value="批量发货" />
+    <text name="Declined" value="拒绝" />
+    <text name="Finish" value="已完成" />
+    <text name="Refunded" value="已退款" />
+    <text name="UnShip" value="未发货" />
+    <text name="ShipInfo" value="发货信息" />
+    <text name="SetAsPayed" value="设为已付款" />
+    <text name="Ship" value="发货" />
+    <text name="PleaseSelect" value="请选择" />
+    <text name="ShipOrder" value="发货" />
+    <text name="SpecificationPropertys" value="规格属性" />
+    <text name="Specifications" value="规格" />
+    <text name="AreaAgencyApplyCategory" value="产品分类" />
+    <text name="Status" value="状态" />
+    <text name="AreaAgencyApplyType" value="产品类型" />
+    <text name="Physical" value="实物" />
+    <text name="Virtual" value="虚拟" />
+    <text name="On" value="启用" />
+    <text name="Off" value="禁用" />
+    <text name="IsRedirectExternal" value="是否外部链接" />
+    <text name="ExternalLink" value="外部链接" />
+    <text name="AddSpecificationProperty" value="添加规格属性" />
+    <text name="AddSpecification" value="添加规格" />
+    <text name="BuyWhen" value="购买时机" />
+    <text name="AddDistribution" value="添加分销" />
+    <text name="Remove" value="移除" />
+    <text name="AreaAgencyApplysHeaderInfo" value="" />
+    <text name="CreateNewAreaAgencyApply" value="创建新产品" />
+    <text name="UpgradeOrderMoney" value="族长升级金额" />
+    <text name="MustBeSpreaderForSpread" value="必须成为族长推广" />
+    <text name="DecreaseStockWhen" value="减库存时机" />
+    <text name="DistributionWhen" value="分销时机" />
+    <text name="Type" value="类型" />
+    <text name="TypeIsRequired" value="类型必填" />
+    <text name="DescriptionIsRequired" value="详情必填" />
+    <text name="Description" value="描述" />
+    <text name="SpecificationPropertysHeaderInfo" value="" />
+    <text name="CreateNewSpecificationProperty" value="创建规格属性" />
+    <text name="Template" value="模板" />
+    <text name="Font" value="字体" />
+    <text name="Coordinate" value="坐标" />
+    <text name="Value" value="值" />
+    <text name="Size" value="大小" />
+    <text name="Color" value="颜色" />
+    <text name="FontFamly" value="字体" />
+    <text name="Width" value="宽度" />
+    <text name="Height" value="高度" />
+    <text name="AddParameter" value="添加参数" />
+    <text name="SpreadPosterTemplates" value="推广海报" />
+    <text name="CreateSpreadPosterTemplate" value="创建推广海报" />
+    <text name="Sort" value="排序" />
+    <text name="RequestMsgType" value="请求消息类型" />
+    <text name="MatchingType" value="匹配类型" />
+    <text name="Fuzzy" value="模糊" />
+    <text name="Exact" value="精确" />
+    <text name="Content" value="内容" />
+    <text name="Title" value="标题" />
+    <text name="Url" value="链接" />
+    <text name="PicUrl" value="图片链接" />
+    <text name="AddArticle" value="添加图文" />
+    <text name="FullName" value="全名" />
+    <text name="SubscribeLink" value="关注链接" />
+    <text name="NewCustomerNofify" value="新客户加入通知" />
+    <text name="OrderCreatedNofify" value="订单创建通知" />
+    <text name="OrderPayedNofify" value="订单付款通知" />
+    <text name="OrderShipedNofify" value="订单发货通知" />
+    <text name="OrderRebateNofify" value="订单返利通知" />
+    <text name="WalletWithdrawNofify" value="钱包提现通知" />
+    <text name="UpgradeNofify" value="会员升级通知" />
+    <text name="TemplateMessage" value="模板消息" />
+    <text name="Menu" value="菜单" />
+    <text name="MenuHeaderInfo" value="" />
+    <text name="MemberLevels" value="会员等级" />
+    <text name="Icon" value="图标" />
+    <text name="AreaManager" value="区域管理" />
+    <text name="VirtualProductManager" value="虚拟产品管理" />
+    <text name="AreaAgencysHeaderInfo" value="" />
+    <text name="AreaAgencys" value="区域代理商" />
+    <text name="AreaAgency" value="区域代理商" />
+    <text name="AreaAgencyApplyCategorys" value="产品分类" />
+    <text name="AreaAgencyApplyCategorysHeaderInfo" value="" />
+    <text name="CreateAreaAgencyApplyCategory" value="创建产品分类" />
+    <text name="NotificationTypes" value="通知类型" />
+    <text name="ReceiveNotifications" value="接收通知" />
+    <text name="NotificationSetting" value="通知设置" />
+    <text name="NewUserRegisteredNotificationDefinition" value="新用户注册通知" />
+    <text name="NewTenantRegisteredNotificationDefinition" value="新租户注册通知" />
+    <text name="SeeAllNotifications" value="查看所有通知" />
+    <text name="SetAsRead" value="设为已读" />
+    <text name="SetAllAsRead" value="全部设为已读" />
+    <text name="Notifications" value="全部设为已读" />
+    <text name="Search" value="搜索" />
+    <text name="NotificationSettings" value="通知设置" />
+    <text name="Unread" value="未读" />
+    <text name="Shop" value="店铺" />
+    <text name="Spread" value="推广" />
+    <text name="AutoReplys" value="自定义回复" />
+    <text name="AutoReplysHeaderInfo" value="" />
+    <text name="SpreadPosterTemplatesHeaderInfo" value="" />
+    <text name="IsDefault" value="是否默认" />
+    <text name="Distribution" value="分销" />
+    <text name="Ratio" value="比率" />
+    <text name="AreaAgencyApplys" value="区域代理商申请" />
+    <text name="ExpressCompanys" value="快递公司" />
+    <text name="ExpressCompanysHeaderInfo" value="" />
+    <text name="ChannelAgencys" value="渠道代理商" />
+    <text name="ChannelAgencysHeaderInfo" value="" />
+    <text name="ChannelAgencyApplys" value="渠道代理商申请" />
+    <text name="ChannelAgencyApplysHeaderInfo" value="" />
+    <text name="ChannelAgents" value="渠道代理" />
+    <text name="MemberCardPackages" value="会员卡套餐" />
+    <text name="MemberCardPackagesHeaderInfo" value="" />
+    <text name="IsActive" value="是否激活" />
+    <text name="IsEmailConfirmed" value="是否邮件已确认" />
+    <text name="IsStatic" value="是否静态" />
+    <text name="NewNotifications" value="新通知" />
+    <text name="YouHave" value="您有" />
+    <text name="LoginHistory" value="登陆记录" />
+    <text name="StatusText" value="订单状态" />
+    <text name="AreaAgencyApplyInfo" value="产品信息" />
+    <text name="ShipStatus" value="发货状态" />
+    <text name="IsSpreader" value="是否族长" />
+    <text name="False" value="否" />
+    <text name="True" value="是" />
+    <text name="ThereNotExitSpreadPostTemplateWithThisId" value="找不到该推广海报模板" />
+    <text name="ThereHasNoDefaultSpreadPostTemplate" value="暂无默认推广海报模板" />
+    <text name="YouMustBeSpreadToGetSpreadPoster" value="您必须成为族长才能获取推广海报" />
+    <text name="ChannelAgentRebate" value="渠道代理分红" />
+    <text name="ConfirmOrder" value="确认订单" />
+    <text name="LeaveMessageToSeller" value="给卖家留言" />
+    <text name="AddressSelector" value="地址选择" />
+    <text name="DistributionOfLevel" value="{0}级分销" />
+    <text name="ChannelAgentProductDistributionOfLevel" value="{0}级渠道代理产品分销" />
+    <text name="WalletManager" value="钱包管理" />
+    <text name="WalletRecords" value="交易记录" />
+    <text name="WalletRecordsHeaderInfo" value="" />
+    <text name="SerialNumber" value="流水号" />
+    <text name="PleaseAddCustomerInfo" value="请添加收货信息" />
+    <text name="TheAreaAgencyApplyIsOff" value="产品已经下架" />
+    <text name="YouHasANewCustomer" value="您有一位新客户加入" />
+    <text name="Share" value="分享" />
+    <text name="ShareTitle" value="分享标题" />
+    <text name="ShareDescription" value="分享描述" />
+    <text name="SharePicture" value="分享图片" />
+    <text name="Properties" value="属性" />
+    <text name="NumberAndBarcode" value="编号和条形码" />
+    <text name="DetailTemplate" value="详情模板" />
+    <text name="ArticleTemplate" value="图文模板" />
+    <text name="Submitting" value="正在提交" />
+    <text name="PayType" value="支付类型" />
+    <text name="PayStatus" value="支付状态" />
+    <text name="FetchStatus" value="提现状态" />
+    <text name="SourceUserHasParent" value="已有上级" />
+    <text name="SourceUserIsTargetUserParent" value="请勿绑定下级" />
+    <text name="SourceUserIsTargetUser" value="请勿绑定自己" />
+    <text name="YouAreNotSpreader" value="您非推广者!" />
+    <text name="Received" value="已收货" />
+    <text name="OrderTitle" value="订单标题" />
+    <text name="Add" value="添加" />
+    <text name="FirstLevelMenu" value="一级菜单" />
+    <text name="SendMenu" value="发送菜单" />
+    <text name="YouHasNoParentForBuy" value="请绑定您的推广者再购买" />
+    <text name="SelectYoursAddress" value="请选择您的区域" />
+    <text name="Login" value="登陆" />
+    <text name="Register" value="注册" />
+    <text name="OrLoginWith" value="或者使用其它登陆方式" />
+    <text name="Tenant" value="租户" />
+    <text name="UseHostDatabase" value="使用主机数据库" />
+    <text name="DefaultPasswordIs" value="默认密码" />
+    <text name="Maintenance" value="维护" />
+    <text name="MaintenancesHeaderInfo" value="" />
+    <text name="Clear" value="清除" />
+    <text name="ClearAll" value="清除所有" />
+    <text name="Caches" value="缓存" />
+    <text name="WebSiteLogs" value="网站日志" />
+    <text name="BackgroundJob" value="后台工作" />
+    <text name="AuditLog" value="审计日志" />
+    <text name="JobType" value="工作类型" />
+    <text name="JobArgs" value="工作参数" />
+    <text name="TryCount" value="尝试次数" />
+    <text name="NextTryTime" value="下次执行时间" />
+    <text name="LastTryTime" value="上次执行时间" />
+    <text name="IsAbandoned" value="已遗弃" />
+    <text name="Priority" value="优先级" />
+    <text name="Security" value="安全" />
+    <text name="WebSiteStatus" value="网站状态" />
+    <text name="AppName" value="应用程序名称" />
+    <text name="AppLogo" value="应用程序Logo" />
+    <text name="IsEmailConfirmationRequiredForLogin" value="登陆需要邮件确认" />
+    <text name="SmtpEnableSsl" value="Smtp使用SSL" />
+    <text name="SmtpUseDefaultCredentials" value="Smtp使用默认凭证" />
+    <text name="SmtpDomain" value="Smtp域名" />
+    <text name="SmtpUserName" value="Smtp用户名" />
+    <text name="SmtpPassword" value="Smtp密码" />
+    <text name="SendTestEmail" value="发送测试邮件" />
+    <text name="NickName" value="昵称" />
+    <text name="TestEmailSettingsHeader" value="测试邮件" />
+    <text name="BackgroundJobsHeaderInfo" value="" />
+    <text name="AuditLogsHeaderInfo" value="" />
+    <text name="ExecutionTime" value="执行时间" />
+    <text name="ExecutionDuration" value="执行间隔" />
+    <text name="BrowserInfo" value="浏览器信息" />
+    <text name="ClientName" value="客户端名称" />
+    <text name="ClientIpAddress" value="客户端IP地址" />
+    <text name="ServiceName" value="服务名称" />
+    <text name="MethodName" value="方法名称" />
+    <text name="Method" value="方法" />
+    <text name="CustomData" value="客户数据" />
+    <text name="GlobalRebateManager" value="全局返利管理" />
+    <text name="GlobalRebate" value="全局返利" />
+    <text name="GlobalRebates" value="全局返利" />
+    <text name="GlobalRebatesHeaderInfo" value="" />
+    <text name="YourParentIs" value="您的上级是" />
+    <text name="Manager" value="管理" />
+    <text name="ReceiveNotificationsDisableInfo" value="ReceiveNotificationsDisableInfo" />
+    <text name="Token" value="Token" />
+    <text name="AppId" value="AppId" />
+    <text name="Secret" value="Secret" />
+    <text name="RefreshAccessToken" value="刷新AccessToken" />
+    <text name="EncodingAESKey" value="EncodingAESKey" />
+    <text name="MchId" value="MchId" />
+    <text name="Sslcert" value="Sslcert" />
+    <text name="CurrentUserDidNotLoginToTheApplication" value="当前用户没有登录到应用" />
+    <text name="Remark" value="备注" />
+    <text name="FailReason" value="失败原因" />
+    <text name="AreaAgencyApplyCategoryIsRequired" value="产品分类必填" />
+    <text name="WithdrawFailed" value="提现失败" />
+    <text name="TheUserHasNoWeixinLogin" value="该用户未绑定微信" />
+    <text name="MediaId" value="MediaId" />
+    <text name="LastModificationTime" value="最后修改时间" />
+    <text name="AreaAgencyApplyDetail" value="产品详情" />
+    <text name="CreateGlobalRebate" value="创建全局分红" />
+    <text name="OrderHasPayed" value="订单已付款" />
+    <text name="WithdrawSuccessfully" value="提现成功" />
+    <text name="ThereIsNoItem" value="暂无记录" />
+    <text name="Completed" value="已完成" />
+    <text name="Commented" value="已评价" />
+    <text name="CloseOrder" value="关闭订单" />
+    <text name="ShouldHasParentForBuy" value="购买必须有上级" />
+    <text name="DownloadAll" value="全部下载" />
+    <text name="SalesMoney" value="销售总额" />
+    <text name="RegistTime" value="注册时间" />
+    <text name="MySpread" value="我的推广" />
+    <text name="MyQrcode" value="我的二维码" />
+    <text name="MyShare" value="我的分享" />
+    <text name="MySpreadPoster" value="我的推广海报" />
+    <text name="SpreadPosterCenter" value="海报中心" />
+    <text name="YouShareSuccessfully" value="您的指纹链接已分享成功" />
+    <text name="ArticleList" value="文章列表" />
+    <text name="Hint" value="阅读" />
+    <text name="Settlement" value="结算" />
+    <text name="TheShopCartIsEmpty" value="购物车空空如也" />
+    <text name="GoToSelectAreaAgencyApply" value="快去选择您喜好的商品吧" />
+    <text name="LoginSuccessfully" value="登陆成功" />
+    <text name="Article" value="文章" />
+    <text name="Articles" value="文章" />
+    <text name="ArticlesHeaderInfo" value="" />
+    <text name="ArticleManager" value="文章管理" />
+    <text name="MaterialCenter" value="素材中心" />
+    <text name="SubTitle" value="副标题" />
+    <text name="Author" value="作者" />
+    <text name="Thumbnail" value="缩略图" />
+    <text name="Total" value="合计" />
+    <text name="MyShopCart" value="我的购物车" />
+    <text name="ConfirmOrderForShopCart" value="结算购物车" />
+    <text name="VirtualCard" value="虚拟卡" />
+    <text name="VirtualCards" value="虚拟卡" />
+    <text name="VirtualCardsHeaderInfo" value="" />
+    <text name="Version" value="版本" />
+    <text name="CardNumber" value="卡号" />
+    <text name="CardPassword" value="卡密" />
+    <text name="VirtualCardName" value="虚拟卡名称" />
+    <text name="VirtualCardValue" value="虚拟卡值" />
+    <text name="ExpireDays" value="有效天数" />
+    <text name="VirtualAreaAgencyApplyManager" value="虚拟产品管理" />
+    <text name="VirtualCardManager" value="虚拟卡管理" />
+    <text name="ViewList" value="查看列表" />
+    <text name="ImportVirtualCards" value="导入虚拟卡" />
+    <text name="VirtualAreaAgencyApplyType" value="虚拟产品类型"/>
+    <text name="Coupons" value="卡券"/>
+    <text name="VirtualAreaAgencyApplyCannotAddToShopCart" value="虚拟产品不能添加到购物车"/>
+    <text name="ShipSuccessfully" value="发货成功" />
+    <text name="CardStatus" value="卡状态"/>
+    <text name="VirtualCardNameIsRequired" value="卡号必填"/>
+    <text name="VirtualCardValueIsRequired" value="卡值必填"/>
+    <text name="ImportFile" value="导入文件"/>
+    <text name="ImportFileIsRequired" value="导入文件必填"/>
+    <text name="Import" value="导入"/>
+    <text name="VirtualCardImport" value="导入虚拟卡"/>
+    <text name="VirtualCardImportHeaderInfo" value=""/>
+    <text name="ReCreateSuccessfully" value="重新生成成功"/>
+    <text name="UploadNewFile" value="上传新文件"/>
+    <text name="FileSelector" value="文件选择器"/>
+    <text name="PleaseSubscribeFirst" value="请先关注公众号"/>
+    <text name="Subscribe" value="关注"/>
+    <text name="MyOrder" value="我的订单"/>
+    <text name="PersonalInformation" value="个人信息"/>
+    <text name="AuthorIsRequired" value="作者必填"/>
+    <text name="ThumbnailIsRequired" value="缩略图必填"/>
+    <text name="NewPasswordAgain" value="重复新密码"/>
+    <text name="ChangePasswordHeaderInfo" value=""/>
+    <text name="AddSuccessfully" value="添加成功"/>
+    <text name="Confirm" value="确认"/>
+    <text name="FreightTemplates" value="运费模板"/>
+    <text name="FreightTemplateManager" value="运费模板管理"/>
+    <text name="FreightTemplate" value="运费模板"/>
+    <text name="FreightTemplatesHeaderInfo" value=""/>
+    <text name="CreateFreightTemplate" value="创建运费模板"/>
+    <text name="IsFreeShipping" value="免运费"/>
+    <text name="FreightPlan" value="运费计划"/>
+    <text name="Custom" value="自定义"/>
+    <text name="Unified" value="统一"/>
+    <text name="UnifiedFreight" value="统一运费"/>
+    <text name="UnifiedFreightIsRequired" value="统一运费必填"/>
+    <text name="ValuationType" value="计费方式"/>
+    <text name="ByPiece" value="按件"/>
+    <text name="ByWeight" value="按重量"/>
+    <text name="FirstAmount" value="首重"/>
+    <text name="FirstFee" value="运费"/>
+    <text name="AdditionalAmount" value="续重"/>
+    <text name="AdditionalFee" value="续费"/>
+    <text name="AddDeliveryArea" value="添加配送区域"/>
+    <text name="OrderCountToShip" value="待发货订单"/>
+    <text name="OrderCountOfYestoday" value="昨日订单"/>
+    <text name="TradingVolumeOfYestoday" value="昨日交易额"/>
+    <text name="RebateOfYestoday" value="昨日返利"/>
+    <text name="NewUsers" value="新用户"/>
+    <text name="NewOrders" value="新订单"/>
+    <text name="CustomCustomerInfos" value="自定义客户信息"/>
+    <text name="Required" value="必填"/>
+    <text name="AddCustomCustomerInfo" value="添加自定义客户信息"/>
+    <text name="Others" value="其它"/>
+    <text name="AddProperty" value="添加属性"/>
+    <text name="DeliveryAreas" value="发货区域"/>
+    <text name="EditArea" value="编辑区域"/>
+
+    <text name="ShopTemplateManager" value="店铺模板管理"/>
+    <text name="CreateShopTemplate" value="创建店铺模板"/>
+    <text name="ShopTemplate" value="店铺模板"/>
+    <text name="ShopTemplateHeaderInfo" value=""/>
+    <text name="MarginBottom" value="下边距"/>
+    <text name="AddControl" value="添加控件"/>
+    <text name="AddItem" value="添加项"/>
+    <text name="ShopwindowControl" value="橱窗控件"/>
+    <text name="SliderControl" value="轮播控件"/>
+    <text name="MaxCount" value="最大数目"/>
+    <text name="Style" value="样式"/>
+    <text name="Category" value="分类"/>
+    <text name="AreaAgencyApplyListControl" value="产品列表控件"/>
+    <text name="RichTextControl" value="富文本控件"/>
+    <text name="PictureAdControl" value="图片广告控件"/>
+    <text name="NavControl" value="导航控件"/>
+
+    <text name="IsHide" value="是否隐藏"/>
+    <text name="Parent" value="父级"/>
+    <text name="MyProfile" value="我的资料"/>
+    <text name="EditProfile" value="编辑资料"/>
+    <text name="EditProfileHeaderInfo" value=""/>
+
+    <text name="AgentOrder" value="代理拿货"/>
+    <text name="AreaAgent" value="区域代理"/>
+    <text name="NormalAddressPrice" value="普通区域价格"/>
+    <text name="DevelopedAddressPrice" value="发达区域价格"/>
+    <text name="AreaAgencyHome" value="区域代理主页"/>
+    <text name="NormalAddressCount" value="普通地址数量"/>
+    <text name="DevelopedAddressCount" value="发达地址数量"/>
+    <text name="TotalRebate" value="累计分红"/>
+    <text name="CustomerCount" value="客户数"/>
+    <text name="Customers" value="客户"/>
+    <text name="Rebates" value="分红"/>
+    <text name="Certificate" value="证书"/>
+    <text name="ApplyAreaAgency" value="申请区域代理"/>
+
+    <text name="WechatName" value="微信号"/>
+    <text name="IdentityNumber" value="身份证号"/>
+    <text name="AddAddress" value="添加地址"/>
+    <text name="ChannelAgentAssortment" value="渠道配货"/>
+    <text name="ChannelAgentDistribution" value="渠道分销"/>
+    <text name="Applying" value="申请中"/>
+    <text name="Cancel" value="取消"/>
+    <text name="WalletAllBalance" value="提现所有余额"/>
+    <text name="Freezing" value="冻结中"/>
+    
+    <text name="PictureTemplateManager" value="图片模板管理"/>
+    <text name="PictureTemplate" value="图片模板"/>
+    <text name="PictureTemplatesHeaderInfo" value=""/>
+    <text name="PictureTemplates" value="图片模板"/>
+    <text name="CreatePictureTemplates" value="申请区域代理"/>
+    <text name="ProductManager" value="产品管理"/>
+    <text name="ProductCategory" value="产品分类"/>
+    <text name="Product" value="产品"/>
+    <text name="ProductCategorys" value="产品分类"/>
+    <text name="ProductCategoryHeadInfo" value=""/>
+    <text name="OnSale" value="在售"/>
+    <text name="UnderTheShelf" value="已下架"/>
+    <text name="ProductType" value="产品类型"/>
+    <text name="EnableAgentOrder" value="代理拿货"/>
+
+    <text name="Number" value="编号"/>
+    <text name="Barcode" value="条形码"/>
+    <text name="Pass" value="通过"/>
+    <text name="AreaAgencyAreas" value="区域代理商区域"/>
+    <text name="CertificateTemplate" value="证书模板"/>
+    <text name="Discount" value="折扣"/>
+    <text name="IndirectRebateRatio" value="间接分红比率"/>
+    <text name="NormalAddressRatio" value="普通地址比率"/>
+  
+    <text name="SetAsDefault" value="设为默认"/>
+    <text name="ProductListControl" value="产品列表控件"/>
+    <text name="AreaAgentRebate" value="区域代理分红"/>
+    <text name="ChannelAgentDistributionOfLevel" value="渠道代理{0}级分销"/>
+
+    <text name="Actived" value="激活的"/>
+    <text name="Recharge" value="充值"/>
+    <text name="UnFetch" value="未提取"/>
+    <text name="Fail" value="失败"/>
+    <text name="Score" value="积分"/>
+    <text name="GiveScore" value="赠送积分"/>
+
+
+    <text name="System" value="系统"/>
+    <text name="CreateChild" value="创建下级"/>
+    <text name="Logo" value="Logo"/>
+    <text name="RebateGuarantee" value="返利担保"/>
+    <text name="AutoWithdraw" value="自动提现"/>
+    <text name="AutoReceiveLimit" value="自动收货期限"/>
+    <text name="MustBeAgencyToGetSpreadPoster" value="必须成为代理获取推广海报"/>
+    <text name="AreaAgents" value="区域代理"/>
+    <text name="AreaAgentsHeaderInfo" value=""/>
+    <text name="CreateNewAreaAgent" value="创建区域代理"/>
+    <text name="ProductsHeaderInfo" value=""/>
+    <text name="ProductCategoryCreateOrEditHeaderInfo" value=""/>
+    <text name="ScoreManager" value="积分管理"/>
+    <text name="ScoreRecord" value="积分记录"/>
+    <text name="ScoreRecords" value="积分记录"/>
+    <text name="ScoreRecordsHeaderInfo" value=""/>
+    <text name="OrderScoreReward" value="订单积分奖励"/>
+    <text name="NickNameIsRequired" value="昵称是必须的"/>
+    <text name="LogoIsRequired" value="Logo是必须的"/>
+    <text name="AdWordIsRequired" value="广告词是必须的"/>
+    <text name="AssortmentDiscription" value="配赠描述"/>
+    <text name="DiscriptionIsRequired" value="描述是必须的"/>
+    <text name="Discription" value="描述"/>
+    <text name="Assortment" value="配赠"/>
+    <text name="Specification" value="规格"/>
+    <text name="AddChannelAgentAssortment" value="添加渠道代理配赠"/>
+    <text name="Refund" value="退款"/>
+    <text name="CreatePictureTemplate" value="创建图片模板"/>
+    <text name="StartX" value="左上角X"/>
+    <text name="StartY" value="左上角Y"/>
+    <text name="AdWord" value="广告词"/>
+    <text name="CreateNewProduct" value="创建新产品"/>
+    <text name="Products" value="产品"/>
+    <text name="ProductName" value="产品名称"/>
+    <text name="ChannelAgentProductDistribution" value="渠道代理产品分销"/>
+    <text name="MinChannelAgentLevel" value="最小渠道等级"/>
+    <text name="MaxChannelAgentLevel" value="最大渠道等级"/>
+    <text name="AddChannelAgentProductDistribution" value="添加渠道代理产品分销"/>
+    <text name="ExchangeScore" value="兑换积分"/>
+    <text name="ProductCategorysHeaderInfo" value=""/>
+    <text name="CreateProductCategory" value="创建产品分类"/>
+    <text name="OrderCreatedNotificationDefinition" value="订单创建通知定义"/>
+
+    <text name="AddressHeaderInfo" value=""/>
+    <text name="DevelopLevel" value="发展水平"/>
+    <text name="Normal" value="普通"/>
+    <text name="Developed" value="发达"/>
+    <text name="AddressEditHeaderInfo" value=""/>
+    <text name="EnglishName" value="英文名"/>
+    <text name="AppTitleLogo" value="应用程序标题Logo"/>
+    <text name="Distributions" value="分销"/>
+    <text name="GoToSelectProduct" value="去选择商品"/>
+    <text name="ScoreShop" value="积分商城"/>
+    <text name="ViewScoreRecords" value="查看积分记录"/>
+
+    <text name="PleaseAddAtLeastOneSpecificationProperty" value="请添加至少一个规格属性"/>
+    <text name="PleaseAddAtLeastOneSpecification" value="请添加至少一个规格"/>
+    <text name="PleaseInputProductName" value="请输入产品名称"/>
+    <text name="Text" value="文本"/>
+    <text name="DiscountIsRequired" value="折扣是必须的"/>
+    <text name="AssortmentDiscriptionIsRequired" value="配赠描述是必须的"/>
+    <text name="NonAgencyRatio" value="非代理比率"/>
+    <text name="Scores" value="积分"/>
+    <text name="ScoresHeaderInfo" value=""/>
+    
+    <text name="IndirectAreaAgentRebate" value="间接区域代理分红"/>
+    <text name="NewTenant" value="新租户"></text>
+    <text name="ViewMore" value="查看更多"></text>
+    <text name="TenantSignUp" value="注册租户"></text>
+    <text name="Reload" value="重新加载"></text>
+    <text name="UsersChart" value="用户图表"></text>
+    <text name="OrderChart" value="订单图表"></text>
+    <text name="IconIsRequired" value="图标是必须的"></text>
+
+    <text name="YouMustBeSpreaderToSpread" value="您必须成为族长才能推广"></text>
+    <text name="YouMustBeAgencyToGetSpreadPoster" value="您必须成为代理才能获取推广海报"></text>
+    <text name="YouAreNotChannelAgency" value="您不是渠道代理商"></text>
+    <text name="YouHasAddThisAddress" value="您已经添加了该地址"></text>
+    <text name="AreYouSureToDeleteThisProduct" value="您确定删除该产品吗？"></text>
+    <text name="AwardScore" value="奖励积分"></text>
+    <text name="WithdrawAllBalance" value="提现所有余额"></text>
+    <text name="DistributionMoney" value="分销金额"></text>
+    <text name="PassSuccessfully" value="通过成功"></text>
+    <text name="MinUpgradeSales" value="最小升级销售额"></text>
+    <text name="CertificateTemplateHasNotSet" value="证书模板暂未设置"></text>
+    <text name="ChannelAgentRebateMoney" value="渠道代理分红金额"></text>
+    <text name="ChangePayMoney" value="改价"></text>
+    <text name="ChangeCustomerInfo" value="修改客户信息"></text>
+    <text name="Exchange" value="兑换"></text>
+    <text name="ScoreIsNotEnoughtForExchange" value="没有足够的积分兑换"></text>
+    <text name="EnableSalesOfSelf" value="使能买家销售额"></text>
+    <text name="Show" value="显示"></text>
+
+    <text name="Map" value="地图"></text>
+    <text name="NoteOfCustomer" value="客户备注"></text>
+    <text name="ProductInfo" value="产品信息"></text>
+    <text name="Statistics" value="统计"></text>
+    <text name="Grid" value="网格"></text>
+    <text name="List" value="列表"></text>
+    <text name="Receive" value="收货"></text>
+    <text name="Shiped" value="已发货"></text>
+    <text name="AutoPayForWithdraw" value="自动打款"></text>
+    <text name="SuccessfullyWithdraw" value="提现成功"></text>
+
+    <text name="Payed" value="已付款"></text>
+    <text name="Receipt" value="已收货"></text>
+    <text name="Complete" value="已完成"></text>
+
+    <text name="WithdrawApply" value="提现申请"></text>
+    <text name="WithdrawApplys" value="提现申请"></text>
+    <text name="WithdrawApplysHeaderInfo" value=""></text>
+    <text name="YouHasBeenThisChannelAgent" value="您已经是当前代理商"></text>
+    <text name="SelectUser" value="选择用户"></text>
+    <text name="CreateChannelAgency" value="创建渠道代理商"></text>
+
+    <text name="ProductUnits" value="产品单位"></text>
+    <text name="AddProductUnit" value="添加产品单位"></text>
+
+    <text name="MinAgentOrderMoney" value="代理最低拿货金额"></text>
+    <text name="MinAgentOrderMoneyNote" value="您的最低拿货金额为{0}元"></text>
+    <text name="YouHasAddThisSpecification" value="您已经添加了该规格"></text>
+  </texts>
+</localizationDictionary>

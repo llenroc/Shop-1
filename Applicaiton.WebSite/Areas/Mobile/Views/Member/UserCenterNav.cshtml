@@ -1,0 +1,10 @@
+﻿<div class="body-nav">
+	<ul class="nav-list ng-cloak" ng-cloak ng-if="vm.userCenterMenu&&vm.userCenterMenu.items&&vm.userCenterMenu.items.length">
+		<li ng-repeat="menuItem in vm.userCenterMenu.items">
+			<a href="{{menuItem.url}}">
+				<img class="nav-icon" ng-src="{{menuItem.icon}}">
+				<label class="title" ng-bind="menuItem.displayName"></label>
+			</a>
+		</li>
+	</ul>
+</div>

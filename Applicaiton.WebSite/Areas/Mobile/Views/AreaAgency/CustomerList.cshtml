@@ -1,0 +1,19 @@
+﻿@model Infrastructure.Application.DTO.IdInput
+<div ng-cloak class="ng-cloak" ng-controller="app.mobile.areaAgency.customerList as vm">
+    <input type="hidden" id="areaAgencyId" value="@Model.Id" />
+    <div class="blank" ng-if="!vm.customerInfos||!vm.customerInfos.length">@L("ThereIsNoItem")</div>
+    <ul id="areaAgencyCustomerList" class="profile-list">
+        <li ng-repeat="customerInfo in vm.customerInfos">
+            <div class="profileItem">
+                <div class="profileItemAvatarBox">
+                    <img width="64" class="profileTtemAvatar imageCircle" ng-src="{{customerInfo.creatorUser.avatar}}">
+                </div>
+                <div class="profileItemBody">
+                    <h6 class="profileItemName thin">{{customerInfo.creatorUser.nickName}}</h6>
+					<h5 class="profileItemAdditionalProperty"><span class="key">@L("Address")</span><span class="value">{{customerInfo.fullAddress}}</span></h5>
+                    <h5 class="profileItemAdditionalProperty">{{customerInfo.creatorUser.creationTime| momentFormat:'YYYY-MM-DD HH:mm:ss'}}</h5>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

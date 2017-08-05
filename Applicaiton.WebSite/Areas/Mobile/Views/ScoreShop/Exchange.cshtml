@@ -1,0 +1,17 @@
+﻿@model Application.WebSite.Areas.Mobile.Models.ScoreExchange.ScoreExchangeOrderConfirmInputViewModel
+@{
+    Layout = "~/Areas/Mobile/Views/Shared/_BlankLayout.cshtml";
+}
+<div ng-controller="app.mobile.scoreShop.exchange as vm" ng-cloak class="ng-cloak">
+    <input type="hidden" id="productId" value="@Model.ProductId" />
+    <input type="hidden" id="specificationId" value="@Model.SpecificationId" />
+    <input type="hidden" id="count" value="@Model.Count" />
+    <input type="hidden" id="customerInfoId" value="@Model.CustomerInfoId" />
+    <div ng-if="vm.product">
+        @Html.Partial("./../Product/Detail/Components/Slider")
+        @Html.Partial("Exchange/Components/BaseInfo")
+        @Html.Partial("Exchange/Components/CustomerInfo")
+        @Html.Partial("Exchange/Components/SpecifiactionSelector")
+        @Html.Partial("./../Product/Detail/Components/Tab")
+    </div>
+</div>

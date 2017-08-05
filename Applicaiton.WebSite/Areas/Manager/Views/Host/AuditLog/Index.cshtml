@@ -1,0 +1,90 @@
+﻿<div ng-controller="app.manager.host.auditLog.index">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("AuditLogs")</span> <small>@L("AuditLogsHeaderInfo")</small>
+        </h1>
+    </div>
+    <form id="auditLogFilterForm" class="form-horizontal">
+        <div class="row">
+            <div class="column-5 padding-base">
+                <div class="form-group">
+                    <label class="form-group-key column-2">@L("ServiceName")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="serviceName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-5">
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("MethodName")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="methodName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-5 padding-base">
+                <div class="form-group">
+                    <label class="form-group-key column-2">@L("ExecutionTime")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="executionTime">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-5">
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("ExecutionDuration")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="executionDuration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="button-text icon block primary" ng-click="getAuditLogs()"><i class="icon icon-refresh"></i>@L("Search")</button>
+        </div>
+    </form>
+    <div class="row">
+        <div class="column-10">
+            <div class="responsive-table-container">
+                <table class="table table-striped table-hover table-bordered loading" id="auditLogsTable">
+                    <thead>
+                        <tr>
+                            <th>@L("UserName")</th>
+                            <th>@L("ExecutionTime")</th>
+                            <th>@L("ClientIpAddress")</th>
+                            <th>@L("ServiceName")</th>
+                            <th>@L("Method")</th>
+                            <th>@L("ExecutionDuration")</th>
+                            <th>@L("BrowserInfo")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="auditLog in auditLogs">
+                            <td>{{auditLog.user.userName}}</td>
+                            <td>{{auditLog.executionTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                            <td>{{auditLog.clientIpAddress}}</td>
+                            <td>{{auditLog.serviceName}}</td>
+                            <td>{{auditLog.methodName}}</td>
+                            <td>{{auditLog.executionDuration}}ms</td>
+                            <td>{{auditLog.browserInfo}}</td>
+                            <td>
+                                <a class="button-text small primary border" ng-click="openDetailModal(auditLog.id)">@L("Detail")</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

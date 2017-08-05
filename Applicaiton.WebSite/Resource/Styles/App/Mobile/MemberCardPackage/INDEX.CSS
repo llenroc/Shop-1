@@ -1,0 +1,19 @@
+﻿.card-list{
+    padding-left:0;
+    list-style-type:none;
+}
+.card-list li{
+    padding:1rem;
+    background:#fff;
+    margin-bottom:1rem;
+    border:1px solid transparent;
+}
+.card-list li.selected{
+    border-color:#999;
+}
+.card-list .price{
+    font-size:2.4rem;
+    color:#bb9b6a;
+    display:block;
+    text-align:center;
+}

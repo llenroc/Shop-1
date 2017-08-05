@@ -1,0 +1,49 @@
+﻿<div class="dialog">
+	<div class="header">
+		<div class="container-responsive">
+			<h5 class="title">@L("BatchShip")</h5>
+			<button class="button-icon button-close">×</button>
+		</div>
+	</div>
+	<div class="body">
+		<div class="container-responsive">
+			<form name="bathchShipForm" role="form" novalidate class="form-validation">
+				<div class="row">
+					<div class="column-8">
+                        <div class="form-group">
+                            <label class="form-group-key">@L("Template")</label>
+                            <div class="form-group-block">
+                                <a href="~/Temp/Downloads/batchShipTemplate.xlsx">@L("PleaseDownloadStandardImportTemplate")</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group-key">@L("Excel")</label>
+                            <div class="form-group-block">
+                                <div class="form-group-block">
+                                    <div class="file-uploader" file-uploader path="vm.shipData.filePath" data-option-url="/Manager/Home/Upload">
+                                        <div class="file-select-block">
+                                            <span class="file-icon icon-cloud-upload"></span>
+                                            <p class="file-path">{{vm.shipData.filePath}}</p>
+                                        </div>
+                                        <input type="file" />
+                                        <input type="hidden" name="filePath" ng-model="vm.shipData.filePath" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container-responsive">
+			<button class="button-text border circle danger button-close">@L("Close")</button>
+			<button class="button-text border circle primary button-ok" ng-click="vm.ship()" ng-disabled="bathchShipForm.$invalid">
+				<i class="icon-save"></i> <span>@L("Ship")</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,15 @@
+﻿input[type='text'],
+input[type='password'], 
+input[type='tel'], 
+input[type='number'], 
+input[type='email'], 
+input[type='url'], 
+input[type='range'], 
+input[type='search'], 
+input[type='color'],
+select,
+textarea,
+.static-text{
+    /*box-shadow: inset 0 2px 5px #eee;
+    border-radius: 4px;*/
+}

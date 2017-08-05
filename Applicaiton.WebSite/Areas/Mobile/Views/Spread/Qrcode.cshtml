@@ -1,0 +1,15 @@
+﻿<div ng-controller="app.mobile.spread.qrcode as vm" ng-cloak class="ng-cloak">
+	<div class="padding-1">
+		<div class="profileItem margin-bottom-1">
+			<div class="profileItemAvatarBox">
+				<img width="64" class="profileTtemAvatar imageCircle" ng-src="{{vm.user.avatar}}" />
+			</div>
+			<div class="profileItemBody">
+				<h5 class="profileItemName">{{vm.user.nickName}}</h5>
+				<h5 class="profileItemAdditionalProperty"><span class="value">{{vm.user.userName}}</span></h5>
+			</div>
+		</div>
+		<img class="width-full margin-bottom-1" ng-src="{{vm.qrcode}}" ng-if="vm.qrcode"/>
+		<button class="button-text block primary" ng-click="vm.reCreate()">@L("ReCreate")</button>
+	</div>
+</div>

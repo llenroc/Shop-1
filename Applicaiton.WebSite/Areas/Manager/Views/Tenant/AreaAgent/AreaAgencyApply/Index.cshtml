@@ -1,0 +1,40 @@
+﻿<div ng-controller="app.manager.areaAgent.areaAgencyApply.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("AreaAgencyApplys")</span> <small>@L("AreaAgencyApplysHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table id="areaAgencyApplyTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+                        <th>@L("UserName")</th>
+                        <th>@L("Avatar")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Status")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="areaAgencyApply in vm.areaAgencyApplys">
+                        <td>{{areaAgencyApply.areaAgent.name}}</td>
+                        <td>{{areaAgencyApply.user.nickName}}</td>
+                        <td><img height="24" ng-src="{{areaAgencyApply.user.avatar}}" /></td>
+                        <td>{{areaAgencyApply.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <span class="label success" ng-if="areaAgencyApply.status==1">@L("Success")</span>
+                            <span class="label error" ng-if="areaAgencyApply.status==0">@L("Applying")</span>
+                            <span class="label error" ng-if="areaAgencyApply.status==2">@L("Fail")</span>
+                            <span class="label error" ng-if="areaAgencyApply.status==3">@L("Cancel")</span>
+                        </td>
+                        <td>
+                            <button class="button-text" ng-if="!areaAgencyApply.status" ng-click="vm.pass(areaAgencyApply)">@L("Pass")</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

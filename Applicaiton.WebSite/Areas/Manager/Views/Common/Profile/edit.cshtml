@@ -1,0 +1,40 @@
+﻿<div class="container" ng-controller="app.manager.profile.edit as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("EditProfile")</span> <small>@L("EditProfileHeaderInfo")</small>
+        </h1>
+    </div>
+    <form name="profileEditForm" novalidate>
+        <div class="form-group">
+            <label class="form-group-key">@L("Avatar")</label>
+            <div class="form-group-block">
+                <div class="picture-uploader"
+                     picture-uploader
+                     path="vm.user.avatar"
+                     data-option-url="/Manager/Home/Upload"
+                     data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                    <img height="128" ng-src="{{vm.user.avatar}}" />
+                    <input type="file" />
+                    <input type="hidden" name="avatar" required ng-model="vm.user.avatar" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Name")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="name" ng-model="vm.user.name" required maxlength="@Application.Authorization.Users.User.MaxNameLength">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Surname")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="surname" ng-model="vm.user.surname" required maxlength="@Application.Authorization.Users.User.MaxSurnameLength">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="button-text block primary" ng-click="vm.save()" ng-disabled="profileEditForm.$invalid"><span>@L("Save")</span></button>
+    </form>
+</div>

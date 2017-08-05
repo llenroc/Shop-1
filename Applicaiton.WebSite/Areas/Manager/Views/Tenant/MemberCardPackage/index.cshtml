@@ -1,0 +1,37 @@
+﻿<div ng-controller="app.manager.memberCardPackage.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("MemberCardPackages")</span> <small>@L("MemberCardPackagesHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@L("Title")</th>
+                        <th>@L("MemberLevel")</th>
+                        <th>@L("Expiry")</th>
+                        <th>@L("Price")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="memberCardPackage in vm.memberCardPackages">
+                        <td>{{memberCardPackage.title}}</td>
+                        <td>{{memberCardPackage.memberLevel.displayName}}</td>
+                        <td>{{memberCardPackage.expiry}}</td>
+                        <td>{{memberCardPackage.price}}</td>
+                        <td>{{memberCardPackage.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <a class="button-text border small" ui-sref="memberCardPackage.edit({id:memberCardPackage.id})">@L("Edit")</a>
+                            <a class="button-text danger border small">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<a class="button-text primary block" ui-sref="memberCardPackage.create">@L("Create")</a>

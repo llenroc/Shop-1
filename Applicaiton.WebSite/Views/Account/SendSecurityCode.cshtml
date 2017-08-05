@@ -1,0 +1,24 @@
+﻿@model Application.WebSite.Models.Account.SendSecurityCodeViewModel
+
+<div class="container-responsive padding-1">
+    @using (Html.BeginForm("SendSecurityCode", "Account", new { returnUrl = Model.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+    {
+        <h3>@L("SendSecurityCode")</h3>
+        <p>@L("SendSecurityCode_Information")</p>
+
+        @Html.AntiForgeryToken()
+        @Html.Hidden("rememberMe", @Model.RememberMe)
+
+        <div class="form-group">
+            @Html.DropDownListFor(model => model.SelectedProvider, Model.Providers, new
+   {
+       @class = "form-control"
+   })
+        </div>
+
+        <div class="input-wrapper">
+            <input type="submit" value="@L("Submit")" />
+        </div>
+    }
+
+</div>

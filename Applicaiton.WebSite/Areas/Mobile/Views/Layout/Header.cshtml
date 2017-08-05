@@ -1,0 +1,30 @@
+﻿@using Application.WebSite.Areas.Mobile.Models.Layout
+@model HeaderViewModel
+@{ 
+    var avatarPath = "/Content/Images/avatar.png";
+
+    if (Model!=null&& Model.CurrentLoginInformations.User!=null)
+    {
+        avatarPath = Model.CurrentLoginInformations.User.Avatar;
+    }
+}
+<div class="page-header mobile" ng-controller="app.mobile.header as vm">
+    <div class="page-header-wrapper">
+        <button class="button-block" ng-click="vm.goBack()"><img height="16" src="~/Content/frame/canknow/image/back-light.png" /></button>
+        <a class="title-block" href="/Mobile/Home/Index">
+            <h5 class="title">@ViewBag.PageTitle</h5>
+        </a>
+        <div class="user-block">
+            <a class="user-avatar-box" href="/Mobile/Member/Index">
+                <img class="user-avatar imageCircle" src="@avatarPath">
+            </a>
+        </div>
+    </div>
+</div>
+@if (Model.CurrentLoginInformations.User!=null&&Model.CurrentLoginInformations.User.WechatUserInfo != null && !Model.CurrentLoginInformations.User.WechatUserInfo.Subscribe)
+{
+    <div class="subscribe-block">
+        <label class="subscribe-note">@L("PleaseSubscribeFirst")</label>
+        <a class="button-text border radius danger light" href="@Model.GeneralSettingsDto.SubscribeLink">@L("Subscribe")</a>
+    </div>
+}

@@ -1,0 +1,58 @@
+﻿@using Microsoft.Owin.Security
+@using Infrastructure.Extensions
+@model Application.WebSite.Models.Account.LoginFormViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+@Html.Partial("_Head")
+<body ng-app="app">
+
+    <div class="mobile-login-page padding-1">
+        <div class="avatar-box margin-bottom-2">
+            <img width="96" class="avatar circle center-block" src="~/Content/Images/avatar.jpg">
+        </div>
+        <form class="login-form margin-bottom-1" action="@(Url.Action("Login", "Account"))?returnUrl=@(Model.ReturnUrl)" method="POST" novalidate>
+            @if (Model.IsMultiTenancyEnabled)
+            {
+                if (Model.TenancyName.IsNullOrEmpty())
+                {
+                    <div class="input-wrapper line margin-bottom-1" data-validate="true" data-maxlength="@Application.MultiTenancy.Tenant.MaxTenancyNameLength">
+                        <input type="text" placeholder="@L("TenancyName")" name="TenancyName">
+                    </div>
+                }
+                else
+                {
+                    <input type="hidden" name="tenancyName" value="@Model.TenancyName" />
+                }
+            }
+            <div class="input-wrapper line margin-bottom-1" data-validate="true" data-required="true" data-remote="@(Url.Action("CheckUsername", "Account"))" data-maxlength="@Application.Authorization.Users.User.MaxEmailAddressLength">
+                <input type="text" name="UsernameOrEmailAddress" placeholder="@L("UserNameOrEmail")" value="@(Model.UserNameOrEmailAddress ?? "")">
+            </div>
+            <div class="input-wrapper line margin-bottom-1" data-required="true" data-validate="true" data-minlength="6" data-maxlength="@Application.Authorization.Users.User.MaxPlainPasswordLength">
+                <input type="password" name="Password" placeholder="@L("Password")">
+            </div>
+            <input type="hidden" name="RememberMe" value="true">
+            <input type="hidden" name="returnUrlHash" />
+            <button type="submit" class="button-text radius block submit">@L("LogIn")</button>
+        </form>
+    </div>
+    <script>
+    $(function () {
+        $("form").formValidate({
+            onsubmit: function (event) {
+                var _this = this;
+                infrastructure.ajax({
+                    contentType: app.consts.contentTypes.formUrlencoded,
+                    url: _this.$element.attr('action'),
+                    data: _this.getData(),
+                    success: function (result) {
+                    }
+                });
+            }
+        });
+    });
+    </script>
+</body>
+</html>

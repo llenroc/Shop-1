@@ -1,0 +1,15 @@
+﻿.web-log-view{
+    padding-left:0;
+    list-style-type:none;
+}
+.web-log-view>li{
+    margin-bottom:0.5rem;
+    line-height: 2;
+}
+.web-log-view>li:nth-of-type(odd) {
+    /*background-color: #eee;*/
+}
+.web-log-view>li .label{
+    font-weight:bold;
+    font-style:italic;
+}

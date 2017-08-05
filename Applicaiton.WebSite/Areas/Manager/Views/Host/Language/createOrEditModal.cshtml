@@ -1,0 +1,25 @@
+<div>
+    <form name="languageCreateOrEditForm" role="form" novalidate class="form-validation">
+        <div class="form-group">
+            <label class="form-group-key column-2">@L("Language")</label>
+            <div class="form-group-block column-8">
+                <select id="LanguageNameSelectionCombobox"
+                        class="form-control"
+                        ng-options="languageName.value as languageName.displayText for languageName in vm.languageNames"
+                        ng-model="vm.language.name">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <div class="form-group">
+        <label class="form-group-key column-2">@L("Flag")</label>
+        <div class="form-group-block column-8">
+            <select id="LanguageIconSelectionCombobox"
+                    class="form-control"
+                    ng-model="vm.language.icon">
+                <option ng-repeat="flag in vm.flags" value="{{flag.value}}"><i class="{{flag.value}}"></i>{{flag.displayText}}</option>
+            </select>
+        </div>
+    </div>
+</div>

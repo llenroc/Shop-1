@@ -1,0 +1,40 @@
+﻿<div ng-controller="app.manager.channel.channelAgencyApply.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("ChannelAgencyApplys")</span> <small>@L("ChannelAgencyApplysHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table id="channelAgencyApplyTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+                        <th>@L("NickName")</th>
+                        <th>@L("Avatar")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Status")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="channelAgencyApply in vm.channelAgencyApplys">
+                        <td>{{channelAgencyApply.channelAgent.name}}</td>
+                        <td>{{channelAgencyApply.user.nickName}}</td>
+                        <td><img height="24" ng-src="{{channelAgencyApply.user.avatar}}" /></td>
+                        <td>{{channelAgencyApply.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <span class="label success" ng-if="channelAgencyApply.status==1">@L("Success")</span>
+                            <span class="label error" ng-if="channelAgencyApply.status==0">@L("Applying")</span>
+                            <span class="label error" ng-if="channelAgencyApply.status==2">@L("Fail")</span>
+                            <span class="label error" ng-if="channelAgencyApply.status==3">@L("Cancel")</span>
+                        </td>
+                        <td>
+                            <button class="button-text" ng-if="!channelAgencyApply.status" ng-click="vm.pass(channelAgencyApply)">@L("Pass")</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

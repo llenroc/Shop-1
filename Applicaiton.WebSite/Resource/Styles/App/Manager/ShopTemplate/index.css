@@ -1,0 +1,80 @@
+﻿.app-design .app-preview{
+     -webkit-box-shadow: 0 0 0 1px #c5c5c5;
+    box-shadow: 0 0 0 1px #c5c5c5;
+}
+.app-design .app-preview .app-header {
+    height: 70px;
+    background-image: url(/Content/Images/phone-header.png);
+    background-size:100% 100%;
+}
+.app-design .app-preview .app-entry {
+    margin: 0 auto;
+    padding-bottom: 11px;
+    min-height: 200px;
+    background: #f9f9f9;
+}
+
+.control-list{
+    padding-left:0;
+    list-style-type:none;
+    padding:1rem;
+}
+.control-list:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.control-list>li{
+    float:left;
+    width:25%;
+    padding:1rem;
+}
+.control-list>li>label{
+    display:block;
+    padding:1rem;
+    border:1px solid #333;
+    word-wrap:break-word;
+    cursor:pointer;
+    height: 8rem;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.control-preview-list{
+    padding-left:0;
+    list-style-type:none;
+}
+.control-preview-list>li{
+    min-height:96px;
+    position:relative;
+    -webkit-user-select:none;
+}
+.control-preview-list>li>.actions{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    display:none;
+    z-index:2;
+}
+.control-preview-list>li:hover>.actions{
+    outline:2px dashed #ff0000;
+}
+.control-preview-list>li.actived>.actions{
+    outline:2px solid #ff0000;
+}
+.control-preview-list>li:hover>.actions,
+.control-preview-list>li.actived>.actions{
+    display:block;
+}
+.control-preview-list>li>.actions>.toolbar{
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+.control-preview-list>li>.actions>.control-sort-hanlder{
+    position:absolute;
+    left:1rem;
+    top:6px;
+}

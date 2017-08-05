@@ -1,0 +1,18 @@
+﻿<div class="ng-cloak" ng-controller="app.mobile.spread.shares as vm" ng-cloak>
+	<div class="blank" ng-if="!vm.shares||!vm.shares.length">@L("ThereIsNoItem")</div>
+	<ul id="shareList" class="profile-list">
+		<li ng-repeat="share in vm.shares">
+			<div class="profileItem">
+				<div class="profileItemAvatarBox">
+					<img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{share.imgUrl}}">
+				</div>
+				<div class="profileItemBody">
+					<h6 class="profileItemName thin">{{share.title}}</h6>
+					<p>{{share.desc}}</p>
+					<h5 class="profileItemAdditionalProperty"><span class="value">{{share.creationTime|momentFormat:'YYYY-MM-DD hh:mm:ss'}}</span></h5>
+				</div>
+				<span class="accessCount">{{share.accessCount}}</span>
+			</div>
+		</li>
+	</ul>
+</div>

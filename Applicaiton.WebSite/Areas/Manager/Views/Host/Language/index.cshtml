@@ -1,0 +1,50 @@
+@using Application.Localization
+<div ng-controller="app.manager.host.language.index as vm">
+    <div class="view-page-head margin-bottom-5">
+        <h1 class="view-page-title">
+            <span>@L("Languages")</span> <small>@L("LanguagesHeaderInfo")</small>
+        </h1>
+        <button class="button-text primary" ng-click="vm.createLanguage()"><i class="icon-plus"></i> @L("CreateNewLanguage")</button>
+    </div>
+    <div class="responsive-table-container">
+        <table class="table table-blanguageed table-bordered table-striped table-hover" id="languagesTable">
+            <thead>
+                <tr>
+                    <th>@L("DisplayName")</th>
+                    <th>@L("Code")</th>
+                    <th>@L("Default")</th>
+                    <th>@L("CreationTime")</th>
+                    <th>@L("Actions")</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="language in vm.languages">
+                    <td>
+                        <i ng-class="language.icon"></i>
+                        <span ng-if="language.name != vm.defaultLanguageName">{{language.displayName}}</span>
+                        <span ng-if="language.name == vm.defaultLanguageName"><strong>{{language.displayName}}(@L("Default"))</strong></span>
+                    </td>
+                    <td>{{language.name}}</td>
+                    <td>
+                        <span ng-show="language.tenantId != vm.currentTenantId" class="label default">@L("Yes")</span>
+                        <span ng-show="language.tenantId == vm.currentTenantId" class="label success">@L("No")</span>
+                    </td>
+                    <td>{{language.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                    <td>
+                        <div class="dropdown-wripper dropdown-menu">
+                            <a data-toggle="dropdown" class="button-text small primary"><i class="icon-cog"></i>@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                            <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                <li><a ng-click="vm.changeTexts(language)">@L("ChangeTexts")</a></li>
+                                <li><a ng-click="vm.setAsDefaultLanguage(language)">@L("SetAsDefaultLanguage")</a></li>
+                                <li><a ng-click="vm.deleteLanguage(language)">@L("Delete")</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p ng-if="vm.currentTenantId" class="margin-top-20">
+            @("* " + L("CanNotEditOrDeleteDefaultLanguages"))
+        </p>
+    </div>
+</div>

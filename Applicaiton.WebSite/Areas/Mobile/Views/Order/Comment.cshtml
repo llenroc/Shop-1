@@ -1,0 +1,44 @@
+﻿@model Infrastructure.Application.DTO.IdInput
+<div class="ng-cloak" ng-controller="app.mobile.order.comment as vm" ng-cloak>
+    <input type="hidden" name="id" id="id" value="@Model.Id" />
+    <div class="" ng-if="vm.order">
+        <ul class="order-list" id="ordersList">
+            <li>
+                <div class="order-header">
+                    <h3 class="order-number">{{vm.order.number}}</h3>
+                    <label class="order-status">{{order.statusText|localize}}</label>
+                </div>
+                <ul class="media-list order-item-list" ng-if="vm.order.orderItems.length">
+                    <li ng-repeat="orderItem in vm.order.orderItems">
+                        <div class="media-item order-item">
+                            <div class="title-picture-box">
+                                <img width="64" class="title-picture" ng-src="{{orderItem.specification.picture}}">
+                            </div>
+                            <div class="body">
+                                <h5 class="title">
+                                    {{orderItem.specification.fullName}}
+                                </h5>
+                                <div class="property">
+                                    <span class="price"><small class="price-sign">￥</small>{{orderItem.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-block">
+                            <div class="money-block">
+                                @L("TotalMoney")<label class="money"><small class="price-sign">￥</small>{{orderItem.money}}</label>
+                            </div>
+                        </div>
+                        <div class="comment-block padding-1">
+                            <div ng-if="!orderItem.isCommented" class="comment-editor">
+                                <textarea ng-model="orderItem.comment.content" class="block margin-bottom-1 un-resizable" rows="5"></textarea>
+                                <button class="button-text block primary" ng-click="vm.comment($index)">@L("Submit")</button>
+                            </div>
+                            <p ng-if="orderItem.isCommented" ng-bind="orderItem.comment.content"></p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</div>

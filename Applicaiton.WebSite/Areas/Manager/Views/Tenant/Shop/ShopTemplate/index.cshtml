@@ -1,0 +1,39 @@
+<div ng-controller="app.manager.shopTemplate.index as vm">
+    <div class="view-page-head margin-bottom-5">
+        <h1 class="view-page-title">
+            <span>@L("ShopTemplate")</span> <small>@L("ShopTemplateHeaderInfo")</small>
+        </h1>
+        <a class="button-text primary" ui-sref="shopTemplate.createOrEdit"><i class="icon-plus"></i> @L("CreateShopTemplate")</a>
+    </div>
+    <div class="responsive-table-container">
+        <table class="table table-bordered table-striped table-hover" id="shopTemplateTable">
+            <thead>
+                <tr>
+                    <th>@L("Name")</th>
+                    <th>@L("CreationTime")</th>
+                    <th>@L("IsDefault")</th>
+                    <th>@L("Actions")</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="shopTemplate in vm.shopTemplates">
+                    <td>{{shopTemplate.name}}</td>
+                    <td>{{shopTemplate.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                    <td>
+                        <span class="label success" ng-if="shopTemplate.isDefault">@L("Yes")</span>
+                        <button class="button-text error" ng-if="!shopTemplate.isDefault" ng-click="vm.setAsDefault(shopTemplate)">@L("SetAsDefault")</button>
+                    </td>
+                    <td>
+                        <div class="dropdown-wripper dropdown-menu">
+                            <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                            <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                <li><a ui-sref="shopTemplate.createOrEdit({id:shopTemplate.id})">@L("Edit")</a></li>
+                                <li><a ng-click="vm.delete(shopTemplate)">@L("Delete")</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

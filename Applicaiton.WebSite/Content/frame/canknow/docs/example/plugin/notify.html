@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="./../../../dist/css/canknow.css">
+    <script src="./../js/lib/jquery.min.js"></script>
+    <script src="./../../../dist/js/common.js"></script>
+    <script src="./../../../dist/js/canknow.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="example">
+        <button class="button-text" id="button_create_notify">create a notify</button>
+        <button class="button-text" id="button_create_notify_manual_close">create a notify</button>
+        <button class="button-text" id="button_create_notify_success">create a success notify</button>
+        <button class="button-text" id="button_create_notify_error">create a error notify</button>
+    </div>
+</div>
+<script>
+    $(function(){
+        $("#button_create_notify").click(function(){
+            $.notify("hello!");
+        });
+        $("#button_create_notify_manual_close").click(function(){
+            $.notify("hello!",{title:'notify title',autoHide:false});
+        });
+        $("#button_create_notify_success").click(function(){
+            $.notify.success("hello!");
+        });
+        $("#button_create_notify_error").click(function(){
+            $.notify.error("hello!");
+        });
+    })
+</script>
+</body>
+</html>

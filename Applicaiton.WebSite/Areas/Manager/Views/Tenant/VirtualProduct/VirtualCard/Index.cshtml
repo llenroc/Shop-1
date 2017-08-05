@@ -1,0 +1,40 @@
+﻿<div ng-controller="app.manager.virtualProduct.virtualCard.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("VirtualCards")</span> <small>@L("VirtualCardsHeaderInfo")</small>
+        </h1>
+		<button class="button-text primary" ui-sref="virtualProduct.virtualCard.import">@L("ImportVirtualCards")</button>
+    </div>
+    <div class="row">
+        <div class="column-10">
+			<div class="responsive-table-container">
+				<table id="virtualCardTable" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@L("VirtualCardName")</th>
+							<th>@L("VirtualCardValue")</th>
+							<th>@L("ExpireDays")</th>
+							<th>@L("Remark")</th>
+							<th>@L("Version")</th>
+							<th>@L("Count")</th>
+							<th>@L("CreationTime")</th>
+							<th>@L("Actions")</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="virtualCard in vm.virtualCards">
+							<td>{{virtualCard.name}}</td>
+							<td>{{virtualCard.value}}</td>
+							<td>{{virtualCard.expireDays}}</td>
+							<td>{{virtualCard.remark}}</td>
+							<td>{{virtualCard.version}}</td>
+							<td>{{virtualCard.count}}</td>
+							<td>{{virtualCard.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+							<td><a class="button-text" ui-sref="virtualProduct.virtualCard.list({version:virtualCard.version})">@L("ViewList")</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+        </div>
+    </div>
+</div>

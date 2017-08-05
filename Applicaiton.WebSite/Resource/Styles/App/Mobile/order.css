@@ -1,0 +1,153 @@
+﻿.order-list{
+    list-style-type:none;
+    padding-left:0;
+}
+.order-list-item{
+    display:block;
+}
+.order-list>li{
+    background-color:#fff;
+    margin-bottom:10px;
+    border-bottom: 1px solid #d9d9d9;
+}
+.order-list .order-item-list>li{
+    border-bottom: 1px solid #e7e7e7;
+}
+.property-value-item{
+    margin-left:3px;
+}
+.order-item{
+    background-color:#f8f8f8;
+    border-bottom:1px solid #eee;
+}
+.order-item .body .title{
+    font-weight:normal;
+    font-size:13px;
+    line-height:1.5;
+}
+.order-item .property .price{
+     color:#DD2727;
+}
+.button-buy{
+    background-color:#DD2727;
+}
+.order-header{
+    display:-webkit-box;
+    -webkit-box-align:center;
+    padding:0 10px;
+    border-bottom: 1px solid #eee;
+}
+.order-header .order-number{
+    -webkit-box-flex:1;
+    font-size:14px;
+    margin:0;
+    padding: 1rem 0;
+}
+.order-header .order-status{
+    display:block;
+    font-size:12px;
+    color:#de4f4f;
+}
+
+.price-block{
+    display:-webkit-box;
+    -webkit-box-align:center;
+    background-color:#fff;
+    padding:10px;
+    border-top:1px solid #eee;
+}
+.order-item-list>li>.price-block{
+    border-top:none;
+}
+.price-block .count-box{
+    text-align:left;
+    -webkit-box-flex:1;
+    font-size: 12px;
+    color:#333;
+}
+.price-block .count-box .count{
+    font-size:14px;
+    font-weight:bold;
+    margin: 0 3px;
+}
+.price-block .money-block{
+    text-align:right;
+    -webkit-box-flex:1;
+    font-size: 12px;
+    color:#333;
+}
+.price-block .money-block .money{
+    font-size:16px;
+    color:#DD2727;
+    font-weight:bold;
+}
+.total-price-block {
+	background-color:#fff;
+    padding:10px;
+	text-align:center;
+}
+.total-price-block .text-indicator {
+	margin-right:6px;
+}
+.total-price-block .money {
+	font-size:18px;
+    font-weight:bold;
+}
+
+.customer-info-box{
+    background-color:#fff;
+    border-bottom:1rem;
+    display:block;
+}
+.customer-info{
+    padding:1rem 1rem 1rem 0;
+    display:-webkit-box;
+    -webkit-box-align:center;
+}
+.order-address-icon-box{
+    padding:1rem;
+}
+.order-address-icon{
+    display: block;
+    height: 21px;
+    width: 21px;
+    background: url(/Content/frame/canknow/image/location.png) 50% 50% no-repeat;
+    background-size: 15px 20px;
+}
+.customer-info-content{
+    -webkit-box-flex:1;
+}
+.contact-info{
+    margin-bottom:1rem;
+    display:-webkit-box;
+    -webkit-box-align:center;
+}
+.contact-info .contact-note{
+    display:block;
+    color: #333;
+    font-size: 12px;
+}
+.contact-info .full-name{
+    -webkit-box-flex:1;
+    display:block;
+    color: #333;
+    font-size: 12px;
+}
+.contact-info .phone-number{
+    display:block;
+    color: #333;
+    font-size:12px;
+}
+.address-content{
+    -webkit-box-flex:1;
+}
+.customer-info-content .address-info>.detail{
+    color:#999;
+    font-size:12px;
+    margin:0;
+}
+.select-customer-info{
+    padding:2rem 1rem;
+    color:#333;
+	font-size:12px;
+}

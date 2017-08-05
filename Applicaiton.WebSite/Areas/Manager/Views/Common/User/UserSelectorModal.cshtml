@@ -1,0 +1,120 @@
+﻿<div class="dialog dialog-page">
+    <div class="header">
+        <div class="container-responsive">
+            <h5 class="title">@L("UserSelector")</h5>
+            <button class="button-icon button-close">×</button>
+        </div>
+    </div>
+    <div class="body vertical-flex-inherit">
+        <form id="userFilterForm" class="form-horizontal">
+            <div class="row">
+                <div class="column-5 padding-base">
+                    <div class="form-group">
+                        <label class="form-group-key column-2">@L("Source")</label>
+                        <div class="form-group-block column-8">
+                            <div class="input-wrapper">
+                                <select name="userSource">
+                                    <option value="">--@L("PleaseSelect")--</option>
+                                    <option value="0">System</option>
+                                    <option value="1">WebPageRegist</option>
+                                    <option value="2">WeixinInteraction</option>
+                                    <option value="3">WeixinExternalLogin</option>
+                                    <option value="4">OtherExternalLogin</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-5">
+                    <div class="form-group padding-base">
+                        <label class="form-group-key column-2">@L("IsSpreader")</label>
+                        <div class="form-group-block column-8">
+                            <div class="input-wrapper">
+                                <select name="isSpreader">
+                                    <option value="">--@L("PleaseSelect")--</option>
+                                    <option value="false">@L("No")</option>
+                                    <option value="true">@L("Yes")</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column-5 padding-base">
+                    <div class="form-group">
+                        <label class="form-group-key column-2">@L("UserName")</label>
+                        <div class="form-group-block column-8">
+                            <div class="input-wrapper">
+                                <input type="text" name="userName">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-5">
+                    <div class="form-group padding-base">
+                        <label class="form-group-key column-2">@L("NickName")</label>
+                        <div class="form-group-block column-8">
+                            <div class="input-wrapper">
+                                <input type="text" name="nickName">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button class="button-text icon block primary" ng-click="vm.getUsers()"><i class="icon icon-refresh"></i>@L("Search")</button>
+            </div>
+        </form>
+        <div class="row">
+            <div class="column-10">
+                <div class="responsive-table-container">
+                    <table class="table table-bordered table-striped table-hover" id="usersTable" ng-init="vm.initialize()">
+                        <thead>
+                            <tr>
+                                <th>@L("Avatar")</th>
+                                <th>@L("UserName")</th>
+                                <th>@L("NickName")</th>
+                                <th>@L("EmailAddress")</th>
+                                <th>@L("Role")</th>
+                                <th>@L("CreationTime")</th>
+                                <th>@L("IsEmailConfirmed")</th>
+                                <th>@L("IsSpreader")</th>
+                                <th>@L("Source")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="user in vm.users" ng-click="vm.selectUser(user)">
+                                <td><img width="32" class="circle" ng-src="{{user.avatar}}" /></td>
+                                <td>{{user.userName}}</td>
+                                <td>{{user.nickName}}</td>
+                                <td>{{user.emailAddress}}</td>
+                                <td>
+                                    <span ng-repeat="role in user.roles">
+                                        {{role.roleName}}
+                                    </span>
+                                </td>
+                                <td>{{user.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                                <td>
+                                    <span class="label success" ng-if="user.isEmailConfirmed">@L("Yes")</span>
+                                    <span class="label error" ng-if="!user.isEmailConfirmed">@L("No")</span>
+                                </td>
+                                <td>
+                                    <span class="label success" ng-if="user.isSpreader">@L("Yes")</span>
+                                    <span class="label error" ng-if="!user.isSpreader">@L("No")</span>
+                                </td>
+                                <td>
+                                    <span class="label" ng-if="user.source==0">@L("System")</span>
+                                    <span class="label" ng-if="user.source==1">@L("WebPageRegist")</span>
+                                    <span class="label" ng-if="user.source==2">@L("WeixinInteraction")</span>
+                                    <span class="label" ng-if="user.source==3">@L("WeixinExternalLogin")</span>
+                                    <span class="label" ng-if="user.source==4">@L("OtherExternalLogin")</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

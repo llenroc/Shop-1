@@ -1,0 +1,32 @@
+﻿<div ng-controller="app.manager.channel.channelAgency.create as vm">
+    <form name="channelAgencyCreateForm" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label class="form-group-key column-1">@L("ChannelAgent")</label>
+            <div class="form-group-block column-9">
+                <div class="input-wrapper line">
+                    <select required name="channelAgentId" ng-model="vm.channelAgency.channelAgentId" ng-options="channelAgent.id as channelAgent.name for channelAgent in vm.channelAgents">
+                        <option value="">-- @L("PleaseSelect") --</option>
+                    </select>
+                    <p class="validate-message error" ng-show="channelAgencyCreateForm.channelAgent.$error.required">@L("ChannelAgentIsRequired")</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key column-1">@L("User")</label>
+            <div class="form-group-block column-9">
+                <div class="profileItem" ng-if="vm.user">
+                    <div class="profileItemAvatarBox">
+                        <img width="64" class="profileItemAvatarBox imageCircle" ng-src="{{vm.user.avatar}}" />
+                    </div>
+                    <div class="profileItemBody">
+                        <h5 class="profileItemName">{{vm.user.nickName}}</h5>
+                        <h5 class="profileItemAdditionalProperty">{{vm.parentUser.userName}}</h5>
+                    </div>
+                </div>
+                <input type="hidden" required name="userId" ng-model="vm.user.id" />
+                <button class="button-text" ng-click="vm.selectUser()">@L("SelectUser")</button>
+            </div>
+        </div>
+        <button type="submit" ng-disabled="channelAgencyCreateForm.$invalid" class="button-text primary block" ng-click="vm.create()">@L("Create")</button>
+    </form>
+</div>

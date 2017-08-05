@@ -1,0 +1,26 @@
+﻿<div ng-controller="app.manager.layout.loginAttempt as vm">
+    <div class="row">
+        <div class="column-10">
+            <div class="responsive-table-container">
+                <table class="table" id="loginAttemptsTable">
+                    <thead>
+                        <tr>
+                            <th>@L("UserNameOrEmailAddress")</th>
+                            <th>@L("ClientIpAddress")</th>
+                            <th>@L("CreationTime")</th>
+                            <th>@L("Result")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="loginAttempt in vm.loginAttempts">
+                            <td>{{loginAttempt.userNameOrEmailAddress}}</td>
+                            <td>{{loginAttempt.clientIpAddress}}</td>
+                            <td>{{vm.getCreationTime(loginAttempt)}}</td>
+                            <td>{{loginAttempt.result==1?'Success':'Fail'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

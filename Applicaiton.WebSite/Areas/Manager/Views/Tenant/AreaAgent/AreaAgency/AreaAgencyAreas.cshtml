@@ -1,0 +1,23 @@
+﻿@model Infrastructure.Application.DTO.IdInput
+<div ng-controller="app.manager.areaAgent.areaAgency.areaAgencyAreas as vm">
+    <table id="areaAgencyAreaTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>@L("Address")</th>
+                <th>@L("Code")</th>
+                <th data-fieldname="creationTime">@L("CreationTime")</th>
+                <th>@L("Actions")</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="areaAgencyArea in vm.areaAgencyAreas">
+                <td>{{areaAgencyArea.address.fullAddress}}</td>
+                <td>{{areaAgencyArea.address.code}}</td>
+                <td>{{areaAgencyArea.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                <td>
+                    <a class="button-text border circle danger" ng-click="vm.delete($index)">@L("Delete")</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

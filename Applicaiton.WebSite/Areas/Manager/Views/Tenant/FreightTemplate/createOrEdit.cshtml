@@ -1,0 +1,75 @@
+<div ng-controller="app.manager.freightTemplate.createOrEdit as vm">
+    <form name="freightTemplateCreateForm" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label class="form-group-key column-1">@L("Name")</label>
+            <div class="form-group-block column-9">
+                <div class="input-wrapper line">
+                    <input type="text" name="name" ng-model="vm.freightTemplate.name" required>
+                </div>
+                <p class="validate-message error" ng-show="freightTemplateCreateForm.name.$error.required">@L("NameIsRequired")</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key column-1">@L("IsFreeShipping")</label>
+            <div class="form-group-block column-9">
+                <div class="switcher">
+                    <label><input type="radio" name="isFreeShipping" ng-value="1" ng-model="vm.freightTemplate.isFreeShipping" required="" value="1"><span>@L("Yes")</span></label>
+                    <label><input type="radio" name="isFreeShipping" ng-value="0" ng-model="vm.freightTemplate.isFreeShipping" required="" value="0"><span>@L("No")</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-if="!vm.freightTemplate.isFreeShipping">
+            <label class="form-group-key column-1">@L("FreightPlan")</label>
+            <div class="form-group-block column-9">
+                <div class="switcher">
+                    <label><input type="radio" name="freightPlan" ng-value="1" ng-model="vm.freightTemplate.freightPlan" required="" value="1"><span>@L("Custom")</span></label>
+                    <label><input type="radio" name="freightPlan" ng-value="0" ng-model="vm.freightTemplate.freightPlan" required="" value="0"><span>@L("Unified")</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-if="!vm.freightTemplate.isFreeShipping&&vm.freightTemplate.freightPlan==0">
+            <label class="form-group-key column-1">@L("UnifiedFreight")</label>
+            <div class="form-group-block column-9">
+                <div class="input-wrapper line">
+                    <input type="text" name="unifiedFreight" ng-model="vm.freightTemplate.unifiedFreight" required>
+                </div>
+                <p class="validate-message error" ng-show="freightTemplateCreateForm.unifiedFreight.$error.required">@L("UnifiedFreightIsRequired")</p>
+            </div>
+        </div>
+        <div class="margin-bottom-1" ng-if="!vm.freightTemplate.isFreeShipping&&vm.freightTemplate.freightPlan==1">
+            <div class="form-group">
+                <label class="form-group-key column-1">@L("ValuationType")</label>
+                <div class="form-group-block column-9">
+                    <div class="switcher">
+                        <label><input type="radio" name="valuationType" ng-value="1" ng-model="vm.freightTemplate.valuationType" required="" value="1"><span>@L("ByPiece")</span></label>
+                        <label><input type="radio" name="valuationType" ng-value="0" ng-model="vm.freightTemplate.valuationType" required="" value="0"><span>@L("ByWeight")</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-group-key column-1">@L("DeliveryAreas")</label>
+                <div class="form-group-block column-9">
+                    <table class="table">
+                        <thead>
+                            <tr><th>@L("Address")</th><th>@L("FirstAmount")</th><th>@L("FirstFee")</th><th>@L("AdditionalAmount")</th><th>@L("AdditionalFee")</th><th>@L("Actions")</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="deliveryArea in vm.freightTemplate.deliveryAreas">
+                                <td>
+                                    <button class="button-text block" ng-click="vm.selectorAddresses(deliveryArea)">@L("EditArea")</button>
+                                </td>
+                                <td><input type="text" ng-model="deliveryArea.firstAmount" /></td>
+                                <td><input type="text" ng-model="deliveryArea.firstFee" /></td>
+                                <td><input type="text" ng-model="deliveryArea.additionalAmount" /></td>
+                                <td><input type="text" ng-model="deliveryArea.additionalFee" /></td>
+                                <td><button class="button-text" ng-click="vm.removeDeliveryArea($index)">@L("Remove")</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="button-text block" ng-click="vm.addDeliveryArea()">@L("AddDeliveryArea")</button>
+                </div>
+            </div>
+        </div>
+        <button class="button-text block primary" ng-click="vm.save()" ng-disabled="freightTemplateCreateForm.$invalid">@L("Save")</button>
+    </form>
+</div>

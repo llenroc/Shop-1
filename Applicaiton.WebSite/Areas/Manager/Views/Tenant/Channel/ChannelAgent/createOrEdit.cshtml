@@ -1,0 +1,219 @@
+<div ng-controller="app.manager.channel.channelAgent.createOrEdit as vm">
+    <form name="channelAgentCreateOrEditForm" novalidate>
+        <div class="tab" data-ride="tab">
+            <ul class="tab-nav-list">
+                <li class="actived">
+                    <a>@L("BaseInfo")</a>
+                </li>
+                <li>
+                    <a>@L("Distribution")</a>
+                </li>
+                <li>
+                    <a>@L("Assortment")</a>
+                </li>
+            </ul>
+            <div class="tab-box">
+                <div class="tab-page show">
+                    <div class="form-group">
+                        <label class="form-group-key">@L("Name")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" name="name" ng-model="vm.channelAgent.name" required>
+                            </div>
+                            <p class="validate-message error" ng-show="channelAgentCreateOrEditForm.name.$error.required">@L("NameIsRequired")</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("NickName")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" name="nickName" ng-model="vm.channelAgent.nickName" required>
+                            </div>
+                            <p class="validate-message error" ng-show="channelAgentCreateOrEditForm.nickName.$error.required">@L("NickNameIsRequired")</p>
+                        </div>    
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("Logo")</label>
+                        <div class="form-group-block">
+                            <div class="picture-uploader"
+                                 picture-uploader
+                                 path="vm.channelAgent.logo"
+                                 data-option-url="/Manager/Home/Upload"
+                                 data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                                <img height="128" ng-src="{{vm.channelAgent.logo}}" />
+                                <input type="file" />
+                                <input type="hidden" name="logo" required ng-model="vm.channelAgent.logo" />
+                            </div>
+                            <p class="validate-message error" ng-show="channelAgentCreateOrEditForm.logo.$error.required">@L("LogoIsRequired")</p>
+                        </div>    
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("AdWord")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" name="adWord" ng-model="vm.channelAgent.adWord" required>
+                            </div>
+                            <p class="validate-message error" ng-show="channelAgentCreateOrEditForm.adWord.$error.required">@L("AdWordIsRequired")</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key column-1">@L("CertificateTemplate")</label>
+                        <div class="form-group-block column-9">
+                            <select name="pictureTemplate" ng-model="vm.channelAgent.pictureTemplateId" ng-options="pictureTemplate.id as pictureTemplate.name for pictureTemplate in vm.pictureTemplates">
+                                <option value="">-- @L("PleaseSelect") --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("AssortmentDiscription")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <textarea name="assortmentDiscription" ng-model="vm.channelAgent.assortmentDiscription" required></textarea>
+                            </div>
+                            <p class="validate-message error" ng-show="channelAgentCreateOrEditForm.assortmentDiscription.$error.required">@L("AssortmentDiscriptionIsRequired")</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("Discription")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <textarea name="discription" ng-model="vm.channelAgent.discription" required></textarea>
+                            </div>
+                            <p class="validate-message error" ng-show="channelAgentCreateOrEditForm.discription.$error.required">@L("DiscriptionIsRequired")</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("Level")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" name="level" ng-model="vm.channelAgent.level" required>
+                            </div>
+                            <p class="validate-message error" ng-show="channelAgentCreateOrEditForm.level.$error.required">@L("LevelIsRequired")</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("MinUpgradeSales")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" name="minUpgradeSales" ng-model="vm.channelAgent.minUpgradeSales">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("MinAgentOrderMoney")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" name="minAgentOrderMoney" ng-model="vm.channelAgent.minAgentOrderMoney">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("Discount")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" name="discount" ng-model="vm.channelAgent.discount" required>
+                            </div>
+                            <p class="validate-message error" ng-show="channelAgentCreateOrEditForm.discount.$error.required">@L("DiscountIsRequired")</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("RebateRatio")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" name="rebateRatio" ng-model="vm.channelAgent.rebateRatio" required>
+                            </div>
+                            <p class="validate-message error" ng-show="channelAgentCreateOrEditForm.rebateRatio.$error.required">@L("RebateRatioIsRequired")</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("Price")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" name="price" ng-model="vm.channelAgent.price" required>
+                            </div>
+                            <p class="validate-message error" ng-show="channelAgentCreateOrEditForm.price.$error.required">@L("PriceIsRequired")</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("MasterQrcode")</label>
+                        <div class="form-group-block">
+                            <div class="picture-uploader"
+                                 picture-uploader
+                                 path="vm.channelAgent.masterQrcode"
+                                 data-option-url="/Manager/Home/Upload"
+                                 data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                                <img height="128" ng-src="{{vm.channelAgent.masterQrcode}}" />
+                                <input type="file" />
+                                <input type="hidden" name="MasterQrcode" ng-model="vm.channelAgent.masterQrcode" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-page hide">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>@L("Level")</th>
+                                <th>@L("Money")</th>
+                                <th>@L("Ratio")</th>
+                                <th>@L("NonAgencyRatio")</th>
+                                <th>@L("Actions")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="distribution in vm.channelAgentDistributions">
+                                <td>
+                                    <input type="text" name="distribution[level]" ng-model="distribution.level" />
+                                </td>
+                                <td>
+                                    <input type="text" name="distribution[money]" ng-model="distribution.money" />
+                                </td>
+                                <td>
+                                    <input type="text" name="distribution[ratio]" ng-model="distribution.ratio" />
+                                </td>
+                                <td>
+                                    <input type="text" name="distribution[nonAgencyRatio]" ng-model="distribution.nonAgencyRatio" />
+                                </td>
+                                <td>
+                                    <button class="button-text" ng-click="vm.removeDistribution($index)">@L("Remove")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="button-text block" ng-click="vm.addDistribution()">@L("AddDistribution")</button>
+                </div>
+                <div class="tab-page hide">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>@L("Specification")</th>
+                                <th>@L("Count")</th>
+                                <th>@L("Actions")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="channelAgentAssortment in vm.channelAgentAssortments">
+                                <td>
+                                    <select name="channelAgentAssortment[specificationId]" 
+                                           ng-model="channelAgentAssortment.specificationId" >
+                                        <optgroup label="{{product.name}}" ng-repeat="product in vm.products">
+                                            <option ng-repeat="specification in product.specifications" value="{{specification.id}}">{{specification.name}}</option>
+                                        </optgroup>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" name="channelAgentAssortment[count]" ng-model="channelAgentAssortment.count" />
+                                </td>
+                                <td>
+                                    <button class="button-text" ng-click="vm.removeChannelAgentAssortment($index)">@L("Remove")</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="button-text block" ng-click="vm.addChannelAgentAssortment()">@L("AddChannelAgentAssortment")</button>
+                </div>
+            </div>
+        </div>
+        <button class="button-text primary block" ng-click="vm.createOrEdit()" ng-disabled="channelAgentCreateOrEditForm.$invalid"><i class="icon-save"></i>@L("Save")</button>
+    </form>
+</div>

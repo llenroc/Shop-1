@@ -1,0 +1,12 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+@Html.Partial("_Head")
+<body ng-app="app" class="height-full">
+    <div class="page" ng-controller="app.mobile.layout as vm">
+        <div class="page-content">
+            @RenderBody()
+        </div>
+        @Html.Action("Footer","Layout")
+    </div>
+</body>
+</html>

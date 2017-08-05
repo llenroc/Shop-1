@@ -1,0 +1,42 @@
+﻿<div ng-controller="app.mobile.customerInfo.createOrEdit as vm" ng-cloak class="ng-cloak">
+    <form class="mobile-form" name="customerInfoCreateOrEditForm" novalidate>
+        <div class="form-group">
+            <label class="form-group-key">@L("FullName")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="text" name="fullName" ng-model="vm.customerInfo.fullName" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("PhoneNumber")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="tel" name="phoneNumber" ng-model="vm.customerInfo.phoneNumber" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Address")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <a class="static-text" ng-click="vm.selectAddress()">
+                        <span ng-if="vm.address">{{vm.address}}</span>
+                        <span class="place-holder" ng-if="!vm.address">@L("SelectYoursAddress")</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("DetailAddress")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <textarea class="disable-resize" name="detailAddress" ng-model="vm.customerInfo.detailAddress" placeholder="@L("DetailAddress")" required></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <button type="submit" ng-disabled="customerInfoCreateOrEditForm.$invalid||!vm.customerInfo.addressId" class="button-text primary block" ng-click="vm.save()">@L("Save")</button>
+        </div>
+    </form>
+</div>

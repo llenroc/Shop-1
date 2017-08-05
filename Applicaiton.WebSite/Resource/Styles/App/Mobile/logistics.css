@@ -1,0 +1,82 @@
+﻿.logistics-detail{
+    background-color:#fff;
+    padding:1rem;
+}
+.logistics-detail-title{
+    color:#999;
+}
+.logistics-progress-list {
+    position: relative;
+}
+.logistics-progress-list:after {
+    position: absolute;
+    left: 20px;
+    height: 100%;
+    width: 1px;
+    content: "";
+    display: block;
+    background-color: #ddd;
+    top: 0;
+}
+.logistics-progress-list>li {
+    list-style-type: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding: 6px 12px;
+}
+.logistics-progress-list>li:after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 100%;
+    background-color: #ddd;
+    left: -24px;
+    top: 50%;
+    margin-top: -4.5px;
+}
+.logistics-progress-list>li:first-child:after {
+    width: 11px;
+    height: 11px;
+    border-radius: 100%;
+    background-color: #5cb85c;
+    left: -25px;
+    top: 50%;
+    margin-top: -5.5px;
+    z-index: 100;
+}
+.logistics-progress-list>li .context {
+    font-size: 12px;
+    color: #999;
+}
+.logistics-progress-list>li:first-child p {
+    color: #5cb85c;
+    font-weight: bold; 
+}
+.logistics-progress-list>li .time {
+    font-size: 12px;
+    color: #999;
+}
+
+.logistics{
+    display:block;
+    background-color:#fff;
+    padding:1rem;
+    margin-bottom:1rem;
+}
+.logistics:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: 0;
+    background-image: url(/Content/Images/logistics_top_border.png);
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-size: 10px;
+}
+.logistics-info{
+    font-size:12px;
+    color: #5cb85c;
+}

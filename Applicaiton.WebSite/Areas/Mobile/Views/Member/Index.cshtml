@@ -1,0 +1,38 @@
+﻿<div class="ng-cloak" ng-controller="app.mobile.memberCard.index as vm" ng-cloak>
+    <div class="profileItem user-center-profile-item">
+        <div class="profileItemAvatarBox">
+            <img width="64" height="64" class="profileTtemAvatar imageCircle" ng-src="{{vm.user.avatar}}">
+        </div>
+        <div class="profileItemBody">
+            <h5 class="profileItemName" ng-bind="vm.user.nickName"></h5>
+            <p class="profile-info-item" ng-if="vm.user.isSpreader">
+                <label class="spreader-sign"><span class="icon icon-spreader"></span><span class="spreader-name">@L("Spreader")</span></label>
+            </p>
+            <div ng-if="vm.memberCard" ng-bind="vm.memberCard.level.name"></div>
+        </div>
+    </div>
+    <div class="header-nav">
+        <ul class="header-nav-list">
+            <li>
+				<span class="count" ng-bind="vm.user.groupCount">0</span>
+				<label class="title">@L("GroupCount")</label>
+			</li>
+            <li>
+				<span class="count" ng-bind="vm.user.sales">0</span>
+				<label class="title">@L("Sales")</label>
+			</li>
+            <li>
+                <a href="/Mobile/Score/Index">
+                    <span class="count" ng-bind="vm.user.score?vm.user.score.total:0">0</span>
+                    <label class="title">@L("Score")</label>
+                </a>
+            </li>
+        </ul>
+    </div>
+	@Html.Partial("UserCenterNav")
+    <div class="parent-box" ng-if="vm.parent">
+        @L("YourParentIs") <span class="name" ng-bind="vm.parent.nickName"></span>
+    </div>
+</div>
+@Html.GetActionStyle()
+@Html.GetActionScript()

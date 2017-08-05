@@ -1,0 +1,46 @@
+﻿<div ng-controller="app.manager.walletManager.withdrawApply.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("WithdrawApplys")</span> <small>@L("WithdrawApplysHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+			<div class="responsive-table-container">
+				<table id="withdrawApplyTable" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@L("SerialNumber")</th>
+							<th>@L("Avatar")</th>
+							<th>@L("Money")</th>
+                            <th>@L("Status")</th>
+							<th>@L("FailReason")</th>
+							<th>@L("CreationTime")</th>
+							<th>@L("LastModificationTime")</th>
+							<th>@L("Actions")</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="withdrawApply in vm.withdrawApplys">
+							<td>{{withdrawApply.serialNumber}}</td>
+							<td><img class="circle" height="24" ng-src="{{withdrawApply.user.avatar}}" /></td>
+							<td>{{withdrawApply.money}}</td>
+                            <td>{{withdrawApply.statusText|localize}}</td>
+							<td>{{withdrawApply.failReason}}</td>
+							<td>{{withdrawApply.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+							<td>{{withdrawApply.lastModificationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+							<td>
+                                <div class="dropdown-wripper dropdown-menu">
+                                    <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                                    <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                        <li><a ng-if="withdrawApply.status==0||withdrawApply.status==2" ng-click="vm.withdraw(withdrawApply)">@L("Withdraw")</a></li>
+                                    </ul>
+                                </div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+        </div>
+    </div>
+</div>

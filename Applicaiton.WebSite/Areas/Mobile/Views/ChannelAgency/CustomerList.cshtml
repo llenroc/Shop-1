@@ -1,0 +1,17 @@
+﻿<div ng-controller="app.mobile.channelAgency.customerList as vm" ng-cloak class="ng-cloak">
+    <div class="blank" ng-if="!vm.customers||!vm.customers.length">@L("ThereIsNoItems")</div>
+    <ul id="channelAgencyCustomerList" class="profile-list">
+        <li ng-repeat="customer in vm.customers">
+            <div class="profileItem">
+                <div class="profileItemAvatarBox">
+                    <img width="64" class="profileTtemAvatar imageCircle" ng-src="{{customer.avatar}}">
+                </div>
+                <div class="profileItemBody">
+                    <h6 class="profileItemName thin">{{customer.nickName}}</h6>
+					<h5 class="profileItemAdditionalProperty"><span class="key">@L("Depth")</span><span class="value">{{customer.channelAgentDepth}}</span></h5>
+                    <h5 class="profileItemAdditionalProperty">{{customer.creationTime| momentFormat:'YYYY-MM-DD HH:mm:ss'}}</h5>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,244 @@
+﻿<div ng-controller="app.manager.host.setting.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("Settings")</span> <small>@L("SettingsHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="tab" data-ride="tab">
+        <ul class="tab-nav-list">
+            <li class="actived">
+                <a>@L("General")</a>
+            </li>
+            <li>
+                <a>@L("UserManagement")</a>
+            </li>
+            <li>
+                <a>@L("Security")</a>
+            </li>
+            <li>
+                <a>@L("EmailSmtp")</a>
+            </li>
+        </ul>
+        <div class="tab-box">
+            <div class="tab-page show">
+                <div class="form-group">
+                    <label class="form-group-key">@L("ThisWebSiteRootAddress")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="url" ng-model="vm.settings.general.webSiteRootAddress" required maxlength="128">
+                        </div>
+                       <p class="validate-message">@L("ThisWebSiteRootAddressHint")</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("WebSiteStatus")</label>
+                        <div class="form-group-block">
+                            <div class="checkbox-switcher">
+                                <input type="checkbox" ng-model="vm.settings.general.webSiteStatus">
+                                <label><span class="on">@L("On")</span><span class="off">@L("Off")</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("AppName")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" ng-model="vm.settings.general.appName" required maxlength="16">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("AppLogo")</label>
+                        <div class="form-group-block">
+                            <div class="picture-uploader" 
+                                 picture-uploader 
+                                 path="vm.settings.general.appLogo"
+                                 data-option-url="/Manager/Home/Upload" 
+                                 data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                                <img width="96" ng-src="{{vm.settings.general.appLogo}}" />
+                                <input type="file" />
+                                <input type="hidden" required ng-model="vm.settings.general.appLogo" />
+                            </div>
+                        </div>
+                    </div>
+					<div class="form-group">
+						<label class="form-group-key">@L("AppTitleLogo")</label>
+						<div class="form-group-block">
+							<div class="picture-uploader"
+								 picture-uploader
+								 path="vm.settings.general.appTitleLogo"
+								 data-option-url="/Manager/Home/Upload"
+								 data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+								<img width="96" ng-src="{{vm.settings.general.appTitleLogo}}" />
+								<input type="file" />
+								<input type="hidden" required ng-model="vm.settings.general.appTitleLogo" />
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+            <div class="tab-page hide">
+                <div class="form-group">
+                    <label class="form-group-key">@L("IsEmailConfirmationRequiredForLogin")</label>
+                    <div class="form-group-block">
+                        <div class="checkbox-switcher">
+                            <input type="checkbox" ng-model="vm.settings.userManagement.isEmailConfirmationRequiredForLogin">
+                            <label><span class="on">@L("ON")</span><span class="off">@L("Off")</span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-page hide">
+                <h4>@L("PasswordComplexity")</h4>
+                <div class="form-group">
+                    <label class="checkbox">
+                        <input type="checkbox" name="Setting_PasswordComplexity_UseDefaultSettings" ng-model="vm.settings.security.useDefaultPasswordComplexitySettings">
+                        <span class="check"></span>
+                        <span class="caption">@L("UseDefaultSettings")</span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("MinPasswordLength")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="number" name="MinPasswordLength" ng-class="{'edited':vm.settings.security.passwordComplexity.minLength}" ng-model="vm.settings.security.passwordComplexity.minLength" ng-if="!vm.settings.security.useDefaultPasswordComplexitySettings">
+                            <input type="number" name="MinPasswordLength" ng-class="{'edited':vm.settings.security.defaultPasswordComplexity.minLength}" ng-model="vm.settings.security.defaultPasswordComplexity.minLength" ng-if="vm.settings.security.useDefaultPasswordComplexitySettings" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("MaxPasswordLength")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="number" name="MaxPasswordLength" class="form-control" ng-class="{'edited':vm.settings.security.passwordComplexity.maxLength}" ng-model="vm.settings.security.passwordComplexity.maxLength" ng-if="!vm.settings.security.useDefaultPasswordComplexitySettings">
+                            <input type="number" name="MaxPasswordLength" class="form-control" ng-class="{'edited':vm.settings.security.defaultPasswordComplexity.maxLength}" ng-model="vm.settings.security.defaultPasswordComplexity.maxLength" ng-if="vm.settings.security.useDefaultPasswordComplexitySettings" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkbox-list">
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="Setting_PasswordComplexity_UseNumbers" ng-model="vm.settings.security.passwordComplexity.useNumbers" ng-if="!vm.settings.security.useDefaultPasswordComplexitySettings">
+                            <input type="checkbox" name="Setting_PasswordComplexity_UseNumbers" ng-model="vm.settings.security.defaultPasswordComplexity.useNumbers" ng-if="vm.settings.security.useDefaultPasswordComplexitySettings" disabled>
+                            <span class="check"></span>
+                            <span class="caption">@L("UseNumbers")</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="Setting_PasswordComplexity_UseUpperCaseLetters" ng-model="vm.settings.security.passwordComplexity.useUpperCaseLetters" ng-if="!vm.settings.security.useDefaultPasswordComplexitySettings">
+                            <input type="checkbox" name="Setting_PasswordComplexity_UseUpperCaseLetters" ng-model="vm.settings.security.defaultPasswordComplexity.useUpperCaseLetters" ng-if="vm.settings.security.useDefaultPasswordComplexitySettings" disabled>
+                            <span class="check"></span>
+                            <span class="caption">@L("UseUpperCaseLetters")</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="Setting_PasswordComplexity_UseLowerCaseLetters" ng-model="vm.settings.security.passwordComplexity.useLowerCaseLetters" ng-if="!vm.settings.security.useDefaultPasswordComplexitySettings">
+                            <input type="checkbox" name="Setting_PasswordComplexity_UseLowerCaseLetters" ng-model="vm.settings.security.defaultPasswordComplexity.useLowerCaseLetters" ng-if="vm.settings.security.useDefaultPasswordComplexitySettings" disabled>
+                            <span class="check"></span>
+                            <span class="caption">@L("UseLowerCaseLetters")</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="Setting_PasswordComplexity_UsePunctuations" ng-model="vm.settings.security.passwordComplexity.usePunctuations" ng-if="!vm.settings.security.useDefaultPasswordComplexitySettings">
+                            <input type="checkbox" name="Setting_PasswordComplexity_UsePunctuations" ng-model="vm.settings.security.defaultPasswordComplexity.usePunctuations" ng-if="vm.settings.security.useDefaultPasswordComplexitySettings" disabled>
+                            <span class="check"></span>
+                            <span class="caption">@L("UsePunctuations")</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-page hide">
+                <div class="form-group">
+                    <label class="form-group-key">@L("DefaultFromAddress")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" ng-model="vm.settings.email.defaultFromAddress" required maxlength="128">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("DefaultFromDisplayName")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" ng-model="vm.settings.email.defaultFromDisplayName" required maxlength="32">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("SmtpHost")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" ng-model="vm.settings.email.smtpHost" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("SmtpPort")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" ng-model="vm.settings.email.smtpPort" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("SmtpEnableSsl")</label>
+                    <div class="form-group-block">
+                        <div class="checkbox-switcher">
+                            <input type="checkbox" ng-model="vm.settings.email.smtpEnableSsl">
+                            <label><span class="on">@L("On")</span><span class="off">@L("Off")</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("SmtpUseDefaultCredentials")</label>
+                    <div class="form-group-block">
+                        <div class="checkbox-switcher">
+                            <input type="checkbox" ng-model="vm.settings.email.smtpUseDefaultCredentials">
+                            <label><span class="on">@L("On")</span><span class="off">@L("Off")</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="" ng-show="!vm.settings.email.smtpUseDefaultCredentials">
+                    <div class="form-group">
+                        <label class="form-group-key">@L("SmtpDomain")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" ng-model="vm.settings.email.smtpDomain" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("SmtpUserName")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" ng-model="vm.settings.email.smtpUserName" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group-key">@L("SmtpPassword")</label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="password" ng-model="vm.settings.email.smtpPassword" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4>@L("TestEmailSettingsHeader")</h4>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="form-group-block">
+                            <div class="input-wrapper line">
+                                <input type="text" ng-model="vm.testEmailAddress">
+                            </div>
+                        </div>
+                    </div> 
+                    <button class="button-text block" type="button" ng-click="vm.sendTestEmail()">@L("SendTestEmail")</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="button-text block primary" ng-click="vm.saveAll()">@L("SaveAll")</button>
+</div>

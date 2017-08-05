@@ -1,0 +1,16 @@
+﻿<div class="product-category-block" ng-controller="app.mobile.shopTemplate.controlTemplates.productListControl as vm">
+    <ul class="thumbnails-list span-2 product-list">
+        <li ng-repeat="product in vm.products">
+            <a class="thumbnail" href="/Mobile/Product/Detail?id={{product.id}}">
+                <img class="thumbnail-picture" lazy-src="{{product.picture}}">
+                <div class="thumbnail-block">
+                    <h5 class="thumbnail-title">{{product.name}}</h5>
+                    <div class="property-block">
+                        <label class="price">{{product.price}}</label>
+                        <label class="sale">{{product.sale}}</label>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

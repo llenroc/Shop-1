@@ -1,0 +1,113 @@
+<div ng-controller="app.manager.spreadPosterTemplate.createOrEdit as vm">
+    <div class="row">
+        <div class="column-7 padding-1">
+            <form name="spreadPosterTemplateCreateForm" novalidate>
+                <div class="form-group">
+                    <label class="form-group-key">@L("Name")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" name="name" ng-model="vm.spreadPosterTemplate.name" required>
+                        </div>
+                        <p class="validate-message error" ng-show="spreadPosterTemplateCreateForm.name.$error.required">@L("NameIsRequired")</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("Template")</label>
+                    <div class="form-group-block">
+                        <div class="form-group-block">
+                            <div class="picture-uploader" picture-uploader path="vm.spreadPosterTemplate.template" data-option-url="/Manager/Home/Upload" data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                                <img height="100" ng-src="{{vm.spreadPosterTemplate.template}}" />
+                                <input type="file" />
+                                <input type="hidden" name="template" ng-model="vm.spreadPosterTemplate.template" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("Parameters")</label>
+                    <div class="form-group-block">
+                        <table class="table table-center border-horizontal">
+                            <thead>
+                                <tr>
+                                    <th>@L("Name")</th>
+                                    <th>@L("Type")</th>
+                                    <th>@L("Value")</th>
+                                    <th>@L("Font")</th>
+                                    <th>@L("Coordinate")</th>
+                                    <th>@L("Actions")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="parameter in vm.spreadPosterTemplate.parameters">
+                                    <td>
+                                        <div class="input-wrapper">
+                                            <input type="text" ng-model="parameter.displayName" disabled placeholder="@L("DisplayName")" />
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <input type="text" name="name" ng-model="parameter.name" disabled placeholder="@L("Name")" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <select disabled ng-model="parameter.type" ng-options="type.value as type.name for type in vm.parameterTypes">
+                                            <option value="">-- @L("PleaseSelect")--</option>
+                                        </select>   
+                                    </td>
+                                    <td>
+                                        <div class="input-wrapper">
+                                            <input type="text" name="value" ng-model="parameter.value" placeholder="@L("Value")" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div ng-if="parameter.type==0">
+                                            <div class="input-wrapper">
+                                                <input type="text" name="color" ng-model="parameter.fontStyle.fontFamly" placeholder="@L("FontFamly")" />
+                                            </div>
+                                            <div class="input-wrapper">
+                                                <input type="number" name="size" ng-model="parameter.fontStyle.size" placeholder="@L("Size")" />
+                                            </div>
+                                            <div class="input-wrapper">
+                                                <input type="color" name="color" ng-model="parameter.fontStyle.color" placeholder="@L("Color")" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-wrapper">
+                                            <input type="number" name="startX" ng-model="parameter.coordinate.startX" placeholder="@L("StartX")" />
+                                        </div>
+                                        <div class="input-wrapper">
+                                            <input type="number" name="startY" ng-model="parameter.coordinate.startY" placeholder="@L("StartY")" />
+                                        </div>
+                                        <div class="input-wrapper" ng-if="parameter.type==1">
+                                            <input type="number" name="width" ng-model="parameter.coordinate.width" placeholder="@L("Width")" />
+                                        </div>
+                                        <div class="input-wrapper" ng-if="parameter.type==1">
+                                            <input type="number" name="height" ng-model="parameter.coordinate.height" placeholder="@L("Height")" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button class="button-text danger border radius" ng-click="vm.deleteParameter($index)">@L("Remove")</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="input-wrapper">
+                            <select ng-model="vm.parameterTypeToAdd">
+                                <option value="avatar">@L("Avatar")</option>
+                                <option value="qrcode">@L("Qrcode")</option>
+                                <option value="nickName">@L("NickName")</option>
+                            </select>
+                            <button class="input-addon button-text" ng-click="vm.addParameter()">@L("AddParameter")</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="button-text block primary" ng-disabled="spreadPosterTemplateCreateForm.$invalid" ng-click="vm.save()">@L("Save")</button>
+            </form>
+        </div>
+        <div class="column-3 padding-1">
+            <div class="previewer" previewer spread-poster-template="vm.spreadPosterTemplate">
+
+            </div>
+        </div>
+    </div>
+   
+</div>

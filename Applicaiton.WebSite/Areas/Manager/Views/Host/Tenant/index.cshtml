@@ -1,0 +1,42 @@
+﻿<div ng-controller="app.manager.host.tenant.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("Tenant")</span> <small>@L("TenantsHeaderInfo")</small>
+        </h1>
+        <a class="button-text primary" ui-sref="host.tenant.create"><i class="icon-plus"></i>@L("CreateNewTenant")</a>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table class="table table-bordered table-striped" id="tenantsTable">
+                <thead>
+                    <tr>
+                        <th>@L("TenancyName")</th>
+                        <th>@L("Name")</th>
+                        <th>@L("Active")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tenant in vm.tenants">
+                        <td>{{tenant.tenancyName}}</td>
+                        <td>{{tenant.name}}</td>
+                        <td>
+                            <span ng-show="tenant.isActive" class="label label-success">@L("Yes")</span>
+                            <span ng-show="!tenant.isActive" class="label label-default">@L("No")</span>
+                        </td>
+                        <td>
+                            <div class="dropdown-wripper dropdown-menu">
+                                <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                                <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                    <li><a ui-sref="host.tenant.edit({id:tenant.id})">@L("Edit")</a></li>
+                                    <li><a ng-click="vm.editFeatures(tenant)">@L("Features")</a></li>
+                                    <li><a ng-click="vm.delete(tenant)">@L("Delete")</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

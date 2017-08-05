@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "~/Areas/Mobile/Views/Shared/_FlexLayout.cshtml";
+}
+<div class="container-responsive bg-color-white vertical-flex-inherit padding-1">
+    <form class="form-vertical" action="@Url.Action("SendEmailActivationLink")" method="post" novalidate>
+        <h3>@L("EmailActivation")</h3>
+        <p>
+            @L("SendEmailActivationLink_Information")
+        </p>
+        @Html.AntiForgeryToken()
+        @if (ViewBag.IsMultiTenancyEnabled)
+        {
+            <input type="hidden" name="tenancyName" value="@ViewBag.TenancyName" />
+        }
+        <div class="form-group">
+            <label class="form-group-key">@L("EmailAddress")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input class="form-control" type="email" placeholder="@L("EmailAddress")" name="EmailAddress" data-validate data-required data-maxlength="@Application.Authorization.Users.User.MaxEmailAddressLength" />
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="button-text primary">@L("Submit")</button>
+    </form>
+</div>
+<script>
+    (function () {
+        $("form").formValidate({
+            onsubmit: function () {
+                var _this = this;
+                _this.setLoading();
+                infrastructure.ajax({
+                    contentType: "application/x-www-form-urlencoded",
+                    url: _this.$element.attr('action'),
+                    data: _this.getData(),
+                    success: function (result) {
+                        infrastructure.message.success(app.localize('EmailActivationLinkSentMessage'));
+                    }, complete: function () {
+                        _this.clearLoading();
+                    }
+                });
+            }
+        });
+    })();
+</script>

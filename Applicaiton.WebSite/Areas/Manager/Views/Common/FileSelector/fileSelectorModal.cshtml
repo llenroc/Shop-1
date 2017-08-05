@@ -1,0 +1,52 @@
+﻿<div class="dialog">
+	<div class="header">
+		<div class="container">
+			<h5 class="title">@L("FileSelector")</h5>
+			<button class="button-icon button-close">×</button>
+		</div>
+	</div>
+	<div class="body vertical-flex-box">
+		<div class="container vertical-flex-inherit">
+			<div class="horizional-flex-inherit">
+				<div class="width-em40 padding-base">
+					<div ng-if="vm.fileType=='common'" class="file-uploader" 
+                         file-uploader 
+                         success-handler="vm.getFiles()"
+                         data-option-url="/Manager/Home/Upload">
+                        <div class="file-select-block">
+                            <span class="file-icon icon-cloud-upload"></span>
+                            <p class="file-path">@L("UploaderNewFile")</p>
+                        </div>
+						<input type="file" />
+						<input type="hidden" name="pictureToUpload"/>
+					</div>
+                    <div ng-if="vm.fileType=='picture'" class="picture-uploader"
+                         picture-uploader
+                         path="vm.pictureToUpload"
+                         success-handler="vm.getFiles()"
+                         data-option-url="/Manager/Home/Upload"
+                         data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                        <img height="128" ng-src="{{vm.pictureToUpload}}" />
+                        <input type="file" />
+                    </div>
+				</div>
+				<div class="vertical-flex-inherit padding-base">
+                    <div class="flex-adapter vertical-scrollable">
+                        <ul data-ng-init="vm.load()" id="fileList" class="thumbnails-list file-selector-list span-4">
+                            <li ng-repeat="file in vm.files">
+                                <a class="thumbnail" ng-click="vm.select(file)">
+                                    <img height="100" class="thumbnail-picture" ng-src="{{file.path}}" ng-if="vm.isPicture(file.path)" />
+                                    <img height="100" class="thumbnail-picture" src="~/Content/frame/canknow/image/file.png" ng-if="!vm.isPicture(file.path)" />
+                                    <div class="thumbnail-block">
+                                        <h5 class="thumbnail-title ellipsis">{{file.name}}</h5>
+                                        <p>{{file.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="./../../../dist/css/canknow.css">
+    <script src="./../js/lib/jquery.min.js"></script>
+    <script src="./../../../dist/js/common.js"></script>
+    <script src="./../../../dist/js/canknow.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1 id="form" class="block-title">form</h1>
+    <div>
+        <h2 class="block-title">input</h2>
+        <div class="example">
+            <div class="input-wrapper"><input type="text" placeholder="input"></div>
+            <div class="input-wrapper shadow"><input type="text" placeholder="input"></div>
+            <div class="input-wrapper border"><input type="text" placeholder="input"></div>
+            <div class="input-wrapper border shadow"><input type="text" placeholder="input"></div>
+            <div class="input-wrapper loading"><input type="text" placeholder="input"></div>
+            <div class="input-wrapper success"><input type="text" placeholder="input"></div>
+            <div class="input-wrapper error"><input type="text" placeholder="input"></div>
+            <div class="input-wrapper">
+                <select>
+                    <option>(UTC-12:00) International Date Line West</option>
+                    <option>(UTC-10:00) Aleutian Islands</option>
+                </select>
+            </div>
+            <textarea class="block"></textarea>
+
+            <label class="checkbox">
+                <input type="checkbox" checked="">
+                <span class="check"></span>
+                <span class="caption">label</span>
+            </label>
+
+            <label class="radio">
+                <input type="radio" checked name="testRadio">
+                <span class="check"></span>
+                <span class="caption">Select me</span>
+            </label>
+            <label class="radio">
+                <input type="radio"  name="testRadio">
+                <span class="check"></span>
+                <span class="caption">Select me</span>
+            </label>
+
+            <div class="checkbox-switcher">
+                <input type="checkbox" checked="">
+                <label></label>
+            </div>
+
+            <div class="switcher">
+                <label class="true"><input type="radio" name="isCode" value="true" checked/><span>Yes</span></label>
+                <label class="false"><input type="radio" name="isCode" value="false" /><span>No</span></label>
+            </div>
+            <div class="input-wrapper pretty"><input type="text" placeholder="input"></div>
+            <div class="input-wrapper">
+                <label class="input-addon">https://example.com/users/</label>
+                <input type="text" placeholder="input">
+            </div>
+            <div class="input-wrapper pretty">
+                <label class="input-addon">https://example.com/users/</label>
+                <input type="text" placeholder="input">
+            </div>
+            <div class="input-wrapper pretty"><span class="input-icon button-icon left icon-cog"></span><input type="text" placeholder="input"></div>
+            <div class="input-wrapper"><input type="text" placeholder="input"><span class="input-icon button-icon icon-cog"></span></div>
+            <div class="input-wrapper"><input type="text" placeholder="input"><button class="button-text">search</button></div>
+        </div>
+        <h2 class="block-title">form-vertical</h2>
+        <div class="example">
+            <form class="form-vertical">
+                <div class="form-group">
+                    <label class="form-group-key">form-group-key</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper"><input type="text" placeholder="input"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">form-group-key</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper"><input type="text" placeholder="input"></div>
+                        <p class="validate-message error">validate error</p>
+                    </div>
+                </div>
+                <button class="button-text block">button-text block</button>
+            </form>
+        </div>
+        <h2 class="block-title">form-horizontal</h2>
+        <div class="example">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="form-group-key column-2">form-group-key</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper pretty"><input type="text" placeholder="input"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key column-2">form-group-key</label>
+                    <div class="form-group-block column-8">
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key column-2">form-group-key</label>
+                    <div class="form-group-block column-8">
+                        <textarea></textarea>
+                        <p class="validate-message error">validate error</p>
+                    </div>
+                </div>
+                <button class="button-text block">button-text block</button>
+            </form>
+        </div>
+        <h2 class="block-title">mobile-form</h2>
+        <div class="example">
+            <form class="mobile-form" novalidate="">
+                <div class="form-group">
+                    <label class="form-group-key">FullName</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper large">
+                            <input type="text" name="fullName">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">PhoneNumber</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper large">
+                            <input type="tel" name="phoneNumber">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">Address</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper large">
+                            <a class="static-text">
+                                <span>Please select address</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">DetailAddress</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper large">
+                            <textarea name="detailAddress" placeholder="detailAddress"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <button type="submit" class="button-text primary block" disabled="disabled">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

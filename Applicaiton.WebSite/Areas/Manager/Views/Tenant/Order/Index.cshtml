@@ -1,0 +1,180 @@
+﻿<div ng-controller="app.manager.order.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("Orders")</span> <small>@L("OrdersHeaderInfo")</small>
+        </h1>
+    </div>
+    <form id="orderFilterForm" class="form-horizontal">
+        <div class="row">
+            <div class="column-5 padding-base">
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("Title")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="title" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("Number")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="number"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("TrackingNumber")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="trackingNumber"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("DateRange")</label>
+                    <div class="form-group-block column-8">
+                        <div class="row">
+                            <div class="column-5">
+                                <div class="input-wrapper">
+                                    <input type="text" name="startTime" data-ride="datePicker" />
+                                </div>
+                            </div>
+                            <div class="column-5">
+                                <div class="input-wrapper">
+                                    <input type="text" name="endTime" data-ride="datePicker" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="column-5 padding-base">
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("Name")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="name"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("UserName")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="userName"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("FullName")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="fullName"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group padding-base">
+                    <label class="form-group-key column-2">@L("PhoneNumber")</label>
+                    <div class="form-group-block column-8">
+                        <div class="input-wrapper">
+                            <input type="text" name="phoneNumber"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column-3-3 padding-base">
+                <button class="button-text icon block primary" ng-click="vm.getOrders()" ng-disabled="vm.isLoading"><i class="icon icon-refresh"></i>@L("Search")</button>
+            </div>
+            <div class="column-3-3 padding-base">
+                <button class="button-text icon block primary" ng-class="{'button-loading':vm.isExporting}" ng-click="vm.exportToExcel()" ng-disabled="vm.isExporting"><i class="icon icon-refresh"></i>@L("ExportShipOrders")</button>
+            </div>
+            <div class="column-3-3 padding-base">
+                <button class="button-text icon block primary" ng-click="vm.openBatchShipModal()"><i class="icon icon-refresh"></i>@L("BatchShip")</button>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="column-10">
+            <div class="tab margin-bottom-1">
+                <ul class="tab-nav-list">
+                    <li ng-class="{'actived':vm.orderStatus==1}">
+                        <a ng-click="vm.getOrders(1)">@L("UnPay")</a>
+                    </li>
+                    <li ng-class="{'actived':vm.orderStatus==2}">
+                        <a ng-click="vm.getOrders(2)">@L("UnShip")</a>
+                    </li>
+                    <li ng-class="{'actived':vm.orderStatus==3}">
+                        <a ng-click="vm.getOrders(3)">@L("Shipped")</a>
+                    </li>
+					<li ng-class="{'actived':vm.orderStatus==4}">
+						<a ng-click="vm.getOrders(4)">@L("Received")</a>
+					</li>
+                    <li ng-class="{'actived':vm.orderStatus==5}">
+                        <a ng-click="vm.getOrders(5)">@L("Commented")</a>
+                    </li>
+					<li ng-class="{'actived':vm.orderStatus==6}">
+						<a ng-click="vm.getOrders(6)">@L("Completed")</a>
+					</li>
+					<li ng-class="{'actived':vm.orderStatus==7}">
+						<a ng-click="vm.getOrders(7)">@L("Refunded")</a>
+					</li>
+                </ul>
+            </div>
+            <div class="responsive-table-container">
+                <table class="table table-bordered" id="ordersTable">
+                    <thead>
+                        <tr>
+                            <th>@L("Number")</th>
+                            <th>@L("Title")</th>
+                            <th>@L("CustomerInfo")</th>
+                            <th>@L("Money")</th>
+                            <th>@L("ShipInfo")</th>
+                            <th>@L("OrderStatus")</th>
+                            <th>@L("CreationTime")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="order in vm.orders">
+                            <td>{{order.number}}</td>
+                            <td>{{order.title}}</td>
+                            <td>{{order.orderCustomerInfo.fullName}}{{order.orderCustomerInfo.phoneNumber}}<br />{{order.orderCustomerInfo.fullAddress}}</td>
+                            <td>{{order.money}}</td>
+                            <td>{{order.expressCompanyName}}<br />{{order.trackingNumber}}</td>
+                            <td>{{order.statusText|localize}}</td>
+                            <td>{{order.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                            <td>
+                                <div class="dropdown-wripper dropdown-menu">
+                                    <a data-toggle="dropdown" class="button-text">
+                                        @L("Actions")<i class="icon icon-angle-down dropdown-sign"></i>
+                                    </a>
+                                    <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+										<li ng-if="order.orderStatus==1">
+											<a ng-click="vm.setAsPayed(order)">@L("SetAsPayed")</a>
+										</li>
+                                        <li ng-if="order.paymentStatus==0">
+                                            <a ng-click="vm.changePayMoney(order)">@L("ChangePayMoney")</a>
+                                        </li>
+                                        <li ng-if="order.paymentStatus==1&&order.orderStatus<4">
+                                            <a ng-click="vm.refund(order)">@L("Refund")</a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="order.detail({id:order.id})">@L("Detail")</a>
+                                        </li>
+                                        <li ng-if="order.orderStatus==2">
+                                            <a ng-click="vm.shipOrder(order)">@L("Ship")</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

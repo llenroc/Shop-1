@@ -1,0 +1,37 @@
+@using Application.Localization
+<div ng-controller="app.manager.channel.channelAgent.index as vm">
+    <div class="view-page-head margin-bottom-5">
+        <h1 class="view-page-title">
+            <span>@L("ChannelAgents")</span> <small>@L("ChannelAgentsHeaderInfo")</small>
+        </h1>
+        <a class="button-text primary" ui-sref="channel.channelAgent.createOrEdit()"><i class="icon-plus"></i> @L("CreateNewChannelAgent")</a>
+    </div>
+    <div class="portlet light">
+        <div class="responsive-table-container">
+            <table class="table table-bordered table-striped table-hover" id="channelAgentTable">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="channelAgent in vm.channelAgents">
+                        <td>{{channelAgent.name}}</td>
+                        <td>{{channelAgent.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <div class="dropdown-wripper dropdown-menu">
+                                <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                                <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                    <li><a ui-sref="channel.channelAgent.createOrEdit({id:channelAgent.id})">@L("Edit")</a></li>
+                                    <li><a ng-click="vm.delete(channelAgent)">@L("Delete")</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

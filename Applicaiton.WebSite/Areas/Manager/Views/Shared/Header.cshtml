@@ -1,0 +1,79 @@
+﻿@using Application.WebSite.Areas.Manager.Models.Layout
+@model HeaderViewModel
+<div class="page-header color bg-color-blue" ng-controller="app.manager.layout.header as vm">
+    <div class="page-header-wrapper">
+		@if (!String.IsNullOrEmpty(Model.AppSettings.AppTitleLogo))
+        {
+			<img class="logo" src="@Model.AppSettings.AppTitleLogo">
+		}
+		else
+		{
+			<img class="logo" src="/Content/Images/title-logo.png">
+		}
+        <nav></nav>
+        <div class="flex-adapter-sm"></div>
+        <button data-target="#sidebar" class="button-icon small icon-reorder gray block-sm"></button>
+        <div class="dropdown-wripper hidden-sm">
+			<span class="count" ng-bind="vm.unreadNotificationCount"></span>
+            <a data-target="#dropdown_notifys">
+                <i class="icon icon-envelope-alt"></i>
+                <i class="icon icon-angle-down dropdown-sign"></i>
+            </a>
+            <ul id="dropdown_notifys" class="dropdown left hide notify-dropdown-list dropdown-list width-em35" data-ride="dropdown">
+                <li class="header">@L("YouHave") <span ng-bind="vm.unreadNotificationCount"></span> @L("NewNotifications")</li>
+                <li ng-if="vm.unreadNotificationCount">
+                    <a ng-click="vm.setAllNotificationsAsRead()">@L("SetAllAsRead")</a>
+                </li>
+                <li ng-repeat="notification in vm.notifications">
+                    <a ng-if="notification.url" ui-sref="{{notification.url}}" ng-class="{'notification-unread': notification.state=='UNREAD', 'clickable': notification.url}">
+                        <span class="label success"><i class="{{notification.icon}}"></i></span>
+                        <label class="notify-title">{{notification.text}}<span class="time" ng-bind="notification.time | momentFormat:'YYYY-MM-DD HH:mm:ss'"></span></label>
+                        <span class="button-text small" ng-if="notification.state=='UNREAD'" ng-click="vm.setNotificationAsRead(notification)">@L("SetAsRead")</span>
+                    </a>
+                    <a ng-if="!notification.url" ng-class="{'notification-unread': notification.state=='UNREAD', 'clickable': notification.url}">
+                        <span class="label success"><i class="{{notification.icon}}"></i></span>
+                        <label class="notify-title" ng-bind="notification.text"></label>
+                        <span class="time" ng-bind="notification.time | momentFormat:'YYYY-MM-DD HH:mm:ss'"></span>
+                        <span class="button-text small" ng-if="notification.state=='UNREAD'" ng-click="vm.setNotificationAsRead(notification)">@L("SetAsRead")</span>
+                    </a>
+                </li>
+                <li ng-if="vm.notifications.length">
+                    <a ui-sref="notifications">@L("SeeAllNotifications")</a>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown-wripper dropdown-menu hidden-sm">
+            <a data-target="#dropdown_languages">
+                <span ng-class="vm.currentLanguage.icon"></span>
+                <span class="langname">{{vm.currentLanguage.displayName}}</span>
+                <i class="icon icon-angle-down dropdown-sign"></i>
+            </a>
+            <ul id="dropdown_languages" class="dropdown left hide dropdown-menu-list" data-ride="dropdown">
+                <li ng-repeat="language in vm.languages">
+                    <a href="/Localization/ChangeCulture?cultureName={{language.name}}">
+                        <i ng-class="language.icon"></i> <span ng-bind="language.displayName"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown-wripper dropdown-menu hidden-sm">
+            <a class="user-block" data-target="#dropdown_user">
+                <div class="user-info">
+                    <h3 ng-bind="vm.getShownUserName()"></h3>
+                    <h4 ng-bind="vm.user.emailAddress"></h4>
+                </div>
+                <div class="user-avatar-box">
+                    <img class="user-avatar" ng-src="{{vm.user.avatar}}">
+                </div>
+            </a>
+            <ul id="dropdown_user" class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                <li><a href="#loginAttempt">@L("LoginHistory")</a></li>
+                <li ng-if="vm.isLogined"><a ui-sref="profile.index">@L("MyProfile")</a></li>
+                <li><a ui-sref="profile.changePassword">@L("ChangePassword")</a></li>
+                <li ng-if="vm.isLogined">@Html.ActionLink(L("Logout"),"Logout","Account")</li>
+                <li ng-if="!vm.isLogined">@Html.ActionLink(L("Logout"), "Login", "Account")</li>
+            </ul>
+        </div>
+        <button data-target="#page-setting" class="button-icon button-set light hidden-sm"><span class="icon-cog"></span></button>
+    </div>
+</div>

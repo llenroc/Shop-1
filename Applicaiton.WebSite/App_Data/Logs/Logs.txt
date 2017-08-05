@@ -1,0 +1,292 @@
+FATAL 2017-08-05 21:28:40,120 [83   ] Infrastructure.Bootstrapper              - System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35” ---> System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+
+警告: 程序集绑定日志记录被关闭。
+要启用程序集绑定失败日志记录，请将注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD)设置为 1。
+注意: 会有一些与程序集绑定失败日志记录关联的性能损失。
+要关闭此功能，请移除注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog]。
+
+   在 System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   在 System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   在 System.Reflection.RuntimeMethodInfo.GetParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParameters()
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.HasParameters(PropertyInfo property)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.IsValidPropertyDependency(PropertyInfo property)
+   在 System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.InspectProperties(ComponentModel model)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Castle.MicroKernel.ModelBuilder.DefaultComponentModelBuilder.BuildModel(IComponentModelDescriptor[] customContributors)
+   在 Castle.MicroKernel.Registration.ComponentRegistration`1.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.MicroKernel.Registration.BasedOnDescriptor.TryRegister(Type type, IKernel kernel)
+   在 Castle.MicroKernel.Registration.FromDescriptor.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.Windsor.WindsorContainer.Register(IRegistration[] registrations)
+   在 Infrastructure.Dependency.BasicConventionalRegistrar.RegisterAssembly(IConventionalRegistrationContext context)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly, ConventionalRegistrationConfig config)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly)
+   在 Application.WebSite.WebModule.Initialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 63
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_1(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+
+
+System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35” ---> System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+
+警告: 程序集绑定日志记录被关闭。
+要启用程序集绑定失败日志记录，请将注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD)设置为 1。
+注意: 会有一些与程序集绑定失败日志记录关联的性能损失。
+要关闭此功能，请移除注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog]。
+
+   在 System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   在 System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   在 System.Reflection.RuntimeMethodInfo.GetParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParameters()
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.HasParameters(PropertyInfo property)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.IsValidPropertyDependency(PropertyInfo property)
+   在 System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.InspectProperties(ComponentModel model)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Castle.MicroKernel.ModelBuilder.DefaultComponentModelBuilder.BuildModel(IComponentModelDescriptor[] customContributors)
+   在 Castle.MicroKernel.Registration.ComponentRegistration`1.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.MicroKernel.Registration.BasedOnDescriptor.TryRegister(Type type, IKernel kernel)
+   在 Castle.MicroKernel.Registration.FromDescriptor.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.Windsor.WindsorContainer.Register(IRegistration[] registrations)
+   在 Infrastructure.Dependency.BasicConventionalRegistrar.RegisterAssembly(IConventionalRegistrationContext context)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly, ConventionalRegistrationConfig config)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly)
+   在 Application.WebSite.WebModule.Initialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 63
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_1(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+
+
+FATAL 2017-08-05 22:14:21,568 [1    ] Infrastructure.Bootstrapper              - System.TypeInitializationException: “System.Data.Entity.CreateDatabaseIfNotExists`1”的类型初始值设定项引发异常。 ---> System.TypeInitializationException: “System.Data.Entity.Internal.AppConfig”的类型初始值设定项引发异常。 ---> System.Configuration.ConfigurationErrorsException: 项“Default”已添加。 (H:\Project\Personal\Shop\Applicaiton.WebSite\web.config line 14)
+   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.get_ConnectionStrings()
+   在 System.Data.Entity.Internal.AppConfig..ctor()
+   在 System.Data.Entity.Internal.AppConfig..cctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationManager.EnsureLoadedForAssembly(Assembly assemblyHint, Type contextTypeHint)
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1..cctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1..ctor()
+   在 Application.EntityFramework.ApplicationDataModule.PreInitialize() 位置 H:\Project\Personal\Shop\Application.EntityFramework\ApplicationDataModule.cs:行号 14
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+System.TypeInitializationException: “System.Data.Entity.CreateDatabaseIfNotExists`1”的类型初始值设定项引发异常。 ---> System.TypeInitializationException: “System.Data.Entity.Internal.AppConfig”的类型初始值设定项引发异常。 ---> System.Configuration.ConfigurationErrorsException: 项“Default”已添加。 (H:\Project\Personal\Shop\Applicaiton.WebSite\web.config line 14)
+   在 System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   在 System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   在 System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   在 System.Configuration.ConfigurationManager.get_ConnectionStrings()
+   在 System.Data.Entity.Internal.AppConfig..ctor()
+   在 System.Data.Entity.Internal.AppConfig..cctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationManager.EnsureLoadedForAssembly(Assembly assemblyHint, Type contextTypeHint)
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1..cctor()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1..ctor()
+   在 Application.EntityFramework.ApplicationDataModule.PreInitialize() 位置 H:\Project\Personal\Shop\Application.EntityFramework\ApplicationDataModule.cs:行号 14
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+FATAL 2017-08-05 22:18:16,191 [58   ] Infrastructure.Bootstrapper              - System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35” ---> System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+
+警告: 程序集绑定日志记录被关闭。
+要启用程序集绑定失败日志记录，请将注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD)设置为 1。
+注意: 会有一些与程序集绑定失败日志记录关联的性能损失。
+要关闭此功能，请移除注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog]。
+
+   在 System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   在 System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   在 System.Reflection.RuntimeMethodInfo.GetParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParameters()
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.HasParameters(PropertyInfo property)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.IsValidPropertyDependency(PropertyInfo property)
+   在 System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.InspectProperties(ComponentModel model)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Castle.MicroKernel.ModelBuilder.DefaultComponentModelBuilder.BuildModel(IComponentModelDescriptor[] customContributors)
+   在 Castle.MicroKernel.Registration.ComponentRegistration`1.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.MicroKernel.Registration.BasedOnDescriptor.TryRegister(Type type, IKernel kernel)
+   在 Castle.MicroKernel.Registration.FromDescriptor.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.Windsor.WindsorContainer.Register(IRegistration[] registrations)
+   在 Infrastructure.Dependency.BasicConventionalRegistrar.RegisterAssembly(IConventionalRegistrationContext context)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly, ConventionalRegistrationConfig config)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly)
+   在 Application.WebSite.WebModule.Initialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 63
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_1(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+
+
+System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35” ---> System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+
+警告: 程序集绑定日志记录被关闭。
+要启用程序集绑定失败日志记录，请将注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD)设置为 1。
+注意: 会有一些与程序集绑定失败日志记录关联的性能损失。
+要关闭此功能，请移除注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog]。
+
+   在 System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   在 System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   在 System.Reflection.RuntimeMethodInfo.GetParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParameters()
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.HasParameters(PropertyInfo property)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.IsValidPropertyDependency(PropertyInfo property)
+   在 System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.InspectProperties(ComponentModel model)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Castle.MicroKernel.ModelBuilder.DefaultComponentModelBuilder.BuildModel(IComponentModelDescriptor[] customContributors)
+   在 Castle.MicroKernel.Registration.ComponentRegistration`1.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.MicroKernel.Registration.BasedOnDescriptor.TryRegister(Type type, IKernel kernel)
+   在 Castle.MicroKernel.Registration.FromDescriptor.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.Windsor.WindsorContainer.Register(IRegistration[] registrations)
+   在 Infrastructure.Dependency.BasicConventionalRegistrar.RegisterAssembly(IConventionalRegistrationContext context)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly, ConventionalRegistrationConfig config)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly)
+   在 Application.WebSite.WebModule.Initialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 63
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_1(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+
+
+FATAL 2017-08-05 22:21:41,414 [58   ] Infrastructure.Bootstrapper              - System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35” ---> System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+
+警告: 程序集绑定日志记录被关闭。
+要启用程序集绑定失败日志记录，请将注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD)设置为 1。
+注意: 会有一些与程序集绑定失败日志记录关联的性能损失。
+要关闭此功能，请移除注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog]。
+
+   在 System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   在 System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   在 System.Reflection.RuntimeMethodInfo.GetParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParameters()
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.HasParameters(PropertyInfo property)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.IsValidPropertyDependency(PropertyInfo property)
+   在 System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.InspectProperties(ComponentModel model)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Castle.MicroKernel.ModelBuilder.DefaultComponentModelBuilder.BuildModel(IComponentModelDescriptor[] customContributors)
+   在 Castle.MicroKernel.Registration.ComponentRegistration`1.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.MicroKernel.Registration.BasedOnDescriptor.TryRegister(Type type, IKernel kernel)
+   在 Castle.MicroKernel.Registration.FromDescriptor.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.Windsor.WindsorContainer.Register(IRegistration[] registrations)
+   在 Infrastructure.Dependency.BasicConventionalRegistrar.RegisterAssembly(IConventionalRegistrationContext context)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly, ConventionalRegistrationConfig config)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly)
+   在 Application.WebSite.WebModule.Initialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 63
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_1(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+
+
+System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35” ---> System.IO.FileLoadException: 未能加载文件或程序集“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+
+警告: 程序集绑定日志记录被关闭。
+要启用程序集绑定失败日志记录，请将注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD)设置为 1。
+注意: 会有一些与程序集绑定失败日志记录关联的性能损失。
+要关闭此功能，请移除注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog]。
+
+   在 System.Signature.GetSignature(Void* pCorSig, Int32 cCorSig, RuntimeFieldHandleInternal fieldHandle, IRuntimeMethodInfo methodHandle, RuntimeType declaringType)
+   在 System.Reflection.RuntimeMethodInfo.FetchNonReturnParameters()
+   在 System.Reflection.RuntimeMethodInfo.GetParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParametersNoCopy()
+   在 System.Reflection.RuntimePropertyInfo.GetIndexParameters()
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.HasParameters(PropertyInfo property)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.IsValidPropertyDependency(PropertyInfo property)
+   在 System.Linq.Enumerable.WhereArrayIterator`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Castle.MicroKernel.ModelBuilder.Inspectors.PropertiesDependenciesModelInspector.InspectProperties(ComponentModel model)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Castle.MicroKernel.ModelBuilder.DefaultComponentModelBuilder.BuildModel(IComponentModelDescriptor[] customContributors)
+   在 Castle.MicroKernel.Registration.ComponentRegistration`1.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.MicroKernel.Registration.BasedOnDescriptor.TryRegister(Type type, IKernel kernel)
+   在 Castle.MicroKernel.Registration.FromDescriptor.Castle.MicroKernel.Registration.IRegistration.Register(IKernelInternal kernel)
+   在 Castle.MicroKernel.DefaultKernel.Register(IRegistration[] registrations)
+   在 Castle.Windsor.WindsorContainer.Register(IRegistration[] registrations)
+   在 Infrastructure.Dependency.BasicConventionalRegistrar.RegisterAssembly(IConventionalRegistrationContext context)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly, ConventionalRegistrationConfig config)
+   在 Infrastructure.Dependency.IocManager.RegisterAssemblyByConvention(Assembly assembly)
+   在 Application.WebSite.WebModule.Initialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 63
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_1(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+
+
+FATAL 2017-08-05 23:50:14,156 [1    ] Infrastructure.Bootstrapper              - System.IO.FileLoadException: 未能加载文件或程序集“Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed”
+   在 Infrastructure.Web.SignalR.WebSignalRModule.UseSignalRContractResolver()
+   在 Infrastructure.Web.SignalR.WebSignalRModule.PreInitialize()
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+
+警告: 程序集绑定日志记录被关闭。
+要启用程序集绑定失败日志记录，请将注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD)设置为 1。
+注意: 会有一些与程序集绑定失败日志记录关联的性能损失。
+要关闭此功能，请移除注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog]。
+
+System.IO.FileLoadException: 未能加载文件或程序集“Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed”或它的某一个依赖项。找到的程序集清单定义与程序集引用不匹配。 (异常来自 HRESULT:0x80131040)
+文件名:“Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed”
+   在 Infrastructure.Web.SignalR.WebSignalRModule.UseSignalRContractResolver()
+   在 Infrastructure.Web.SignalR.WebSignalRModule.PreInitialize()
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+
+警告: 程序集绑定日志记录被关闭。
+要启用程序集绑定失败日志记录，请将注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD)设置为 1。
+注意: 会有一些与程序集绑定失败日志记录关联的性能损失。
+要关闭此功能，请移除注册表值 [HKLM\Software\Microsoft\Fusion!EnableLog]。
+

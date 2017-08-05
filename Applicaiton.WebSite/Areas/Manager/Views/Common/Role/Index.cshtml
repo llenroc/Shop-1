@@ -1,0 +1,50 @@
+﻿<div ng-controller="app.manager.role.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("Roles")</span> <small>@L("RolesHeaderInfo")</small>
+        </h1>
+        <a class="button-text primary" ui-sref="role.createOrEdit()"><i class="icon-plus"></i>@L("CreateNewRole")</a>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <div class="responsive-table-container">
+                <table class="table table-striped table-hover table-bordered" id="rolesTable">
+                    <thead>
+                        <tr>
+                            <th>@L("Name")</th>
+                            <th>@L("DisplayName")</th>
+                            <th>@L("IsDefault")</th>
+                            <th>@L("IsStatic")</th>
+                            <th>@L("CreationTime")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="role in vm.roles">
+                            <td>{{role.name}}</td>
+                            <td>{{role.displayName}}</td>
+                            <td>
+                                <span class="label success" ng-if="role.isDefault">@L("Yes")</span>
+                                <span class="label error" ng-if="!role.isDefault">@L("No")</span>
+                            </td>
+                            <td>
+                                <span class="label success" ng-if="role.isStatic">@L("Yes")</span>
+                                <span class="label error" ng-if="!role.isStatic">@L("No")</span>
+                            </td>
+                            <td>{{role.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                            <td>
+                                <div class="dropdown-wripper dropdown-menu">
+                                    <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                                    <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                        <li><a ui-sref="role.createOrEdit({id:role.id})">@L("Edit")</a></li>
+                                        <li><a ng-click="vm.delete(role)">@L("Delete")</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

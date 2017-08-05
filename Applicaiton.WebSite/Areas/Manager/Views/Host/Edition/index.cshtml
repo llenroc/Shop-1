@@ -1,0 +1,36 @@
+﻿<div ng-controller="app.manager.host.edition.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("Editions")</span> <small>@L("EditionsHeaderInfo")</small>
+        </h1>
+        <button class="button-text primary" ng-click="vm.createEdition()"><i class="icon-plus"></i>@L("CreateNewEdition")</button>
+    </div>
+    <div class="responsive-table-container">
+        <table class="table table-bordered table-striped table-hover" id="editionsTable">
+            <thead>
+                <tr>
+                    <th>@L("DisplayName")</th>
+                    <th>@L("Name")</th>
+                    <th>@L("CreationTime")</th>
+                    <th>@L("Actions")</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="edition in vm.editions">
+                    <td>{{edition.displayName}}</td>
+                    <td>{{edition.name}}</td>
+                    <td>{{edition.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                    <td>
+                        <div class="dropdown-wripper dropdown-menu">
+                            <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                            <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                <li><a ng-click="vm.editEdition(edition)">@L("Edit")</a></li>
+                                <li><a ng-click="vm.deleteEdition(edition)">@L("Delete")</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+﻿@model Infrastructure.Application.DTO.IdInput
+<div class="ng-cloak" ng-controller="app.mobile.order.detail as vm" ng-cloak>
+    <input type="hidden" name="id" id="id" value="@Model.Id" />
+    <div ng-if="vm.order">
+        <div class="customer-info-box margin-bottom-1" ng-if="vm.order.orderCustomerInfo">
+            <div class="customer-info">
+                <div class="order-address-icon-box">
+                    <span class="order-address-icon"></span>
+                </div>
+                <div class="customer-info-content">
+                    <div class="contact-info">
+                        <span class="contact-note">@L("Contact"):</span>
+                        <span class="full-name">{{vm.order.orderCustomerInfo.fullName}}</span>
+                        <span class="phone-number">{{vm.order.orderCustomerInfo.phoneNumber}}</span>
+                    </div>
+                    <div class="address-info">
+                        <p class="detail">
+                            <span class="detail-address-note pull-left">@L("Address"):</span>
+                            {{vm.order.orderCustomerInfo.fullAddress}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a class="logistics withpoint" ng-if="vm.logistics" href="/Mobile/Logistics/Detail?ExpressCompanyId={{vm.order.expressCompanyId}}&TrackingNumber={{vm.order.trackingNumber}}">
+            <h5 class="logistics-title">@L("LogisticInfo")</h5>
+            <div class="logistics-body">
+
+                <div ng-switch="vm.logistics.errCode">
+                    <div ng-switch-when="0">
+                        <div ng-if="vm.logistics.data">
+                            <p class="logistics-info success">{{vm.logistics.data[0].context}}</p>
+                            <p class="clearfix"><span class="pull-right datetime">{{vm.logistics.data[0].time}}</span></p>
+                        </div>
+                        <div ng-if="!vm.logistics.data">
+                            <p class="logistics-info">暂无物流流转信息</p>
+                        </div>
+                    </div>
+                    <div ng-switch-when="1">
+                        <p class="logistics-info success">已出库</p>
+                    </div>
+                    <div ng-switch-when="2">
+                        <p class="logistics-info error">验证码错误</p>
+                    </div>
+                    <div ng-switch-when="3">
+                        <p class="logistics-info error">链接查询服务器失败</p>
+                    </div>
+                    <div ng-switch-when="5">
+                        <p class="logistics-info error">程序内部错误</p>
+                    </div>
+                    <div ng-switch-when="5">
+                        <p class="logistics-info error">程序执行错误</p>
+                    </div>
+                    <div ng-switch-when="6">
+                        <p class="logistics-info error">快递单号格式错误</p>
+                    </div>
+                    <div ng-switch-when="7">
+                        <p class="logistics-info error">快递公司错误</p>
+                    </div>
+                    <div ng-switch-when="10">
+                        <p class="logistics-info error">未知错误</p>
+                        
+                    </div>
+                    <div ng-switch-when="20">
+                        <p class="logistics-info error">API错误</p>
+                    </div>
+                    <div ng-switch-when="21">
+                        <p class="logistics-info error"> API被禁用</p>
+                    </div>
+                    <div ng-switch-when="22">
+                        <p class="logistics-info error">API查询量耗尽</p>
+                    </div>
+                    <div ng-switch-default>
+
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <ul class="order-list" id="ordersList">
+            <li>
+                <div class="order-header">
+                    <h3 class="order-number">{{vm.order.number}}</h3>
+                    <label class="order-status">{{vm.order.statusText|localize}}</label>
+                </div>
+                <ul class="media-list order-item-list" ng-if="vm.order.orderItems.length">
+                    <li ng-repeat="orderItem in vm.order.orderItems">
+                        <div class="media-item order-item">
+                            <div class="title-picture-box">
+                                <img width="64" class="title-picture" ng-src="{{orderItem.specification.picture}}">
+                            </div>
+                            <div class="body">
+                                <h5 class="title">
+                                    {{orderItem.specification.fullName}}
+                                </h5>
+                                <div class="property">
+                                    <span class="price"><small class="price-sign">￥</small>{{orderItem.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-block">
+                            <div class="money-block">
+                                @L("TotalMoney")<label class="money"><small class="price-sign">￥</small>{{orderItem.money}}</label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+				<ul class="well-info-list">
+					<li>
+						<label class="key">@L("OrderTitle")</label>
+						<label class="value">{{vm.order.title}}</label>
+					</li>
+					<li>
+						<label class="key">@L("CreationTime")</label>
+						<label class="value">{{vm.order.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</label>
+					</li>
+                    <li>
+                        <label class="key">@L("AwardScore")</label>
+                        <label class="value">{{vm.order.score}}</label>
+                    </li>
+				</ul>
+            </li>
+        </ul>
+        <div class="container text-right">
+            <a class="button-text border radius" href="@Url.Action("Index","Pay",new { id=Model.Id})" ng-if="vm.order.payMoney>0&&vm.order.orderStatus==1">@L("PayNow")</a>
+            <button class="button-text success border radius" ng-if="vm.order.orderStatus==3" ng-click="vm.receive()">@L("Receive")</button>
+            <a class="button-text border radius" href="@Url.Action("Comment",new { id=Model.Id})" ng-if="vm.order.orderStatus==4">@L("Comment")</a>
+            <button class="button-text danger border radius" ng-if="vm.order.orderStatus==1" ng-click="vm.closeOrder()">@L("CloseOrder")</button>
+        </div>
+    </div>
+</div>

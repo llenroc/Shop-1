@@ -1,0 +1,37 @@
+﻿<div ng-controller="app.manager.host.backgroundJob.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("BackgroundJobs")</span> <small>@L("BackgroundJobsHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <div class="responsive-table-container">
+                <table class="table table-striped table-hover table-bordered" id="backgroundJobTable">
+                    <thead>
+                        <tr>
+                            <th>@L("JobType")</th>
+                            <th>@L("JobArgs")</th>
+                            <th>@L("TryCount")</th>
+                            <th>@L("NextTryTime")</th>
+                            <th>@L("LastTryTime")</th>
+                            <th>@L("IsAbandoned")</th>
+                            <th>@L("Priority")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="backgroundJob in vm.backgroundJobs">
+                            <td>{{backgroundJob.jobType}}</td>
+                            <td>{{backgroundJob.jobArgs}}</td>
+                            <td>{{backgroundJob.tryCount}}</td>
+                            <td>{{backgroundJob.nextTryTime}}</td>
+                            <td>{{backgroundJob.lastTryTime}}</td>
+                            <td>{{backgroundJob.isAbandoned}}</td>
+                            <td>{{backgroundJob.priority}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

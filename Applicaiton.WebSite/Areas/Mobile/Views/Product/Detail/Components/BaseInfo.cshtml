@@ -1,0 +1,22 @@
+﻿<section class="title-block">
+    <h1 class="product-title">{{vm.product.name}}</h1>
+</section>
+<section class="price-block">
+    <div class="price-bar">
+        <label class="price">
+            <small class="price-sign">¥</small>
+            <span class="price-value">{{vm.product.price}}</span>
+        </label>
+        <label class="score" ng-if="vm.product.score">
+            <span class="score-value">@L("GiveScore"){{vm.product.score}}</span>
+        </label>
+    </div>
+</section>
+<section class="adds">
+    <ul class="adds-list">
+        <li class="postage text-left">@L("Express") 0.00</li>
+        <li class="sales text-center">@L("Sale") {{vm.product.sale}}</li>
+        <li class="stock text-right">@L("Stock") {{vm.product.stock}}</li>
+        @*<li class="delivery text-right"></li>*@
+    </ul>
+</section>

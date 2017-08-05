@@ -1,0 +1,11 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+@Html.Partial("_Head")
+<body ng-app="app" class="height-full vertical-flex-box">
+    <div class="page vertical-flex-inherit" ng-controller="app.mobile.layout as vm">
+        <div class="page-content vertical-flex-inherit">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

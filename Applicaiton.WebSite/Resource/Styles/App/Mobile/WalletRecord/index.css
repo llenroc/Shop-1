@@ -1,0 +1,44 @@
+﻿.wallet-record-list{
+    list-style-type:none;
+    padding-left:0;
+}
+.wallet-record-list li{
+    background-color:#fff;
+    padding:1rem;
+    border-bottom:1px solid #eee;
+}
+.main-info{
+    margin-bottom:6px;
+    display:-webkit-box;
+    -webkit-box-align:center;
+}
+.main-info .remark{
+    font-size:14px;
+    display:block;
+    -webkit-box-flex:1;
+}
+.main-info .money{
+    display:block;
+    font-size:16px;
+}
+.main-info .money.in{
+    color:#3fb618;
+}
+.main-info .money.out{
+    color: #ff0039;
+}
+.minor-info{
+    display:-webkit-box;
+    -webkit-box-align:center;
+}
+.minor-info .datetime{
+    font-size:12px;
+    display:block;
+    -webkit-box-flex:1;
+    color:#999;
+}
+.minor-info .type{
+    font-size:12px;
+    display:block;
+    color:#999;
+}

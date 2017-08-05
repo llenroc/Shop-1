@@ -1,0 +1,42 @@
+﻿<div ng-controller="app.manager.publicWechat.autoReply.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("AutoReplys")</span> <small>@L("AutoReplysHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="autoReply in vm.autoReplys">
+                        <td>{{autoReply.name}}</td>
+                        <td>{{autoReply.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <div class="dropdown-wripper dropdown-menu">
+                                <a data-toggle="dropdown" class="button-text">
+                                    @L("Actions")<i class="icon icon-angle-down dropdown-sign"></i>
+                                </a>
+                                <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                    <li>
+                                        <a ui-sref="publicWechat.autoReply.createOrEdit({id:autoReply.id})">@L("Edit")</a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="vm.delete(autoReply)">@L("Delete")</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<a class="button-text primary block" ui-sref="publicWechat.autoReply.createOrEdit">@L("Create")</a>

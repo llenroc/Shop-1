@@ -1,0 +1,33 @@
+﻿<div class="container ng-cloak" ng-controller="app.mobile.article.index as vm" ng-cloak>
+    <div class="blank" ng-if="vm.isLoaded&&(!vm.articles||!vm.articles.length)">
+        @L("ThereIsNoItem")
+    </div>
+    <ul id="articleList" class="thumbnails-list article-list">
+        <li ng-repeat="article in vm.articles">
+            <a class="thumbnail" href="/Mobile/Article/Content?id={{article.id}}" ng-if="!article.isRedirectExternal">
+                <div class="img-box height-em20">
+                    <img class="title-picture" ng-src="{{article.thumbnail}}">
+                </div>
+                <div class="thumbnail-block">
+                    <h5 class="thumbnail-title" ng-bind="article.title"></h5>
+                    <p class="description" ng-bind="article.description"></p>
+                    <div class="footer clearfix">
+                        <label class="datetime">{{article.creationTime| momentFormat:'YYYY-MM-DD HH:mm:ss'}}</label>
+                    </div>
+                </div>
+            </a>
+            <a class="thumbnail" href="{{article.externalLink}}" ng-if="article.isRedirectExternal">
+                <div class="img-box height-em20">
+                    <img class="title-picture" ng-src="{{article.thumbnail}}">
+                </div>
+                <div class="thumbnail-block">
+                    <h5 class="thumbnail-title" ng-bind="article.title"></h5>
+                    <p class="description" ng-bind="article.description"></p>
+                    <div class="footer clearfix">
+                        <label class="datetime">{{article.creationTime| momentFormat:'YYYY-MM-DD HH:mm:ss'}}</label>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

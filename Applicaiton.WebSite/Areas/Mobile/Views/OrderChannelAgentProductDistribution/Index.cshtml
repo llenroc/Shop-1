@@ -1,0 +1,33 @@
+﻿<div ng-controller="app.mobile.orderChannelAgentProductDistribution.index as vm" ng-cloak class="ng-cloak">
+    <div class="blank" ng-if="!vm.orderChannelAgentProductDistributions||!vm.orderChannelAgentProductDistributions.length">@L("ThereIsNoItem")</div>
+	<ul class="rebate-list" id="orderChannelAgentProductDistributionList">
+		<li ng-repeat="orderChannelAgentProductDistribution in vm.orderChannelAgentProductDistributions">
+            <div class="profileItem">
+                <div class="profileItemAvatarBox">
+                    <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{orderChannelAgentProductDistribution.order.user.avatar}}">
+                </div>
+                <div class="profileItemBody">
+                    <h6 class="profileItemName thin">{{orderChannelAgentProductDistribution.order.user.nickName}}</h6>
+                </div>
+            </div>
+            <ul class="well-info-list">
+                <li>
+                    <label class="key">@L("DistributionMoney")</label>
+                    <label class="value money" ng-bind="orderChannelAgentProductDistribution.money"></label>
+                </li>
+                <li>
+                    <label class="key">@L("PayMoney")</label>
+                    <label class="value money" ng-bind="orderChannelAgentProductDistribution.order.payMoney"></label>
+                </li>
+                <li>
+                    <label class="key">@L("OrderTitle")</label>
+                    <label class="value" ng-bind="orderChannelAgentProductDistribution.order.title"></label>
+                </li>
+                <li>
+                    <label class="key">@L("CreationTime")</label>
+                    <label class="value" ng-bind="orderChannelAgentProductDistribution.creationTime| momentFormat:'YYYY-MM-DD HH:mm:ss'"></label>
+                </li>
+            </ul>
+		</li>
+	</ul>
+</div>

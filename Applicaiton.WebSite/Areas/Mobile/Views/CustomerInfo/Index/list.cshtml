@@ -1,0 +1,35 @@
+﻿<div ng-controller="app.mobile.customerInfo.list as vm" ng-cloak class="ng-cloak">
+    <ul class="customerInfo-list">
+        <li ng-repeat="customerInfo in vm.customerInfos">
+            <div class="customerInfo-box" ng-click="vm.select(customerInfo)">
+                <div class="contact-info clearfix">
+                    <label class="full-name">{{customerInfo.fullName}}</label>
+                    <label class="phone-number">{{customerInfo.phoneNumber}}</label>
+                </div>
+                <div class="address-info">
+                    <p class="address-detail">{{customerInfo.fullAddress}}</p>
+                </div>
+            </div>
+            <div class="toolbar clearfix">
+                <div class="pull-left">
+                    <label class="check-status-label checked" ng-if="customerInfo.isDefault">
+                        <span class="check-status"></span>
+                        <span class="note">@L("DefaultCustomerInfo")</span>
+                       
+                    </label>
+                    <label class="check-status-label =" ng-if="!customerInfo.isDefault" ng-click="vm.setAsDefault(customerInfo)">
+                        <span class="check-status"></span>
+                        <span class="note">@L("SetAsDefaultCustomerInfo")</span>
+                    </label>
+                </div>
+                <div class="pull-right">
+                    <button class="button-icon-with-text no-style gray" ui-sref="customerInfo.createOrEdit({id:customerInfo.id})"><span class="icon-edit"></span><span class="text">@L("Edit")</span></button>
+                    <button class="button-icon-with-text no-style gray" ng-click="vm.delete(customerInfo,$index)"><span class="icon-trash"></span><span class="text">@L("Delete")</span></button>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="container">
+        <a class="button-text block primary" ui-sref="customerInfo.createOrEdit()">@L("Create")</a>
+    </div>
+</div>

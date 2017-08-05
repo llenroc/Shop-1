@@ -1,0 +1,66 @@
+﻿<div ng-controller="app.mobile.channelAgent.index as vm" class="ng-cloak" ng-cloak>
+    <div ng-if="vm.hasLoaded">
+        <div class="blank" ng-if="!vm.channelAgents||!vm.channelAgents.length">@L("ThereIsNoItem")</div>
+        <ul class="channel-agent-list" ng-if="vm.channelAgents&&vm.channelAgents.length">
+            <li ng-repeat="channelAgent in vm.channelAgents">
+                @*<div class="channel-agent-header">
+                    <h5 class="channel-agent-name"><label>{{channelAgent.name}}</label></h5>
+                </div>*@
+                <div class="channel-agent-wrapper">
+                    <div class="channel-agent-box">
+                        <div class="channel-agent-base-info">
+                            <div class="channel-agent-logo-box">
+                                <img ng-src="{{channelAgent.logo}}">
+                            </div>
+                            <div class="channel-agent-name-box">
+                                <label class="name">{{channelAgent.name}}</label>
+                            </div>
+                            <div class="channel-agent-ad-box">
+                                <label class="channel-agent-nickname">[ {{channelAgent.nickName}} ]</label>
+                                <h5 class="channel-agent-ad-word">{{channelAgent.adWord}}</h5>
+                            </div>
+                        </div>
+                        <div class="channel-agent-info">
+                            <ul class="horizional-info-list">
+                                <li class="info-item">
+                                    <label class="info-key"><span class="info-icon icon-money"></span> @L("RebateRatio")</label>
+                                    <div class="info-body">
+                                        <span class="rebate-ratio">{{channelAgent.rebateRatio|toPercent}}</span>
+                                    </div>
+                                </li>
+                                <li class="info-item">
+                                    <label class="info-key"><span class="info-icon icon-upload"></span> @L("Price")</label>
+                                    <div class="info-body">
+                                        <label class="price"><span class="apply-price"><small>￥</small>{{channelAgent.price}}</span></label>
+                                    </div>
+                                </li>
+                            </ul>
+                            <dl>
+                                <dt>@L("ChannelAgentAssortment")</dt>
+                                <dd>
+                                    <ul>
+                                        <li ng-repeat="channelAgentAssortment in channelAgent.channelAgentAssortments">
+                                            {{channelAgentAssortment.specification.fullName}}×{{channelAgentAssortment.count}}
+                                        </li>
+                                    </ul>
+                                </dd>
+                                <dt>@L("ChannelAgentDistribution")</dt>
+                                <dd>
+                                    <ul class="numeric-list square-marker">
+                                        <li ng-repeat="channelAgentDistribution in channelAgent.channelAgentDistributions">
+                                            <label><small>￥</small><span>{{channelAgentDistribution.money}}</span></label>
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel-agent-footer">
+                    <button class="button-text border radius" ng-click="vm.apply(channelAgent)" ng-if="vm.canApply(channelAgent)" ng-disabled="vm.isApplying">@L("Apply")</button>
+                    <button class="button-text border radius" ng-click="vm.viewOrder(channelAgent)" ng-if="vm.isInApplying(channelAgent)">@L("Applying")</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

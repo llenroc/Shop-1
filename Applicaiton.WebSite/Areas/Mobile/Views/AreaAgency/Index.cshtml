@@ -1,0 +1,57 @@
+﻿@model Infrastructure.Application.DTO.IdInput
+<div ng-cloak class="ng-cloak" ng-controller="app.mobile.areaAgency.index as vm">
+    <input type="hidden" id="id" value="@Model.Id" />
+    <div class="profile-block">
+        <div class="profile profile-colored">
+            <div class="avatar-box">
+                <img width="96" height="96" class="avatar" ng-src="{{vm.user.avatar}}">
+            </div>
+            <h5 class="name">{{vm.areaAgency.areaAgent.name}}</h5>
+        </div>
+    </div>
+    <div class="" ng-if="vm.areaAgency">
+        <div class="statistic-block clearfix">
+            <a class="statistic-item" href="/Mobile/AreaAgency/AreaAgencyAreas?areaAgencyId={{vm.areaAgency.id}}&developLevel=0">
+                <label class="count">{{vm.normalAddressCount}}</label>
+                <label class="name">@L("NormalAddressCount")</label>
+            </a>
+            <a class="statistic-item" href="/Mobile/AreaAgency/AreaAgencyAreas?areaAgencyId={{vm.areaAgency.id}}&developLevel=1">
+                <label class="count">{{vm.developedAddressCount}}</label>
+                <label class="name">@L("DevelopedAddressCount")</label>
+            </a>
+            <a class="statistic-item">
+                <label class="count">{{vm.totalRebate}}</label>
+                <label class="name">@L("TotalRebate")</label>
+            </a>
+            <a class="statistic-item">
+                <label class="count">{{vm.customerCount}}</label>
+                <label class="name">@L("CustomerCount")</label>
+            </a>
+        </div>
+    </div>
+    <div class="master-nav">
+        <ul class="master-nav-list">
+            <li class="master-nav-item">
+                <a href="/Mobile/AreaAgency/CustomerList?id={{vm.areaAgency.id}}">
+                    <img class="nav-item-icon" src="~/Content/Images/CommonNav/potentialCustomer.png" />
+                    <label class="nav-item-title">@L("Customers")</label>
+                </a>
+            </li>
+            <li class="master-nav-item">
+                <a href="/Mobile/AreaAgentRebate/index?id={{vm.areaAgency.id}}">
+                    <img class="nav-item-icon" src="~/Content/Images/CommonNav/money.png" />
+                    <label class="nav-item-title">@L("Rebates")</label>
+                </a>
+            </li>
+            <li class="master-nav-item">
+                <a href="/Mobile/AreaAgency/Certificate?id={{vm.areaAgency.areaAgentId}}">
+                    <img class="nav-item-icon" src="~/Content/Images/CommonNav/money.png" />
+                    <label class="nav-item-title">@L("Certificate")</label>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <a class="button-text block primary" href="/Mobile/AreaAgent/Apply?id={{vm.areaAgency.areaAgentId}}">@L("ApplyAreaAgency")</a>
+    </div>
+</div>

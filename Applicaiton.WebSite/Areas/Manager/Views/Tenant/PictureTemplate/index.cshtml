@@ -1,0 +1,34 @@
+<div ng-controller="app.manager.pictureTemplate.index as vm">
+    <div class="view-page-head margin-bottom-5">
+        <h1 class="view-page-title">
+            <span>@L("PictureTemplates")</span> <small>@L("PictureTemplatesHeaderInfo")</small>
+        </h1>
+        <a class="button-text primary" ui-sref="pictureTemplate.createOrEdit"><i class="icon-plus"></i> @L("CreatePictureTemplate")</a>
+    </div>
+    <div class="responsive-table-container">
+        <table class="table table-bordered table-striped table-hover" id="pictureTemplateTable">
+            <thead>
+                <tr>
+                    <th>@L("Name")</th>
+                    <th>@L("CreationTime")</th>
+                    <th>@L("Actions")</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pictureTemplate in vm.pictureTemplates">
+                    <td>{{pictureTemplate.name}}</td>
+                    <td>{{pictureTemplate.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                    <td>
+                        <div class="dropdown-wripper dropdown-menu">
+                            <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                            <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                <li><a ui-sref="pictureTemplate.createOrEdit({id:pictureTemplate.id})">@L("Edit")</a></li>
+                                <li><a ng-click="vm.delete(pictureTemplate)">@L("Delete")</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

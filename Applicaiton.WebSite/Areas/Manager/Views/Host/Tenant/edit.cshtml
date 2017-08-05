@@ -1,0 +1,57 @@
+﻿@using Application.MultiTenancy
+@using Infrastructure.MultiTenancy
+
+<div ng-controller="app.manager.host.tenant.edit as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("Tenant")</span> <small>@L("EditTenant")</small>
+        </h1>
+    </div>
+    <form name="tenantEditForm" novalidate>
+        <div class="form-group">
+            <label class="form-group-key">@L("TenancyName")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="TenancyName" ng-model="vm.tenant.tenancyName" required maxlength="@Tenant.MaxTenancyNameLength">
+                </div>
+            </div>
+            <p class="validate-message text-danger" ng-show="!tenantEditForm.TenancyName.$valid && tenantEditForm.TenancyName.$dirty">@L("TenantName_Regex_Description")</p>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Name")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="Name" ng-model="vm.tenant.name" required maxlength="@Tenant.MaxNameLength">
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-if="vm.currentConnectionString">
+            <label class="form-group-key">@L("DatabaseConnectionString") (@L("Optional"))</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="ConnectionString" ng-model="vm.tenant.connectionString" maxlength="@TenantBase.MaxConnectionStringLength">
+                </div>
+            </div>
+        </div>
+        <div ng-if="vm.currentConnectionString">
+            <p class="validate-message text-warning">@L("TenantDatabaseConnectionStringChangeWarningMessage")</p>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Edition")</label>
+            <div class="form-group-block">
+                <select id="TenantEditionSelectionCombobox" ng-options="vm.getEditionValue(item) as item.displayText for item in vm.editions"
+                        ng-model="vm.tenant.editionId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("IsActive")</label>
+            <div class="form-group-block">
+                <div class="checkbox-switcher">
+                    <input name="IsActive" type="checkbox" ng-model="vm.tenant.isActive">
+                    <label><span class="on">on</span><span class="off">off</span></label>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="button-text block primary" ng-click="vm.save()" ng-disabled="tenantEditForm.$invalid"><i class="icon-save"></i> <span>@L("Save")</span></button>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+﻿<div ng-controller="app.manager.channel.channelAgency.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("ChannelAgencys")</span> <small>@L("ChannelAgencysHeaderInfo")</small>
+        </h1>
+        <a class="button-text" ui-sref="channel.channelAgency.create">@L("CreateChannelAgency")</a>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table id="channelAgencyTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+						<th>@L("NickName")</th>
+                        <th>@L("Avatar")</th>
+                        <th>@L("Depth")</th>
+                        <th>@L("ChildCount")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="channelAgency in vm.channelAgencys">
+                        <td>{{channelAgency.channelAgent.name}}</td>
+						<td>{{channelAgency.user.nickName}}</td>
+                        <td><img height="24" ng-src="{{channelAgency.user.avatar}}" /></td>
+                        <td>{{channelAgency.depth}}</td>
+                        <td>{{channelAgency.childCount}}</td>
+                        <td>{{channelAgency.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <a class="button-text border small" ui-sref="channel.channelAgency.edit({id:channelAgency.id})">@L("Edit")</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

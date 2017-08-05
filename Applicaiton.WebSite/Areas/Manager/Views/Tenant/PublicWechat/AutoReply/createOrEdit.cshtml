@@ -1,0 +1,133 @@
+<div ng-controller="app.manager.publicWechat.autoReply.createOrEdit as vm">
+    <form name="autoReplyCreateForm" novalidate>
+        <div class="form-group">
+            <label class="form-group-key">@L("Name")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="name" ng-model="vm.autoReply.name" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Title")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="title" ng-model="vm.autoReply.title">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Sort")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="sort" ng-model="vm.autoReply.sort">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("RequestMsgType")</label>
+            <div class="form-group-block">
+                <select ng-model="vm.autoReply.requestType" ng-options="y as x for (x, y) in vm.requestTypes"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Key")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" name="key" ng-model="vm.autoReply.key">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("MatchingType")</label>
+            <div class="form-group-block">
+                <div class="switcher">
+                    <label><input type="radio" name="matchingType" ng-value="1" ng-model="vm.autoReply.matchingType" required value="1"><span>@L("Fuzzy")</span></label>
+                    <label><input type="radio" name="matchingType" ng-value="0" ng-model="vm.autoReply.matchingType" required value="0"><span>@L("Exact")</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Type")</label>
+            <div class="form-group-block">
+                <select ng-model="vm.autoReply.msgType" ng-options="y as x for (x, y) in vm.responseMsgTypes">
+                </select>
+            </div>
+        </div>
+        <div class="form-group" ng-if="vm.autoReply.msgType==vm.responseMsgTypes.News||
+             vm.autoReply.msgType==vm.responseMsgTypes.Music||
+             vm.autoReply.msgType==vm.responseMsgTypes.Image||
+             vm.autoReply.msgType==vm.responseMsgTypes.Voice||
+             vm.autoReply.msgType==vm.responseMsgTypes.Video">
+            <label class="form-group-key">@L("MediaId")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="hidden" name="mediaId" ng-model="vm.autoReply.mediaId">
+                    <p class="static-text" ng-click="vm.openMediaIdSelector()">{{vm.autoReply.mediaId}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-if="vm.autoReply.msgType==vm.responseMsgTypes.Text">
+            <label class="form-group-key">@L("Content")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <textarea name="content" ng-model="vm.autoReply.content"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-if="vm.autoReply.msgType==vm.responseMsgTypes.MultipleNews">
+            <label class="form-group-key">articles</label>
+            <div class="form-group-block">
+                <table class="table table-center border-horizontal">
+                    <thead>
+                        <tr>
+                            <th>@L("Title")</th>
+                            <th>@L("Description")</th>
+                            <th>@L("Url")</th>
+                            <th>@L("PicUrl")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="article in vm.articles">
+                            <td>
+                                <div class="input-wrapper">
+                                    <input type="text" name="title" ng-model="article.title" placeholder="@L("Title")" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-wrapper">
+                                    <input type="text" name="description" ng-model="article.description" placeholder="@L("Description")" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-wrapper">
+                                    <input type="text" name="url" ng-model="article.url" placeholder="@L("Url")" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label class="form-group-key">@L("Pic")</label>
+                                    <div class="form-group-block">
+                                        <div class="form-group-block">
+                                            <div class="picture-uploader" picture-uploader path="article.picUrl" data-option-url="/Manager/Home/Upload" data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                                                <img height="100" ng-src="{{article.picUrl}}" />
+                                                <input type="file" />
+                                                <input type="hidden" name="picUrl" ng-model="article.picUrl" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="button-text" ng-click="vm.removeArticle($index)">@L("Remove")</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="button-text block" ng-click="vm.addArticle()">@L("AddArticle")</button>
+            </div>
+        </div>
+        <button type="submit" class="button-text block primary" ng-disabled="autoReplyCreateForm.$invalid" ng-click="vm.save()">@L("Save")</button>
+    </form>
+</div>

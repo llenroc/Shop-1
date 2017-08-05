@@ -1,0 +1,67 @@
+﻿@using Infrastructure.Web.Mvc.Extensions
+@using Application.MultiTenancy
+@using Recaptcha.Web
+@using Recaptcha.Web.Mvc
+<div class="container-responsive padding-1">
+    <form class="register-form" action="@Url.Action("Register")" method="post">
+        <h3>@L("TenantSignUp")</h3>
+        @if (@ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-danger">
+                <i class="icon-warning"></i> @ViewBag.ErrorMessage
+            </div>
+        }
+        @Html.AntiForgeryToken()
+        <p class="hint">
+            @L("TenantInformations")
+        </p>
+        <div class="form-group">
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" placeholder="@L("TenancyName")" name="TenancyName" required maxlength="@Tenant.MaxTenancyNameLength" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="text" placeholder="@L("Name")" name="Name" required maxlength="@Application.Authorization.Users.User.MaxNameLength" />
+                </div>
+            </div>
+        </div>
+        <p class="hint">
+            @L("AccountSettings")
+        </p>
+        <div class="form-group">
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="email" placeholder="@L("AdminEmailAddress")" name="AdminEmailAddress" required maxlength="@Application.Authorization.Users.User.MaxEmailAddressLength" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="password" autocomplete="off" id="AdminPassword" placeholder="@L("AdminPassword")" name="AdminPassword" required />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group-block">
+                <div class="input-wrapper line">
+                    <input type="password" autocomplete="off" placeholder="@L("AdminPasswordRepeat")" name="AdminPasswordRepeat" required />
+                </div>
+            </div>
+        </div>
+        @if (ViewBag.UseCaptcha)
+        {
+            <p class="hint">
+                @L("Captha_Hint")
+            </p>
+            <div class="form-group margin-bottom-20">
+                @Html.Recaptcha(theme: RecaptchaTheme.Red)
+            </div>
+        }
+        <button type="submit" class="button-text block primary">@L("Submit")</button>
+    </form>
+</div>

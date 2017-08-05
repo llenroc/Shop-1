@@ -1,0 +1,12 @@
+﻿.pay-block{
+    padding-top:2rem;
+}
+.title-block .order-title{
+    text-align:center;
+    margin-bottom:1rem;
+    line-height:1.5;
+}
+.price-block .price{
+    font-size:3.4rem;
+    text-align:center;
+}

@@ -1,0 +1,17 @@
+.color-list{
+    list-style-type: none;
+    padding-left: 0;
+}
+.color-list li{
+    width: 49.5%;
+    height: 64px;
+    color:#fff;
+    line-height: 64px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    float: left;
+}
+.color-list li:nth-child(odd){
+    margin-right: 0.5%;
+}

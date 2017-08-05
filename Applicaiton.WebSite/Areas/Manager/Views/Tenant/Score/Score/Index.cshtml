@@ -1,0 +1,27 @@
+﻿<div ng-controller="app.manager.score.score.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("Scores")</span> <small>@L("ScoresHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table id="scoreTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+						<th>@L("NickName")</th>
+                        <th>@L("Avatar")</th>
+                        <th>@L("Total")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="score in vm.scores">
+                        <td>{{score.user.nickName}}</td>
+                        <td><img height="24" ng-src="{{score.user.avatar}}" /></td>
+                        <td>{{score.total}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

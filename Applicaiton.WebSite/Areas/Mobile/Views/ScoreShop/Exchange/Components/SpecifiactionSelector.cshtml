@@ -1,0 +1,43 @@
+﻿<div class="specification-selector" ng-class="{'show':vm.submitMode}" ng-if="vm.boughtItems.length">
+    <div class="summary">
+        <div class="picture-box">
+            <img ng-src="{{vm.selectedSpecification.picture}}" />
+        </div>
+        <div class="summary-content">
+            <div class="price-wrapper"><span class="price"><small></small>{{vm.selectedSpecification.exchangeScore}}</span></div>
+            <div class="stock-wrapper"><span class="stock"><label>@L("Stock")</label>{{vm.selectedSpecification.stock}}@L("Piece")</span></div>
+            <div class="sku-wrapper">
+                <span class="sku-value" ng-repeat="propertyValue in vm.selectedSpecification.propertyValues">
+                    {{propertyValue.value}}
+                </span>
+            </div>
+        </div>
+        <button class="button-icon button-close circle small" ng-click="vm.closeSpecificationSelector()"><i class="icon-remove"></i></button>
+    </div>
+    <ul class="specification-property-group-list">
+        <li ng-repeat="specificationPropertyGroup in vm.product.specificationPropertyGroups">
+            <dl>
+                <dt class="property-name">{{specificationPropertyGroup.specificationProperty.name}}</dt>
+                <dd class="values">
+                    <label ng-click="vm.propertyValueClickHandler(specificationPropertyGroup,specificationPropertyValue)" class="property-value" ng-class="{'checked':specificationPropertyGroup.selectedSpecificationPropertyValue == specificationPropertyValue}" ng-repeat="specificationPropertyValue in specificationPropertyGroup.specificationPropertyValues">
+                        {{specificationPropertyValue.value}}
+                    </label>
+                </dd>
+            </dl>
+        </li>
+    </ul>
+    <div class="number">
+        <h2>@L("Count")</h2>
+        <div class="content">
+            <div class="number-control">
+                <button type="button" class="button-icon decrease" ng-click="vm.decreaseCount(vm.boughtItems[0])" ng-disabled="vm.isDisableDecreaseCount(vm.boughtItems[0])">-</button>
+                <input type="text" value="1" min="1" max="1640" step="1" name="count" ng-model="vm.boughtItems[0].count" required>
+                <button type="button" class="button-icon increase" ng-click="vm.increaseCount(vm.boughtItems[0])" ng-disabled="vm.isDisableIncreaseCount(vm.boughtItems[0])">+</button>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="action-bar">
+    <button class="button-text large button-ok" ng-show="vm.submitMode" ng-click="vm.submit()" ng-disabled="!vm.selectedSpecification||vm.count<=0||!vm.count||vm.isSubmitting">@L("Submit")</button>
+    <button class="button-text large button-buy" ng-show="!vm.submitMode" ng-click="vm.buyHandler()">@L("Exchange")</button>
+</section>

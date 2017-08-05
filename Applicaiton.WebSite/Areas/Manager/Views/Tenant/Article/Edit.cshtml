@@ -1,0 +1,84 @@
+﻿<div ng-controller="app.manager.article.edit as vm">
+	<form name="articleEditForm" class="form-horizontal" novalidate>
+		<div class="tab" data-ride="tab">
+			<ul class="tab-nav-list">
+				<li class="actived">
+					<a>@L("BaseInfo")</a>
+				</li>
+				<li>
+					<a>@L("Content")</a>
+				</li>
+			</ul>
+			<div class="tab-box">
+				<div class="tab-page show">
+					<div class="form-group">
+						<label class="form-group-key column-1">@L("Title")</label>
+						<div class="form-group-block column-9">
+							<div class="input-wrapper line">
+								<input type="text" name="title" ng-model="vm.article.title" required>
+							</div>
+							<p class="validate-message error" ng-show="articleEditForm.title.$error.required">@L("TitleIsRequired")</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-group-key column-1">@L("SubTitle")</label>
+						<div class="form-group-block column-9">
+							<div class="input-wrapper line">
+								<input type="text" name="subTitle" ng-model="vm.article.subTitle">
+							</div>
+							<p class="validate-message error" ng-show="articleEditForm.subTitle.$error.required">@L("SubTitleIsRequired")</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-group-key column-1">@L("Description")</label>
+						<div class="form-group-block column-9">
+							<div class="input-wrapper line">
+								<textarea name="description" ng-model="vm.article.description"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-group-key column-1">@L("Author")</label>
+						<div class="form-group-block column-9">
+							<div class="input-wrapper line">
+								<input type="text" name="author" required ng-model="vm.article.author">
+							</div>
+							<p class="validate-message error" ng-show="articleEditForm.author.$error.required">@L("AuthorIsRequired")</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-group-key column-1">@L("Thumbnail")</label>
+						<div class="form-group-block column-9">
+							<img height="128" ng-src="{{vm.article.thumbnail}}" file-selector file-type="picture" path="vm.article.thumbnail" />
+							<p class="validate-message error" ng-show="articleCreateForm.thumbnail.$error.required">@L("ThumbnailIsRequired")</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-group-key column-1">@L("IsRedirectExternal")</label>
+						<div class="form-group-block column-9">
+							<div class="switcher">
+								<label><input type="radio" name="isRedirectExternal" ng-value="true" ng-model="vm.article.isRedirectExternal" required /><span>@L("Yes")</span></label>
+								<label><input type="radio" name="isRedirectExternal" ng-value="false" ng-model="vm.article.isRedirectExternal" required /><span>@L("No")</span></label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group" ng-if="vm.article.isRedirectExternal">
+						<div class="form-group">
+							<label class="form-group-key column-1">@L("ExternalLink")</label>
+							<div class="form-group-block column-9">
+								<div class="input-wrapper line">
+									<input type="url" ng-model="vm.article.externalLink">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-page hide">
+					<div class="content-editor" id="content">
+					</div>
+				</div>
+				<button type="submit" class="button-text block primary" ng-click="vm.save()" ng-disabled="articleEditForm.$invalid">@L("Save")</button>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,121 @@
+﻿@model  Application.WebSite.Areas.Mobile.Models.Orders.OrderConfirmInputViewModel
+<div class="ng-cloak" ng-cloak ng-controller="app.mobile.order.confirmOrder as vm" novalidate name="orderConfirmForm">
+    <input type="hidden" id="specificationId" value="@Model.SpecificationId" />
+    <input type="hidden" id="count" value="@Model.Count" />
+    <input type="hidden" id="customerInfoId" value="@Model.CustomerInfoId" />
+
+    <a ng-if="vm.isNeedLogistics" class="customer-info-box" href="@Url.Action("Index","CustomerInfo",new {ReturnUrl=ViewBag.ReturnUrl})">
+        <div class="customer-info" ng-if="vm.customerInfo">
+            <div class="order-address-icon-box">
+                <span class="order-address-icon"></span>
+            </div>
+            <div class="customer-info-content">
+                <div class="contact-info">
+                    <span class="contact-note">@L("Contact"):</span>
+                    <span class="full-name">{{vm.customerInfo.fullName}}</span>
+                    <span class="phone-number">{{vm.customerInfo.phoneNumber}}</span>
+                </div>
+                <div class="address-info">
+                    <p class="detail">
+                        <span class="detail-address-note pull-left">@L("Address"):</span>
+                        {{vm.customerInfo.fullAddress}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="select-customer-info" ng-if="!vm.customerInfo">
+            <div>
+                <span class="cross"></span>@L("PleaseAddCustomerInfo")
+            </div>
+        </div>
+    </a>
+
+    <div ng-if="vm.customCustomerInfos">
+        <div class="list-form">
+            <ul class="list-form-list">
+                <li>
+                    <div class="form-group" ng-repeat="customCustomerInfo in vm.customCustomerInfos">
+                        <label class="form-group-key" ng-bind="customCustomerInfo.name"></label>
+                        <div class="form-group-block">
+                            <div class="input-wrapper large" ng-if="customCustomerInfo.type==0">
+                                <input type="text" ng-attr-name="{{customCustomerInfo.name}}" ng-model="customCustomerInfo.value" ng-if="customCustomerInfo.required" required>
+                                <input type="text" ng-attr-name="{{customCustomerInfo.name}}" ng-model="customCustomerInfo.value" ng-if="!customCustomerInfo.required">
+                            </div>
+                            <div class="input-wrapper large" ng-if="customCustomerInfo.type==1">
+                                <input type="tel" ng-attr-name="{{customCustomerInfo.name}}" ng-model="customCustomerInfo.value" ng-if="customCustomerInfo.required" required>
+                                <input type="tel" ng-attr-name="{{customCustomerInfo.name}}" ng-model="customCustomerInfo.value" ng-if="!customCustomerInfo.required">
+                            </div>
+                            <div class="input-wrapper large" ng-if="customCustomerInfo.type==3">
+                                <input type="datetime" ng-attr-name="{{customCustomerInfo.name}}" ng-model="customCustomerInfo.value" ng-if="customCustomerInfo.required" required>
+                                <input type="datetime" ng-attr-name="{{customCustomerInfo.name}}" ng-model="customCustomerInfo.value" ng-if="!customCustomerInfo.required">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <ul class="media-list margin-top-1" ng-if="vm.boughtItems.length">
+        <li ng-repeat="boughtItem in vm.boughtItems">
+            <div class="media-item order-item">
+                <div class="title-picture-box">
+                    <img width="64" class="title-picture" ng-src="{{boughtItem.specification.picture}}">
+                </div>
+                <div class="body">
+                    <h5 class="title">
+                        {{boughtItem.specification.fullName}}
+                    </h5>
+                    <div class="property">
+                        <span class="price"><small class="price-sign">￥</small>{{boughtItem.price}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="list-form">
+                <ul class="list-form-list">
+                    <li>
+                        <div class="form-group">
+                            <label class="form-group-key">@L("Count")</label>
+                            <div class="form-group-block">
+                                <div class="number-control">
+                                    <button type="button" class="button-icon decrease" ng-click="vm.decreaseCount(boughtItem)" ng-disabled="vm.isDisableDecreaseCount(boughtItem)">-</button>
+                                    <input type="text" name="count" ng-model="boughtItem.count" required ng-change="vm.changeCount(boughtItem)">
+                                    <button type="button" class="button-icon increase" ng-click="vm.increaseCount(boughtItem)" ng-disabled="vm.isDisableIncreaseCount(boughtItem)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-group">
+                            <label class="form-group-key">@L("OrderNoteOfCustomer")</label>
+                            <div class="form-group-block">
+                                <div class="input-wrapper">
+                                    <input type="text" placeholder="@L("LeaveMessageToSeller")" ng-model="vm.noteOfCustomer">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="price-block">
+                <div class="count-box">
+                    @L("TotalCount")<label class="count">{{boughtItem.count}}</label>@L("Piece")
+                </div>
+                <div class="money-block">
+                    @L("TotalMoney")<label class="money"><small class="price-sign">￥</small>{{boughtItem.money}}</label>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="total-price-block" ng-if="vm.loaded">
+        <label class="text-indicator">@L("TotalMoney")</label><span><small class="price-sign">￥</small>{{vm.money}}</span> + <span><small class="price-sign">￥</small>{{vm.postage}}</span>=<span class="money"><small class="price-sign">￥</small>{{vm.money+vm.postage}}</span>
+    </div>
+    <div class="container" ng-if="vm.loaded">
+        <button class="button-text colored block button-buy"
+                ng-click="vm.submit()"
+                ng-disabled="(vm.isNeedLogistics&&!vm.customerInfo)||orderConfirmForm.$invalid">
+            @L("SubmitOrder")
+        </button>
+    </div>
+</div>

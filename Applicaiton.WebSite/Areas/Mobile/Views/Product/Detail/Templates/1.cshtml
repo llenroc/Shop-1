@@ -1,0 +1,13 @@
+﻿@model Application.Products.Fronts.Dto.ProductGetInput
+@{
+    Layout = "~/Areas/Mobile/Views/Shared/_BlankLayout.cshtml";
+}
+<div ng-controller="app.mobile.product.detail as vm" ng-cloak class="ng-cloak">
+    <input type="hidden" id="id" value="@Model.Id" />
+    <div ng-if="vm.product">
+        @Html.Partial("Detail/Components/Slider")
+        @Html.Partial("Detail/Components/BaseInfo")
+        @Html.Partial("Detail/Components/Tab")
+        @Html.Partial("Detail/Components/SpecifiactionSelector")
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.grid-cell{
+    padding: 10px;
+    background-color: #ddd;
+}
+.show-grid [class^=column-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);
+    text-align:center;
+}

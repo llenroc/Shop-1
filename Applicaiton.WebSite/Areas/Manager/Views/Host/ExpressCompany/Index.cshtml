@@ -1,0 +1,33 @@
+﻿<div ng-controller="app.manager.expressCompany.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("ExpressCompanys")</span> <small>@L("ExpressCompanysHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+                        <th>@L("Icon")</th>
+                        <th>@L("Code")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="expressCompany in vm.expressCompanys">
+                        <td>{{expressCompany.name}}</td>
+                        <td><img height="32" ng-src="{{expressCompany.icon}}"/></td>
+                        <td>{{expressCompany.code}}</td>
+                        <td>
+                            <a class="button-text border small" ui-sref="expressCompany.edit({id:expressCompany.id})">@L("Edit")</a>
+                            <a class="button-text danger border small" ng-click="vm.delete(expressCompany)">@L("Delete")</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<a class="button-text primary block" ui-sref="expressCompany.create">@L("Create")</a>

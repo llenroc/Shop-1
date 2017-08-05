@@ -1,0 +1,37 @@
+﻿@using Infrastructure.Web.Mvc.Extensions
+@model Application.WebSite.Models.Account.VerifySecurityCodeViewModel
+
+<div class="padding-1">
+    @using (Html.BeginForm("VerifySecurityCode", "Account", new { returnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "verify-security-code-form", role = "form" }))
+    {
+        <h3>@L("VerifySecurityCode")</h3>
+        <p>@L("VerifySecurityCode_Information")</p>
+
+        @Html.AntiForgeryToken()
+
+        @Html.Hidden("provider", @Model.Provider)
+        @Html.Hidden("rememberMe", @Model.RememberMe)
+
+        <div class="input-wrapper">
+            @Html.LabelFor(m => m.Code)
+            @Html.TextBoxFor(m => m.Code, new { required = "required" })
+        </div>
+
+        if (Model.IsRememberBrowserEnabled)
+        {
+            <div class="form-group">
+                <div class="checkbox-list">
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberBrowser, new { @class = "form-control" }) @L("RememberThisBrowser")
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        }
+
+        <div class="form-actions">
+            <input type="submit" class="button-text block primary" value="@L("Submit")" />
+        </div>
+    }
+
+</div>

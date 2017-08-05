@@ -1,0 +1,30 @@
+﻿@model Application.WebSite.Models.Account.TenantSelectionViewModel
+<div class="container-responsive padding-1">
+    <form action="@Model.Action" method="POST">
+        <h3>@L("TenantSelection")</h3>
+        <div class="form-group">
+            <label class="form-group-key">@L("TenantSelectionDetail")</label>
+            <div class="form-group-block">
+                <select name="TenancyName">
+                    @for (int i = 0; i < Model.Tenants.Count; i++)
+                    {
+                        var tenant = Model.Tenants[i];
+                        string selectedAttr = null;
+
+                        if (i == 0)
+                        {
+                            selectedAttr = "selected";
+                        }
+                        <option value="@tenant.TenancyName" @selectedAttr>
+                            @tenant.Name (@tenant.TenancyName)
+                        </option>
+                    }
+                </select>
+
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="button-text block primary">@L("Submit")</button>
+        </div>
+    </form>
+</div>

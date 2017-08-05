@@ -1,0 +1,63 @@
+﻿@model Infrastructure.Application.DTO.IdInput
+<div ng-controller="app.mobile.areaAgent.apply as vm" ng-cloak class="ng-cloak">
+    <input type="hidden" id="id" value="@Model.Id" />
+    <div class="apply-header text-center">
+        <h3>{{vm.areaAgent.name}}@L("Apply")</h3>
+    </div>
+
+    <form class="mobile-form" name="userDetailForm" novalidate>
+        <div class="form-group">
+            <label class="form-group-key">@L("FullName")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="text" name="fullName" ng-model="vm.userDetail.fullName" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("PhoneNumber")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="tel" name="phoneNumber" ng-model="vm.userDetail.phoneNumber" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("WechatName")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="tel" name="wechatName" ng-model="vm.userDetail.wechatName" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("IdentityNumber")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="tel" name="identityNumber" ng-model="vm.userDetail.identityNumber" required>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="container">
+        <ul class="removable-label-list address-label-list" ng-if="vm.addresses.length">
+            <li ng-repeat="address in vm.addresses">
+                <label>{{address.fullAddress}}</label>
+                <button class="button-icon border circle danger" ng-click="vm.removeAddress($index)">
+                    <i class="icon-remove"></i>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="total-price-block ng-scope" ng-if="vm.money">
+        <label class="text-indicator">@L("TotalMoney")</label>
+        <span ng-if="vm.normalAddressCount"><small>￥</small>{{vm.areaAgent.price}}*{{vm.areaAgent.normalAddressRatio}}*{{vm.normalAddressCount}}</span>
+        <span ng-if="vm.developedAddressCount">{{vm.developedAddressCount}}*{{vm.areaAgent.price}}</span>
+        <span>=<small>￥</small>{{vm.money}}</span>
+    </div>
+    <div class="container">
+        <button class="button-text border radius block margin-bottom-1" ng-click="vm.selectAddress()">@L("AddAddress")</button>
+        <button class="button-text block primary" ng-disabled="userDetailForm.$invalid||!vm.addresses.length||vm.isSubmitting" ng-click="vm.submit()">@L("Submit")</button>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+﻿<div ng-controller="app.manager.virtualProduct.virtualCard.list as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("VirtualCards")</span> <small>@L("VirtualCardsHeaderInfo")</small>
+        </h1>
+    </div>
+	<form id="virtualCardFilterForm" class="form-horizontal margin-10">
+		<div class="row">
+			<div class="column-5 padding-base">
+				<div class="form-group">
+					<label class="form-group-key column-2">@L("VirtualCardName")</label>
+					<div class="form-group-block column-8">
+						<div class="input-wrapper">
+							<input type="text" name="name">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-group-key column-2">@L("VirtualCardValue")</label>
+					<div class="form-group-block column-8">
+						<div class="input-wrapper">
+							<input type="text" name="value">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-group-key column-2">@L("CardStatus")</label>
+					<div class="form-group-block column-8">
+						<div class="input-wrapper">
+							<input type="hidden" name="status" value="{{vm.filterStatus}}" />
+							<select ng-model="vm.filterStatus" ng-options="status.value as status.name for status in vm.statusEnum">
+								<option value="">-- @L("PleaseSelect") --</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="column-5 padding-base">
+				<div class="form-group">
+					<label class="form-group-key column-2">@L("Version")</label>
+					<div class="form-group-block column-8">
+						<div class="input-wrapper">
+							<input type="text" name="version">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-group-key column-2">@L("CardNumber")</label>
+					<div class="form-group-block column-8">
+						<div class="input-wrapper">
+							<input type="text" name="cardNumber">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-group-key column-2">@L("CardPassword")</label>
+					<div class="form-group-block column-8">
+						<div class="input-wrapper">
+							<input type="text" name="cardPassword">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button class="button-text icon block primary" ng-click="vm.getVirtualCards()"><i class="icon icon-refresh"></i>@L("Search")</button>
+	</form>
+    <div class="row">
+        <div class="column-10">
+			<div class="responsive-table-container">
+				<table id="virtualCardTable" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@L("VirtualCardName")</th>
+							<th>@L("VirtualCardValue")</th>
+							<th>@L("CardNumber")</th>
+							<th>@L("CardPassword")</th>
+							<th>@L("ExpireDays")</th>
+							<th>@L("Remark")</th>
+							<th>@L("Version")</th>
+							<th>@L("Status")</th>
+							<th>@L("CreationTime")</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="virtualCard in vm.virtualCards">
+							<td>{{virtualCard.name}}</td>
+							<td>{{virtualCard.value}}</td>
+							<td>{{virtualCard.cardNumber}}</td>
+							<td>{{virtualCard.cardPassword}}</td>
+							<td>{{virtualCard.expireDays}}</td>
+							<td>{{virtualCard.remark}}</td>
+							<td>{{virtualCard.version}}</td>
+							<td>{{virtualCard.statusText}}</td>
+							<td>{{virtualCard.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+        </div>
+    </div>
+</div>

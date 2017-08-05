@@ -1,0 +1,44 @@
+﻿<a ng-if="vm.isNeedLogistics" class="customer-info-box" href="@Url.Action("Index","CustomerInfo",new {ReturnUrl=ViewBag.ReturnUrl})">
+    <div class="customer-info" ng-if="vm.customerInfo">
+        <div class="order-address-icon-box">
+            <span class="order-address-icon"></span>
+        </div>
+        <div class="customer-info-content">
+            <div class="contact-info">
+                <span class="contact-note">@L("Contact"):</span>
+                <span class="full-name">{{vm.customerInfo.fullName}}</span>
+                <span class="phone-number">{{vm.customerInfo.phoneNumber}}</span>
+            </div>
+            <div class="address-info">
+                <p class="detail">
+                    <span class="detail-address-note pull-left">@L("Address"):</span>
+                    {{vm.customerInfo.fullAddress}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="select-customer-info" ng-if="!vm.customerInfo">
+        <div>
+            <span class="cross"></span>@L("PleaseAddCustomerInfo")
+        </div>
+    </div>
+</a>
+<div ng-if="vm.customCustomerInfos">
+    <div class="list-form">
+        <ul class="list-form-list">
+            <li>
+                <div class="form-group" ng-repeat="customCustomerInfo in vm.customCustomerInfos">
+                    <label class="form-group-key" ng-bind="customCustomerInfo.name"></label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper large" ng-if="customCustomerInfo.type==1">
+                            <input type="tel" ng-attr-name="{{customCustomerInfo.name}}" ng-model="customCustomerInfo.value" ng-if="customCustomerInfo.required" required>
+                            <input type="tel" ng-attr-name="{{customCustomerInfo.name}}" ng-model="customCustomerInfo.value" ng-if="!customCustomerInfo.required">
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<div class="margin-bottom-1"></div>

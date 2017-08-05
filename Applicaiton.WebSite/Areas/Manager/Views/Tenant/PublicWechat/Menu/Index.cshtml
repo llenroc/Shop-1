@@ -1,0 +1,78 @@
+﻿<div ng-controller="app.manager.publicWechat.menu as vm">
+	<div class="view-page-head">
+		<h1 class="view-page-title">
+			<span>@L("Menu")</span> <small>@L("MenuHeaderInfo")</small>
+		</h1>
+	</div>
+    <div class="row">
+        <div class="column-5 padding-1">
+			<button class="button-text block margin-bottom-1" ng-click="vm.add()" ng-disabled="vm.menu.button.length>=3">@L("Add")</button>
+            <ul class="tree-editable-list" sv-root sv-part="vm.menu.button">
+                <li ng-repeat="buttonOfLevel1 in vm.menu.button" sv-element ng-class="{'selected':vm.selectedButton==buttonOfLevel1}">
+                    <div class="item-info">
+                        <span class="sort-handler icon-reorder" sv-handle></span>
+                        <label class="name">{{buttonOfLevel1.name}}</label>
+                        <button class="button-icon border circle small info" ng-click="vm.edit(buttonOfLevel1)"><i class="icon-edit"></i></button>
+                        <button class="button-icon border circle small danger" ng-click="vm.delete(vm.menu.button,$index)"><i class="icon-bitbucket"></i></button>
+                        <button class="button-icon border circle small success" ng-if="!buttonOfLevel1.type" ng-click="vm.add(buttonOfLevel1)"><i class="icon-plus"></i></button>
+                    </div>
+                    <ul sv-root sv-part="buttonOfLevel1.sub_button">
+                        <li ng-repeat="buttonOfLevel2 in buttonOfLevel1.sub_button" sv-element ng-class="{'selected':vm.selectedButton==buttonOfLevel2}">
+                            <div class="item-info">
+                                <span class="sort-handler icon-reorder" sv-handle></span>
+                                <label class="name">{{buttonOfLevel2.name}}</label>
+                                <button class="button-icon border circle small info" ng-click="vm.edit(buttonOfLevel2)"><i class="icon-edit"></i></button>
+                                <button class="button-icon border circle small danger" ng-click="vm.delete(buttonOfLevel1.sub_button,$index)"><i class="icon-bitbucket"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <button class="button-text block primary" ng-click="vm.send()" ng-class="{'button-loading':vm.isLoading}" ng-disabled="!vm.menu||vm.menu.button.length==0||vm.isLoading">@L("SendMenu")</button>
+        </div>
+        <div class="column-5 padding-1">
+            <form name="buttonEditForm" novalidate ng-if="vm.selectedButton">
+                <div class="form-group">
+                    <label class="form-group-key">@L("Name")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper">
+                            <input type="text" name="name" ng-model="vm.selectedButton.name">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("Type")</label>
+                    <div class="form-group-block">
+                        <select ng-model="vm.selectedButton.type" ng-options="type.name as type.title for type in vm.types">
+                            <option value="">-- @L("FirstLevelMenu") --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="vm.selectedButton.type=='click'">
+                    <label class="form-group-key">@L("Key")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper">
+                            <input type="text" name="key" ng-model="vm.selectedButton.key">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="vm.selectedButton.type=='view'">
+                    <label class="form-group-key">@L("Url")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper">
+                            <input type="text" name="url" ng-model="vm.selectedButton.url">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="vm.selectedButton.type=='media_id'">
+                    <label class="form-group-key">@L("MediaId")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper">
+                            <input type="text" name="media_id" ng-model="vm.selectedButton.media_id">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿<div ng-controller="app.manager.article.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("Articles")</span> <small>@L("ArticlesHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table id="articleTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@L("Title")</th>
+                        <th>@L("Hint")</th>
+                        <th>@L("Author")</th>
+                        <th>@L("CreationTime")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="article in vm.articles">
+                        <td>{{article.title}}</td>
+                        <td>{{article.hint}}</td>
+                        <td>{{article.author}}</td>
+						<td>{{article.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                        <td>
+                            <a class="button-text border small" ui-sref="article.edit({id:article.id})">@L("Edit")</a>
+                            <a class="button-text danger border small" ng-click="vm.delete(article)">@L("Delete")</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<a class="button-text primary block" ui-sref="article.create">@L("Create")</a>

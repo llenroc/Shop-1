@@ -1,0 +1,33 @@
+<div class="dialog">
+    <div class="header">
+        <div class="container-responsive">
+            <h5 class="title">@L("AddressesSelector")</h5>
+            <button class="button-icon button-close">¡Á</button>
+        </div>
+    </div>
+    <script id="recursion" type="text/ng-template">
+        <li ng-repeat="address in addresses">
+            <div class="item-info">
+                <button class="toggle-handler button-icon border circle" ng-if="address.children.length" ng-click="vm.toggleOpenStatus(address)">
+                    <span ng-if="address.opened">-</span>
+                    <span ng-if="!address.opened">+</span>
+                </button>
+                <label class="checkbox border">
+                    <input type="checkbox" ng-model="address.selected" value="1" ng-click="vm.toggleSelect(address)">
+                    <span class="check"></span>
+                </label>
+                <label class="name" ng-bind="address.name"></label>
+            </div>
+            <ul ng-class="{'closed':!address.opened}" ng-if="address.children.length" ng-include="'recursion'" ng-init="addresses=address.children"></ul>
+        </li>
+    </script>
+    <div class="body vertical-flex-inherit container-responsive">
+        <ul ng-if="vm.addressTree" class="tree-editable-list flex-adapter vertical-scrollable" ng-include="'recursion'" ng-init="addresses=vm.addressTree"></ul>
+    </div>
+    <div class="footer">
+        <div class="container-responsive">
+            <button type="button" class="button-text border circle danger button-close">@L("Close")</button>
+            <button type="button" class="button-text border circle primary" ng-click="vm.selectAddresses()">@L("Ok")</button>
+        </div>
+    </div>
+</div>

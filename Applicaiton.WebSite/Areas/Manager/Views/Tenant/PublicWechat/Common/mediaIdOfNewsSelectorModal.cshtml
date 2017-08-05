@@ -1,0 +1,31 @@
+﻿<div class="dialog">
+    <div class="header">
+        <div class="container">
+            <h5 class="title">@L("MediaSelector")</h5>
+            <button class="button-icon button-close">×</button>
+        </div>
+    </div>
+    <div class="body vertical-flex-box">
+        <div class="container vertical-flex-inherit">
+            <ul class="thumbnails-list media-selector-list span-4 flex-adapter vertical-scrollable">
+                <li class="thumbnail" ng-repeat="media in vm.medias" ng-click="vm.select(media)">
+                    <ul class="media-list clearfix">
+                        <li class="media-item" ng-repeat="newsItem in media.content.news_item">
+                            <div class="title-picture-box">
+                                <img width="64" class="title-picture" ng-src="{{vm.getImageSrc(newsItem.thumb_url)}}">
+                            </div>
+                            <div class="body">
+                                <h5 class="title">{{newsItem.title}}</h5>
+                                <p class="description">{{newsItem.digest}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="thumbnail-block">
+                        <h5 class="thumbnail-title">{{media.media_id}}</h5>
+                        <p>{{newsItem.update_time}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

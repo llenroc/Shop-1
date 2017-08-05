@@ -1,0 +1,65 @@
+@using Infrastructure.Application.DTO
+<div class="dialog">
+    <div class="header">
+        <div class="container-responsive">
+            <h5 class="title">@L("GlobalRebate")</h5>
+            <button class="button-icon button-close">¡Á</button>
+        </div>
+    </div>
+    <div class="body">
+        <div class="container-responsive">
+			<div class="row">
+				<div class="column-5">
+					<div class="profileItem">
+						<div class="profileItemAvatarBox">
+							<img width="96" class="profileTtemAvatar imageCircle" ng-src="{{vm.user.avatar}}"/>
+						</div>
+						<div class="profileItemBody">
+							<h5 class="profileItemName">{{vm.user.id}}</h5>
+							<h6 class="profileItemName">{{vm.user.userName}}</h6>
+							<h6 class="profileItemName">{{vm.user.nickName}}</h6>
+						</div>
+					</div>
+				</div>
+				<div class="column-5">
+					<form name="globalRebateCreateOrEditForm" novalidate>
+						<div class="form-group">
+							<label class="form-group-key">@L("UserName")</label>
+							<div class="form-group-block">
+								<div class="input-wrapper line">
+									<input type="text" name="userName" ng-model="vm.userName" ng-change="vm.getUserFromUserName(vm.userName)">
+									<input type="hidden" name="userId" ng-model="vm.globalRebate.userId" required />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="form-group-key">@L("Money")</label>
+							<div class="form-group-block">
+								<div class="input-wrapper line">
+									<input type="text" name="money" ng-model="vm.globalRebate.money">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="form-group-key">@L("Ratio")</label>
+							<div class="form-group-block">
+								<div class="input-wrapper line">
+									<input type="text" name="ratio" ng-model="vm.globalRebate.ratio">
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+      
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container-responsive">
+            <button type="button" class="button-text border circle danger button-close">@L("Close")</button>
+            <button type="submit" class="button-text border circle primary button-ok" ng-click="vm.createOrEdit()" ng-disabled="globalRebateCreateOrEditForm.$invalid||(!vm.globalRebate.money&&!vm.globalRebate.ratio)">
+                <i class="icon-save"></i> <span>@L("SaveAndClose")</span>
+            </button>
+        </div>
+    </div>
+</div>

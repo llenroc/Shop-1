@@ -1,0 +1,66 @@
+﻿<div ng-controller="app.manager.walletRecord.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("WalletRecords")</span> <small>@L("WalletRecordsHeaderInfo")</small>
+        </h1>
+    </div>
+    @*<div class="notice static danger">
+        <div class="container">
+            <div class="content">
+                <p>
+                    @L("PleaseDon'tDeleteWalletRecordUnless emergency")
+                </p>
+            </div>
+        </div>
+    </div>*@
+    <div class="row">
+        <div class="column-10">
+			<div class="responsive-table-container">
+				<table id="walletRecordTable" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>@L("SerialNumber")</th>
+							<th>@L("Avatar")</th>
+							<th>@L("Money")</th>
+							<th>@L("Type")</th>
+							<th>@L("Remark")</th>
+                            <th>@L("Status")</th>
+							<th>@L("PayType")</th>
+							<th>@L("PayStatus")</th>
+							<th>@L("FetchStatus")</th>
+							<th>@L("FailReason")</th>
+							<th>@L("CreationTime")</th>
+							<th>@L("LastModificationTime")</th>
+							<th>@L("Actions")</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="walletRecord in vm.walletRecords">
+							<td>{{walletRecord.serialNumber}}</td>
+							<td><img class="circle" height="24" ng-src="{{walletRecord.user.avatar}}" /></td>
+							<td>{{walletRecord.money}}</td>
+							<td>{{walletRecord.typeText|localize}}</td>
+							<td>{{walletRecord.remark|localize}}</td>
+                            <td>{{walletRecord.statusText|localize}}</td>
+							<td>{{walletRecord.payType|localize}}</td>
+							<td>{{walletRecord.payStatusText|localize}}</td>
+							<td>{{walletRecord.fetchStatusText|localize}}</td>
+							<td>{{walletRecord.failReason}}</td>
+							<td>{{walletRecord.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+							<td>{{walletRecord.lastModificationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+							<td>
+                                @*<div class="dropdown-wripper dropdown-menu">
+                                    <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                                    <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                        <li><a ng-click="vm.delete($index)">@L("Delete")</a></li>
+                                        <li><a ng-if="walletRecord.fetchStatus==2" ng-click="vm.withdraw(walletRecord)">@L("Withdraw")</a></li>
+                                    </ul>
+                                </div>*@
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+        </div>
+    </div>
+</div>

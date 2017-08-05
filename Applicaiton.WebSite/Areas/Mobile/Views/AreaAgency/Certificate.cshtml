@@ -1,0 +1,8 @@
+﻿@model Infrastructure.Application.DTO.IdInput
+<input type="hidden" id="areaAgentId" value="@Model.Id" />
+<div ng-controller="app.mobile.areaAgency.certificate as vm" ng-cloak class="ng-cloak">
+    <div class="padding-1">
+        <img class="width-full margin-bottom-1" ng-src="{{vm.certificate}}" ng-if="vm.certificate" />
+        <button class="button-text block primary" ng-click="vm.reCreate()">@L("ReCreate")</button>
+    </div>
+</div>

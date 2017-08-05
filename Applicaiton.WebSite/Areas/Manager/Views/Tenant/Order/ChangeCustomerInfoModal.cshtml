@@ -1,0 +1,56 @@
+﻿<div class="dialog">
+    <div class="header">
+        <div class="container-responsive">
+            <h5 class="title">@L("ChangeCustomerInfo")</h5>
+            <button class="button-icon button-close">×</button>
+        </div>
+    </div>
+    <div class="body">
+        <div class="container-responsive">
+            <form name="changeCustomerForm" role="form" novalidate class="form-validation">
+                <div class="form-group">
+                    <label class="form-group-key">@L("FullName")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" required ng-model="vm.orderCustomerInfo.fullName">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("PhoneNumber")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <input type="text" required ng-model="vm.orderCustomerInfo.phoneNumber">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("Address")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper large">
+                            <a class="static-text" ng-click="vm.selectAddress()">
+                                <span>{{vm.address}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-group-key">@L("DetailAddress")</label>
+                    <div class="form-group-block">
+                        <div class="input-wrapper line">
+                            <textarea required ng-model="vm.orderCustomerInfo.detailAddress"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container-responsive">
+            <button type="button" class="button-text border circle danger button-close">@L("Close")</button>
+            <button type="submit" class="button-text border circle primary button-ok" ng-click="vm.save()" ng-disabled="changeCustomerForm.$invalid">
+                <i class="icon-save"></i> <span>@L("SaveAndClose")</span>
+            </button>
+        </div>
+    </div>
+</div>

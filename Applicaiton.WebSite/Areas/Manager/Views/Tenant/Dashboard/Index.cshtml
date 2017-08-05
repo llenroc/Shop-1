@@ -1,0 +1,105 @@
+﻿<script src="~/Scripts/highchart/highcharts.js"></script>
+<script src="~/Scripts/highchart/highcharts-more.js"></script>
+<script src="~/Scripts/highchart/solid-gauge.js"></script>
+
+<div ng-controller="app.manager.tenant.dashboard.index as vm">
+    <ul class="overview-list">
+        <li>
+            <div class="overview-model">
+                <div class="icon-block">
+                    <i class="icon-briefcase"></i>
+                </div>
+                <div class="details">
+                    <h3 class="value" ng-bind="vm.orderCountToShip"></h3>
+                    <h5 class="key">@L("OrderCountToShip")</h5>
+                </div>
+                <a class="more" href="#/order/index">
+                    @L("ViewMore")
+                    <i class="icon-arrow-right fg-color-white"></i>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="overview-model">
+                <div class="icon-block">
+                    <i class="icon-briefcase"></i>
+                </div>
+                <div class="details">
+                    <h3 class="value" ng-bind="vm.orderCountOfYestoday"></h3>
+                    <h5 class="key">@L("OrderCountOfYestoday")</h5>
+                </div>
+                <a class="more" href="#/order/index">
+                    @L("ViewMore")
+                    <i class="icon-arrow-right fg-color-white"></i>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="overview-model">
+                <div class="icon-block">
+                    <i class="icon-briefcase"></i>
+                </div>
+                <div class="details">
+                    <h3 class="value" ng-bind="vm.tradingVolumeOfYestoday"></h3>
+                    <h5 class="key">@L("TradingVolumeOfYestoday")</h5>
+                </div>
+                <a class="more" href="javascript:;">
+                    @L("ViewMore")
+                    <i class="icon-arrow-right fg-color-white"></i>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="overview-model">
+                <div class="icon-block">
+                    <i class="icon-briefcase"></i>
+                </div>
+                <div class="details">
+                    <h3 class="value" ng-bind="vm.rebateOfYestoday"></h3>
+                    <h5 class="key">@L("RebateOfYestoday")</h5>
+                </div>
+                <a class="more" href="#/walletRecord/index">
+                    @L("ViewMore")
+                    <i class="icon-arrow-right fg-color-white"></i>
+                </a>
+            </div>
+        </li>
+    </ul>
+	<div class="row">
+		<div class="column-5 padding-1">
+            <div class="portlet box">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-calendar"></i>@L("UsersChart")
+                    </div>
+                    <div class="actions">
+                        <a class="button-text small border radius" ng-click="vm.getDashboardActivity()">
+                            <i class="icon-repeat"></i> @L("Reload")
+                        </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div id="usersChart"></div>
+                </div>
+            </div>
+		</div>
+		<div class="column-5 padding-1">
+            <div class="portlet box">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-calendar"></i>@L("OrderChart")
+                    </div>
+                    <div class="actions">
+                        <a class="button-text small border radius" ng-click="vm.getDashboardActivity()">
+                            <i class="icon-repeat"></i> @L("Reload")
+                        </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div id="orderChart"></div>
+                </div>
+            </div>
+		</div>
+	</div>
+	<div id="sales_statistics" class="portlet-body-morris-fit morris-chart" style="height: 260px"></div>
+</div>

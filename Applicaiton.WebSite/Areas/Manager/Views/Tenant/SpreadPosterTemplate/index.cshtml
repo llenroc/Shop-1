@@ -1,0 +1,39 @@
+<div ng-controller="app.manager.spreadPosterTemplate.index as vm">
+    <div class="view-page-head margin-bottom-5">
+        <h1 class="view-page-title">
+            <span>@L("SpreadPosterTemplates")</span> <small>@L("SpreadPosterTemplatesHeaderInfo")</small>
+        </h1>
+        <a class="button-text primary" ui-sref="spreadPosterTemplate.createOrEdit"><i class="icon-plus"></i> @L("CreateSpreadPosterTemplate")</a>
+    </div>
+    <div class="responsive-table-container">
+        <table class="table table-bordered table-striped table-hover" id="spreadPosterTemplateTable">
+            <thead>
+                <tr>
+                    <th>@L("Name")</th>
+                    <th>@L("CreationTime")</th>
+                    <th>@L("IsDefault")</th>
+                    <th>@L("Actions")</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="spreadPosterTemplate in vm.spreadPosterTemplates">
+                    <td>{{spreadPosterTemplate.name}}</td>
+                    <td>{{spreadPosterTemplate.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                    <td>
+                        <span class="label success" ng-if="spreadPosterTemplate.isDefault">@L("Yes")</span>
+                        <button class="button-text error" ng-if="!spreadPosterTemplate.isDefault" ng-click="vm.setAsDefault(spreadPosterTemplate)">@L("SetAsDefault")</button>
+                    </td>
+                    <td>
+                        <div class="dropdown-wripper dropdown-menu">
+                            <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                            <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                <li><a ui-sref="spreadPosterTemplate.createOrEdit({id:spreadPosterTemplate.id})">@L("Edit")</a></li>
+                                <li><a ng-click="vm.delete(spreadPosterTemplate)">@L("Delete")</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

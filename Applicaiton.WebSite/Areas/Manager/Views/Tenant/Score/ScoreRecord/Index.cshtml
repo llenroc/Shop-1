@@ -1,0 +1,31 @@
+﻿<div ng-controller="app.manager.score.scoreRecord.index as vm">
+    <div class="view-page-head">
+        <h1 class="view-page-title">
+            <span>@L("ScoreRecords")</span> <small>@L("ScoreRecordsHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="column-10">
+            <table id="scoreRecordTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+						<th>@L("NickName")</th>
+                        <th>@L("Avatar")</th>
+                        <th>@L("Score")</th>
+                        <th>@L("Remark")</th>
+                        <th>@L("CreationTime")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="scoreRecord in vm.scoreRecords">
+                        <td>{{scoreRecord.user.nickName}}</td>
+                        <td><img height="24" ng-src="{{scoreRecord.user.avatar}}" /></td>
+                        <td>{{scoreRecord.score}}</td>
+                        <td>{{scoreRecord.remark}}</td>
+                        <td>{{scoreRecord.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

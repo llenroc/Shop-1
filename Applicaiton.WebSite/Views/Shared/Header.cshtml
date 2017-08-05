@@ -1,0 +1,121 @@
+﻿@using Infrastructure.Application.Navigation
+@using Infrastructure.Collections.Extensions
+@using Infrastructure.Extensions
+@using Application.WebSite.Views
+@model Application.WebSite.Models.Layout.HeaderViewModel 
+
+@helper ShowMenuItemRecursively(UserMenuItem menuItem, int currentLevel)
+{
+    <li class="@(menuItem.Name == Model.CurrentPageName ? "actived" : "") @(menuItem.Items.IsNullOrEmpty() ? "" : (currentLevel == 0 ? "dropdown" : "dropdown-submenu"))">
+        @if (menuItem.Items.IsNullOrEmpty())
+        {
+            if (!menuItem.Url.IsNullOrEmpty())
+            {
+                <a href="@(UrlChecker.IsRooted(menuItem.Url) ? menuItem.Url : (ApplicationPath + menuItem.Url))">@menuItem.DisplayName</a>
+            }
+            else
+            {
+                <a href="@ApplicationPath">@menuItem.DisplayName</a>
+            }
+        }
+        else
+        {
+            <a class="dropdown-toggle" data-toggle="dropdown">
+                @menuItem.DisplayName
+            </a>
+            <ul class="dropdown-menu">
+                @foreach (var childMenuItem in menuItem.Items)
+                {
+                    @ShowMenuItemRecursively(childMenuItem, currentLevel + 1)
+                }
+            </ul>
+        }
+    </li>
+}
+<div ng-controller="app.home.layout.header as vm">
+    <div class="pre-header">
+        <div class="container-responsive horizional-flex-box align-center padding-1">
+            <ul class="list-unstyled list-inline flex-adapter">
+                <li class="no-margin-bottom"><i class="icon-phone"></i> <a href="tel:15927051130">+8615927051130</a></li>
+                <li class="no-margin-bottom"><i class="icon-envelope-alt"></i> <a href="mailto:3230525823@qq.com">3230525823@qq.com</a></li>
+            </ul>
+            <div class="flex-adapter">
+                <ul class="list-unstyled list-inline pull-right">
+                    <li class="no-margin-bottom">
+                        <div class="dropdown-wripper dropdown-menu hidden-sm">
+                            <a data-target="#dropdown_languages">
+                                <span ng-class="vm.currentLanguage.icon"></span>
+                                <span class="langname" ng-bind="vm.currentLanguage.displayName"></span>
+                                <i class="icon icon-angle-down dropdown-sign"></i>
+                            </a>
+                            <ul id="dropdown_languages" class="dropdown left hide dropdown-menu-list" data-ride="dropdown">
+                                <li ng-repeat="language in vm.languages">
+                                    <a href="/Localization/ChangeCulture?cultureName={{language.name}}">
+                                        <i ng-class="language.icon"></i> <span ng-bind="language.displayName"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    @if (Model.LoginInformations == null && Model.IsMultiTenancyEnabled && Model.TenantRegistrationEnabled)
+            {
+                        <li class="no-margin-bottom">
+                            <a href="@Url.Action("Index", "TenantRegistration")">@L("NewTenant")</a>
+                        </li>
+                    }
+                    <li class="no-margin-bottom">
+                        @if (Model.LoginInformations != null)
+                        {
+                            <a href="@Url.Action("Index", "Application")">@Model.GetShownLoginName() (@L("GoToApplication"))</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "Account")">@L("LogIn")</a>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="page-header clearfix">
+        <div class="container-responsive page-header-wrapper">
+            @if (!String.IsNullOrEmpty(Model.AppSettings.AppTitleLogo))
+            {
+                <img class="logo" src="@Model.AppSettings.AppTitleLogo">
+            }
+            else
+            {
+                <img class="logo" src="~/Content/Images/title-logo.png">
+            }
+            <div class="flex-adapter"></div>
+            <nav id="navbar" data-ride="collapse">
+                <ul>
+                    @if (Model.Menu != null)
+                    {
+                        foreach (var menuItem in @Model.Menu.Items)
+                        {
+                            @ShowMenuItemRecursively(menuItem, 0)
+                        }
+                    }
+                </ul>
+            </nav>
+            <button class="button-icon small border circle navbar-toggle icon-reorder" data-toggle="collapse" data-target="#navbar"></button>
+            <div class="dropdown-wripper dropdown-menu hidden-sm">
+                <a class="user-block" data-target="#dropdown_user">
+                    <div class="user-info">
+                        <h3 ng-bind="vm.getShownUserName()"></h3>
+                        <h4 ng-if="vm.user.emailAddress" ng-bind="vm.user.emailAddress"></h4>
+                    </div>
+                    <div class="user-avatar-box" ng-if="vm.isLogined">
+                        <img class="user-avatar" ng-src="{{vm.user.avatar}}">
+                    </div>
+                </a>
+                <ul id="dropdown_user" class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                    <li ng-if="vm.isLogined">@Html.ActionLink(L("Logout"), "Logout", "Account")</li>
+                    <li ng-if="!vm.isLogined">@Html.ActionLink(L("Logout"), "Login", "Account")</li>
+                    <li><a href="/TenantRegistration">@L("NewTenant")</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿<div class="dialog dialog-page">
+    <div class="header">
+        <div class="container-responsive">
+            <h5 class="title">@L("AddressSelector")</h5>
+            <button class="button-icon button-close">×</button>
+        </div>
+    </div>
+    <div class="body vertical-flex-inherit no-padding">
+        <ul class="address-list flex-adapter vertical-scrollable">
+            <li ng-repeat="address in vm.addresses" ng-click="vm.selectAddress(address)">
+                {{address.name}}
+            </li>
+        </ul>
+    </div>
+</div>

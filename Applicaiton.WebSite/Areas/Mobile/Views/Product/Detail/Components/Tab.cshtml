@@ -1,0 +1,56 @@
+﻿<section>
+    <div class="tab flex-tab" data-ride="tab">
+        <ul class="tab-nav-list">
+            <li class="actived">
+                <a>@L("Detail")</a>
+            </li>
+            <li>
+                <a>@L("Propertys")</a>
+            </li>
+            <li>
+                <a>@L("Comment")</a>
+            </li>
+        </ul>
+        <div class="tab-box">
+            <div class="tab-page show">
+                <div ng-bind-html="vm.product.content|toTrusted"></div>
+            </div>
+            <div class="tab-page hide">
+                <ul class="well-info-list" ng-if="vm.product.properties&&vm.product.properties.length">
+                    <li ng-repeat="property in vm.product.properties">
+                        <label class="key" ng-bind="property.name"></label>
+                        <label class="value" ng-bind="property.value"></label>
+                    </li>
+                </ul>
+                <div class="blank" ng-if="!vm.product.properties||!vm.product.properties.length">
+                    @L("ThereIsNoItem")
+                </div>
+            </div>
+            <div class="tab-page hide">
+                <div class="blank-comment" ng-if="!vm.comments||!vm.comments.length"></div>
+                <ul id="commentList" class="comment-list" ng-init="vm.getComments ()">
+                    <li ng-repeat="comment in vm.comments">
+                        <div class="comment-box">
+                            <div class="comment-left">
+                                <img ng-src="{{comment.creatorUser.avatar}}">
+                            </div>
+                            <div class="comment-right">
+                                <div class="comment-item-header">
+                                    <div class="auth-user-info">
+                                        <label class="username">{{comment.creatorUser.nickName}}</label>
+                                    </div>
+                                    <div class="comment-info">
+                                        <div class="comment-datetime">{{comment.creationTime|momentFormat:'YYYY-MM-DD HH:mm:ss'}}</div>
+                                    </div>
+                                </div>
+                                <div class="comment-body">
+                                    <p ng-bind="comment.content"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

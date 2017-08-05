@@ -1,0 +1,24 @@
+﻿@model Infrastructure.Application.DTO.IdInput
+<div class="ng-cloak" ng-controller="app.mobile.channelAgencyApply.detail as vm" ng-cloak>
+    <input type="hidden" name="id" id="id" value="@Model.Id" />
+    <div ng-if="vm.channelAgencyApply">
+        <ul class="well-info-list">
+            <li>
+                <label class="key">@L("ChannelAgent")</label>
+                <label class="value">{{vm.channelAgencyApply.channelAgent.name}}</label>
+            </li>
+            <li>
+                <label class="key">@L("Price")</label>
+                <label class="value">{{vm.channelAgencyApply.channelAgent.price}}</label>
+            </li>
+            <li>
+                <label class="key">@L("CreationTime")</label>
+                <label class="value">{{vm.channelAgencyApply.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</label>
+            </li>
+        </ul>
+        <div class="container text-right">
+            <button class="button-text border radius" ng-click="vm.pay()" ng-if="vm.channelAgencyApply.status==0">@L("PayNow")</button>
+            <button class="button-text danger border radius" ng-if="vm.channelAgencyApply.status==0" ng-click="vm.cancel()">@L("Cancel")</button>
+        </div>
+    </div>
+</div>

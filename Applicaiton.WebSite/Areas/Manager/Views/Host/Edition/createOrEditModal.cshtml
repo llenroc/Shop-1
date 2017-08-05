@@ -1,0 +1,49 @@
+﻿@using Infrastructure.Application.Editions
+<div class="dialog">
+    <div class="header">
+        <div class="container-responsive">
+            <h5 class="title">@L("Edition")</h5>
+            <button class="button-icon button-close">×</button>
+        </div>
+    </div>
+    <div class="body">
+        <div class="container-responsive">
+            <form name="editionCreateOrEditForm" novalidate class="form-validation">
+                <div class="tab" data-ride="tab">
+                    <ul class="tab-nav-list">
+                        <li class="actived">
+                            <a>@L("EditionProperties")</a>
+                        </li>
+                        <li>
+                            <a>@L("Features")</a>
+                        </li>
+                    </ul>
+                    <div class="tab-box">
+                        <div class="tab-page show">
+                            <div class="form-group">
+                                <label class="form-group-key">@L("EditionName")</label>
+                                <div class="form-group-block">
+                                    <div class="input-wrapper line">
+                                        <input type="text" name="editionDisplayName" ng-model="vm.edition.displayName" required maxlength="@Edition.MaxDisplayNameLength">
+                                        <p class="validate-message error" ng-show="editionCreateOrEditForm.editionDisplayName.$error.required">@L("EditionNameIsRequired")</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-page hide">
+                            <feature-tree edit-data="vm.featureEditData"></feature-tree>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container-responsive">
+            <button type="button" class="button-text border circle danger button-close">@L("Close")</button>
+            <button type="submit" class="button-text border circle primary button-ok" ng-click="vm.save()" ng-disabled="editionCreateOrEditForm.$invalid">
+                <i class="icon-save"></i> <span>@L("SaveAndClose")</span>
+            </button>
+        </div>
+    </div>
+</div>

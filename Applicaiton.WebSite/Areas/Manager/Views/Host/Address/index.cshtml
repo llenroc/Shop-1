@@ -1,0 +1,39 @@
+@using Application.Localization
+<div ng-controller="app.manager.address.index as vm">
+    <div class="view-page-head margin-bottom-5">
+        <h1 class="view-page-title">
+            <span>@L("Address")</span> <small>@L("AddressHeaderInfo")</small>
+        </h1>
+    </div>
+    <div class="portlet light">
+        <div class="responsive-table-container">
+            <table class="table table-bordered table-striped table-hover" id="addressTable">
+                <thead>
+                    <tr>
+                        <th>@L("Name")</th>
+                        <th>@L("EnglishName")</th>
+                        <th>@L("Code")</th>
+                        <th>@L("Level")</th>
+                        <th>@L("DevelopLevel")</th>
+                        <th>@L("Actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="address in vm.addresss">
+                        <td><a ui-sref="host.address({parentId:address.id})">{{address.name}}</a></td>
+                        <td>{{address.englishName}}</td>
+                        <td>{{address.code}}</td>
+                        <td>{{address.level}}</td>
+                        <td>
+                            <label class="label" ng-if="address.developLevel==0">@L("Normal")</label>
+                            <label class="label success" ng-if="address.developLevel==1">@L("Developed")</label>
+                        </td>
+                        <td>
+                            <a class="button-text small" ng-click="vm.openEditModal(address.id)">@L("Edit")</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

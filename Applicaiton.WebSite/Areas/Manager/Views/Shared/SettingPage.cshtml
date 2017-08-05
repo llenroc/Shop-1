@@ -1,0 +1,48 @@
+﻿<div id="page-setting" class="setting-page width-em35 module vertical-flex-module" data-ride="styleToggle">
+    <div class="module-header">
+        <button class="button-icon circle border dark" data-target="#page-setting"><i class="icon-arrow-left"></i></button>
+        <h5 class="module-title">@L("MySettings")</h5>
+    </div>
+    <div class="module-body">
+        <div class="tab" data-ride="tab">
+            <ul class="tab-nav-list">
+                <li class="actived">
+                    <a>@L("NotificationSetting")</a>
+                </li>
+            </ul>
+            <div class="tab-box">
+                <div class="tab-page">
+                    <div ng-controller="app.manager.notifications.setting as vm">
+                        <form name="notificationSettingForm" novalidate class="form-vertical">
+
+                            <div class="form-group">
+                                <label class="form-group-key">@L("ReceiveNotifications")</label>
+                                <div class="form-group-block">
+                                    <div class="checkbox-switcher">
+                                        <input type="checkbox" ng-model="vm.settings.receiveNotifications">
+                                        <label><span class="on">@L("On")</span><span class="off">@L("Off")</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 ng-if="vm.settings.notifications.length">@L("NotificationTypes")</h4>
+                            <p ng-if="!vm.settings.receiveNotifications" class="text-danger"><small>@L("ReceiveNotificationsDisableInfo")</small></p>
+                            <div class="checkbox-list">
+
+                                <div class="form-group" ng-repeat="notification in vm.settings.notifications">
+                                    <label class="form-group-key">{{notification.displayName}}</label>
+                                    <div class="form-group-block">
+                                        <div class="checkbox-switcher">
+                                            <input type="checkbox" ng-model="notification.isSubscribed" ng-disabled="!vm.settings.receiveNotifications">
+                                            <label><span class="on">@L("On")</span><span class="off">@L("Off")</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="button-text block primary" button-busy="vm.saving" busy-text="SavingWithThreeDot" ng-click="vm.save()" ng-disabled="notificationSettingForm.$invalid">@L("Save")</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

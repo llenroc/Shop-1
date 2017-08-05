@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+@Html.Partial("_Head")
+<body ng-app="app" class="height-full">
+    <div class="page" ng-controller="app.home.layout as vm">
+        @Html.Action("Header", "Layout", new { currentPageName = ViewBag.CurrentPageName })
+        <div class="page-content">
+            @RenderBody()
+        </div>
+        @Html.Partial("_Footer")
+    </div>
+</body>
+</html>
