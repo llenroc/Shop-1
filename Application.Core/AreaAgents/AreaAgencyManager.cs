@@ -40,6 +40,34 @@ namespace Application.AreaAgents
         }
 
         [UnitOfWork]
+        public void DeleteAreaAgency(int areaAgencyId)
+        {
+            AreaAgency areaAgency = AreaAgencyRepository.Get(areaAgencyId);
+
+            if (areaAgency == null)
+            {
+                throw new Exception(L("ThereHasNoThisAreaAgency"));
+            }
+            long userId = areaAgency.UserId;
+
+            foreach (AreaAgencyArea areaAgencyArea in areaAgency.AreaAgencyAreas)
+            {
+                AreaAgencyAreaRepository.Delete(areaAgencyArea);
+            }
+            AreaAgencyRepository.Delete(areaAgency);
+            CurrentUnitOfWork.SaveChanges();
+
+            List<AreaAgency> areaAgencys = GetAreaAgencysOfUser(userId);
+
+            if (areaAgencys.Count() == 0)
+            {
+                User user = UserRepository.Get(userId);
+                user.IsAreaAgency = false;
+                UserRepository.Update(user);
+            }
+        }
+
+        [UnitOfWork]
         public AreaAgency CreateAreaAgency(User user,int areaAgentId,int[] addressIds)
         {
             using (CurrentUnitOfWork.SetTenantId(user.TenantId))

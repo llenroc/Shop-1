@@ -249,6 +249,7 @@
     <Compile Include="BackgroundJob\ProcessChannlRelationChainJobArgs.cs" />
     <Compile Include="BackgroundJob\SimpleSendEmailJob.cs" />
     <Compile Include="BackgroundJob\SimpleSendEmailJobArgs.cs" />
+    <Compile Include="BackgroundWorker\ComputeSalesRankBackgroundWorker.cs" />
     <Compile Include="BackgroundWorker\AutoReceiveOrderBackgroundWorker.cs" />
     <Compile Include="BackgroundWorker\MakeOvertimeAreaAgencyApplyOrdersDeletedBackgroundWorker.cs" />
     <Compile Include="BackgroundWorker\MakeOvertimeProductOrdersDeletedBackgroundWorker.cs" />
@@ -333,6 +334,7 @@
     <Compile Include="GlobalRebates\OrderGlobalRebate.cs" />
     <Compile Include="IAppFolders.cs" />
     <Compile Include="Identity\IdentitySmsMessageService.cs" />
+    <Compile Include="ISqlExecuter.cs" />
     <Compile Include="Localization\CultureHelper.cs" />
     <Compile Include="Members\IMemberCardManager.cs" />
     <Compile Include="Members\MemberCard.cs" />

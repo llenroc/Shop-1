@@ -46,7 +46,11 @@
             function createRequestParams() {
                 return vm.filter;
             }
-
+            vm.delete = function (id) {
+                areaAgencyService.delete({ id: id }).success(function (result) {
+                    vm.getAreaAgencys();
+                });
+            }
             vm.getAreaAgencys=function() {
                 $areaAgencyTable.table().data("canknow.table").load(createRequestParams());
             }

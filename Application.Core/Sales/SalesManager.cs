@@ -1,4 +1,5 @@
 ﻿using Application.Authorization.Users;
+using Application.MultiTenancy;
 using Application.Sales.Events;
 using Infrastructure.Domain.Repositories;
 using System.Linq;
@@ -8,11 +9,14 @@ namespace Application.Sales
 {
     public class SalesManager : ApplicationDomainServiceBase
     {
+        public TenantManager TenantManager { get; set; }
         private IRepository<User, long> _userRepository;
+        private readonly ISqlExecuter _sqlExecuter;
 
-        public SalesManager(IRepository<User, long> userRepository)
+        public SalesManager(IRepository<User, long> userRepository, ISqlExecuter sqlExecuter)
         {
             _userRepository = userRepository;
+            _sqlExecuter = sqlExecuter;
         }
 
         public User IncreaseSales(long userId, decimal money)
@@ -35,25 +39,40 @@ namespace Application.Sales
             return user;
         }
 
+        public class SalesGroup
+        {
+            public decimal Sales { get; set; }
+        }
+
         public async Task RankAsync()
         {
-            int rank = 1;
-            var salesGroupQuery = from user in _userRepository.GetAll()
-                                  group user by user.Sales into userGroup orderby userGroup.Key
-                                  select userGroup;
-            var salesGroup = salesGroupQuery.ToList();
+            var tenants = TenantManager.Tenants.ToList();
 
-            foreach (var salesGroupItem in salesGroup)
+            foreach(Tenant tenant in tenants)
             {
-               var users= _userRepository.GetAll().Where(model => model.Sales == salesGroupItem.Key);
-
-                foreach(User user in users)
+                using (CurrentUnitOfWork.SetTenantId(tenant.Id))
                 {
-                    user.Rank = rank;
+                    int rank = 1;
+                    var salesGroupQuery = from user in _userRepository.GetAll()
+                                          group user by user.Sales into userGroup
+                                          orderby userGroup.Key descending
+                                          select userGroup;
+                    var salesGroups = salesGroupQuery.ToList();
+
+                    foreach (var salesGroupItem in salesGroups)
+                    {
+                        var usersQuery = _userRepository.GetAll().Where(model => model.Sales == salesGroupItem.Key);
+
+                        foreach (User user in usersQuery.ToList())
+                        {
+                            user.Rank = rank;
+                            _userRepository.Update(user);
+                        }
+                        rank++;
+                    }
+                    await CurrentUnitOfWork.SaveChangesAsync();
                 }
-                rank++;
             }
-            await CurrentUnitOfWork.SaveChangesAsync();
         }
     }
 }

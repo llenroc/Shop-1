@@ -9,6 +9,8 @@ namespace Application.AreaAgents.End
     {
         ListResultDto<AreaAgencyAreaDto> GetAreaAgencyAreas(IdInput input);
 
+        void DeleteAreaAgency(IdInput input);
+
         void DeleteAreaAgencyAreas(IdInput input);
 
         AreaAgencyAreaMapOutput GetAreaAgencyMap();

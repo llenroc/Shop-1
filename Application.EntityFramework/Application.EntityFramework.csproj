@@ -155,6 +155,7 @@
     <Compile Include="Migrations\SeedData\TenantRoleAndUserBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ApplicationDataModule.cs" />
+    <Compile Include="SqlExecuter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Application.Core\Application.Core.csproj">

@@ -13,6 +13,7 @@ namespace Application.AreaAgents.End
         CrudAppService<AreaAgency, AreaAgencyDto,int, AreaAgencyGetAllInput>,
         IAreaAgencyForEndAppService
     {
+        public AreaAgencyManager AreaAgencyManager { get; set; }
         public IRepository<AreaAgencyArea> AreaAgencyAreaRespository { get; set; }
         public IRepository<AreaAgent> AreaAgentRespository { get; set; }
 
@@ -36,6 +37,11 @@ namespace Application.AreaAgents.End
         {
             var list = AreaAgencyAreaRespository.GetAll().Where(model => model.AreaAgencyId == input.Id).ToList().MapTo<List<AreaAgencyAreaDto>>();
             return new ListResultDto<AreaAgencyAreaDto>(list);
+        }
+
+        public void DeleteAreaAgency(IdInput input)
+        {
+            AreaAgencyManager.DeleteAreaAgency(input.Id);
         }
 
         public void DeleteAreaAgencyAreas(IdInput input)

@@ -1,24 +1,27 @@
 ﻿using Application.Api;
 using Application.EntityFramework;
+using Application.Web;
+using Application.WebSite.Filters;
+using Application.WebSite.Navigations.Home;
+using Application.WebSite.Navigations.Manager;
+using Application.WebSite.Navigations.Mobile;
+using Castle.MicroKernel.Registration;
+using Hangfire;
 using Infrastructure.CommonFrame.Configuration;
 using Infrastructure.Configuration.Startup;
+using Infrastructure.Hangfire;
+using Infrastructure.Hangfire.Configuration;
+using Infrastructure.IO;
 using Infrastructure.Modules;
 using Infrastructure.Web.Mvc;
+using Infrastructure.Web.Mvc.Configuration;
+using Infrastructure.Web.SignalR;
+using Microsoft.Owin.Security;
 using System.Reflection;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Infrastructure.Web.SignalR;
-using System.Web;
-using Infrastructure.IO;
-using Application.WebSite.Filters;
-using Castle.MicroKernel.Registration;
-using Microsoft.Owin.Security;
-using Application.WebSite.Navigations.Manager;
-using Application.WebSite.Navigations.Home;
-using Application.WebSite.Navigations.Mobile;
-using Application.Web;
-//using Infrastructure.Hangfire;
 
 namespace Application.WebSite
 {
@@ -27,7 +30,7 @@ namespace Application.WebSite
        typeof(ApplicationApplicationModule),
        typeof(ApplicationWebApiModule),
        typeof(WebSignalRModule),
-       //typeof(HangfireModule), // ENABLE TO USE HANGFIRE INSTEAD OF DEFAULT JOB MANAGER
+       typeof(HangfireModule), // ENABLE TO USE HANGFIRE INSTEAD OF DEFAULT JOB MANAGER
        typeof(WebMvcModule))]
     public class WebModule : InfrastructureModule
     {
@@ -45,13 +48,13 @@ namespace Application.WebSite
             //Configuration.Modules.WebCommon().MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
 
             Configuration.Modules.Web().AntiForgery.IsEnabled = false;
-            //Configuration.Modules.Mvc().IsValidationEnabledForControllers = false;
+            Configuration.Modules.Mvc().IsValidationEnabledForControllers = false;
 
             //Uncomment these lines to use HangFire as background job manager.
-            //Configuration.BackgroundJobs.UseHangfire(configuration =>
-            //{
-            //    configuration.GlobalConfiguration.UseSqlServerStorage("Default");
-            //});
+            Configuration.BackgroundJobs.UseHangfire(configuration =>
+            {
+                configuration.GlobalConfiguration.UseSqlServerStorage("Default");
+            });
 
             //Uncomment this line to use Redis cache instead of in-memory cache.
             //Configuration.Caching.UseRedis();

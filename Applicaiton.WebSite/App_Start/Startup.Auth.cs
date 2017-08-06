@@ -1,4 +1,6 @@
 ﻿using Application.Api.Controllers;
+using Hangfire;
+using Infrastructure.Hangfire;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
@@ -37,6 +39,11 @@ namespace Application.WebSite
 
             //app.UseWeixinAuthentication();
             app.UseWeixinAuthentication("wx58409f28514e21b5", "79341b369eb69e4c68ff5ef8d128927a");
+
+            app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            {
+                Authorization = new[] { new HangfireAuthorizationFilter() }
+            });
         }
 
         private static CookieAuthenticationProvider getProvide()

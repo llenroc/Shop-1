@@ -76,6 +76,9 @@ namespace Application.Core
 
             workManager.Add(IocManager.Resolve<MakeOvertimeProductOrdersDeletedBackgroundWorker>());
             workManager.Add(IocManager.Resolve<WithdrawFailedWithdrawBackgroundWorker>());
+            workManager.Add(IocManager.Resolve<MakeOvertimeAreaAgencyApplyOrdersDeletedBackgroundWorker>());
+            workManager.Add(IocManager.Resolve<AutoReceiveOrderBackgroundWorker>());
+            workManager.Add(IocManager.Resolve<ComputeSalesRankBackgroundWorker>());
         }
     }
 }
