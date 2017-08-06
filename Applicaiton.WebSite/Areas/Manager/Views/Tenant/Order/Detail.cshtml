@@ -11,7 +11,7 @@
             </li>
         </ul>
         <div class="tab-box" data-ride="tab">
-            <div class="tab-page show">
+            <div class="tab-page">
                 <dl class="dl-horizontal">
                     <dt>@L("FullName")</dt>
                     <dd>{{vm.order.orderCustomerInfo.fullName}}</dd>
@@ -36,7 +36,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="tab-page hide">
+            <div class="tab-page">
                 <dl class="dl-horizontal" ng-if="vm.isNeedLogistics&&vm.shipStatus">
                     <dt>@L("ExpressCompanyName")</dt>
                     <dd>{{vm.order.expressCompanyName}}</dd>

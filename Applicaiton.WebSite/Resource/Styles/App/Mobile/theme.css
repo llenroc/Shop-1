@@ -29,3 +29,16 @@ ul.pagination li.current a, ul.pagination li.current a:hover, ul.pagination li.c
     background-color: #DD2727 !important;
     border-color: #DD2727;
 }
+
+.button-text.primary,
+.primary.button-icon-with-text, 
+.primary.button-image-with-text{
+    background-color: #44b549;
+    border-color: #44b549;
+}
+.button-text.primary:active,
+.primary.button-icon-with-text:active, 
+.primary.button-image-with-text:active{
+    background-color: #44b549;
+    border-color: #44b549;
+}

@@ -79,6 +79,163 @@ module.exports = jQuery;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+/**
+ * Created by canknow on 2017/6/25.
+ */
+var Util = function ($) {
+
+    /**
+     * ------------------------------------------------------------------------
+     * Private TransitionEnd Helpers
+     * ------------------------------------------------------------------------
+     */
+
+    var transition = false;
+
+    var MAX_UID = 1000000;
+
+    var TransitionEndEvent = {
+        WebkitTransition: 'webkitTransitionEnd',
+        MozTransition: 'transitionend',
+        OTransition: 'oTransitionEnd otransitionend',
+        transition: 'transitionend'
+    };
+
+    // shoutout AngusCroll (https://goo.gl/pxwQGp)
+    function toType(obj) {
+        return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+    }
+
+    function isElement(obj) {
+        return (obj[0] || obj).nodeType;
+    }
+
+    function getSpecialTransitionEndEvent() {
+        return {
+            bindType: transition.end,
+            delegateType: transition.end,
+            handle: function handle(event) {
+                if ($(event.target).is(this)) {
+                    return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
+                }
+                return undefined;
+            }
+        };
+    }
+
+    function transitionEndTest() {
+
+        if (window.QUnit) {
+            return false;
+        }
+        var el = document.createElement('bootstrap');
+
+        for (var name in TransitionEndEvent) {
+
+            if (el.style[name] !== undefined) {
+                return {
+                    end: TransitionEndEvent[name]
+                };
+            }
+        }
+        return false;
+    }
+
+    function transitionEndEmulator(duration) {
+        var _this = this;
+
+        var called = false;
+
+        $(this).one(Util.TRANSITION_END, function () {
+            called = true;
+        });
+
+        setTimeout(function () {
+            if (!called) {
+                Util.triggerTransitionEnd(_this);
+            }
+        }, duration);
+        return this;
+    }
+
+    function setTransitionEndSupport() {
+        transition = transitionEndTest();
+        $.fn.emulateTransitionEnd = transitionEndEmulator;
+
+        if (Util.supportsTransitionEnd()) {
+            $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
+        }
+    }
+
+    /**
+     * --------------------------------------------------------------------------
+     * Public Util Api
+     * --------------------------------------------------------------------------
+     */
+
+    var Util = {
+        TRANSITION_END: 'canknowTransitionEnd',
+        getUID: function getUID(prefix) {
+            do {
+                // eslint-disable-next-line no-bitwise
+                prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
+            } while (document.getElementById(prefix));
+            return prefix;
+        },
+        getSelectorFromElement: function getSelectorFromElement(element) {
+            var selector = element.getAttribute('data-target');
+
+            if (!selector || selector === '#') {
+                selector = element.getAttribute('href') || '';
+            }
+
+            try {
+                var $selector = $(selector);
+                return $selector.length > 0 ? selector : null;
+            } catch (error) {
+                return null;
+            }
+        },
+        reflow: function reflow(element) {
+            return element.offsetHeight;
+        },
+        triggerTransitionEnd: function triggerTransitionEnd(element) {
+            $(element).trigger(transition.end);
+        },
+        supportsTransitionEnd: function supportsTransitionEnd() {
+            return Boolean(transition);
+        },
+        typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
+
+            for (var property in configTypes) {
+
+                if (configTypes.hasOwnProperty(property)) {
+                    var expectedTypes = configTypes[property];
+                    var value = config[property];
+                    var valueType = value && isElement(value) ? 'element' : toType(value);
+
+                    if (!new RegExp(expectedTypes).test(valueType)) {
+                        throw new Error(componentName.toUpperCase() + ': ' + ('Option "' + property + '" provided type "' + valueType + '" ') + ('but expected type "' + expectedTypes + '".'));
+                    }
+                }
+            }
+        }
+    };
+    setTransitionEndSupport();
+    return Util;
+}(jQuery);
+exports.default = Util;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -86,11 +243,11 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _util = __webpack_require__(3);
+var _util = __webpack_require__(1);
 
 var _util2 = _interopRequireDefault(_util);
 
-var _localization = __webpack_require__(2);
+var _localization = __webpack_require__(3);
 
 var _localization2 = _interopRequireDefault(_localization);
 
@@ -428,7 +585,7 @@ var Dialog = function ($) {
 exports.default = Dialog;
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -468,163 +625,6 @@ var localization = function () {
     return localization;
 }();
 exports.default = localization;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-/**
- * Created by canknow on 2017/6/25.
- */
-var Util = function ($) {
-
-    /**
-     * ------------------------------------------------------------------------
-     * Private TransitionEnd Helpers
-     * ------------------------------------------------------------------------
-     */
-
-    var transition = false;
-
-    var MAX_UID = 1000000;
-
-    var TransitionEndEvent = {
-        WebkitTransition: 'webkitTransitionEnd',
-        MozTransition: 'transitionend',
-        OTransition: 'oTransitionEnd otransitionend',
-        transition: 'transitionend'
-    };
-
-    // shoutout AngusCroll (https://goo.gl/pxwQGp)
-    function toType(obj) {
-        return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
-    }
-
-    function isElement(obj) {
-        return (obj[0] || obj).nodeType;
-    }
-
-    function getSpecialTransitionEndEvent() {
-        return {
-            bindType: transition.end,
-            delegateType: transition.end,
-            handle: function handle(event) {
-                if ($(event.target).is(this)) {
-                    return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
-                }
-                return undefined;
-            }
-        };
-    }
-
-    function transitionEndTest() {
-
-        if (window.QUnit) {
-            return false;
-        }
-        var el = document.createElement('bootstrap');
-
-        for (var name in TransitionEndEvent) {
-
-            if (el.style[name] !== undefined) {
-                return {
-                    end: TransitionEndEvent[name]
-                };
-            }
-        }
-        return false;
-    }
-
-    function transitionEndEmulator(duration) {
-        var _this = this;
-
-        var called = false;
-
-        $(this).one(Util.TRANSITION_END, function () {
-            called = true;
-        });
-
-        setTimeout(function () {
-            if (!called) {
-                Util.triggerTransitionEnd(_this);
-            }
-        }, duration);
-        return this;
-    }
-
-    function setTransitionEndSupport() {
-        transition = transitionEndTest();
-        $.fn.emulateTransitionEnd = transitionEndEmulator;
-
-        if (Util.supportsTransitionEnd()) {
-            $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-        }
-    }
-
-    /**
-     * --------------------------------------------------------------------------
-     * Public Util Api
-     * --------------------------------------------------------------------------
-     */
-
-    var Util = {
-        TRANSITION_END: 'canknowTransitionEnd',
-        getUID: function getUID(prefix) {
-            do {
-                // eslint-disable-next-line no-bitwise
-                prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
-            } while (document.getElementById(prefix));
-            return prefix;
-        },
-        getSelectorFromElement: function getSelectorFromElement(element) {
-            var selector = element.getAttribute('data-target');
-
-            if (!selector || selector === '#') {
-                selector = element.getAttribute('href') || '';
-            }
-
-            try {
-                var $selector = $(selector);
-                return $selector.length > 0 ? selector : null;
-            } catch (error) {
-                return null;
-            }
-        },
-        reflow: function reflow(element) {
-            return element.offsetHeight;
-        },
-        triggerTransitionEnd: function triggerTransitionEnd(element) {
-            $(element).trigger(transition.end);
-        },
-        supportsTransitionEnd: function supportsTransitionEnd() {
-            return Boolean(transition);
-        },
-        typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
-
-            for (var property in configTypes) {
-
-                if (configTypes.hasOwnProperty(property)) {
-                    var expectedTypes = configTypes[property];
-                    var value = config[property];
-                    var valueType = value && isElement(value) ? 'element' : toType(value);
-
-                    if (!new RegExp(expectedTypes).test(valueType)) {
-                        throw new Error(componentName.toUpperCase() + ': ' + ('Option "' + property + '" provided type "' + valueType + '" ') + ('but expected type "' + expectedTypes + '".'));
-                    }
-                }
-            }
-        }
-    };
-    setTransitionEndSupport();
-    return Util;
-}(jQuery);
-exports.default = Util;
 
 /***/ }),
 /* 4 */
@@ -1745,7 +1745,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _util = __webpack_require__(3);
+var _util = __webpack_require__(1);
 
 var _util2 = _interopRequireDefault(_util);
 
@@ -1825,7 +1825,7 @@ var _datePicker = __webpack_require__(28);
 
 var _datePicker2 = _interopRequireDefault(_datePicker);
 
-var _dialog = __webpack_require__(1);
+var _dialog = __webpack_require__(2);
 
 var _dialog2 = _interopRequireDefault(_dialog);
 
@@ -2933,7 +2933,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _util = __webpack_require__(3);
+var _util = __webpack_require__(1);
 
 var _util2 = _interopRequireDefault(_util);
 
@@ -4223,11 +4223,11 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _dialog = __webpack_require__(1);
+var _dialog = __webpack_require__(2);
 
 var _dialog2 = _interopRequireDefault(_dialog);
 
-var _localization = __webpack_require__(2);
+var _localization = __webpack_require__(3);
 
 var _localization2 = _interopRequireDefault(_localization);
 
@@ -4294,7 +4294,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _dialog = __webpack_require__(1);
+var _dialog = __webpack_require__(2);
 
 var _dialog2 = _interopRequireDefault(_dialog);
 
@@ -4688,7 +4688,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _localization = __webpack_require__(2);
+var _localization = __webpack_require__(3);
 
 var _localization2 = _interopRequireDefault(_localization);
 
@@ -4721,7 +4721,7 @@ var Message = function ($) {
                 }, this.settings.timeShow);
             } else if (!this.settings.disableCloseButton) {
                 var $messageFooter = $("<div class='message-footer'>").appendTo(this.$element);
-                $("<button>").addClass("button-text block primary").text(_localization2.default.localize("Confirm")).appendTo($messageFooter).click(function () {
+                $("<button>").addClass("button-text block").text(_localization2.default.localize("Confirm")).appendTo($messageFooter).click(function () {
                     _this.hide();
                 });
             }
@@ -5362,7 +5362,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _dialog = __webpack_require__(1);
+var _dialog = __webpack_require__(2);
 
 var _dialog2 = _interopRequireDefault(_dialog);
 
@@ -6587,35 +6587,204 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _util = __webpack_require__(1);
+
+var _util2 = _interopRequireDefault(_util);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 var Tab = function ($) {
-    var defaultSettings = {};
-    $.fn.tab = function (options) {
-        var settings = $.extend({}, defaultSettings, options);
+    var NAME = 'tab';
+    var VERSION = '1.0.1';
+    var DATA_KEY = 'canknow.tab';
+    var EVENT_KEY = "." + DATA_KEY;
+    var DATA_API_KEY = '.data-api';
+    var TRANSITION_DURATION = 150;
 
-        this.each(function (index, element) {
-            var $tab = $(element);
-            var $tabBox = $tab.find(".tab-box");
-            var $tabPages = $tabBox.find(".tab-page");
-            var $tabNavLis = $tab.find("li");
-
-            $tabNavLis.click(function () {
-                var $tabNavLi = $(this);
-                $tabNavLis.filter(".actived").removeClass("actived");
-                $tabNavLi.addClass("actived");
-
-                $tabPages.filter(".show").removeClass("show").addClass("hide");
-
-                var $toTabPage = this.dataset["target"] ? $(document.getElementById(this.dataset["target"])) : $tabPages.eq($tabNavLi.index());
-                $toTabPage.removeClass("hide").addClass("show");
-            });
-        });
+    var Event = {
+        HIDE: "hide" + EVENT_KEY,
+        HIDDEN: "hidden" + EVENT_KEY,
+        SHOW: "show" + EVENT_KEY,
+        SHOWN: "shown" + EVENT_KEY,
+        CLICK: "click" + EVENT_KEY,
+        CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
     };
+    var ClassName = {
+        ACTIVE: 'actived',
+        DISABLED: 'disabled',
+        FADE: 'fade',
+        SHOW: 'show'
+    };
+    var Selector = {
+        NAV_LIST_GROUP: '.tab-nav-list',
+        ACTIVE: '.actived'
+    };
+
+    var defaultSettings = {};
+
+    var Tab = function () {
+        function Tab(element, options) {
+            _classCallCheck(this, Tab);
+
+            this.element = element;
+            this.$element = $(element);
+            this.$navList = this.$element.find(Selector.NAV_LIST_GROUP);
+            this.$tabPages = this.$element.find(".tab-page");
+            this.settings = $.extend({}, Tab.DefaultSettings, options);
+            this._initialize();
+        }
+
+        _createClass(Tab, [{
+            key: "_initialize",
+            value: function _initialize() {
+                var $activeNavItems = this.$navList.find(Selector.ACTIVE);
+                var index = 0;
+
+                if ($activeNavItems.length) {
+                    index = this.$navList.find("li").index($activeNavItems);
+                } else {
+                    this.$navList.find("li").eq(index).addClass(ClassName.SHOW).addClass(ClassName.ACTIVE);
+                }
+                this.$tabPages.eq(index).addClass(ClassName.SHOW).addClass(ClassName.ACTIVE);
+                this._bindEvent();
+            }
+        }, {
+            key: "_bindEvent",
+            value: function _bindEvent() {
+                var _this = this;
+                this.$navList.find("li").on(Event.CLICK, function () {
+                    _this.show(this);
+                });
+            }
+        }, {
+            key: "show",
+            value: function show(trigger) {
+                var _this2 = this;
+
+                if ($(trigger).hasClass(ClassName.ACTIVE) || $(trigger).hasClass(ClassName.DISABLED)) {
+                    return;
+                }
+                var target = void 0;
+                var previous = void 0;
+                var index = this.$navList.find("li").index(trigger);
+                target = this.$tabPages.get(index);
+                previous = $.makeArray(this.$navList.find(Selector.ACTIVE));
+                previous = previous[previous.length - 1];
+
+                var hideEvent = $.Event(Event.HIDE, {
+                    relatedTarget: trigger
+                });
+                var showEvent = $.Event(Event.SHOW, {
+                    relatedTarget: previous
+                });
+
+                if (previous) {
+                    $(previous).trigger(hideEvent);
+                }
+                $(target).trigger(showEvent);
+
+                if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) {
+                    return;
+                }
+                this._activate(trigger, this.$navList[0]);
+
+                var complete = function complete() {
+                    var hiddenEvent = $.Event(Event.HIDDEN, {
+                        relatedTarget: trigger
+                    });
+                    var shownEvent = $.Event(Event.SHOWN, {
+                        relatedTarget: previous
+                    });
+                    $(previous).trigger(hiddenEvent);
+                    _this2.$element.trigger(shownEvent);
+                };
+
+                if (target) {
+                    this._activate(target, target.parentNode, complete);
+                } else {
+                    complete();
+                }
+            }
+        }, {
+            key: "_activate",
+            value: function _activate(target, container, callback) {
+                var _this3 = this;
+
+                var active = $(container).find(Selector.ACTIVE)[0];
+                var isTransitioning = _util2.default.supportsTransitionEnd();
+                var complete = function complete() {
+                    return _this3._transitionComplete(target, active, isTransitioning, callback);
+                };
+
+                if (active && isTransitioning) {
+                    $(active).one(_util2.default.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
+                } else {
+                    complete();
+                }
+
+                if (active) {
+                    $(active).removeClass(ClassName.SHOW);
+                }
+            }
+        }, {
+            key: "_transitionComplete",
+            value: function _transitionComplete(target, active, isTransitioning, callback) {
+
+                if (active) {
+                    $(active).removeClass(ClassName.ACTIVE);
+                    active.setAttribute('aria-expanded', false);
+                }
+                $(target).addClass(ClassName.ACTIVE);
+                target.setAttribute('aria-expanded', true);
+
+                if (isTransitioning) {
+                    _util2.default.reflow(target);
+                    $(target).addClass(ClassName.SHOW);
+                }
+
+                if (callback) {
+                    callback();
+                }
+            }
+        }], [{
+            key: "_jQueryInterface",
+            value: function _jQueryInterface(options) {
+                return this.each(function () {
+                    var $element = $(this);
+                    var data = $element.data(DATA_KEY);
+
+                    if (!data) {
+                        data = new Tab(this, options);
+                        $element.data(DATA_KEY, data);
+                    }
+                });
+            }
+        }, {
+            key: "VERSION",
+            get: function get() {
+                return VERSION;
+            }
+        }, {
+            key: "DefaultSettings",
+            get: function get() {
+                return defaultSettings;
+            }
+        }]);
+
+        return Tab;
+    }();
+
+    $.fn[NAME] = Tab._jQueryInterface;
+    $.fn[NAME].Constructor = Tab;
+    return Tab;
 }(_jquery2.default);
 exports.default = Tab;
 
@@ -7996,7 +8165,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _localization = __webpack_require__(2);
+var _localization = __webpack_require__(3);
 
 var _localization2 = _interopRequireDefault(_localization);
 

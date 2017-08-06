@@ -12,7 +12,7 @@
 			</li>
         </ul>
         <div class="tab-box">
-            <div class="tab-page show">
+            <div class="tab-page">
                 <form name="userCreateOrEditForm" class="form-horizontal" novalidate>
                     <input type="hidden" name="id" value="vm.user.id" />
                     <div class="row">
@@ -138,7 +138,7 @@
                     </div>
                 </form>
             </div>
-            <div class="tab-page hide">
+            <div class="tab-page">
                 <div class="checkbox-list">
                     <label class="checkbox" ng-repeat="role in vm.roles">
                         <input type="checkbox" name="{{role.roleName}}" ng-model="role.isAssigned">
@@ -147,7 +147,7 @@
                     </label>
                 </div>
             </div>
-			<div class="tab-page hide">
+			<div class="tab-page">
 				<div ng-if="vm.user.parentUser">
 					<div class="profileItem">
 						<div class="profileItemAvatarBox">

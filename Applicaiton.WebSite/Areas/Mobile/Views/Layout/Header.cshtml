@@ -8,9 +8,11 @@
         avatarPath = Model.CurrentLoginInformations.User.Avatar;
     }
 }
-<div class="page-header mobile" ng-controller="app.mobile.header as vm">
+<div class="page-header mobile yellow" ng-controller="app.mobile.header as vm">
     <div class="page-header-wrapper">
-        <button class="button-block" ng-click="vm.goBack()"><img height="16" src="~/Content/frame/canknow/image/back-light.png" /></button>
+        <button class="button-icon border circle dark" ng-click="vm.goBack()">
+            <i class="icon-angle-left"></i>
+        </button>
         <a class="title-block" href="/Mobile/Home/Index">
             <h5 class="title">@ViewBag.PageTitle</h5>
         </a>

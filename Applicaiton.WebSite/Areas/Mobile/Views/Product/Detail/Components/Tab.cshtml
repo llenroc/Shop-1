@@ -12,10 +12,10 @@
             </li>
         </ul>
         <div class="tab-box">
-            <div class="tab-page show">
+            <div class="tab-page">
                 <div ng-bind-html="vm.product.content|toTrusted"></div>
             </div>
-            <div class="tab-page hide">
+            <div class="tab-page">
                 <ul class="well-info-list" ng-if="vm.product.properties&&vm.product.properties.length">
                     <li ng-repeat="property in vm.product.properties">
                         <label class="key" ng-bind="property.name"></label>
@@ -26,7 +26,7 @@
                     @L("ThereIsNoItem")
                 </div>
             </div>
-            <div class="tab-page hide">
+            <div class="tab-page">
                 <div class="blank-comment" ng-if="!vm.comments||!vm.comments.length"></div>
                 <ul id="commentList" class="comment-list" ng-init="vm.getComments ()">
                     <li ng-repeat="comment in vm.comments">

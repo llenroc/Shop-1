@@ -149,10 +149,12 @@ namespace Application.Wechats
             unitOfWorkManager.Current.SaveChanges();
 
             //Notifications
-            await _notificationSubscriptionManager.SubscribeToAllAvailableNotificationsAsync(user.ToUserIdentifier());
-            //await _appNotifier.WelcomeToTheApplicationAsync(user);
-            //await _appNotifier.NewUserRegisteredAsync(user);
-
+            Task.Run(async () =>
+            {
+                await _notificationSubscriptionManager.SubscribeToAllAvailableNotificationsAsync(user.ToUserIdentifier());
+                await _appNotifier.WelcomeToTheApplicationAsync(user);
+                await _appNotifier.NewUserRegisteredAsync(user);
+            });
             return user;
         }
 

@@ -1,4 +1,7 @@
-﻿<div class="ng-cloak" ng-controller="app.mobile.home.index as vm" ng-cloak>
+﻿@{
+    Layout = "~/Areas/Mobile/Views/Shared/_FooterNavLayout.cshtml";
+}
+<div class="ng-cloak" ng-controller="app.mobile.home.index as vm" ng-cloak>
     <ul class="shop-control-list">
         <li ng-repeat="control in vm.controls" ng-class="{'margin-bottom-1':control.marginBottom}">
             <ng-include src="vm.getTemplateUrl(control)"></ng-include>

@@ -947,5 +947,9 @@
     <text name="MinAgentOrderMoney" value="代理最低拿货金额"></text>
     <text name="MinAgentOrderMoneyNote" value="您的最低拿货金额为{0}元"></text>
     <text name="YouHasAddThisSpecification" value="您已经添加了该规格"></text>
+
+    <text name="WeixinInteraction" value="微信交互"></text>
+    <text name="WeixinExternalLogin" value="微信外部登陆"></text>
+    <text name="OtherExternalLogin" value="其它外部登陆"></text>
   </texts>
 </localizationDictionary>

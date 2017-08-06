@@ -23,12 +23,6 @@ namespace Application.WebSite
                );
 
             bundles.Add(
-                new StyleBundle("~/Bundles/Frame/canknow.css")
-                .Include("~/Content/frame/canknow/dist/css/viriables.css")
-                .Include("~/Content/frame/canknow/dist/css/canknow.css", new CssRewriteUrlOfFrameTransform())
-                );
-
-            bundles.Add(
                new StyleBundle("~/Bundles/App/Manager.css")
                .IncludeDirectory("~/Resource/Styles/App/Manager/", "*.css", true).ForceOrdered()
                );
