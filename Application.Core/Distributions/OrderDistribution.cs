@@ -1,4 +1,5 @@
-﻿using Application.Products.Orders.Entities;
+﻿using Application.Authorization.Users;
+using Application.Products.Orders.Entities;
 using Infrastructure.Domain.Entities.Auditing;
 using System.ComponentModel.DataAnnotations;
 
@@ -22,6 +23,8 @@ namespace Application.Distributions
 
         [Required]
         public long UserId { get; set; }
+
+        public virtual User User { get; set; }
 
         [Required]
         public int DistributionId { get; set; }

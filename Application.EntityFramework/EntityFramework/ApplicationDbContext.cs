@@ -71,6 +71,8 @@ namespace Application.EntityFramework
 
         public virtual IDbSet<Share> Shares { get; set; }
 
+        public virtual IDbSet<UserLocation> UserLocations { get; set; }
+
         public virtual IDbSet<ShareAccess> ShareAccesses { get; set; }
 
         public virtual IDbSet<Score> Scores { get; set; }
@@ -184,7 +186,6 @@ namespace Application.EntityFramework
         
         public virtual IDbSet<AreaAgencyApplyOrder> AreaAgencyApplyOrders { get; set; }
 
-
         static ApplicationDbContext()
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Application.Migrations.Configuration>());
@@ -218,8 +219,15 @@ namespace Application.EntityFramework
             modelBuilder.Entity<User>().HasOptional(user => user.WechatUserInfo).WithRequired(wechatUserInfo => wechatUserInfo.User);
             modelBuilder.Entity<User>().HasOptional(user => user.UserDetail).WithRequired(userDetail => userDetail.User); 
             modelBuilder.Entity<AreaAgency>().HasMany(t => t.AreaAgencyAreas).WithRequired(p => p.AreaAgency).WillCascadeOnDelete(false);
-
             modelBuilder.Entity<WalletRecord>().HasOptional(t => t.WithdrawApply).WithRequired(t => t.WalletRecord);
+
+            modelBuilder.Entity<User>().HasMany(t => t.OrderChannelAgentDistributions).WithRequired(p => p.User).WillCascadeOnDelete(false);
+            modelBuilder.Entity<User>().HasMany(t => t.OrderDistributions).WithRequired(p => p.User).WillCascadeOnDelete(false);
+            modelBuilder.Entity<User>().HasMany(t => t.OrderAreaAgentDistributions).WithRequired(p => p.User).WillCascadeOnDelete(false);
+            modelBuilder.Entity<User>().HasMany(t => t.OrderChannelAgentProductDistributions).WithRequired(p => p.User).WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>().HasMany(t => t.AreaAgentRebates).WithRequired(p => p.User).WillCascadeOnDelete(false);
+            modelBuilder.Entity<User>().HasMany(t => t.ChannelAgentRebates).WithRequired(p => p.User).WillCascadeOnDelete(false);
         }
     }
 }

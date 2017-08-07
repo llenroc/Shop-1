@@ -1,12 +1,8 @@
 ﻿using Infrastructure.Domain.Repositories;
 using Infrastructure.Linq.Extensions;
-using Senparc.Weixin.MP;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 namespace Application.Wechats.AutoReplys
 {
     public class AutoReplyManager : ApplicationDomainServiceBase

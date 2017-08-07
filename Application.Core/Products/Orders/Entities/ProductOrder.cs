@@ -1,4 +1,7 @@
-﻿using Application.Orders.Entities;
+﻿using Application.AreaAgents;
+using Application.Channel.ChannelAgents;
+using Application.Distributions;
+using Application.Orders.Entities;
 using System.Collections.Generic;
 
 namespace Application.Products.Orders.Entities
@@ -30,5 +33,17 @@ namespace Application.Products.Orders.Entities
         public bool DisableProductRebate { get; set; }
 
         public bool DisableChannelAgentProductDistribution { get; set; }
+
+        public virtual ICollection<OrderChannelAgentProductDistribution> OrderChannelAgentProductDistributions { get; set; }
+
+        public virtual ICollection<OrderDistribution> OrderDistributions { get; set; }
+
+        public virtual ICollection<OrderAreaAgentDistribution> OrderAreaAgentDistributions { get; set; }
+
+        public virtual ICollection<OrderChannelAgentDistribution> OrderChannelAgentDistributions { get; set; }
+
+        public virtual ICollection<AreaAgentRebate> AreaAgentRebates { get; set; }
+
+        public virtual ICollection<ChannelAgentRebate> ChannelAgentRebates { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 .fg-color-blue {
   color: #0078d7 !important; }
 
@@ -6331,7 +6331,8 @@ ul.removable-list {
 .thumbnail .thumbnail-block {
   padding: 1rem; }
   .thumbnail .thumbnail-block .description {
-    font-size: 12px; }
+    font-size: 12px;
+    color: #999; }
   .thumbnail .thumbnail-block .thumbnail-title {
     margin-bottom: 1rem; }
   .thumbnail .thumbnail-block .thumbnail-title-block {

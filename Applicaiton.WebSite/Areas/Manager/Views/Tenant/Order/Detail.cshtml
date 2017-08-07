@@ -9,6 +9,24 @@
             <li>
                 <a>@L("Logistic")</a>
             </li>
+            <li>
+                <a>@L("OrderDistributions")</a>
+            </li>
+            <li>
+                <a>@L("OrderChannelAgentProductDistributions")</a>
+            </li>
+            <li>
+                <a>@L("OrderAreaAgentDistributions")</a>
+            </li>
+            <li>
+                <a>@L("OrderChannelAgentDistributions")</a>
+            </li>
+            <li>
+                <a>@L("AreaAgentRebates")</a>
+            </li>
+            <li>
+                <a>@L("ChannelAgentRebates")</a>
+            </li>
         </ul>
         <div class="tab-box" data-ride="tab">
             <div class="tab-page">
@@ -43,6 +61,150 @@
                     <dt>@L("TrackingNumber")</dt>
                     <dd>{{vm.order.trackingNumber}}</dd>
                 </dl>
+            </div>
+            <div class="tab-page">
+                <ul class="list-unstyled">
+                    <li ng-repeat="orderDistribution in vm.order.orderDistributions">
+                        <div class="profileItem">
+                            <div class="profileItemAvatarBox">
+                                <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{orderDistribution.user.avatar}}">
+                            </div>
+                            <div class="profileItemBody">
+                                <h6 class="profileItemName thin">{{orderDistribution.user.nickName}}</h6>
+                            </div>
+                        </div>
+                        <ul class="well-info-list">
+                            <li>
+                                <label class="key">@L("DistributionMoney")</label>
+                                <label class="value money">{{orderDistribution.money}}</label>
+                            </li>
+                            <li>
+                                <label class="key">@L("Level")</label>
+                                <label class="value money">{{orderDistribution.distribution.level}}</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-page">
+                <ul class="list-unstyled">
+                    <li ng-repeat="orderDistribution in vm.order.orderChannelAgentProductDistributions">
+                        <div class="profileItem">
+                            <div class="profileItemAvatarBox">
+                                <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{orderDistribution.user.avatar}}">
+                            </div>
+                            <div class="profileItemBody">
+                                <h6 class="profileItemName thin">{{orderDistribution.user.nickName}}</h6>
+                            </div>
+                        </div>
+                        <ul class="well-info-list">
+                            <li>
+                                <label class="key">@L("DistributionMoney")</label>
+                                <label class="value money">{{orderDistribution.money}}</label>
+                            </li>
+                            <li>
+                                <label class="key">@L("Level")</label>
+                                <label class="value money">{{orderDistribution.distribution.level}}</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-page">
+                <ul class="list-unstyled">
+                    <li ng-repeat="orderDistribution in vm.order.orderAreaAgentDistributions">
+                        <div class="profileItem">
+                            <div class="profileItemAvatarBox">
+                                <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{orderDistribution.user.avatar}}">
+                            </div>
+                            <div class="profileItemBody">
+                                <h6 class="profileItemName thin">{{orderDistribution.user.nickName}}</h6>
+                            </div>
+                        </div>
+                        <ul class="well-info-list">
+                            <li>
+                                <label class="key">@L("DistributionMoney")</label>
+                                <label class="value money">{{orderDistribution.money}}</label>
+                            </li>
+                            <li>
+                                <label class="key">@L("Level")</label>
+                                <label class="value money">{{orderDistribution.distribution.level}}</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-page">
+                <ul class="list-unstyled">
+                    <li ng-repeat="orderDistribution in vm.order.orderChannelAgentDistributions">
+                        <div class="profileItem">
+                            <div class="profileItemAvatarBox">
+                                <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{orderDistribution.user.avatar}}">
+                            </div>
+                            <div class="profileItemBody">
+                                <h6 class="profileItemName thin">{{orderDistribution.user.nickName}}</h6>
+                            </div>
+                        </div>
+                        <ul class="well-info-list">
+                            <li>
+                                <label class="key">@L("DistributionMoney")</label>
+                                <label class="value money">{{orderDistribution.money}}</label>
+                            </li>
+                            <li>
+                                <label class="key">@L("Level")</label>
+                                <label class="value money">{{orderDistribution.distribution.level}}</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-page">
+                <ul class="list-unstyled">
+                    <li ng-repeat="areaAgentRebate in vm.order.areaAgentRebates">
+                        <div class="profileItem">
+                            <div class="profileItemAvatarBox">
+                                <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{areaAgentRebate.user.avatar}}">
+                            </div>
+                            <div class="profileItemBody">
+                                <h6 class="profileItemName thin">{{areaAgentRebate.user.nickName}}</h6>
+                            </div>
+                        </div>
+                        <ul class="well-info-list">
+                            <li>
+                                <label class="key">@L("RebateMoney")</label>
+                                <label class="value money">{{areaAgentRebate.money}}</label>
+                            </li>
+                            <li>
+                                <label class="key">@L("Remark")</label>
+                                <label class="value money">{{areaAgentRebate.remark}}</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-page">
+                <ul class="list-unstyled">
+                    <li ng-repeat="channelAgentRebate in vm.order.channelAgentRebates">
+                        <div class="profileItem">
+                            <div class="profileItemAvatarBox">
+                                <img width="48" height="48" class="profileTtemAvatar imageCircle" ng-src="{{channelAgentRebate.user.avatar}}">
+                            </div>
+                            <div class="profileItemBody">
+                                <h6 class="profileItemName thin">{{channelAgentRebate.user.nickName}}</h6>
+                            </div>
+                        </div>
+                        <ul class="well-info-list">
+                            <li>
+                                <label class="key">@L("RebateMoney")</label>
+                                <label class="value money">{{channelAgentRebate.money}}</label>
+                            </li>
+                            <li>
+                                <label class="key">@L("Depth")</label>
+                                <label class="value money">{{channelAgentRebate.depth}}</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

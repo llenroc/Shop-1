@@ -18,6 +18,7 @@ using Infrastructure.Net.Mail;
 using Infrastructure.Runtime.Session;
 using Infrastructure.UI;
 using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
@@ -37,6 +38,7 @@ namespace Application.Authorization.End.Users
         public RoleManager RoleManager { get; set; }
         public UserManager UserManager { get; set; }
         public WechatUserManager WechatUserManager { get; set; }
+        public IRepository<UserLocation> UserLocationRepository { get; set; }
 
         private readonly IPermissionManager _permissionManager;
         private readonly IEmailSender _emailSender;
@@ -62,6 +64,15 @@ namespace Application.Authorization.End.Users
             return Repository.FirstOrDefault(model => model.UserName == input.UserName).MapTo<UserListDto>();
         }
 
+        public List<Location> GetUserLocations()
+        {
+            var userLocationsQuery = from user in Repository.GetAll()
+                                     where user.LastLocation.Latitude > 0 || user.LastLocation.Longitude > 0
+                                     select user.LastLocation;
+            var result = userLocationsQuery.ToList();
+            return result;
+        }
+
         public List<UserSourceStatisticsDto> GetUserStatistics()
         {
             var query = from user in Repository.GetAll()
@@ -72,6 +83,21 @@ namespace Application.Authorization.End.Users
                             UserSource=userGroup.Key
                         };
             return query.ToList();
+        }
+
+        public async Task BindParent(BindParentInput input)
+        {
+            User sourceUser = Repository.Get(input.SourceUserId);
+            User targetUser = Repository.Get(input.TargetUserId);
+
+            try
+            {
+                await UserManager.BindParentAsync(sourceUser, targetUser, true);
+            }
+            catch(Exception e)
+            {
+                throw new UserFriendlyException(e.Message);
+            }
         }
 
         public async Task RefreshWeixinUserInfo(IdInput input)

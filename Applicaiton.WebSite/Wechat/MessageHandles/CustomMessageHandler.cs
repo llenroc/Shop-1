@@ -254,5 +254,16 @@ namespace Application.WebSite.Wechat.MessageHandles
             SendAutoReplyMessages(RequestType.Event_SubscribeRequest);
             return SuccessResponseMessage(requestMessage);
         }
+
+        public override IResponseMessageBase OnEvent_LocationRequest(RequestMessageEvent_Location requestMessage)
+        {
+            if (_user != null)
+            {
+                UserLocationManager userLocationManager = IocManager.Instance.Resolve<UserLocationManager>();
+                userLocationManager.AddUserLocation(_user.ToUserIdentifier(), requestMessage.Longitude, requestMessage.Latitude);
+            }
+            SendAutoReplyMessages(RequestType.LocationRequest);
+            return SuccessResponseMessage(requestMessage);
+        }
     }
 }

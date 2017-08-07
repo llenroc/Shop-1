@@ -65,6 +65,10 @@ function initShare(data) {
         desc: data.desc
     };
 
+    if (data.imgUrl.indexOf("http://") < 0) {
+        data.imgUrl = "http://" + window.location.href + data.imgUrl;
+    }
+
     if (shareMetedata.link.indexOf("shareNo") > 0) {
         shareMetedata.link = shareMetedata.link.replace(/(?![?&])(shareNo)=\w+/gi, "&shareNo="+data.preShareData.no);
     }
@@ -80,7 +84,7 @@ function initShare(data) {
 
         if (!hasShare) {
             infrastructure.services.app.share.share(postData).done(function () {
-                infrastructure.message.success(app.localize("YouShareSuccessfully"));
+                infrastructure.toast.success(app.localize("YouShareSuccessfully"));
 
                 if (data.callback) {
                     data.callback(result);

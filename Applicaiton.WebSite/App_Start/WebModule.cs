@@ -73,7 +73,7 @@ namespace Application.WebSite
             //Areas
             AreaRegistration.RegisterAllAreas();
 
-            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
             //Routes
             RouteConfig.RegisterRoutes(RouteTable.Routes);

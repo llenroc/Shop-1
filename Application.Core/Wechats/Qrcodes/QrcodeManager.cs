@@ -82,11 +82,11 @@ namespace Application.Wechats.Qrcodes
             return qrcode;
         }
 
-        public async Task<Qrcode> ReCreateQrcodeAsync(UserIdentifier userIdentifier, bool checkCanSpread = true)
+        public async Task<Qrcode> ReCreateQrcodeAsync(UserIdentifier userIdentifier, bool checkCanGetSpreadPoster = true)
         {
-            if (checkCanSpread)
+            if (checkCanGetSpreadPoster)
             {
-                await SpreadManager.CanSpreadAsync(userIdentifier);
+                await SpreadManager.CanGetSpreadPoster(userIdentifier);
             }
             Qrcode historyQrcode = qrcodeRepository.GetAll().Where(model => model.UserId == userIdentifier.UserId).FirstOrDefault();
 
@@ -100,11 +100,11 @@ namespace Application.Wechats.Qrcodes
             return qrcode;
         }
 
-        public async Task<Qrcode> GetQrcodeAsync(UserIdentifier userIdentifier,bool checkCanSpread=true)
+        public async Task<Qrcode> GetQrcodeAsync(UserIdentifier userIdentifier,bool checkCanGetSpreadPoster=true)
         {
-            if (checkCanSpread)
+            if (checkCanGetSpreadPoster)
             {
-                await SpreadManager.CanSpreadAsync(userIdentifier);
+                await SpreadManager.CanGetSpreadPoster(userIdentifier);
             }
             Qrcode qrcode = qrcodeRepository.GetAll().Where(model => model.UserId == userIdentifier.UserId).FirstOrDefault();
 

@@ -38,6 +38,7 @@ namespace Application.WebSite
             bundles.Add(
                 new ScriptBundle("~/Bundles/Frontend/libs.js").Include(
                     "~/Scripts/jquery/jquery-2.1.1.min.js",
+                    "~/Scripts/hammer.js",
                     "~/Scripts/underscore.min.js",
                     "~/Scripts/moment.min.js",
                     "~/Scripts/angularJS/angular.min.js",

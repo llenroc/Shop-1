@@ -1,4 +1,5 @@
 ﻿using Application.AreaAgents.AreaAgencyApplys.Orders.Entities;
+using Application.Authorization.Users;
 using Infrastructure.Domain.Entities.Auditing;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,6 +20,8 @@ namespace Application.AreaAgents
 
         [Required]
         public long UserId { get; set; }
+
+        public virtual User User { get; set; }
 
         [Required]
         public int DistributionId { get; set; }

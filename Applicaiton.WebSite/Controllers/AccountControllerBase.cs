@@ -466,7 +466,6 @@ namespace Application.WebSite.Controllers
                 });
         }
 
-
         #region Two Factor Auth
 
         public async Task<ActionResult> SendSecurityCode(string returnUrl, bool rememberMe)

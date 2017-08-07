@@ -3,23 +3,24 @@
     Layout = "~/Areas/Mobile/Views/Shared/_BlankLayout.cshtml";
 }
 <div class="article-box container ng-cloak" ng-controller="app.mobile.article.content as vm" ng-cloak>
-	<input type="hidden" id="id" value="@Model.Id" />
-    <header>
-        <h3>{{vm.article.title}}</h3>
-    </header>
-    <div class="post-info">
-        <div class="author-wrapper">
-            <a class="author">{{vm.article.author}}</a>
+    <input type="hidden" id="id" value="@Model.Id" />
+    <div ng-if="vm.article">
+        <header>
+            <h3>{{vm.article.title}}</h3>
+        </header>
+        <div class="post-info">
+            <div class="author-wrapper">
+                <a class="author">{{vm.article.author}}</a>
+            </div>
+            <label class="datetime">{{vm.article.creationTime| momentFormat:'YYYY-MM-DD'}}</label>
         </div>
-        <label class="datetime">{{vm.article.creationTime| momentFormat:'YYYY-MM-DD'}}</label>
-    </div>
-	<article ng-if="vm.article"  ng-bind-html="vm.article.content|toTrusted">
-	</article>
-    <div class="article-info">
-        <label class="hint"><span>@L("Hint")</span><span>{{vm.article.hint}}</span></label>
-        <label class="like">
-            <button class="button-image like-button smaller" ng-disabled="vm.articleLike" ng-click="vm.addLike(1)"><img src="~/Content/frame/canknow/image/Icon/like.png" /></button>
-            <span>{{vm.article.like}}</span>
-        </label>
+        <article ng-if="vm.article" ng-bind-html="vm.article.content|toTrusted"></article>
+        <div class="article-info">
+            <label class="hint"><span>@L("Hint")</span><span>{{vm.article.hint}}</span></label>
+            <label class="like">
+                <button class="button-image like-button smaller" ng-disabled="vm.articleLike" ng-click="vm.addLike(1)"><img src="~/Content/frame/canknow/image/Icon/like.png" /></button>
+                <span>{{vm.article.like}}</span>
+            </label>
+        </div>
     </div>
 </div>

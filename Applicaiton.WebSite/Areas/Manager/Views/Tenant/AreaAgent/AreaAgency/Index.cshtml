@@ -76,7 +76,7 @@
                         <td>{{areaAgency.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
                         <td>
                             <a class="button-text border small" ui-sref="areaAgent.areaAgency.edit({id:areaAgency.id})">@L("Edit")</a>
-                            <a class="button-text border small" ng-click="vm.delete({id:areaAgency.id})">@L("Delete")</a>
+                            <a class="button-text border small" ng-click="vm.delete(areaAgency.id)">@L("Delete")</a>
                             <a class="button-text border small" ui-sref="areaAgent.areaAgency.areaAgencyAreas({id:areaAgency.id})">@L("AreaAgencyAreas")</a>
                         </td>
                     </tr>

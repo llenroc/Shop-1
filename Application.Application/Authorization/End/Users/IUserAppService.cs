@@ -1,4 +1,5 @@
 using Application.Authorization.End.Users.Dto;
+using Application.Authorization.Users;
 using Infrastructure.Application.DTO;
 using Infrastructure.Application.Services;
 using System.Collections.Generic;
@@ -8,6 +9,10 @@ namespace Application.Authorization.End.Users
 {
     public interface IUserAppService : ICrudAppService<UserListDto,long, UserGetAllInput, CreateUserInput, UpdateUserInput>
     {
+        Task BindParent(BindParentInput input);
+
+        List<Location> GetUserLocations();
+
         List<UserSourceStatisticsDto> GetUserStatistics();
 
         UserListDto GetUserFromUserName(GetUserFromUserNameInput input);

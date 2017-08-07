@@ -133,17 +133,26 @@ namespace Application.Authorization.Users
             {
                 throw new InfrastructureException(L("SourceUserIsTargetUser"));
             }
+
+            if (sourceUser.IsChannelAgency)
+            {
+                throw new InfrastructureException(L("ChannelAgencyCannotBindParent"));
+            }
         }
 
         [UnitOfWork]
-        public async Task BindParentAsync(User sourceUser, User parentUser)
+        public async Task BindParentAsync(User sourceUser, User parentUser,bool throwException=false)
         {
             try
             {
                 await CheckCanBind(sourceUser, parentUser);
             }
-            catch
+            catch(Exception e)
             {
+                if (throwException)
+                {
+                    throw e;
+                }
                 return;
             }
 

@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using Application.Wechats;
 using Application.Scores;
 using System.ComponentModel;
+using Application.Distributions;
+using Application.AreaAgents;
+using Application.Channel.ChannelAgents;
 
 namespace Application.Authorization.Users
 {
@@ -100,6 +103,8 @@ namespace Application.Authorization.Users
             Source = UserSource.WebPageRegist;
             IsLockoutEnabled = true;
             IsTwoFactorEnabled = true;
+
+            LastLocation = new Location();
         }
 
         public int GetChildCount()
@@ -141,5 +146,27 @@ namespace Application.Authorization.Users
         public string LastLoginIp { get; set; }
 
         public int Rank { get; set; }
+
+        public Location LastLocation { get; set; }
+
+        public virtual ICollection<OrderChannelAgentProductDistribution> OrderChannelAgentProductDistributions { get; set; }
+
+        public virtual ICollection<OrderDistribution> OrderDistributions { get; set; }
+
+        public virtual ICollection<OrderAreaAgentDistribution> OrderAreaAgentDistributions { get; set; }
+
+        public virtual ICollection<OrderChannelAgentDistribution> OrderChannelAgentDistributions { get; set; }
+
+        [InverseProperty("User")]
+        public virtual ICollection<AreaAgentRebate> AreaAgentRebates { get; set; }
+
+        public virtual ICollection<ChannelAgentRebate> ChannelAgentRebates { get; set; }
+    }
+
+    public class Location
+    {
+        public double Longitude { get; set; }
+
+        public double Latitude { get; set; }
     }
 }

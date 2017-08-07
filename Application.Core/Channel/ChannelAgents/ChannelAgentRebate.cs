@@ -1,4 +1,5 @@
-﻿using Application.Products.Orders.Entities;
+﻿using Application.Authorization.Users;
+using Application.Products.Orders.Entities;
 using Infrastructure.Domain.Entities.Auditing;
 
 namespace Application.Channel.ChannelAgents
@@ -12,6 +13,8 @@ namespace Application.Channel.ChannelAgents
         public virtual ChannelAgent ChannelAgent { get; set; }
 
         public long UserId { get; set; }
+
+        public virtual User User { get; set; }
 
         public int ChannlAgencyId { get; set; }
 

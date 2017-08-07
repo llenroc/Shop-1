@@ -1,7 +1,6 @@
 ﻿using Application.Authorization.Users;
 using Application.Entities;
 using Application.Expresses;
-using Application.Products.Orders.Entities;
 using Application.Wallets.Entities;
 using Infrastructure;
 using Infrastructure.Domain.Entities.Auditing;

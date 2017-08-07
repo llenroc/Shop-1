@@ -243,6 +243,8 @@
     <Compile Include="Authorization\Users\UserDetail.cs" />
     <Compile Include="Authorization\Users\UserDetailInfo.cs" />
     <Compile Include="Authorization\Users\UserLinkManager.cs" />
+    <Compile Include="Authorization\Users\UserLocation.cs" />
+    <Compile Include="Authorization\Users\UserLocationManager.cs" />
     <Compile Include="BackgroundJob\BindParentJob.cs" />
     <Compile Include="BackgroundJob\BindParentJobArgs.cs" />
     <Compile Include="BackgroundJob\ProcessChannlRelationChainJob.cs" />

@@ -53,6 +53,12 @@ namespace Application.Admins.Orders
             OrderCustomerInfoRepository = orderCustomerInfoRepository;
         }
 
+        public ProductOrderDetailOutput GetProductDetail(IdInput input)
+        {
+            ProductOrderDetailOutput ProductOrderDetailOutput = Repository.Get(input.Id).MapTo<ProductOrderDetailOutput>();
+            return ProductOrderDetailOutput;
+        }
+
         protected override IQueryable<ProductOrder> CreateFilteredQuery(OrderGetAllInput input)
         {
             return Repository.GetAll()

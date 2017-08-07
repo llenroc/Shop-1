@@ -21,7 +21,7 @@
                     });
                 }
                 vm.getOrder = function () {
-                    orderService.get({ id: $stateParams.id }).success(function (result) {
+                    orderService.getProductDetail({ id: $stateParams.id }).success(function (result) {
                         vm.order = result;
                     });
                 }

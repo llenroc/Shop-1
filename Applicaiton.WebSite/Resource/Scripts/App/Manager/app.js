@@ -56,6 +56,10 @@
             url: '/statistics',
             templateUrl: '/Areas/Manager/Views/Common/User/statistics.cshtml',
             menu: 'Common.User'
+        }).state('user.heatMap', {
+            url: '/heatMap',
+            templateUrl: '/Areas/Manager/Views/Common/User/heatMap.cshtml',
+            menu: 'Common.User'
         });
 
         $stateProvider.state('role', {

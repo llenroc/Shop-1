@@ -47,8 +47,10 @@
                 return vm.filter;
             }
             vm.delete = function (id) {
-                areaAgencyService.delete({ id: id }).success(function (result) {
-                    vm.getAreaAgencys();
+                infrastructure.message.confirm(app.localize("AreYouSure"), function () {
+                    areaAgencyService.delete({ id: id }).success(function (result) {
+                        vm.getAreaAgencys();
+                    });
                 });
             }
             vm.getAreaAgencys=function() {

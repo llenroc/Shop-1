@@ -32,18 +32,18 @@ namespace Application.WebSite.Navigations.Mobile
                     url: "/Mobile/Group/Index",
                     icon: "/Content/Images/UserCenterNav/group.png")
                     ).AddItem(
-                new MenuItemDefinition(
-                    "Mobile.ChannelAgency",
-                    new LocalizableString("ChannelAgent", ApplicationConsts.LocalizationSourceName),
-                    url: "/Mobile/ChannelAgency/Index",
-                    icon: "/Content/Images/UserCenterNav/channel.png")
-                    ).AddItem(
-                new MenuItemDefinition(
-                    "Mobile.AreaAgency",
-                    new LocalizableString("AreaAgent", ApplicationConsts.LocalizationSourceName),
-                    url: "/Mobile/AreaAgent/Index",
-                    icon: "/Content/Images/UserCenterNav/areaAgent.png")
-                    ).AddItem(
+                //new MenuItemDefinition(
+                //    "Mobile.ChannelAgency",
+                //    new LocalizableString("ChannelAgent", ApplicationConsts.LocalizationSourceName),
+                //    url: "/Mobile/ChannelAgency/Index",
+                //    icon: "/Content/Images/UserCenterNav/channel.png")
+                //    ).AddItem(
+                //new MenuItemDefinition(
+                //    "Mobile.AreaAgency",
+                //    new LocalizableString("AreaAgent", ApplicationConsts.LocalizationSourceName),
+                //    url: "/Mobile/AreaAgent/Index",
+                //    icon: "/Content/Images/UserCenterNav/areaAgent.png")
+                //    ).AddItem(
                 new MenuItemDefinition(
                     "Mobile.MySpread",
                     new LocalizableString("MySpread", ApplicationConsts.LocalizationSourceName),

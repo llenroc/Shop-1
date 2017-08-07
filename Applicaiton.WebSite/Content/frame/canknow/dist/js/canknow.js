@@ -6396,6 +6396,16 @@ var Slider = function ($) {
                     }
                 });
 
+                if (Hammer) {
+                    var hammer = new Hammer(this.element);
+                    hammer.on("swipeleft", function (ev) {
+                        _this.next();
+                    });
+                    hammer.on("swiperight", function (ev) {
+                        _this.pre();
+                    });
+                }
+
                 if (this.settings.enableControl) {
                     this.$element.find(Selector.DATA_SLIDE).on("click", function () {
                         _this[this.dataset.slide].call(_this);

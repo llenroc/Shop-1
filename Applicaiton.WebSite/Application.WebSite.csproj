@@ -711,6 +711,7 @@
     <Content Include="Resource\Scripts\App\Manager\Common\Common\lookupModal.js" />
     <Content Include="Resource\Scripts\App\Manager\Common\Profile\edit.js" />
     <Content Include="Resource\Scripts\App\Manager\Common\Profile\index.js" />
+    <Content Include="Resource\Scripts\App\Manager\Common\User\heatMap.js" />
     <Content Include="Resource\Scripts\App\Manager\Common\User\userSelectorModal.js" />
     <Content Include="Resource\Scripts\App\Manager\Common\User\statistics.js" />
     <Content Include="Resource\Scripts\App\Manager\Host\Address\editModal.js" />
@@ -789,6 +790,9 @@
     <Content Include="Scripts\angularJS\UI\ui-utils.js" />
     <Content Include="Scripts\echarts\echarts.js" />
     <Content Include="Scripts\echarts\maps\china.js" />
+    <Content Include="Scripts\hammer.js" />
+    <Content Include="Scripts\mapbox-gl-js\v0.39.1\mapbox-gl.css" />
+    <Content Include="Scripts\mapbox-gl-js\v0.39.1\mapbox-gl.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\underscore.min.js" />
     <Content Include="logo.png" />
@@ -1357,6 +1361,7 @@
     <Content Include="Areas\Manager\Views\Tenant\WithdrawApply\Index.cshtml" />
     <Content Include="Areas\Manager\Views\Tenant\Channel\ChannelAgency\Create.cshtml" />
     <Content Include="Areas\Manager\Views\Common\User\UserSelectorModal.cshtml" />
+    <Content Include="Areas\Manager\Views\Common\User\heatMap.cshtml" />
     <None Include="Properties\PublishProfiles\beimi.pubxml" />
     <None Include="Properties\PublishProfiles\Shop-pingju.pubxml" />
     <Content Include="Views\Error\WebSiteOff.cshtml" />

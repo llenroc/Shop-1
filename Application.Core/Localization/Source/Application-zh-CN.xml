@@ -951,5 +951,16 @@
     <text name="WeixinInteraction" value="微信交互"></text>
     <text name="WeixinExternalLogin" value="微信外部登陆"></text>
     <text name="OtherExternalLogin" value="其它外部登陆"></text>
+
+    <text name="OrderDistributions" value="商品分销"></text>
+    <text name="OrderChannelAgentProductDistributions" value="渠道代理商品分销"></text>
+    <text name="OrderAreaAgentDistributions" value="区域代理分销"></text>
+    <text name="OrderChannelAgentDistributions" value="渠道代理分销"></text>
+
+    <text name="AreaAgentRebates" value="区域代理分红"></text>
+    <text name="ChannelAgentRebates" value="渠道代理分红"></text>
+    <text name="RebateMoney" value="分红金额"></text>
+    <text name="ChannelAgencyCannotBindParent" value="渠道代理禁止绑定上级"></text>
+    <text name="BindParent" value="绑定上级"></text>
   </texts>
 </localizationDictionary>

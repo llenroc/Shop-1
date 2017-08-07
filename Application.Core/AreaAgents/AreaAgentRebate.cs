@@ -1,4 +1,5 @@
-﻿using Application.Products.Orders.Entities;
+﻿using Application.Authorization.Users;
+using Application.Products.Orders.Entities;
 using Infrastructure.Domain.Entities;
 
 namespace Application.AreaAgents
@@ -28,6 +29,8 @@ namespace Application.AreaAgents
         public virtual ProductOrder Order { get; set; }
 
         public long UserId { get; set; }
+
+        public virtual User User { get; set; }
 
         public long BuyerUserId { get; set; }
 

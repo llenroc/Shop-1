@@ -1,4 +1,5 @@
-﻿using Application.Channel.ChannelAgencyApplys.Orders.Entities;
+﻿using Application.Authorization.Users;
+using Application.Channel.ChannelAgencyApplys.Orders.Entities;
 using Infrastructure.Domain.Entities.Auditing;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,6 +20,8 @@ namespace Application.Channel.ChannelAgents
 
         [Required]
         public long UserId { get; set; }
+
+        public virtual User User { get; set; }
 
         [Required]
         public int DistributionId { get; set; }

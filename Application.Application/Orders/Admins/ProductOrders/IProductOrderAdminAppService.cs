@@ -17,6 +17,8 @@ namespace Application.Admins.Orders
         OrderGetInput, 
         OrderGetInput>
     {
+        ProductOrderDetailOutput GetProductDetail(IdInput input);
+
         FileDto GetOrdersToExcel();
 
         void ChangePayMoney(ChangePayMoneyOrderInput input);
