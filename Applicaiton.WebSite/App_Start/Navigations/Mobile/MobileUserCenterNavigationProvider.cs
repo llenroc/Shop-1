@@ -32,6 +32,12 @@ namespace Application.WebSite.Navigations.Mobile
                     url: "/Mobile/Group/Index",
                     icon: "/Content/Images/UserCenterNav/group.png")
                     ).AddItem(
+                new MenuItemDefinition(
+                    "Mobile.Profile",
+                    new LocalizableString("MyProfile", ApplicationConsts.LocalizationSourceName),
+                    url: "/Mobile/Profile/Detail",
+                    icon: "/Content/Images/UserCenterNav/group.png")
+                    ).AddItem(
                 //new MenuItemDefinition(
                 //    "Mobile.ChannelAgency",
                 //    new LocalizableString("ChannelAgent", ApplicationConsts.LocalizationSourceName),

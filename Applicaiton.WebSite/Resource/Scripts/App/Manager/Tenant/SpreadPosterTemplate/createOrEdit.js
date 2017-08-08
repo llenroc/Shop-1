@@ -50,7 +50,27 @@
                         case "qrcode":
                             parameter.displayName =app.localize("Qrcode");
                             parameter.name = "qrcode";
-                            parameter.type = vm.parameterTypes[1].value;
+                            parameter.type = vm.parameterTypes[0].value;
+                            break;
+                        case "fullName":
+                            parameter.displayName = app.localize("FullName");
+                            parameter.name = "fullName";
+                            parameter.type = vm.parameterTypes[0].value;
+                            break;
+                        case "phoneNumber":
+                            parameter.displayName = app.localize("PhoneNumber");
+                            parameter.name = "phoneNumber";
+                            parameter.type = vm.parameterTypes[0].value;
+                            break;
+                        case "wechatName":
+                            parameter.displayName = app.localize("WechatName");
+                            parameter.name = "wechatName";
+                            parameter.type = vm.parameterTypes[0].value;
+                            break;
+                        case "identityNumber":
+                            parameter.displayName = app.localize("IdentityNumber");
+                            parameter.name = "identityNumber";
+                            parameter.type = vm.parameterTypes[0].value;
                             break;
                     }
 

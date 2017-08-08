@@ -104,6 +104,9 @@
 .bg-color-white {
   background-color: #ffffff !important; }
 
+.bg-color-grayLight {
+  background-color: #eee !important; }
+
 .bg-color-gray {
   background-color: #999999 !important; }
 
@@ -657,6 +660,9 @@
 
 .font-weight-normal {
   font-weight: normal; }
+
+.font-weight-semibold {
+  font-weight: 600; }
 
 .font-weight-bold {
   font-weight: bold; }
@@ -2826,14 +2832,15 @@ pre {
 .view-page-head {
   display: -webkit-box !important;
   -webkit-box-orient: horizontal;
-  -webkit-box-align: center; }
-
-.view-page-title {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-flex: 1;
-  -ms-flex: 1;
-  flex: 1; }
+  -webkit-box-align: center;
+  margin-bottom: 1rem; }
+  .view-page-head .view-page-title {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: 0; }
 
 .banner-box {
   overflow: hidden;
@@ -5459,6 +5466,8 @@ table th.table-column-header-sorted-desc:after {
 .article-box {
   background-color: #fff;
   border-bottom: 1px solid #eee; }
+  .article-box header h3 {
+    line-height: 1.5; }
   .article-box .summary {
     margin-bottom: 20px; }
   .article-box article {
@@ -5610,6 +5619,14 @@ pre {
     transform: rotate(-90deg);
     -webkit-transform-origin: 0 100%;
     transform-origin: 0 100%; }
+
+.info-list {
+  padding-left: 0;
+  list-style: none; }
+  .info-list li {
+    border-bottom: 1px solid #eee; }
+    .info-list li [class*='column-'] {
+      padding: 0.85em 0.6em; }
 
 .list-form {
   border-bottom: 1px solid #eee; }
@@ -7711,6 +7728,7 @@ div.busy-layer {
 .sidenav {
   margin-top: 0;
   background: #f9f9f9;
+  border-right: 1px solid #e6e6e6;
   overflow: hidden; }
   .sidenav .sidenav-title {
     margin: 0;
@@ -7742,7 +7760,8 @@ div.busy-layer {
     height: 34px;
     line-height: 34px;
     border: 1px solid transparent;
-    font-weight: normal; }
+    font-weight: normal;
+    color: #333; }
   .sidenav li a.title {
     color: #333;
     font-size: 1.2rem;
@@ -7783,7 +7802,7 @@ div.busy-layer {
     flex: 1; }
   .sidenav li > h5.title {
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     cursor: pointer;
     position: relative;
     height: 44px;

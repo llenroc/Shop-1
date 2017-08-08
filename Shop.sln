@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Owin.Security.Wei
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{9D0FCBC0-7956-4EA5-B8BF-77F618CB2C2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Windows.Service", "Application.Windows.Service\Application.Windows.Service.csproj", "{B0CECC1A-4C33-40AE-8622-4C0D08621052}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{9D0FCBC0-7956-4EA5-B8BF-77F618CB2C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D0FCBC0-7956-4EA5-B8BF-77F618CB2C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D0FCBC0-7956-4EA5-B8BF-77F618CB2C2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0CECC1A-4C33-40AE-8622-4C0D08621052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0CECC1A-4C33-40AE-8622-4C0D08621052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0CECC1A-4C33-40AE-8622-4C0D08621052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0CECC1A-4C33-40AE-8622-4C0D08621052}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +73,6 @@ Global
 		{518CC59A-E9C3-433E-B62E-E017854BD770} = {9E9B442C-6E00-4C69-9E96-9B04147E8828}
 		{C73730DD-018B-47F3-B6C3-810013A654F6} = {47FD4C12-8F23-4F2B-952E-31662D2DDB34}
 		{9D0FCBC0-7956-4EA5-B8BF-77F618CB2C2B} = {47FD4C12-8F23-4F2B-952E-31662D2DDB34}
+		{B0CECC1A-4C33-40AE-8622-4C0D08621052} = {9E9B442C-6E00-4C69-9E96-9B04147E8828}
 	EndGlobalSection
 EndGlobal

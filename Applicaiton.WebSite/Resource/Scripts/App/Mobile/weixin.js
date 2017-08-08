@@ -66,7 +66,7 @@ function initShare(data) {
     };
 
     if (data.imgUrl.indexOf("http://") < 0) {
-        data.imgUrl = "http://" + window.location.href + data.imgUrl;
+        data.imgUrl = "http://" + window.location.host + data.imgUrl;
     }
 
     if (shareMetedata.link.indexOf("shareNo") > 0) {

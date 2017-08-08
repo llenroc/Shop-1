@@ -341,6 +341,7 @@
     <Compile Include="Areas\Mobile\Controllers\ChannelAgentRebateController.cs" />
     <Compile Include="Areas\Mobile\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Mobile\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Mobile\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Mobile\Controllers\PublicController.cs" />
     <Compile Include="Areas\Mobile\Controllers\SalesRankController.cs" />
     <Compile Include="Areas\Mobile\Controllers\ScoreController.cs" />
@@ -751,6 +752,7 @@
     <Content Include="Resource\Scripts\App\Mobile\Home\controlTemplates\productListControl.js" />
     <Content Include="Resource\Scripts\App\Mobile\OrderChannelAgentProductDistribution\index.js" />
     <Content Include="Resource\Scripts\App\Mobile\ProductCategory\index.js" />
+    <Content Include="Resource\Scripts\App\Mobile\Profile\detail.js" />
     <Content Include="Resource\Scripts\App\Mobile\ScoreRecord\index.js" />
     <Content Include="Resource\Scripts\App\Mobile\ScoreShop\exchange.js" />
     <Content Include="Resource\Scripts\App\Mobile\ScoreShop\index.js" />
@@ -1362,6 +1364,7 @@
     <Content Include="Areas\Manager\Views\Tenant\Channel\ChannelAgency\Create.cshtml" />
     <Content Include="Areas\Manager\Views\Common\User\UserSelectorModal.cshtml" />
     <Content Include="Areas\Manager\Views\Common\User\heatMap.cshtml" />
+    <Content Include="Areas\Mobile\Views\Profile\Detail.cshtml" />
     <None Include="Properties\PublishProfiles\beimi.pubxml" />
     <None Include="Properties\PublishProfiles\Shop-pingju.pubxml" />
     <Content Include="Views\Error\WebSiteOff.cshtml" />

@@ -1,6 +1,7 @@
 ﻿using Application.Orders.Entities;
 using Application.Products.Orders;
 using Application.Products.Orders.Entities;
+using Infrastructure.Auditing;
 using Infrastructure.Dependency;
 using Infrastructure.Domain.Repositories;
 using Infrastructure.Domain.UnitOfWork;
@@ -28,6 +29,7 @@ namespace Application.BackgroundWorker
 
 
         [UnitOfWork]
+        [Audited]
         protected override void DoWork()
         {
             using (CurrentUnitOfWork.DisableFilter(DataFilters.MustHaveTenant))

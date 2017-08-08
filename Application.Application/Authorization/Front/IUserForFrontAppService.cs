@@ -6,5 +6,7 @@ namespace Application.Authorization.Front
     public interface IUserForFrontAppService:IApplicationService
     {
         CommonUserForProfileDto GetMyParent();
+        UserDetailForEditDto GetUserDetailForEdit();
+        void CreateOrEditUserDetail(UserDetailForEditDto input);
     }
 }

@@ -1837,3 +1837,103 @@ Infrastructure.InfrastructureException: 已有上级
    在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
    在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2017-08-08 22:27:33,403 [28   ] nfrastructureApiExceptionFilterAttribute - Missing type map configuration or unsupported mapping.
+
+Mapping types:
+UserDetailForEditDto -> UserDetail
+Application.Authorization.Front.Dto.UserDetailForEditDto -> Application.Authorization.Users.UserDetail
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+UserDetailForEditDto -> UserDetail
+Application.Authorization.Front.Dto.UserDetailForEditDto -> Application.Authorization.Users.UserDetail
+   在 lambda_method(Closure , UserDetailForEditDto , UserDetail , ResolutionContext )
+   在 AutoMapper.Mapper.AutoMapper.IMapper.Map[TSource,TDestination](TSource source, TDestination destination)
+   在 Infrastructure.AutoMapper.AutoMapperObjectMapper.Map[TSource,TDestination](TSource source, TDestination destination)
+   在 Application.Authorization.Front.UserForFrontAppService.CreateOrEditUserDetail(UserDetailForEditDto input) 位置 H:\Project\Personal\Shop\Application.Application\Authorization\Front\UserForFrontAppService.cs:行号 39
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Infrastructure.Domain.UnitOfWork.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Infrastructure.Domain.UnitOfWork.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   在 Infrastructure.Domain.UnitOfWork.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Infrastructure.Auditing.AuditingInterceptor.PerformSyncAuditing(IInvocation invocation, AuditInfo auditInfo)
+   在 Infrastructure.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 Infrastructure.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 Infrastructure.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   在 Infrastructure.WebApi.Controllers.Dynamic.Interceptors.InfrastructureDynamicApiControllerInterceptor`1.Intercept(IInvocation invocation)
+   在 Castle.DynamicProxy.AbstractInvocation.Proceed()
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClassc.<GetExecutor>b__6(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.WebApi.Uow.InfrastructureApiUowFilter.<ExecuteActionFilterAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.WebApi.Validation.InfrastructureApiValidationFilter.<ExecuteActionFilterAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.WebApi.Auditing.InfrastructureApiAuditFilter.<ExecuteActionFilterAsync>d__4.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.WebApi.Security.AntiForgery.InfrastructureAntiForgeryApiFilter.<ExecuteAuthorizationFilterAsync>d__10.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.WebApi.Authorization.InfrastructureApiAuthorizeFilter.<ExecuteAuthorizationFilterAsync>d__7.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+FATAL 2017-08-08 22:32:57,384 [1    ] Infrastructure.Bootstrapper              - System.Exception: A dictionary can not contain same key twice. There are some duplicated names: MyProfile
+   在 Infrastructure.Localization.Dictionaries.Xml.XmlLocalizationDictionary.BuildFomXmlString(String xmlString)
+   在 Infrastructure.Localization.Dictionaries.Xml.XmlEmbeddedFileLocalizationDictionaryProvider.CreateXmlLocalizationDictionary(String xmlString)
+   在 Infrastructure.Localization.Dictionaries.Xml.XmlEmbeddedFileLocalizationDictionaryProvider.Initialize(String sourceName)
+   在 Infrastructure.Localization.MultiTenantLocalizationDictionaryProvider.Initialize(String sourceName)
+   在 Infrastructure.Localization.Dictionaries.DictionaryBasedLocalizationSource.Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver)
+   在 Infrastructure.Localization.MultiTenantLocalizationSource.Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver)
+   在 Infrastructure.Localization.LocalizationManager.InitializeSources()
+   在 Infrastructure.Localization.LocalizationManager.Initialize()
+   在 Infrastructure.KernelModule.PostInitialize()
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_2(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+System.Exception: A dictionary can not contain same key twice. There are some duplicated names: MyProfile
+   在 Infrastructure.Localization.Dictionaries.Xml.XmlLocalizationDictionary.BuildFomXmlString(String xmlString)
+   在 Infrastructure.Localization.Dictionaries.Xml.XmlEmbeddedFileLocalizationDictionaryProvider.CreateXmlLocalizationDictionary(String xmlString)
+   在 Infrastructure.Localization.Dictionaries.Xml.XmlEmbeddedFileLocalizationDictionaryProvider.Initialize(String sourceName)
+   在 Infrastructure.Localization.MultiTenantLocalizationDictionaryProvider.Initialize(String sourceName)
+   在 Infrastructure.Localization.Dictionaries.DictionaryBasedLocalizationSource.Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver)
+   在 Infrastructure.Localization.MultiTenantLocalizationSource.Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver)
+   在 Infrastructure.Localization.LocalizationManager.InitializeSources()
+   在 Infrastructure.Localization.LocalizationManager.Initialize()
+   在 Infrastructure.KernelModule.PostInitialize()
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_2(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()

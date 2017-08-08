@@ -1,6 +1,8 @@
 ﻿using Application.Sales;
+using Infrastructure.Auditing;
 using Infrastructure.Dependency;
 using Infrastructure.Domain.UnitOfWork;
+using Infrastructure.Threading;
 using Infrastructure.Threading.BackgroundWorkers;
 using Infrastructure.Threading.Timers;
 
@@ -16,9 +18,13 @@ namespace Application.BackgroundWorker
         }
 
         [UnitOfWork]
+        [Audited]
         protected override void DoWork()
         {
-            SalesManager.RankAsync();
+            AsyncHelper.RunSync(async () =>
+            {
+                await SalesManager.RankAsync();
+            });
         }
     }
 }

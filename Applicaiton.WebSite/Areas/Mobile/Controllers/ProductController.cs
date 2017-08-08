@@ -31,7 +31,7 @@ namespace Application.WebSite.Areas.Mobile.Controllers
             {
                 Redirect(product.ExternalLink);
             }
-            ViewBag.PageTitle = L("ProductDetail");
+            ViewBag.PageTitle = product.Name;
             return View("~/Areas/Mobile/Views/Product/Detail/Templates/"+product.TemplateId+".cshtml", input);
         }
     }

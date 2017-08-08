@@ -219,6 +219,7 @@
     <Compile Include="Authorization\End\Users\Profile\Dto\UserUpdateInput.cs" />
     <Compile Include="Authorization\Front\Dto\CommonUserForProfileDto.cs" />
     <Compile Include="Authorization\Front\Dto\UserDetailDto.cs" />
+    <Compile Include="Authorization\Front\Dto\UserDetailForEditDto.cs" />
     <Compile Include="Authorization\Front\Dto\UserDetailUpdateInput.cs" />
     <Compile Include="Authorization\Front\IUserForFrontAppService.cs" />
     <Compile Include="Authorization\Front\UserForFrontAppService.cs" />

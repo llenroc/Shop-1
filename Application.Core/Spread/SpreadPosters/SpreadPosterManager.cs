@@ -169,6 +169,23 @@ namespace Application.Spread.SpreadPosters
                                     {
                                         text = user.NickName;
                                     }
+
+                                    if (parameter.Name == "fullName")
+                                    {
+                                        text = user.UserDetail.FullName;
+                                    }
+                                    if (parameter.Name == "phoneNumber")
+                                    {
+                                        text = user.UserDetail.PhoneNumber;
+                                    }
+                                    if (parameter.Name == "wechatName")
+                                    {
+                                        text = user.UserDetail.WechatName;
+                                    }
+                                    if (parameter.Name == "identityNumber")
+                                    {
+                                        text = user.UserDetail.IdentityNumber;
+                                    }
                                     graphics.DrawString(text, font, brush, parameter.Coordinate.StartX, parameter.Coordinate.StartY);
                                 }
                             }

@@ -1,0 +1,39 @@
+﻿<div class="margin-top-1 ng-cloak" ng-controller="app.mobile.profile.detail as vm" ng-cloak>
+    <form class="mobile-form" name="userDetailForm" novalidate>
+        <div class="form-group">
+            <label class="form-group-key">@L("FullName")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="text" name="fullName" ng-model="vm.userDetail.fullName" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("PhoneNumber")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="tel" name="phoneNumber" ng-model="vm.userDetail.phoneNumber" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("WechatName")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="tel" name="wechatName" ng-model="vm.userDetail.wechatName" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("IdentityNumber")</label>
+            <div class="form-group-block">
+                <div class="input-wrapper large">
+                    <input type="tel" name="wechatName" ng-model="vm.userDetail.identityNumber" required>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <button type="submit" ng-disabled="userDetailForm.$invalid" class="button-text primary block" ng-click="vm.save()">@L("Save")</button>
+        </div>
+    </form>
+</div>

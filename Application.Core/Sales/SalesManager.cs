@@ -11,12 +11,10 @@ namespace Application.Sales
     {
         public TenantManager TenantManager { get; set; }
         private IRepository<User, long> _userRepository;
-        private readonly ISqlExecuter _sqlExecuter;
 
-        public SalesManager(IRepository<User, long> userRepository, ISqlExecuter sqlExecuter)
+        public SalesManager(IRepository<User, long> userRepository)
         {
             _userRepository = userRepository;
-            _sqlExecuter = sqlExecuter;
         }
 
         public User IncreaseSales(long userId, decimal money)
