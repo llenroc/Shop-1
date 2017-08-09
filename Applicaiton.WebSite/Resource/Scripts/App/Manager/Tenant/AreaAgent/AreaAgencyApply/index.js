@@ -32,6 +32,15 @@
                     infrastructure.ui.clearBusy();
                 });
             };
+            vm.delete = function (areaAgencyApply) {
+                infrastructure.ui.setBusy();
+                areaAgencyApplyService.deleteAreaAgencyApply({ id: areaAgencyApply.id }).success(function (result) {
+                    infrastructure.message.success(app.localize("DeleteSuccessfully"));
+                    vm.getAreaAgencys();
+                }).finally(function () {
+                    infrastructure.ui.clearBusy();
+                });
+            }
             vm.getAreaAgencys=function() {
                 $areaAgencyApplyTable.table().data("canknow.table").load();
             }

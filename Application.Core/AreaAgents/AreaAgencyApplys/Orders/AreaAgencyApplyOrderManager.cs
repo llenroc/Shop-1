@@ -7,20 +7,20 @@ namespace Application.AreaAgents.AreaAgencyApplys.Orders
 {
     public class AreaAgencyApplyOrderManager : OrderManager<AreaAgencyApplyOrder, AreaAgencyApplyBoughtContext>
     {
-        public AreaAgencyApplyManager AreaAgencyApplyManager { get; set; }
-
-        protected IRepository<AreaAgencyApply> AreaAgencyApplyRepository;
+        private AreaAgencyApplyManager _areaAgencyApplyManager;
 
         public AreaAgencyApplyOrderManager(
+            AreaAgencyApplyManager areaAgencyApplyManager,
             IRepository<AreaAgencyApplyOrder> orderRepository,
             IRepository<User, long> userRepository
             ) : base(orderRepository, userRepository)
         {
+            _areaAgencyApplyManager = areaAgencyApplyManager;
         }
 
         protected override void PreCloseOrder(AreaAgencyApplyOrder order)
         {
-            AreaAgencyApplyManager.DeleteAreaAgencyApply(order.Id);
+            _areaAgencyApplyManager.DeleteAreaAgencyApplyByOrderId(order.Id);
         }
 
         public override AreaAgencyApplyOrder Receive(AreaAgencyApplyOrder order)

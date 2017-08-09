@@ -27,14 +27,14 @@ namespace Application.Sales.Front
                 MyRank = UserManager.GetRankOfUser(InfrastructureSession.UserId.Value),
                 PageIndex = 1,
             };
-            RankInfo.Items = UserRepository.GetAll().Where(model => model.IsHide == false).Take(100).OrderByDescending(model => model.Sales)
+            RankInfo.Items = UserRepository.GetAll().Where(model => model.IsHide == false).Take(100).OrderBy(model => model.Rank)
             .MapTo<List<UserForRankDto>>();
             return RankInfo;
         }
 
         public async Task ComputeRanks()
         {
-            await SalesManager.RankAsync();
+            SalesManager.Rank();
         }
     }
 }

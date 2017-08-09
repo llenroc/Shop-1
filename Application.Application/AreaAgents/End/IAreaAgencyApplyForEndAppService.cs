@@ -8,6 +8,8 @@ namespace Application.AreaAgents.End
 {
     public interface IAreaAgencyApplyForEndAppService : ICrudAppService<AreaAgencyApplyDto>
     {
+        void DeleteAreaAgencyApply(IdInput input);
+
         Task PassAreaAgencyApply(IdInput input);
     }
 }

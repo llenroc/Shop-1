@@ -1,7 +1,6 @@
 ﻿using Application.Orders.Entities;
 using Application.Products.Orders;
 using Application.Products.Orders.Entities;
-using Infrastructure.Auditing;
 using Infrastructure.Dependency;
 using Infrastructure.Domain.Repositories;
 using Infrastructure.Domain.UnitOfWork;
@@ -11,7 +10,9 @@ using System;
 
 namespace Application.BackgroundWorker
 {
-    public class AutoReceiveOrderBackgroundWorker : PeriodicBackgroundWorkerBase, ISingletonDependency
+    public class AutoReceiveOrderBackgroundWorker : 
+        PeriodicBackgroundWorkerBase,
+        ISingletonDependency
     {
         private readonly IRepository<ProductOrder> _orderRepository;
         private ProductOrderManager _orderManager;
@@ -29,7 +30,6 @@ namespace Application.BackgroundWorker
 
 
         [UnitOfWork]
-        [Audited]
         protected override void DoWork()
         {
             using (CurrentUnitOfWork.DisableFilter(DataFilters.MustHaveTenant))

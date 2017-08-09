@@ -42,7 +42,7 @@ namespace Application.Sales
             public decimal Sales { get; set; }
         }
 
-        public async Task RankAsync()
+        public void Rank()
         {
             var tenants = TenantManager.Tenants.ToList();
 
@@ -68,7 +68,7 @@ namespace Application.Sales
                         }
                         rank++;
                     }
-                    await CurrentUnitOfWork.SaveChangesAsync();
+                    CurrentUnitOfWork.SaveChanges();
                 }
             }
         }

@@ -1,7 +1,6 @@
 ﻿using Application.AreaAgents.AreaAgencyApplys.Orders;
 using Application.AreaAgents.AreaAgencyApplys.Orders.Entities;
 using Application.Orders.Entities;
-using Infrastructure.Auditing;
 using Infrastructure.Dependency;
 using Infrastructure.Domain.Repositories;
 using Infrastructure.Domain.UnitOfWork;
@@ -11,7 +10,9 @@ using System;
 
 namespace Application.BackgroundWorker
 {
-    public class MakeOvertimeAreaAgencyApplyOrdersDeletedBackgroundWorker : PeriodicBackgroundWorkerBase, ISingletonDependency
+    public class MakeOvertimeAreaAgencyApplyOrdersDeletedBackgroundWorker :
+        PeriodicBackgroundWorkerBase,
+        ISingletonDependency
     {
         private readonly IRepository<AreaAgencyApplyOrder> _orderRepository;
         private AreaAgencyApplyOrderManager _orderManager;
@@ -28,10 +29,9 @@ namespace Application.BackgroundWorker
         }
 
         [UnitOfWork]
-        [Audited]
         protected override void DoWork()
         {
-            using (CurrentUnitOfWork.DisableFilter(DataFilters.MustHaveTenant))
+            using (CurrentUnitOfWork.DisableFilter(DataFilters.MustHaveTenant,DataFilters.MayHaveTenant))
             {
                 DateTime dateTime = DateTime.Now.AddHours(-2);
                 var overTimeOrders = _orderRepository.GetAllList(model => model.OrderStatus == OrderStatus.UnPay

@@ -47,15 +47,18 @@ namespace Application.AreaAgents.AreaAgencyApplys
         }
 
         [UnitOfWork]
-        public void DeleteAreaAgencyApply(int orderId)
+        public void DeleteAreaAgencyApplyByOrderId(int orderId)
         {
             AreaAgencyApply areaAgencyApply = AreaAgencyApplyRepository.GetAll().Where(model => model.OrderId == orderId).FirstOrDefault();
-
-            foreach (AreaAgencyApplyAddress areaAgencyApplyAddress in areaAgencyApply.AreaAgencyApplyAddresses)
-            {
-                AreaAgencyApplyAddressRepository.Delete(areaAgencyApplyAddress);
-            }
+            AreaAgencyApplyAddressRepository.Delete(model => model.AreaAgencyApplyId == areaAgencyApply.Id);
             AreaAgencyApplyRepository.Delete(areaAgencyApply);
+        }
+
+        [UnitOfWork]
+        public void DeleteAreaAgencyApplyById(int id)
+        {
+            AreaAgencyApplyAddressRepository.Delete(model => model.AreaAgencyApplyId == id);
+            AreaAgencyApplyRepository.Delete(model => model.Id == id);
         }
 
         [UnitOfWork]

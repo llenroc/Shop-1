@@ -22,5 +22,10 @@ namespace Application.AreaAgents.End
             AreaAgencyApply areaAgencyApply =await Repository.GetAsync(input.Id);
             AreaAgencyApplyManager.PassAreaAgencyApply(areaAgencyApply);
         }
+
+        public void DeleteAreaAgencyApply(IdInput input)
+        {
+            AreaAgencyApplyManager.DeleteAreaAgencyApplyById(input.Id);
+        }
     }
 }
