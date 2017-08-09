@@ -5404,7 +5404,42 @@ var RichTextEditor = function ($) {
         fReader.readAsDataURL(fileInfo);
         return loader.promise();
     };
+    var defaultSettints = {
+        focus: false, // set focus to editable area after initializing summernote
+        lang: 'en-US', // language 'en-US', 'ko-KR', ...
+        editViewStatus: true,
+        content: null,
+        commandButtonSelector: 'command-button',
+        activedCommandButtonClass: 'actived-command',
+        selectionMarker: 'edit-focus-marker',
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica Neue', 'Impact', 'Lucida Grande', 'Tahoma', 'Times New Roman', 'Verdana'],
+        fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36'],
+        lineHeights: ['1.0', '1.2', '1.4', '1.5', '1.6', '1.8', '2.0', '3.0'],
+        // callbacks
+        oninit: null, // initialize
+        onfocus: null, // editable has focus
+        onblur: null, // editable out of focus
+        onenter: null, // enter key pressed
+        onkeyup: null, // keyup
+        onkeydown: null, // keydown
+        onImageUploadError: null, // imageUploadError
+        onToolbarClick: null,
+        onInput: null,
+        onSave: null,
+        onFocus: null,
+        onImageUpload: function onImageUpload(files, editor) {
+            editor.restoreSelection().focus();
+            $.each(files, function (index, fileInfo) {
 
+                if (/^image\//.test(fileInfo.type)) {
+                    $.when(readFileIntoDataUrl(fileInfo)).done(function (dataUrl) {
+                        editor.insertImage(dataUrl);
+                    }).fail(function (e) {});
+                } else {}
+            });
+        },
+        buttons: []
+    };
     var baseColors = [['#000000', '#424242', '#636363', '#9C9C94', '#CEC6CE', '#EFEFEF', '#F7F7F7', '#FFFFFF'], ['#FF0000', '#FF9C00', '#FFFF00', '#00FF00', '#00FFFF', '#0000FF', '#9C00FF', '#FF00FF'], ['#F7C6CE', '#FFE7CE', '#FFEFC6', '#D6EFD6', '#CEDEE7', '#CEE7F7', '#D6D6E7', '#E7D6DE'], ['#E79C9C', '#FFC69C', '#FFE79C', '#B5D6A5', '#A5C6CE', '#9CC6EF', '#B5A5D6', '#D6A5BD'], ['#E76363', '#F7AD6B', '#FFD663', '#94BD7B', '#73A5AD', '#6BADDE', '#8C7BC6', '#C67BA5'], ['#CE0000', '#E79439', '#EFC631', '#6BA54A', '#4A7B8C', '#3984C6', '#634AA5', '#A54A7B'], ['#9C0000', '#B56308', '#BD9400', '#397B21', '#104A5A', '#085294', '#311873', '#731842'], ['#630000', '#7B3900', '#846300', '#295218', '#083139', '#003163', '#21104A', '#4A1031']];
 
     var RichTextEditor = function () {
@@ -5978,48 +6013,17 @@ var RichTextEditor = function ($) {
         }, {
             key: "DefaultSettings",
             get: function get() {
-                return {
-                    focus: false, // set focus to editable area after initializing summernote
-                    lang: 'en-US', // language 'en-US', 'ko-KR', ...
-                    editViewStatus: true,
-                    content: null,
-                    commandButtonSelector: 'command-button',
-                    activedCommandButtonClass: 'actived-command',
-                    selectionMarker: 'edit-focus-marker',
-                    fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica Neue', 'Impact', 'Lucida Grande', 'Tahoma', 'Times New Roman', 'Verdana'],
-                    fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36'],
-                    lineHeights: ['1.0', '1.2', '1.4', '1.5', '1.6', '1.8', '2.0', '3.0'],
-                    // callbacks
-                    oninit: null, // initialize
-                    onfocus: null, // editable has focus
-                    onblur: null, // editable out of focus
-                    onenter: null, // enter key pressed
-                    onkeyup: null, // keyup
-                    onkeydown: null, // keydown
-                    onImageUploadError: null, // imageUploadError
-                    onToolbarClick: null,
-                    onInput: null,
-                    onSave: null,
-                    onFocus: null,
-                    onImageUpload: function onImageUpload(files, editor) {
-                        editor.restoreSelection().focus();
-                        $.each(files, function (index, fileInfo) {
-
-                            if (/^image\//.test(fileInfo.type)) {
-                                $.when(readFileIntoDataUrl(fileInfo)).done(function (dataUrl) {
-                                    editor.insertImage(dataUrl);
-                                }).fail(function (e) {});
-                            } else {}
-                        });
-                    },
-                    buttons: []
-                };
+                return defaultSettints;
+            },
+            set: function set(settings) {
+                $.extend(defaultSettints, settings);
             }
         }]);
 
         return RichTextEditor;
     }();
 
+    window.RichTextEditor = RichTextEditor;
     $.fn[NAME] = RichTextEditor._jQueryInterface;
     $.fn[NAME].Constructor = RichTextEditor;
     return RichTextEditor;

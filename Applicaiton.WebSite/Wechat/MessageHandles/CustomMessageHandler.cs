@@ -187,6 +187,12 @@ namespace Application.WebSite.Wechat.MessageHandles
                             case ResponseMsgType.Image:
                                 _customerServiceMessageHelper.SendImage(_accessToken, RequestMessage.FromUserName, autoReply.MediaId);
                                 break;
+                            case ResponseMsgType.Music:
+                                _customerServiceMessageHelper.SendVoice(_accessToken, RequestMessage.FromUserName, autoReply.MediaId);
+                                break;
+                            case ResponseMsgType.Video:
+                               
+                                break;
                             case ResponseMsgType.MultipleNews:
                                 _customerServiceMessageHelper.SendNews(_accessToken, RequestMessage.FromUserName, autoReply.Articles.ToList());
                                 break;
@@ -225,10 +231,6 @@ namespace Application.WebSite.Wechat.MessageHandles
             return SuccessResponseMessage(requestMessage);
         }
 
-        /// <summary>  
-        /// 订阅（关注）事件  
-        /// </summary>  
-        /// <returns></returns>  
         public override IResponseMessageBase OnEvent_SubscribeRequest(RequestMessageEvent_Subscribe requestMessage)
         {
             AsyncHelper.RunSync(async () =>
@@ -263,6 +265,30 @@ namespace Application.WebSite.Wechat.MessageHandles
                 userLocationManager.AddUserLocation(_user.ToUserIdentifier(), requestMessage.Longitude, requestMessage.Latitude);
             }
             SendAutoReplyMessages(RequestType.LocationRequest);
+            return SuccessResponseMessage(requestMessage);
+        }
+
+        public override IResponseMessageBase OnImageRequest(RequestMessageImage requestMessage)
+        {
+            SendAutoReplyMessages(RequestType.ImageRequest);
+            return SuccessResponseMessage(requestMessage);
+        }
+
+        public override IResponseMessageBase OnVoiceRequest(RequestMessageVoice requestMessage)
+        {
+            SendAutoReplyMessages(RequestType.VoiceRequest);
+            return SuccessResponseMessage(requestMessage);
+        }
+
+        public override IResponseMessageBase OnVideoRequest(RequestMessageVideo requestMessage)
+        {
+            SendAutoReplyMessages(RequestType.VideoRequest);
+            return SuccessResponseMessage(requestMessage);
+        }
+
+        public override IResponseMessageBase OnLinkRequest(RequestMessageLink requestMessage)
+        {
+            SendAutoReplyMessages(RequestType.LinkRequest);
             return SuccessResponseMessage(requestMessage);
         }
     }

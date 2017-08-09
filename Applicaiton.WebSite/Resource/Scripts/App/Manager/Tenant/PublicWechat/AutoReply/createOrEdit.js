@@ -23,15 +23,13 @@
                     Event_LocationRequest: 13,
                 };
                 vm.responseMsgTypes = {
-                    Text: 0,
-                    News: 1,
-                    Music: 2,
-                    Image: 3,
-                    Voice: 4,
-                    Video: 5,
-                    Transfer_Customer_Service: 6,
-                    MultipleNews: 106,
-                    LocationMessage: 107
+                    TextMessage: 0,
+                    NewsMessage: 1,
+                    MusicMessage: 2,
+                    ImageMessage: 3,
+                    VoiceMessage: 4,
+                    VideoMessage: 5,
+                    MultipleNewsMessage: 106,
                 };
                 vm.getAutoReply = function () {
                     autoReplyService.getAutoReplyForCreateOrEdit({

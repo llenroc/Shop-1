@@ -962,5 +962,31 @@
     <text name="RebateMoney" value="分红金额"></text>
     <text name="ChannelAgencyCannotBindParent" value="渠道代理禁止绑定上级"></text>
     <text name="BindParent" value="绑定上级"></text>
+
+    <text name="ImageRequest" value="图片请求"></text>
+    <text name="LinkRequest" value="链接请求"></text>
+    <text name="LocationRequest" value="定位请求"></text>
+    <text name="ShortVideoRequest" value="短视频请求"></text>
+    <text name="TextRequest" value="文本请求"></text>
+    <text name="VideoRequest" value="视频请求"></text>
+    <text name="VoiceRequest" value="语音请求"></text>
+    <text name="EventRequest" value="事件请求"></text>
+    <text name="Event_ClickRequest" value="点击请求"></text>
+    <text name="Event_ViewRequest" value="跳转请求"></text>
+    <text name="Event_SubscribeRequest" value="关注请求"></text>
+    <text name="Event_UnsubscribeRequest" value="取消关注请求"></text>
+    <text name="Event_ScanRequest" value="扫码请求"></text>
+    <text name="Event_LocationRequest" value="定位请求"></text>
+    <text name="ArticlesMessage" value="图文消息"></text>
+    <text name="TextMessage" value="文本消息"></text>
+    <text name="NewsMessage" value="公众号素材消息"></text>
+    <text name="MusicMessage" value="音乐消息"></text>
+    <text name="ImageMessage" value="图片消息"></text>
+    <text name="VoiceMessage" value="视频消息"></text>
+    <text name="VideoMessage" value="语音消息"></text>
+    <text name="MultipleNewsMessage" value="多图文"></text>
+    <text name="ReplyMessageType" value="回复消息类型"></text>
+    <text name="Like" value="喜欢"></text>
+    <text name="DisLike" value="不喜欢"></text>
   </texts>
 </localizationDictionary>

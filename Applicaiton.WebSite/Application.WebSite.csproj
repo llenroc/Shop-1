@@ -685,6 +685,7 @@
     <Content Include="Content\Images\UserCenterNav\channel.png" />
     <Content Include="Content\Images\UserCenterNav\group.png" />
     <Content Include="Content\Images\UserCenterNav\order.png" />
+    <Content Include="Content\Images\UserCenterNav\profile.png" />
     <Content Include="Content\Images\UserCenterNav\rank.png" />
     <Content Include="Content\Images\UserCenterNav\Spread.png" />
     <Content Include="Content\Images\UserCenterNav\spreadPoster.png" />

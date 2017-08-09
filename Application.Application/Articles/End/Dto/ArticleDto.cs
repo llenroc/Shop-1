@@ -30,6 +30,10 @@ namespace Application.Articles.End.Dto
 
         public int Hint { get; set; }
 
+        public int Like { get; set; }
+
+        public int DisLike { get; set; }
+
         public int CommentCount { get; set; }
 
         [MaxLength(20)]

@@ -27,7 +27,7 @@
         <div class="form-group">
             <label class="form-group-key">@L("RequestMsgType")</label>
             <div class="form-group-block">
-                <select ng-model="vm.autoReply.requestType" ng-options="y as x for (x, y) in vm.requestTypes"></select>
+                <select ng-model="vm.autoReply.requestType" ng-options="y as x|localize for (x, y) in vm.requestTypes"></select>
             </div>
         </div>
         <div class="form-group">
@@ -48,9 +48,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="form-group-key">@L("Type")</label>
+            <label class="form-group-key">@L("ReplyMessageType")</label>
             <div class="form-group-block">
-                <select ng-model="vm.autoReply.msgType" ng-options="y as x for (x, y) in vm.responseMsgTypes">
+                <select ng-model="vm.autoReply.msgType" ng-options="y as x|localize for (x, y) in vm.responseMsgTypes">
                 </select>
             </div>
         </div>
@@ -92,31 +92,24 @@
                         <tr ng-repeat="article in vm.articles">
                             <td>
                                 <div class="input-wrapper">
-                                    <input type="text" name="title" ng-model="article.title" placeholder="@L("Title")" />
+                                    <input type="text" name="title" ng-model="article.title" />
                                 </div>
                             </td>
                             <td>
                                 <div class="input-wrapper">
-                                    <input type="text" name="description" ng-model="article.description" placeholder="@L("Description")" />
+                                    <input type="text" name="description" ng-model="article.description"/>
                                 </div>
                             </td>
                             <td>
                                 <div class="input-wrapper">
-                                    <input type="text" name="url" ng-model="article.url" placeholder="@L("Url")" />
+                                    <input type="text" name="url" ng-model="article.url"/>
                                 </div>
                             </td>
                             <td>
-                                <div class="form-group">
-                                    <label class="form-group-key">@L("Pic")</label>
-                                    <div class="form-group-block">
-                                        <div class="form-group-block">
-                                            <div class="picture-uploader" picture-uploader path="article.picUrl" data-option-url="/Manager/Home/Upload" data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
-                                                <img height="100" ng-src="{{article.picUrl}}" />
-                                                <input type="file" />
-                                                <input type="hidden" name="picUrl" ng-model="article.picUrl" />
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="picture-uploader" picture-uploader path="article.picUrl" data-option-url="/Manager/Home/Upload" data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                                    <img height="100" ng-src="{{article.picUrl}}" />
+                                    <input type="file" />
+                                    <input type="hidden" name="picUrl" ng-model="article.picUrl" />
                                 </div>
                             </td>
                             <td>
