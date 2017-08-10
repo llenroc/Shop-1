@@ -2,7 +2,7 @@
 	<ul class="spread-poster-list">
 		<li ng-repeat="spreadPoster in vm.spreadPosters">
 			<div class="spread-poster">
-				<button class="button-text radius button-recreate" ng-click="vm.reCreate(spreadPoster)">@L("ReCreate")</button>
+				<button class="button-text radius border button-recreate fg-color-white" ng-click="vm.reCreate(spreadPoster)">@L("ReCreate")</button>
 				<img ng-src="{{spreadPoster.path}}" />
 			</div>
 		</li>

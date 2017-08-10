@@ -3,7 +3,14 @@
         '$scope', 'infrastructure.services.app.user',
         function ($scope, userService) {
             var vm = this;
-            var userSourceChart= echarts.init(document.getElementById('userSourceChart'));
+            var userSourceChart = echarts.init(document.getElementById('userSourceChart'));
+            vm.userSources = [
+                'System',
+                'WebPageRegist',
+                'WeixinInteraction',
+                'WeixinExternalLogin',
+                'OtherExternalLogin'
+            ];
             vm.getUserSource = function () {
                 userService.getUserStatistics().success(function (result) {
                     var option = {
@@ -37,11 +44,10 @@
                             }
                         ]
                     };
-
                     result.forEach(function (userSourceStatistics) {
                         option.legend.data.push(userSourceStatistics.userSource);
                         option.series[0].data.push({
-                            name: userSourceStatistics.userSource,
+                            name:app.localize(vm.userSources [userSourceStatistics.userSource]),
                             value: userSourceStatistics.count
                         })
                     });

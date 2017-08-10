@@ -988,5 +988,6 @@
     <text name="ReplyMessageType" value="回复消息类型"></text>
     <text name="Like" value="喜欢"></text>
     <text name="DisLike" value="不喜欢"></text>
+    <text name="MultipleNews" value="图文"></text>
   </texts>
 </localizationDictionary>

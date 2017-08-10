@@ -30,8 +30,13 @@
                             <span class="label error" ng-if="areaAgencyApply.status==3">@L("Cancel")</span>
                         </td>
                         <td>
-                            <button class="button-text" ng-if="!areaAgencyApply.status" ng-click="vm.pass(areaAgencyApply)">@L("Pass")</button>
-                            <button class="button-text" ng-if="!areaAgencyApply.status" ng-click="vm.delete(areaAgencyApply)">@L("Delete")</button>
+                            <div class="dropdown-wripper dropdown-menu">
+                                <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
+                                <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
+                                    <li ng-if="!areaAgencyApply.status"><a ng-click="vm.pass(areaAgencyApply)">@L("Pass")</a></li>
+                                    <li><a ng-click="vm.delete(areaAgencyApply)">@L("Delete")</a></li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
