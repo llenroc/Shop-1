@@ -32,11 +32,16 @@ namespace Application.AreaAgents
 
             foreach (AreaAgency areaAgency in areaAgencys)
             {
-                areaAgentRebates.Add(await CreateAreaAgentRebate(order, areaAgency, areaAgency.User, false));
+                AreaAgentRebate areaAgentRebate = await CreateAreaAgentRebate(order, areaAgency, areaAgency.User, false);
 
-                if (areaAgency.AreaAgent.IndirectRebateRatio > 0&& areaAgency.User.ParentUserId.HasValue)
+                if (areaAgentRebate != null)
                 {
-                    areaAgentRebates.Add(await CreateAreaAgentRebate(order, areaAgency, areaAgency.User.ParentUser, true));
+                    areaAgentRebates.Add(areaAgentRebate);
+
+                    if (areaAgency.AreaAgent.IndirectRebateRatio > 0 && areaAgency.User.ParentUserId.HasValue)
+                    {
+                        areaAgentRebates.Add(await CreateAreaAgentRebate(order, areaAgency, areaAgency.User.ParentUser, true));
+                    }
                 }
             }
             return areaAgentRebates;
@@ -52,20 +57,25 @@ namespace Application.AreaAgents
                 money *= (decimal)areaAgency.AreaAgent.IndirectRebateRatio;
                 remark = L("IndirectAreaAgentRebate");
             }
-            AreaAgentRebate areaAgentRebate = new AreaAgentRebate()
+
+            if (money > (decimal)0.01)
             {
-                OrderId = order.Id,
-                UserId = user.Id,
-                AreaAgentId = areaAgency.AreaAgentId,
-                AreaAgencyId = areaAgency.Id,
-                BuyerUserId = order.UserId,
-                Money = money,
-                IsIndirectRebate = isIndirectRebate,
-                Remark= remark
-            };
-            AreaAgentRebateRepository.Insert(areaAgentRebate);
-            await WalletManager.IncomeOfOrderRebateAsync(areaAgency.GetUserIdentifier(), areaAgentRebate.Money, remark, order);
-            return areaAgentRebate;
+                AreaAgentRebate areaAgentRebate = new AreaAgentRebate()
+                {
+                    OrderId = order.Id,
+                    UserId = user.Id,
+                    AreaAgentId = areaAgency.AreaAgentId,
+                    AreaAgencyId = areaAgency.Id,
+                    BuyerUserId = order.UserId,
+                    Money = money,
+                    IsIndirectRebate = isIndirectRebate,
+                    Remark = remark
+                };
+                AreaAgentRebateRepository.Insert(areaAgentRebate);
+                await WalletManager.IncomeOfOrderRebateAsync(user.ToUserIdentifier(), areaAgentRebate.Money, remark, order);
+                return areaAgentRebate;
+            }
+            return null;
         }
 
         public List<AreaAgency> GetAreaAgencysFromOrder(ProductOrder order)
@@ -82,7 +92,7 @@ namespace Application.AreaAgents
             {
                 AreaAgencyArea areaAgencyArea = GetAreaAgencyFromAddress(currentAddress);
 
-                if (areaAgencyArea != null)
+                if (areaAgencyArea != null&& areaAgencyArea.AreaAgency!=null)
                 {
                     areaAgencys.Add(areaAgencyArea.AreaAgency);
                 }

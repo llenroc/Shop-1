@@ -33,7 +33,12 @@
                                 <div class="dropdown-wripper dropdown-menu">
                                     <a data-toggle="dropdown" class="button-text">@L("Actions")<i class="icon icon-angle-down dropdown-sign"></i></a>
                                     <ul class="dropdown dropdown-menu-list left hide" data-ride="dropdown">
-                                        <li><a ng-if="withdrawApply.status==0||withdrawApply.status==2" ng-click="vm.withdraw(withdrawApply)">@L("Withdraw")</a></li>
+                                        <li>
+                                            <a ng-if="withdrawApply.status==0||withdrawApply.status==2" ng-click="vm.withdraw(withdrawApply,0)">@L("WechatQiyePay")</a>
+                                        </li>
+                                        <li>
+                                            <a ng-if="withdrawApply.status==0||withdrawApply.status==2" ng-click="vm.withdraw(withdrawApply,1)">@L("ManualPay")</a>
+                                        </li>
                                     </ul>
                                 </div>
 							</td>

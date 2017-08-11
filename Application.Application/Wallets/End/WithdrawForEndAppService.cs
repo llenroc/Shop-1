@@ -1,6 +1,5 @@
 ﻿using Application.Wallets.End.Dto;
 using Application.Wallets.Entities;
-using Infrastructure.Application.DTO;
 using Infrastructure.Application.Services;
 using Infrastructure.Domain.Repositories;
 using Infrastructure.UI;
@@ -23,11 +22,18 @@ namespace Application.Wallets.End
 
         }
 
-        public async Task Withdraw(IdInput input)
+        public async Task Withdraw(WithdrawInput input)
         {
             try
             {
-                await WithdrawManager.ProcessWithdrawAsync(input.Id);
+                if (input.WithdrawMethod.HasValue)
+                {
+                    await WithdrawManager.ProcessWithdrawAsync(input.Id,input.WithdrawMethod.Value);
+                }
+                else
+                {
+                    await WithdrawManager.ProcessWithdrawAsync(input.Id);
+                }
             }
             catch (Exception e)
             {

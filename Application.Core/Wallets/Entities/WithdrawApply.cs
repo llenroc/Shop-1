@@ -11,6 +11,12 @@ namespace Application.Wallets.Entities
         Invalid
     }
 
+    public enum WithdrawMethod
+    {
+        WeixinQiyePay,
+        Manual
+    }
+
     public class WithdrawApply: FullAuditedUserIdentifierEntity
     {
         public string SerialNumber { get; set; }

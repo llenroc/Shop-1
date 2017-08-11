@@ -12,7 +12,8 @@ namespace Application.Wallets.Entities
         Alipay,
         WeChat,
         BankCard,
-        Balance
+        Balance,
+        Unknow
     }
 
     public enum PayStatus

@@ -40,7 +40,7 @@ namespace Application.Wallets.Front
                 {
                     Balance = wallet.Money,
                     Freezing = WalletManager.GetMoneyOfFreezing(InfrastructureSession.UserId.Value),
-                    Withdrawed = WalletManager.GetMoneyOfWithdrawed(InfrastructureSession.UserId.Value),
+                    Withdrawed = -WalletManager.GetMoneyOfWithdrawed(InfrastructureSession.UserId.Value),
                     Withdrawing = WalletManager.GetMoneyOfWithdrawing(InfrastructureSession.UserId.Value),
                     TotalIncome = WalletManager.GetMoneyOfRecharge(InfrastructureSession.UserId.Value)
                 };

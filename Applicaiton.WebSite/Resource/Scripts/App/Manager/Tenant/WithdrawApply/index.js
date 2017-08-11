@@ -36,9 +36,9 @@
                     }
                 }
             });
-            vm.withdraw = function (withdrawApply) {
+            vm.withdraw = function (withdrawApply,withdrawMethod) {
                 infrastructure.ui.setBusy();
-                withdrawApplyService.withdraw({ id: withdrawApply.id }).success(function (result) { 
+                withdrawApplyService.withdraw({ id: withdrawApply.id, withdrawMethod: withdrawMethod }).success(function (result) {
                 }).finally(function () {
                     $withdrawApplyTable.table().data("canknow.table").load();
                     infrastructure.ui.clearBusy();

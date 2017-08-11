@@ -1,6 +1,7 @@
 ﻿using Application.Expresses;
 using Application.Expresses.Dto;
 using Application.IO;
+using Application.Orders;
 using Application.Orders.Admins.Common;
 using Application.Orders.Admins.Dto;
 using Application.Orders.Admins.Exporting;
@@ -35,9 +36,11 @@ namespace Application.Admins.Orders
             OrderGetInput>
         , IProductOrderAdminAppService
     {
+        public IRepository<Order> OrderRepository { get; set; }
         protected IRepository<ExpressCompany> ExpressCompanyRepository;
         protected IRepository<OrderCustomerInfo> OrderCustomerInfoRepository;
-        public ProductOrderManager OrderManager { get; set; }
+        public CommonOrderManager OrderManager { get; set; }
+        public ProductOrderManager ProductOrderManager { get; set; }
         public ExcelHelper ExcelHelper { get; set; }
         public OrderListExcelExporter OrderListExcelExporter { get; set; }
         private readonly IBackgroundJobManager _backgroundJobManager;
@@ -107,7 +110,7 @@ namespace Application.Admins.Orders
 
             foreach (OrderOfBatchShipInput orderOfBatchShipInput in orderOfBatchShipInputs)
             {
-                OrderManager.Ship(orderOfBatchShipInput.Number, orderOfBatchShipInput.ExpressCompany, orderOfBatchShipInput.TrackingNumber);
+                ProductOrderManager.Ship(orderOfBatchShipInput.Number, orderOfBatchShipInput.ExpressCompany, orderOfBatchShipInput.TrackingNumber);
             }
             //_backgroundJobManager.Enqueue<BatchShipJob, BatchShipJobArgs>(new BatchShipJobArgs(HttpContext.Current.Server.MapPath(input.FilePath)));
         }
@@ -137,7 +140,7 @@ namespace Application.Admins.Orders
 
             try
             {
-                OrderManager.Ship(order, false, input.ExpressInfo);
+                ProductOrderManager.Ship(order, false, input.ExpressInfo);
             }
             catch(Exception exception)
             {
@@ -147,7 +150,7 @@ namespace Application.Admins.Orders
 
         public async Task SetAsPayed(OrderGetInput input)
         {
-            ProductOrder order = Repository.Get(input.Id);
+            Order order = OrderRepository.Get(input.Id);
             await OrderManager.PayedAsync(order,Wallets.Entities.PayType.WeChat);
         }
 
@@ -157,7 +160,7 @@ namespace Application.Admins.Orders
 
             try
             {
-                await OrderManager.Refund(order, order.PayMoney);
+                await ProductOrderManager.Refund(order, order.PayMoney);
             }
             catch(Exception exception)
             {

@@ -490,6 +490,7 @@
     <Compile Include="Wallets\WithdrawException.cs" />
     <Compile Include="Wallets\WithdrawManager.cs" />
     <Compile Include="Wallets\WithdrawProviders\IWithdrawProvider.cs" />
+    <Compile Include="Wallets\WithdrawProviders\ManualWithdrawProvider.cs" />
     <Compile Include="Wallets\WithdrawProviders\WechatWithdrawProvider.cs" />
     <Compile Include="Wallets\WithdrawProviders\WithdrawProviderBase.cs" />
     <Compile Include="Web\IWebUrlService.cs" />

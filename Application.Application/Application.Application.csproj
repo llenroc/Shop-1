@@ -662,6 +662,7 @@
     <Compile Include="VirtualProducts\VirtualCards\End\VirtualCardAppService.cs" />
     <Compile Include="Wallets\End\Dto\WithdrawApplyDto.cs" />
     <Compile Include="Wallets\End\Dto\WithdrawApplyGetAllInput.cs" />
+    <Compile Include="Wallets\End\Dto\WithdrawInput.cs" />
     <Compile Include="Wallets\End\IWithdrawForEndAppService.cs" />
     <Compile Include="Wallets\End\WithdrawForEndAppService.cs" />
     <Compile Include="Wallets\Front\Dto\WalletInfoOutput.cs" />

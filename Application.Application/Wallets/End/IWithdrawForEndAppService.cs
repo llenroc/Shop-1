@@ -10,6 +10,6 @@ namespace Application.Wallets.End
         int,
         WithdrawApplyGetAllInput>
     {
-        Task Withdraw(IdInput input);
+        Task Withdraw(WithdrawInput input);
     }
 }

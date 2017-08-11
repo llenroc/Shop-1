@@ -72,16 +72,26 @@ namespace Application.Wallets
         }
 
         [UnitOfWork]
-        public async Task<WithdrawApply> ProcessWithdrawAsync(int withdrawApplyId)
+        public async Task<WithdrawApply> ProcessWithdrawAsync(int withdrawApplyId, WithdrawMethod withdrawMethod = WithdrawMethod.WeixinQiyePay)
         {
             WithdrawApply withdrawApply = WithdrawApplyRepository.Get(withdrawApplyId);
-            return await ProcessWithdrawAsync(withdrawApply);
+            return await ProcessWithdrawAsync(withdrawApply, withdrawMethod);
         }
 
         [UnitOfWork]
-        public async Task<WithdrawApply> ProcessWithdrawAsync(WithdrawApply withdrawApply)
+        public async Task<WithdrawApply> ProcessWithdrawAsync(WithdrawApply withdrawApply, WithdrawMethod withdrawMethod=WithdrawMethod.WeixinQiyePay)
         {
             IWithdrawProvider WithdrawProvider = IocManager.Instance.Resolve<IWithdrawProvider>();
+
+            switch (withdrawMethod)
+            {
+                case WithdrawMethod.WeixinQiyePay:
+                    WithdrawProvider= IocManager.Instance.Resolve<IWithdrawProvider>();
+                    break;
+                case WithdrawMethod.Manual:
+                    WithdrawProvider = IocManager.Instance.Resolve<IWithdrawProvider>();
+                    break;
+            }
 
             try
             {
