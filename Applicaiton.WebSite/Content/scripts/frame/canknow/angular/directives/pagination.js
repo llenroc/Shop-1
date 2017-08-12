@@ -1,8 +1,4 @@
-﻿/**
- * name: pagination
- * Version: 1.0.0 beta
- */
-appModule.directive('pagination', [function () {
+﻿canknowModule.directive('pagination', [function () {
     return {
         template: '<div class="pagination-container">' +
             '<ul class="pagination" ng-show="config.totalCount > 0">' +

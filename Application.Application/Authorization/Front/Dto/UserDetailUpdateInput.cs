@@ -9,5 +9,7 @@
         public string WechatName { get; set; }
 
         public string IdentityNumber { get; set; }
+
+        public string QrcodePath { get; set; }
     }
 }

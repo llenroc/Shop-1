@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.factory('appSession', [
+    commonModule.factory('appSession', [
             function () {
                 var _session = {
                     user: null,

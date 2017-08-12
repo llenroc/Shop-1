@@ -42,9 +42,7 @@ namespace Application.WebSite
                     "~/Scripts/underscore.min.js",
                     "~/Scripts/moment.min.js",
                     "~/Scripts/angularJS/angular.min.js",
-                    "~/Scripts/angularJS/angular-ui-router.js",
-                    "~/Scripts/angularJS/ui/ui-utils.js",
-                    "~/Scripts/angularJS/angular-sortable-view.min.js"
+                    "~/Scripts/angularJS/angular-ui-router.js"
                     )
                 );
 

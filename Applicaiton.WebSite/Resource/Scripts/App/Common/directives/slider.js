@@ -1,6 +1,6 @@
 ﻿/* Used by user and role permission settings. 
  */
-appModule.directive('slider', [function () {
+commonModule.directive('slider', [function () {
     return {
         scope: {
             items: '@'

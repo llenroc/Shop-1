@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.directive('sideNav', function () {
+    canknowModule.directive('sideNav', function () {
         return {
             scope:{
                 menuData: "=",

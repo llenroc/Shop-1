@@ -1,5 +1,4 @@
 ﻿using Infrastructure.Domain.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Application.Authorization.Users
 {
@@ -16,5 +15,7 @@ namespace Application.Authorization.Users
         public string WechatName { get; set; }
 
         public string IdentityNumber { get; set; }
+
+        public string QrcodePath { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.directive('richTextEditor', function () {
+    canknowModule.directive('richTextEditor', function () {
         return {
             restrict: 'A',
             scope: {

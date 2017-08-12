@@ -1,5 +1,5 @@
 ﻿@model Infrastructure.Application.DTO.IdInput
-@{ 
+@{
     Layout = "~/Areas/Mobile/Views/Shared/_BlankLayout.cshtml";
 }
 <div class="article-box container ng-cloak" ng-controller="app.mobile.article.content as vm" ng-cloak>
@@ -23,4 +23,5 @@
             </label>
         </div>
     </div>
+    @Html.Partial("BusinessCard")
 </div>

@@ -1,10 +1,11 @@
-﻿using Infrastructure.AutoMapper;
-
-namespace Application.Authorization.Users
+﻿namespace Application.WebSite.Areas.Mobile.Models.Authorization
 {
-    [AutoMap(typeof(UserDetail))]
-    public class UserDetailInfo
+    public class BusinessCardInfo
     {
+        public string NickName { get; set; }
+
+        public string Avatar { get; set; }
+
         public string FullName { get; set; }
 
         public string PhoneNumber { get; set; }

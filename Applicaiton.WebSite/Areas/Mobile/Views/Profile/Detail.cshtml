@@ -32,6 +32,19 @@
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            <label class="form-group-key">@L("Qrcode")</label>
+            <div class="form-group-block padding-1">
+                <div class="picture-uploader"
+                     picture-uploader path="vm.userDetail.qrcodePath"
+                     data-option-url="/Mobile/Home/Upload?ratio=1&maxFileSize=512000"
+                     data-option-default-image="/Content/frame/canknow/image/upload-picture.png">
+                    <img height="96" ng-src="{{vm.userDetail.qrcodePath}}" />
+                    <input type="file" />
+                    <input type="hidden" name="qrcodePath" ng-model="vm.userDetail.qrcodePath" />
+                </div>
+            </div>
+        </div>
         <div class="container">
             <button type="submit" ng-disabled="userDetailForm.$invalid" class="button-text primary block" ng-click="vm.save()">@L("Save")</button>
         </div>

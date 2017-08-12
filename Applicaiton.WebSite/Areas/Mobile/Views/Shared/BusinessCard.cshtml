@@ -1,0 +1,25 @@
+﻿@using Application.WebSite.Areas.Mobile.Models.Authorization;
+@{
+    BusinessCardInfo businessCardInfo = ViewBag.ShareUserProfile as BusinessCardInfo;
+}
+@if (businessCardInfo != null)
+{
+    <div class="business-card margin-top-2">
+        <div class="business-card-profile">
+            <div class="avatar-box">
+                <img class="avatar" src="@businessCardInfo.Avatar" />
+            </div>
+            <label class="name">@businessCardInfo.NickName</label>
+        </div>
+        <div class="business-card-content">
+            @if (!string.IsNullOrEmpty(businessCardInfo.QrcodePath))
+                {
+                <img width="128" class="qrcode" src="@businessCardInfo.QrcodePath" />
+            }
+            <div class="text-info">
+                <div class="text-info-item"><i class="icon-phone"></i>@businessCardInfo.PhoneNumber</div>
+                <div class="text-info-item"><i class="icon-comments"></i>@businessCardInfo.WechatName</div>
+            </div>
+        </div>
+    </div>
+}

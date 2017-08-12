@@ -41,7 +41,10 @@
 							<td>{{walletRecord.money}}</td>
 							<td>{{walletRecord.typeText|localize}}</td>
 							<td>{{walletRecord.remark|localize}}</td>
-                            <td>{{walletRecord.statusText|localize}}</td>
+                            <td>
+                                <label class="label success" ng-if="walletRecord.status==0">{{walletRecord.statusText|localize}}</label>
+                                <label class="label error" ng-if="walletRecord.status!=0">{{walletRecord.statusText|localize}}</label>
+                            </td>
 							<td>{{walletRecord.payType|localize}}</td>
 							<td>{{walletRecord.payStatusText|localize}}</td>
 							<td>{{walletRecord.fetchStatusText|localize}}</td>

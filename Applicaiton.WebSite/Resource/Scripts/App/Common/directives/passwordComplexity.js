@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.directive('passwordComplexity', [
+    commonModule.directive('passwordComplexity', [
         function () {
             return {
                 restrict: 'A',

@@ -358,6 +358,7 @@
     <Compile Include="Areas\Mobile\Filters\PageTitleFilterAttribute.cs" />
     <Compile Include="Areas\Mobile\Filters\ShareAccessFilterAtrribute.cs" />
     <Compile Include="Areas\Mobile\Models\AgentOrder\OrderConfirmInputViewModel.cs" />
+    <Compile Include="Areas\Mobile\Models\Authorization\BusinessCardInfo.cs" />
     <Compile Include="Areas\Mobile\Models\ChannelAgent\ChannelAgentApplyViewModel.cs" />
     <Compile Include="Areas\Mobile\Models\Orders\OrderConfirmForShopCartInputViewModel.cs" />
     <Compile Include="Areas\Mobile\Models\Orders\OrderConfirmInputViewModel.cs" />
@@ -705,6 +706,7 @@
     <Content Include="Content\scripts\frame\canknow\angular\directives\richTextEditor.js" />
     <Content Include="Content\scripts\frame\canknow\angular\directives\sideNav.js" />
     <Content Include="Content\scripts\frame\canknow\angular\directives\VALIDATE.JS" />
+    <Content Include="Content\scripts\frame\canknow\angular\module.js" />
     <Content Include="Content\scripts\frame\canknow\angular\modules\me-lazyload.js" />
     <Content Include="Content\scripts\frame\canknow\canknow.config.js" />
     <Content Include="Resource\Scripts\App\Common\filters\toPercent.js" />
@@ -1366,6 +1368,7 @@
     <Content Include="Areas\Manager\Views\Common\User\UserSelectorModal.cshtml" />
     <Content Include="Areas\Manager\Views\Common\User\heatMap.cshtml" />
     <Content Include="Areas\Mobile\Views\Profile\Detail.cshtml" />
+    <Content Include="Areas\Mobile\Views\Shared\BusinessCard.cshtml" />
     <None Include="Properties\PublishProfiles\beimi.pubxml" />
     <None Include="Properties\PublishProfiles\Shop-pingju.pubxml" />
     <Content Include="Views\Error\WebSiteOff.cshtml" />

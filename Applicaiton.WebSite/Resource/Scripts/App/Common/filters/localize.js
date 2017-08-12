@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.filter('localize', function () {
+    commonModule.filter('localize', function () {
         return function (data) {
             var args = Array.prototype.slice.call(arguments, 1);
             args.splice(0, 0, data);

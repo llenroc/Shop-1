@@ -1,6 +1,6 @@
 // need load the moment.js to use these filters. 
 (function () {
-    appModule.filter('momentFormat', function () {
+    commonModule.filter('momentFormat', function () {
         return function (date, formatStr) {
 
             if (!date) {

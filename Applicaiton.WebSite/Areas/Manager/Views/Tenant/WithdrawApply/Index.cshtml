@@ -25,7 +25,10 @@
 							<td>{{withdrawApply.serialNumber}}</td>
 							<td><img class="circle" height="24" ng-src="{{withdrawApply.user.avatar}}" /></td>
 							<td>{{withdrawApply.money}}</td>
-                            <td>{{withdrawApply.statusText|localize}}</td>
+                            <td>
+                                <label class="label success" ng-if="withdrawApply.status==1">{{withdrawApply.statusText|localize}}</label>
+                                <label class="label error" ng-if="withdrawApply.status!=1">{{withdrawApply.statusText|localize}}</label>
+                            </td>
 							<td>{{withdrawApply.failReason}}</td>
 							<td>{{withdrawApply.creationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>
 							<td>{{withdrawApply.lastModificationTime|momentFormat: 'YYYY-MM-DD HH:mm:ss'}}</td>

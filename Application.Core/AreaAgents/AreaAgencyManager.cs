@@ -49,11 +49,7 @@ namespace Application.AreaAgents
                 throw new Exception(L("ThereHasNoThisAreaAgency"));
             }
             long userId = areaAgency.UserId;
-
-            foreach (AreaAgencyArea areaAgencyArea in areaAgency.AreaAgencyAreas)
-            {
-                AreaAgencyAreaRepository.Delete(areaAgencyArea);
-            }
+            AreaAgencyAreaRepository.Delete(model => model.AreaAgencyId == areaAgencyId);
             AreaAgencyRepository.Delete(areaAgency);
             CurrentUnitOfWork.SaveChanges();
 

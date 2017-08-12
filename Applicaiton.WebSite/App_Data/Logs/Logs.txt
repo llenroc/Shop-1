@@ -2274,3 +2274,775 @@ Login failed for user 'NT AUTHORITY\SYSTEM'.
    在 Infrastructure.Bootstrapper.Initialize()
 ClientConnectionId:ea5997f0-9179-4749-8559-4ff582e3359c
 Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 07:59:22,618 [29   ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:35d86114-4c08-4180-ae0b-3574af50aead
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:35d86114-4c08-4180-ae0b-3574af50aead
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 07:59:48,671 [1    ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:d67d2cae-935d-416f-ae0a-da4a07b89c6d
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:d67d2cae-935d-416f-ae0a-da4a07b89c6d
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 08:00:13,628 [197  ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:9c5667de-2d85-4de7-b26b-7cab9aa33c31
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:9c5667de-2d85-4de7-b26b-7cab9aa33c31
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 08:00:38,618 [197  ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:b8055a59-6c3c-48d6-a2a7-4bae7591d5e3
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:b8055a59-6c3c-48d6-a2a7-4bae7591d5e3
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 08:01:03,612 [197  ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:e743fbaf-9b06-428d-a6a7-05072da8c8ac
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:e743fbaf-9b06-428d-a6a7-05072da8c8ac
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 08:01:28,615 [197  ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:b3d4bf9f-5a3a-49ba-ba1f-92ebf9b61ac4
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:b3d4bf9f-5a3a-49ba-ba1f-92ebf9b61ac4
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 08:01:53,625 [197  ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:83da57c4-a2c5-478e-9695-d302d2532bd5
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:83da57c4-a2c5-478e-9695-d302d2532bd5
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 08:02:18,629 [197  ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:ef739717-10d1-4b1b-86f7-9a9bcfc29e0f
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:ef739717-10d1-4b1b-86f7-9a9bcfc29e0f
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 08:02:42,550 [197  ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:f46a12e0-393d-489b-a41d-a74bfa61598c
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Application.WebSite.WebModule.<>c.<PreInitialize>b__0_0(IHangfireConfiguration configuration) 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 56
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Application.WebSite.WebModule.PreInitialize() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\App_Start\WebModule.cs:行号 54
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:f46a12e0-393d-489b-a41d-a74bfa61598c
+Error Number:4060,State:1,Class:11
+ERROR 2017-08-12 08:10:00,629 [92   ] eas.Mobile.Controllers.ArticleController - H:\Project\Personal\Shop\Applicaiton.WebSite\Areas\Mobile\Views\Shared\BusinessCard.cshtml(12): error CS1061: 'BusinessCardInfo' does not contain a definition for 'NickName' and no extension method 'NickName' accepting a first argument of type 'BusinessCardInfo' could be found (are you missing a using directive or an assembly reference?)
+System.Web.HttpCompileException (0x80004005): H:\Project\Personal\Shop\Applicaiton.WebSite\Areas\Mobile\Views\Shared\BusinessCard.cshtml(12): error CS1061: 'BusinessCardInfo' does not contain a definition for 'NickName' and no extension method 'NickName' accepting a first argument of type 'BusinessCardInfo' could be found (are you missing a using directive or an assembly reference?)
+   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   在 System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   在 System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   在 ASP._Page_Areas_Mobile_Views_Article_Content_cshtml.Execute() 位置 H:\Project\Personal\Shop\Applicaiton.WebSite\Areas\Mobile\Views\Article\Content.cshtml:行号 26
+   在 System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   在 System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   在 System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   在 System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+FATAL 2017-08-12 08:32:31,001 [29   ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:bedd2c08-71b2-4898-b58a-eb0f6a9b5a32
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:bedd2c08-71b2-4898-b58a-eb0f6a9b5a32
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 08:34:33,827 [170  ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:8770c4d0-2db3-46a2-b745-ed84a9779c0a
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:8770c4d0-2db3-46a2-b745-ed84a9779c0a
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 08:34:59,587 [168  ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:a2d99cad-5ed8-4c0c-8505-68cf96a6b2e4
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:a2d99cad-5ed8-4c0c-8505-68cf96a6b2e4
+Error Number:4060,State:1,Class:11
+FATAL 2017-08-12 08:35:24,584 [168  ] Infrastructure.Bootstrapper              - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:4571d411-292f-49c9-bac3-b27b08435901
+Error Number:4060,State:1,Class:11
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "H:\PROJECT\PERSONAL\SHOP\APPLICAITON.WEBSITE\APP_DATA\SHOP.MDF" requested by the login. The login failed.
+Login failed for user 'NT AUTHORITY\SYSTEM'.
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerStorage.UseConnection[T](Func`2 func)
+   在 Hangfire.SqlServer.SqlServerStorage.Initialize()
+   在 Hangfire.SqlServerStorageExtensions.UseSqlServerStorage(IGlobalConfiguration configuration, String nameOrConnectionString)
+   在 Infrastructure.Hangfire.Configuration.HangfireConfigurationExtensions.UseHangfire(IBackgroundJobConfiguration backgroundJobConfiguration, Action`1 configureAction)
+   在 Infrastructure.Modules.ModuleManager.<>c.<StartModules>b__15_0(ModuleInfo module)
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Infrastructure.Modules.ModuleManager.StartModules()
+   在 Infrastructure.Bootstrapper.Initialize()
+ClientConnectionId:4571d411-292f-49c9-bac3-b27b08435901
+Error Number:4060,State:1,Class:11
+ERROR 2017-08-12 09:06:05,233 [30   ] nfrastructureApiExceptionFilterAttribute - 微信请求发生错误！错误代码：41002，说明：appid missing hint: [8cdJha0971e544]
+Senparc.Weixin.Exceptions.ErrorJsonResultException: 微信请求发生错误！错误代码：41002，说明：appid missing hint: [8cdJha0971e544]
+   在 Senparc.Weixin.HttpUtility.Get.GetJson[T](String url, Encoding encoding, Nullable`1 maxJsonLength) 位置 E:\Senparc项目\WeiXinMPSDK\src\Senparc.Weixin\Senparc.Weixin\Utilities\HttpUtility\Get.cs:行号 63
+   在 Senparc.Weixin.MP.CommonAPIs.CommonApi.GetToken(String appid, String secret, String grant_type) 位置 E:\Senparc项目\WeiXinMPSDK\src\Senparc.Weixin.MP\Senparc.Weixin.MP\CommonAPIs\CommonApi.cs:行号 60
+   在 Senparc.Weixin.MP.Containers.AccessTokenContainer.GetAccessTokenResult(String appId, Boolean getNewToken) 位置 E:\Senparc项目\WeiXinMPSDK\src\Senparc.Weixin.MP\Senparc.Weixin.MP\Containers\AccessTokenContainer.cs:行号 190
+   在 Senparc.Weixin.MP.Containers.AccessTokenContainer.TryGetAccessToken(String appId, String appSecret, Boolean getNewToken) 位置 E:\Senparc项目\WeiXinMPSDK\src\Senparc.Weixin.MP\Senparc.Weixin.MP\Containers\AccessTokenContainer.cs:行号 159
+   在 Application.Wechats.PublicWechats.PublicWechatAppService.<GetMenuAsync>d__6.MoveNext() 位置 H:\Project\Personal\Shop\Application.Application\Wechats\PublicWechats\PublicWechatAppService.cs:行号 40
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.Threading.InternalAsyncHelper.<AwaitTaskWithPostActionAndFinallyAndGetResult>d__5`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.Threading.InternalAsyncHelper.<AwaitTaskWithFinallyAndGetResult>d__3`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Threading.Tasks.TaskHelpersExtensions.<CastToObject>d__3`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.WebApi.Uow.InfrastructureApiUowFilter.<ExecuteActionFilterAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.WebApi.Validation.InfrastructureApiValidationFilter.<ExecuteActionFilterAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.WebApi.Auditing.InfrastructureApiAuditFilter.<ExecuteActionFilterAsync>d__4.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.WebApi.Security.AntiForgery.InfrastructureAntiForgeryApiFilter.<ExecuteAuthorizationFilterAsync>d__10.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   在 Infrastructure.WebApi.Authorization.InfrastructureApiAuthorizeFilter.<ExecuteAuthorizationFilterAsync>d__7.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.AuthenticationFilterResult.<ExecuteAsync>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()

@@ -22,20 +22,20 @@ namespace Application.Spread.Shares
         }
 
         [UnitOfWork]
-        public async Task ProcessShareAccessAsync(string shareNo,long sourceUserId)
+        public async Task<Share> ProcessShareAccessAsync(string shareNo,long sourceUserId)
         {
             User sourceUser = UserRepository.Get(sourceUserId);
             Share share = ShareRepository.GetAll().Where(model => model.No == shareNo).FirstOrDefault();
 
             if (share == null)
             {
-                return;
+                return null;
             }
             ShareAccess shareAccess = ShareAccessRepository.GetAll().Where(model => model.CreatorUserId == sourceUserId && model.ShareId == share.Id).FirstOrDefault();
 
             if (shareAccess!=null)
             {
-                return;
+                return share;
             }
             CurrentUnitOfWork.Completed+= (sender, args) => {
                 _backgroundJobManager.Enqueue<BindParentJob, BindParentJobArgs>(new BindParentJobArgs() {
@@ -48,6 +48,7 @@ namespace Application.Spread.Shares
                 ShareId = share.Id
             };
             ShareAccessRepository.Insert(shareAccess);
+            return share;
         }
     }
 }

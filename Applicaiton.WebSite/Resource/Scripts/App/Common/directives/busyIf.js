@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.directive('busyIf', [
+    commonModule.directive('busyIf', [
         function () {
             return {
                 restrict: 'A',

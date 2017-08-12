@@ -3085,7 +3085,7 @@ pre {
     outline: none; }
   .button-text:active, .button-icon-with-text:active, .button-image-with-text:active {
     outline: none; }
-  .button-text.ligth-radius, .ligth-radius.button-icon-with-text, .ligth-radius.button-image-with-text {
+  .button-text.small-radius, .small-radius.button-icon-with-text, .small-radius.button-image-with-text {
     border-radius: 4px; }
   .button-text.radius, .radius.button-icon-with-text, .radius.button-image-with-text {
     border-radius: 3.4rem; }
@@ -6116,6 +6116,39 @@ ul.pagination {
     padding: 1rem; }
     .profile-list .profileItem .profileItemBody > .profileItemName {
       color: #333; }
+
+.business-card {
+  border: 1px solid #eee;
+  position: relative;
+  text-align: center; }
+  .business-card .business-card-profile {
+    position: relative;
+    display: inline-block;
+    top: -16px;
+    background: #fff;
+    padding: 0 1rem; }
+    .business-card .business-card-profile .avatar-box {
+      display: inline-block;
+      vertical-align: middle; }
+      .business-card .business-card-profile .avatar-box .avatar {
+        border-radius: 32px;
+        width: 32px;
+        height: 32px; }
+    .business-card .business-card-profile .name {
+      display: inline-block;
+      vertical-align: middle; }
+  .business-card .business-card-content {
+    padding: 1rem; }
+    .business-card .business-card-content .qrcode {
+      margin-bottom: 1rem; }
+    .business-card .business-card-content .text-info .text-info-item {
+      display: inline-block;
+      margin-right: 0.5rem;
+      font-size: 12px;
+      color: #666; }
+      .business-card .business-card-content .text-info .text-info-item [class^="icon-"] {
+        margin-right: 0.3rem;
+        color: #000; }
 
 ul.removable-label-list {
   -webkit-user-select: none;

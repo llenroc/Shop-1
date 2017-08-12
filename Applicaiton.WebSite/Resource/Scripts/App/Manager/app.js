@@ -1,6 +1,22 @@
-﻿(function () {
-    'use strict';
+﻿var appModule = angular.module('app', ['common','canknow','ui.router', 'infrastructure', 'ui', 'ui.utils', 'angular-sortable-view', 'me-lazyload'])
+.run(["$rootScope", function ($rootScope) {
+    $rootScope.safeApply = function (fn) {
+        var phase = this.$root.$$phase;
 
+        if (phase == '$apply' || phase == '$digest') {
+
+            if (fn && (typeof (fn) === 'function')) {
+                fn();
+            }
+        }
+        else {
+            this.$apply(fn);
+        }
+    };
+}]);
+
+(function () {
+    'use strict';
     //Configuration for Angular UI routing.
     appModule.config(['$stateProvider', '$urlRouterProvider', configRouter]);
 

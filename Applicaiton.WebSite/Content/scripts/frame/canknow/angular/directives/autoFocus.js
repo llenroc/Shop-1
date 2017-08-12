@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.directive('autoFocus', function () {
+    canknowModule.directive('autoFocus', function () {
         return {
             restrict: 'A',
             link: function ($scope, element) {

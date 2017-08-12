@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.directive('validate', function () {
+    canknowModule.directive('validate', function () {
         return {
             restrict: 'A',
             link: function ($scope, element) {

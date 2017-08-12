@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.directive('pictureUploader', function () {
+    canknowModule.directive('pictureUploader', function () {
         return {
             restrict: 'A',
             scope: {
