@@ -87,8 +87,8 @@
             {
                 <img class="logo" src="~/Content/Images/title-logo.png">
             }
-            <div class="flex-adapter"></div>
-            <nav id="navbar" data-ride="collapse">
+            <div class="flex-adapter-small"></div>
+            <nav id="navbar">
                 <ul>
                     @if (Model.Menu != null)
                     {
@@ -100,7 +100,7 @@
                 </ul>
             </nav>
             <button class="button-icon small border circle navbar-toggle icon-reorder" data-toggle="collapse" data-target="#navbar"></button>
-            <div class="dropdown-wripper dropdown-menu hidden-sm">
+            <div class="dropdown-wripper dropdown-menu hidden-sm" ng-if="vm.user">
                 <a class="user-block" data-target="#dropdown_user">
                     <div class="user-info">
                         <h3 ng-bind="vm.getShownUserName()"></h3>

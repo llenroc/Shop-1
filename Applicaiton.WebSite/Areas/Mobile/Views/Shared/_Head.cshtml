@@ -20,9 +20,9 @@
     @Scripts.Render("~/Bundles/Infrastructure.js")
 
     <!-- Dynamic scripts of Infrastructure system (They are created on runtime and can not be bundled) -->
-    <script src="~/api/ServiceProxies/GetAll?v=@(Clock.Now.Ticks)"></script>
-    <script src="~/api/ServiceProxies/GetAll?type=angular&v=@(Clock.Now.Ticks)"></script>
-    <script src="~/Scripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
+    <script src="~/api/ServiceProxies/GetAll"></script>
+    <script src="~/api/ServiceProxies/GetAll?type=angular"></script>
+    <script src="~/Scripts/GetScripts" type="text/javascript"></script>
 
     @Scripts.Render("~/Bundles/Common.js")
     @Scripts.Render("~/Bundles/App/Common.js")

@@ -678,6 +678,7 @@
     <Content Include="Content\Images\phone-header.png" />
     <Content Include="Content\Images\pictureAd.jpg" />
     <Content Include="Content\Images\shop-logo.png" />
+    <Content Include="Content\frame\canknow\image\sidenav-bg.png" />
     <Content Include="Content\Images\title-logo.png" />
     <Content Include="Content\Images\UserCenterNav\address.png" />
     <Content Include="Content\Images\UserCenterNav\agentOrder.png" />

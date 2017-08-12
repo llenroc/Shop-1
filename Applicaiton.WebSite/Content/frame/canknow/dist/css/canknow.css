@@ -403,7 +403,16 @@
   flex: 1; }
 
 @media (max-width: 992px) {
-  .flex-adapter-sm {
+  .flex-adapter-small {
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1; } }
+
+@media (min-width: 992px) {
+  .flex-adapter-large {
     display: block;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -8947,27 +8956,42 @@ body .light-target {
   .page-header .page-header-wrapper {
     border-bottom: 1px solid #eee; }
   .page-header nav {
-    position: absolute;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
     z-index: 1000;
-    background-color: #fff;
+    background-color: transparent;
     -webkit-box-flex: unset;
     margin: 0;
-    left: 0;
-    top: 100%;
     border-bottom: 1px solid #eee;
     display: none; }
+    .page-header nav:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url(./../../image/sidenav-bg.png);
+      background-size: cover;
+      -webkit-filter: blur(5px); }
     .page-header nav ul {
-      display: block !important; }
+      display: block !important;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent; }
       .page-header nav ul li a {
         padding: 0 1rem;
-        background-color: #F9F9F9;
+        color: #fff;
         height: 4rem;
         line-height: 4rem;
-        border-bottom: 1px solid #efefef !important; }
+        border-bottom: 1px solid #6499ce !important; }
       .page-header nav ul li.actived > a {
-        background: #fcfcfc;
-        color: #e02222; }
+        background: transparent; }
   .page-header .navbar-toggle {
     display: block; }
   .page-header .user-info {
